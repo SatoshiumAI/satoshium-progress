@@ -140,7 +140,3 @@
   </main>
 </body>
 </html>
-
-title: Public Build Progress
----
-
