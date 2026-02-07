@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <div class="brand">
+          <div class="mark">S</div>
+          <div class="brandtext">
+            <div class="name">SATOSHIUM</div>
+            <div class="tag">AI, governed by Bitcoin</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/roadmap' | relative_url }}">Roadmap</a>
+          <a href="{{ '/changelog' | relative_url }}">Changelog</a>
+          <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap content">
+      {{ content }}
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footline">Built in public. No hype. Visible progress only.</div>
+        <div class="footlinks">
+          <a href="https://github.com/SatoshiumAI" target="_blank" rel="noopener">GitHub</a>
+          <span>•</span>
+          <a href="https://satoshium.carrd.co" target="_blank" rel="noopener">Beta</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
