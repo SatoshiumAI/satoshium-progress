@@ -1,86 +1,146 @@
----
-layout: default
-title: Public Build Progress
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Satoshium — Public Build Progress</title>
 
-# 🧠 Satoshium: Public Build Progress
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center}
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:26px}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    ul{margin:8px 0 0 18px}
+  </style>
+</head>
 
-Welcome to the live public build log for **Satoshium** — a decentralized intelligence infrastructure built on Bitcoin.
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
 
-This page tracks real progress as Satoshium evolves from concept → tools → global infrastructure.
+      <nav class="nav">
+        <a href="./">Home</a>
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./changelog.html">Changelog</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
 
----
+  <main class="wrap content">
+    <div class="pill">🧠 Public Build Progress</div>
 
-## 🚧 Now Shipping
+    <h1 style="margin-top:12px;">Satoshium: Public Build Progress</h1>
+    <p class="muted">
+      Welcome to the live public build log for Satoshium — a decentralized intelligence infrastructure built on Bitcoin.
+      This page tracks real progress as Satoshium evolves from concept → tools → global infrastructure.
+    </p>
 
-✅ Satoshium AI Chatbot (live on main website)  
-✅ Early-stage ecosystem architecture (47+ repos)  
-✅ Public roadmap & progress tracking  
-✅ Initial agent safety framework (Aegis)
+    <div class="card">
+      <h2 style="margin-top:0;">🚧 Now Shipping</h2>
+      <ul>
+        <li>✅ Satoshium AI Chatbot (live on main website)</li>
+        <li>✅ Early-stage ecosystem architecture (47+ repos)</li>
+        <li>✅ Public roadmap & progress tracking (this hub)</li>
+        <li>✅ Initial agent safety framework (Aegis)</li>
+      </ul>
+      <p class="muted" style="margin:10px 0 0;">More coming — one tool at a time.</p>
+    </div>
 
-More coming — one tool at a time.
+    <div class="card">
+      <h2 style="margin-top:0;">🗺️ Current Focus (2026)</h2>
+      <ul>
+        <li>Public progress hub</li>
+        <li>Knowledge & documentation pages</li>
+        <li>Demo tools</li>
+        <li>AI + Bitcoin experiments</li>
+        <li>Agent safety & governance systems</li>
+      </ul>
+    </div>
 
----
+    <div class="card">
+      <h2 style="margin-top:0;">🧪 Live Demos & Experiments (in progress)</h2>
+      <p class="muted" style="margin:8px 0 10px;">Coming soon:</p>
+      <ul>
+        <li>Chat with Satoshium Hub</li>
+        <li>Bitcoin imitator checker</li>
+        <li>Agent firewall explorer</li>
+        <li>Satoshium architecture explorer</li>
+      </ul>
+    </div>
 
-## 🛣 Current Focus (2026)
+    <div class="card">
+      <h2 style="margin-top:0;">📜 Philosophy</h2>
+      <p>Built in public. Not hype. Not vapor. Visible progress only.</p>
+      <p class="muted">Every commit = forward motion.</p>
+    </div>
 
-Building Satoshium one visible step at a time:
+    <hr />
 
-- Public progress hub
-- Knowledge & documentation pages
-- Demo tools
-- AI + Bitcoin experiments
-- Agent safety & governance systems
+    <div class="footer">
+      <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+      <div class="muted">Beta: <a href="https://satoshium.carrd.co" target="_blank" rel="noreferrer">satoshium.carrd.co</a></div>
+    </div>
+  </main>
+</body>
+</html>
 
----
-
-## 🧪 Live Demos & Experiments (in progress)
-
-Coming soon:
-- Chat with Satoshium hub
-- Bitcoin imitator checker
-- Agent firewall explorer
-- Satoshium architecture explorer
-
----
-
-## 📜 Philosophy
-
-Satoshium is being built in the open.
-
-Not hype.  
-Not vapor.  
-Visible progress only.
-
-Every commit = forward motion.
-
----
-
-## 🔗 Main Sites
-
-Main site:  
-https://satoshium.ai
-
-Beta landing:  
-https://satoshium.carrd.co
-
-GitHub ecosystem:  
-https://github.com/SatoshiumAI
-
----
-
-## 🧭 Roadmap & Changelog (starting now)
-
-This repository will become the public heartbeat of development.
-
-Next updates:
-- Roadmap page
-- Changelog page
-- Demo pages
-- Tool prototypes
-
-- ---
-layout: default
 title: Public Build Progress
 ---
 
