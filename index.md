@@ -1,3 +1,8 @@
+---
+layout: default
+title: Public Build Progress
+---
+
 # 🧠 Satoshium: Public Build Progress
 
 Welcome to the live public build log for **Satoshium** — a decentralized intelligence infrastructure built on Bitcoin.
