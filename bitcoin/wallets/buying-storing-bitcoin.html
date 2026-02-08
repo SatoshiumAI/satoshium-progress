@@ -120,75 +120,78 @@
       </nav>
     </div>
   </header>
-<main class="wrap content">
+
+  <main class="wrap content">
     <div class="pill">Wallets & security</div>
 
     <h1 style="margin-top:12px;">Buying and storing bitcoin</h1>
     <p class="muted">
-     
       This is a <strong>security-first</strong>, step-by-step guide to buying bitcoin and storing it responsibly.
       Built for real people: clear decisions, minimal jargon, and practical habits that prevent the most common losses.
     </p>
 
-    <!-- ===== Intro panels laid out like Public Build Progress ===== -->
-     <div class="split">
+    <!-- =========================
+         SECTIONS (UPDATED ONLY)
+         ========================= -->
 
-      <div class="panel">
-        <h2>✅ What you’ll learn</h2>
-
-        <ul class="statuslist">
-          <li>
-            <span class="check">✓</span>
-            <div><strong>How to buy safely</strong> (and avoid “urgency” traps and bad defaults)</div>
-          </li>
-          <li>
-            <span class="check">✓</span>
-            <div><strong>What custody means</strong> and how it changes your risk</div>
-          </li>
-          <li>
-            <span class="check">✓</span>
-            <div><strong>A level-up path</strong> from first purchase → self-custody → resilient setups</div>
-          </li>
-          <li>
-            <span class="check">✓</span>
-            <div><strong>Checklists and mistakes</strong> so you can build repeatable, calm process</div>
-          </li>
+    <div class="grid">
+      <div class="card">
+        <div class="kicker">What you’ll learn</div>
+        <h2 style="margin-top:6px;">✅ Practical outcomes</h2>
+        <ul>
+          <li><strong>How to buy safely</strong> (and avoid “urgency” traps and bad defaults)</li>
+          <li><strong>What custody means</strong> and how it changes your risk</li>
+          <li><strong>A level-up path</strong> from first purchase → self-custody → resilient setups</li>
+          <li><strong>Checklists + common mistakes</strong> so you can build repeatable, calm process</li>
         </ul>
-
-        <div class="callout ok">
+        <div class="quote" style="margin-top:12px;">
           <strong>Satoshium rule:</strong> start simple, then level up. Your process matters more than your app.
         </div>
       </div>
 
-        <!-- ===== Sections as “cards” (Public Build Progress stack) ===== -->
+      <div class="card">
+        <div class="kicker">Quick navigation</div>
+        <h2 style="margin-top:6px;">📌 Sections</h2>
+        <ul>
+          <li><a href="#basics">1) The basics: buy vs store</a></li>
+          <li><a href="#ways-to-buy">2) Ways to buy bitcoin</a></li>
+          <li><a href="#custody-options">3) Storage &amp; custody options</a></li>
+          <li><a href="#recommended-path">4) A recommended “level-up” path</a></li>
+          <li><a href="#step-by-step">5) Step-by-step: buy → withdraw → verify</a></li>
+          <li><a href="#checklists">6) Checklists (do this, avoid that)</a></li>
+          <li><a href="#mistakes">7) Common mistakes &amp; how to avoid them</a></li>
+          <li><a href="#faq">8) Quick FAQ</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <div class="panel" id="basics">
-      <h2>🧠 1) The basics: buy vs store</h2>
+    <div class="card" id="basics">
+      <div class="kicker">1) The basics</div>
+      <h2 style="margin-top:6px;">Buying vs storing</h2>
       <p>
-        Buying bitcoin is the <strong>acquisition</strong> step.
-        Storing bitcoin is the <strong>protection</strong> step.
+        Buying bitcoin is the <strong>acquisition</strong> step. Storing bitcoin is the <strong>protection</strong> step.
         Most people focus on “where do I buy?” and forget to ask: <strong>who can move it?</strong>
       </p>
 
-      <div class="box">
-        <h3>Two truths that keep you safe</h3>
-        <ul>
-          <li><strong>If you don’t control the keys, you don’t control the bitcoin.</strong></li>
-          <li><strong>Security is a process, not a product.</strong> Habits beat hype.</li>
-        </ul>
-      </div>
+      <h3>Two truths that keep you safe</h3>
+      <ul>
+        <li><strong>If you don’t control the keys, you don’t control the bitcoin.</strong></li>
+        <li><strong>Security is a process, not a product.</strong> Habits beat hype.</li>
+      </ul>
 
-      <div class="callout warn">
+      <div class="quote" style="margin-top:12px;">
         <strong>Important:</strong> Exchanges are great for buying and selling. They are not designed to be your forever vault.
       </div>
     </div>
 
-    <div class="panel" id="ways-to-buy">
-      <h2>🛒 2) Ways to buy bitcoin</h2>
+    <div class="card" id="ways-to-buy">
+      <div class="kicker">2) Ways to buy</div>
+      <h2 style="margin-top:6px;">Choose the method that fits your goals</h2>
       <p class="muted">
         There are multiple “right” ways. Your best choice depends on convenience, privacy, cost, and how soon you plan to withdraw into self-custody.
       </p>
 
+      <!-- Keeping your exact table content/structure -->
       <table aria-label="Ways to buy bitcoin comparison">
         <thead>
           <tr>
@@ -221,18 +224,20 @@
         </tbody>
       </table>
 
-      <div class="callout">
-        <strong>Satoshium mindset:</strong> convenience is fine—just don’t confuse convenience with security.
+      <div class="quote" style="margin-top:12px;">
+        <strong>Satoshium mindset:</strong> convenience is fine — just don’t confuse convenience with security.
       </div>
     </div>
 
-    <div class="panel" id="custody-options">
-      <h2>🔐 3) Storage &amp; custody options</h2>
+    <div class="card" id="custody-options">
+      <div class="kicker">3) Storage &amp; custody</div>
+      <h2 style="margin-top:6px;">Who can move the bitcoin?</h2>
       <p>
         “Custody” answers one question: <strong>who can move the bitcoin?</strong>
         The safer your custody, the harder it is for attackers (or companies) to take it.
       </p>
 
+      <!-- Keeping your exact table content/structure -->
       <table aria-label="Storage options comparison">
         <thead>
           <tr>
@@ -265,98 +270,94 @@
         </tbody>
       </table>
 
-      <div class="box">
-        <h3>Hot vs Cold (simple)</h3>
-        <ul>
-          <li><strong>Hot wallet:</strong> connected to the internet (fast, convenient, higher risk)</li>
-          <li><strong>Cold wallet:</strong> keys kept offline (slower, safer, requires discipline)</li>
-        </ul>
-      </div>
+      <h3>Hot vs Cold (simple)</h3>
+      <ul>
+        <li><strong>Hot wallet:</strong> connected to the internet (fast, convenient, higher risk)</li>
+        <li><strong>Cold wallet:</strong> keys kept offline (slower, safer, requires discipline)</li>
+      </ul>
 
-      <div class="callout warn">
+      <div class="quote" style="margin-top:12px;">
         <strong>Never store your seed phrase in:</strong> screenshots, email drafts, cloud notes, Google Drive, iCloud, or any place that can silently sync.
       </div>
     </div>
 
-    <div class="panel" id="recommended-path">
-      <h2>📈 4) A recommended “level-up” path</h2>
+    <div class="card" id="recommended-path">
+      <div class="kicker">4) Recommended path</div>
+      <h2 style="margin-top:6px;">Level up without fragile complexity</h2>
       <p>
-        You don’t need to jump straight to advanced setups.
-        This path builds confidence without creating fragile complexity.
+        You don’t need to jump straight to advanced setups. This path builds confidence without creating fragile complexity.
       </p>
 
-      <div class="box">
-        <h3>Level 1 — Beginner (start here)</h3>
-        <ul>
-          <li>Buy a small amount on a reputable platform</li>
-          <li>Learn what a <strong>receive address</strong> and <strong>transaction ID</strong> are</li>
-          <li>Practice a small withdrawal to a wallet you control (hot wallet)</li>
-        </ul>
+      <h3>Level 1 — Beginner (start here)</h3>
+      <ul>
+        <li>Buy a small amount on a reputable platform</li>
+        <li>Learn what a <strong>receive address</strong> and <strong>transaction ID</strong> are</li>
+        <li>Practice a small withdrawal to a wallet you control (hot wallet)</li>
+      </ul>
 
-        <h3>Level 2 — Intermediate (own your keys)</h3>
-        <ul>
-          <li>Set up a hardware wallet (cold storage)</li>
-          <li>Write down the seed phrase carefully (offline)</li>
-          <li>Withdraw routinely (e.g., monthly) instead of leaving a growing balance on an exchange</li>
-        </ul>
+      <h3>Level 2 — Intermediate (own your keys)</h3>
+      <ul>
+        <li>Set up a hardware wallet (cold storage)</li>
+        <li>Write down the seed phrase carefully (offline)</li>
+        <li>Withdraw routinely (e.g., monthly) instead of leaving a growing balance on an exchange</li>
+      </ul>
 
-        <h3>Level 3 — Advanced (resilience)</h3>
-        <ul>
-          <li>Consider multisig for larger amounts</li>
-          <li>Create an inheritance and emergency-access plan</li>
-          <li>Verify backups by doing a controlled restore test (carefully)</li>
-        </ul>
-      </div>
+      <h3>Level 3 — Advanced (resilience)</h3>
+      <ul>
+        <li>Consider multisig for larger amounts</li>
+        <li>Create an inheritance and emergency-access plan</li>
+        <li>Verify backups by doing a controlled restore test (carefully)</li>
+      </ul>
 
-      <div class="callout ok">
+      <div class="quote" style="margin-top:12px;">
         <strong>Good strategy:</strong> keep a small “spending” balance hot, and a long-term “savings” balance cold.
       </div>
     </div>
 
-    <div class="panel" id="step-by-step">
-      <h2>🧭 5) Step-by-step: buy → withdraw → verify</h2>
+    <div class="card" id="step-by-step">
+      <div class="kicker">5) Step-by-step</div>
+      <h2 style="margin-top:6px;">Buy → withdraw → verify</h2>
       <p class="muted">This is the safest first-time flow for most people.</p>
 
-      <div class="box">
-        <h3>Step A — Buy</h3>
-        <ul>
-          <li>Enable strong account security (unique password + 2FA)</li>
-          <li>Make your purchase</li>
-          <li>Do <strong>not</strong> rush—scams thrive on urgency</li>
-        </ul>
+      <h3>Step A — Buy</h3>
+      <ul>
+        <li>Enable strong account security (unique password + 2FA)</li>
+        <li>Make your purchase</li>
+        <li>Do <strong>not</strong> rush—scams thrive on urgency</li>
+      </ul>
 
-        <h3>Step B — Create a wallet you control</h3>
-        <ul>
-          <li>Start with a reputable mobile wallet for a small test</li>
-          <li>Later, upgrade to a hardware wallet for savings</li>
-        </ul>
+      <h3>Step B — Create a wallet you control</h3>
+      <ul>
+        <li>Start with a reputable mobile wallet for a small test</li>
+        <li>Later, upgrade to a hardware wallet for savings</li>
+      </ul>
 
-        <h3>Step C — Withdraw a small test amount</h3>
-        <ul>
-          <li>Copy the receive address from your wallet</li>
-          <li>Paste it into the withdrawal screen</li>
-          <li>Send a small amount first (test transaction)</li>
-        </ul>
+      <h3>Step C — Withdraw a small test amount</h3>
+      <ul>
+        <li>Copy the receive address from your wallet</li>
+        <li>Paste it into the withdrawal screen</li>
+        <li>Send a small amount first (test transaction)</li>
+      </ul>
 
-        <h3>Step D — Verify it arrived</h3>
-        <ul>
-          <li>Confirm your wallet shows the incoming transaction</li>
-          <li>Confirm the address matches what you expected</li>
-          <li>Only then consider moving larger amounts</li>
-        </ul>
-      </div>
+      <h3>Step D — Verify it arrived</h3>
+      <ul>
+        <li>Confirm your wallet shows the incoming transaction</li>
+        <li>Confirm the address matches what you expected</li>
+        <li>Only then consider moving larger amounts</li>
+      </ul>
 
-      <div class="callout">
+      <div class="quote" style="margin-top:12px;">
         <strong>Verification mindset:</strong> control destination → confirm address → test small → verify receipt → scale up.
       </div>
     </div>
 
-    <div class="panel" id="checklists">
-      <h2>🧾 6) Checklists (do this, avoid that)</h2>
+    <div class="card" id="checklists">
+      <div class="kicker">6) Checklists</div>
+      <h2 style="margin-top:6px;">Do this, avoid that</h2>
 
-      <div class="split">
-        <div class="box">
-          <h3>✅ Do this</h3>
+      <div class="grid">
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">✅ Do this</h3>
           <ul>
             <li>Use unique passwords + strong 2FA (prefer app-based 2FA over SMS)</li>
             <li>Withdraw to self-custody once the balance is meaningful</li>
@@ -366,8 +367,8 @@
           </ul>
         </div>
 
-        <div class="box">
-          <h3>❌ Avoid this</h3>
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">❌ Avoid this</h3>
           <ul>
             <li>Copy/pasting addresses from random chats or “support” DMs</li>
             <li>Saving seed phrases in photos, cloud notes, email, or documents</li>
@@ -378,58 +379,58 @@
         </div>
       </div>
 
-      <div class="callout warn">
+      <div class="quote" style="margin-top:12px;">
         <strong>Rule:</strong> no legitimate company will ever need your seed phrase. Ever.
       </div>
     </div>
 
-    <div class="panel" id="mistakes">
-      <h2>🧨 7) Common mistakes &amp; how to avoid them</h2>
+    <div class="card" id="mistakes">
+      <div class="kicker">7) Common mistakes</div>
+      <h2 style="margin-top:6px;">And how to avoid them</h2>
 
-      <div class="box">
-        <h3>Mistake: “I’ll move it later.”</h3>
-        <p class="muted">Later becomes never, balances grow, and risk silently increases.</p>
-        <ul><li><strong>Fix:</strong> pick a withdrawal rhythm (monthly is fine) and stick to it.</li></ul>
+      <h3>Mistake: “I’ll move it later.”</h3>
+      <p class="muted">Later becomes never, balances grow, and risk silently increases.</p>
+      <ul><li><strong>Fix:</strong> pick a withdrawal rhythm (monthly is fine) and stick to it.</li></ul>
 
-        <h3>Mistake: Mixing convenience with custody</h3>
-        <p class="muted">If the platform can freeze withdrawals, you are not fully sovereign.</p>
-        <ul><li><strong>Fix:</strong> use platforms for buying; use wallets for holding.</li></ul>
+      <h3>Mistake: Mixing convenience with custody</h3>
+      <p class="muted">If the platform can freeze withdrawals, you are not fully sovereign.</p>
+      <ul><li><strong>Fix:</strong> use platforms for buying; use wallets for holding.</li></ul>
 
-        <h3>Mistake: Seed phrase stored digitally</h3>
-        <p class="muted">Digital storage multiplies your attack surface.</p>
-        <ul><li><strong>Fix:</strong> keep it offline, private, and durable.</li></ul>
-      </div>
+      <h3>Mistake: Seed phrase stored digitally</h3>
+      <p class="muted">Digital storage multiplies your attack surface.</p>
+      <ul><li><strong>Fix:</strong> keep it offline, private, and durable.</li></ul>
     </div>
 
-    <div class="panel" id="faq">
-      <h2>❓ 8) Quick FAQ</h2>
+    <div class="card" id="faq">
+      <div class="kicker">8) Quick FAQ</div>
+      <h2 style="margin-top:6px;">Fast answers</h2>
 
-      <div class="box">
-        <h3>How much bitcoin should I withdraw to cold storage?</h3>
-        <p class="muted">
-          As a simple rule: withdraw when the amount would <em>hurt</em> to lose.
-          Many people start withdrawing once they’re past “learning money.”
-        </p>
+      <h3>How much bitcoin should I withdraw to cold storage?</h3>
+      <p class="muted">
+        As a simple rule: withdraw when the amount would <em>hurt</em> to lose.
+        Many people start withdrawing once they’re past “learning money.”
+      </p>
 
-        <h3>Do I need a hardware wallet immediately?</h3>
-        <p class="muted">
-          Not immediately. Start with small amounts while you learn.
-          Hardware wallets shine when you’re ready to store long-term savings.
-        </p>
+      <h3>Do I need a hardware wallet immediately?</h3>
+      <p class="muted">
+        Not immediately. Start with small amounts while you learn.
+        Hardware wallets shine when you’re ready to store long-term savings.
+      </p>
 
-        <h3>What’s the safest “simple” setup?</h3>
-        <p class="muted">
-          A reputable buying platform + a hardware wallet + an offline seed phrase backup
-          (and a calm, repeatable routine).
-        </p>
-      </div>
+      <h3>What’s the safest “simple” setup?</h3>
+      <p class="muted">
+        A reputable buying platform + a hardware wallet + an offline seed phrase backup
+        (and a calm, repeatable routine).
+      </p>
+    </div>
 
-       <!-- Footer mission statement + links -->
-       <hr />
+    <!-- Footer mission statement + links -->
+    <hr />
     <div class="footer-title">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
     <hr />
 
     <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
     <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+  </main>
 </body>
 </html>
