@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Satoshium • Bitcoin 101 Glossary</title>
+
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --panel2:#0a0f16;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px;white-space:nowrap}
+    .nav a:hover{color:var(--gold2)}
+
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:26px}
+    h3{font-size:16px;color:var(--gold2);margin-top:0}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+
+    /* Glossary UI */
+    .toolbar{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      margin-top:14px
+    }
+    .search{
+      flex:1;min-width:240px;
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.06);
+    }
+    .search input{
+      width:100%;
+      background:transparent;border:none;outline:none;
+      color:var(--text);font-size:14px;
+    }
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      cursor:pointer;
+      user-select:none;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.05);
+      color:var(--muted);
+      font-size:12px;font-weight:800;
+    }
+    .chip.active{background:rgba(214,163,74,.12);color:var(--gold2)}
+    .index{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+      margin-top:10px
+    }
+    @media (min-width: 860px){
+      .index{grid-template-columns:repeat(4,1fr)}
+    }
+    .index a{
+      display:block;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(7,9,13,.35);
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      text-align:center;
+    }
+    .index a:hover{color:var(--gold2);background:rgba(214,163,74,.07)}
+    .glossary{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .entry{
+      background:rgba(7,9,13,.35);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 14px;
+    }
+    .entry .term{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .entry .term h3{margin:0}
+    .entry .meta{
+      display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;
+    }
+    .tagpill{
+      padding:6px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.06);
+      color:var(--muted);
+      font-size:12px;font-weight:800;
+      white-space:nowrap;
+    }
+    .tagpill.key{color:var(--gold2)}
+    .entry p{margin:8px 0 0}
+    .entry .also{margin-top:10px;color:var(--muted);font-size:13px}
+    .entry code{
+      background:rgba(214,163,74,.08);
+      border:1px solid var(--line);
+      padding:2px 6px;border-radius:8px;
+      color:var(--gold2);
+      font-size:12px;
+    }
+
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.10);
+      color:var(--gold2);
+      font-weight:700;
+      font-size:13px;
+    }
+    .btn:hover{background:rgba(214,163,74,.16)}
+
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../what-is-satoshium.html">What is Satoshium?</a>
+        <a href="../what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="../why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="../roadmap.html">Roadmap</a>
+        <a href="../changelog.html">Changelog</a>
+        <a href="../demos.html">Demos</a>
+        <a href="../repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="pill">🟠 Bitcoin 101</div>
+
+    <h1 style="margin-top:12px;">Glossary (Bitcoin 101)</h1>
+    <p class="muted">
+      A plain-English glossary for the most common Bitcoin terms — from <strong>addresses</strong> to <strong>UTXOs</strong>.
+      Use the search box to filter instantly.
+    </p>
+
+    <div class="card">
+      <div class="toolbar">
+        <div class="search" title="Search terms (instant filter)">
+          🔎
+          <input id="q" type="text" placeholder="Search: wallet, node, mining, mempool, UTXO, Lightning..." autocomplete="off" />
+        </div>
+
+        <div class="chips" aria-label="Category filters">
+          <div class="chip active" data-filter="all">All</div>
+          <div class="chip" data-filter="basics">Basics</div>
+          <div class="chip" data-filter="wallets">Wallets</div>
+          <div class="chip" data-filter="transactions">Transactions</div>
+          <div class="chip" data-filter="mining">Mining</div>
+          <div class="chip" data-filter="nodes">Nodes</div>
+          <div class="chip" data-filter="lightning">Lightning</div>
+          <div class="chip" data-filter="security">Security</div>
+          <div class="chip" data-filter="markets">Markets</div>
+        </div>
+      </div>
+
+      <div class="muted" style="margin-top:10px;">
+        Jump to letter:
+      </div>
+      <div class="index" style="margin-top:8px;">
+        <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a>
+        <a href="#E">E</a><a href="#F">F</a><a href="#H">H</a><a href="#K">K</a>
+        <a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a>
+        <a href="#P">P</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
+        <a href="#U">U</a><a href="#W">W</a>
+      </div>
+
+      <div class="btnrow" style="margin-top:14px;">
+        <a class="btn" href="../what-is-bitcoin.html">← Back to: What is Bitcoin?</a>
+        <a class="btn" href="./history-origins.html">History & Origins</a>
+        <a class="btn" href="./bitcoin-vs-fiat.html">Bitcoin vs Fiat</a>
+      </div>
+    </div>
+
+    <!-- Glossary entries -->
+    <div class="glossary" id="glossary">
+
+      <div class="entry" id="A" data-tags="basics transactions wallets">
+        <div class="term">
+          <h3>Address</h3>
+          <div class="meta"><span class="tagpill">Transactions</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A string that looks like an account number, used to <strong>receive</strong> bitcoin. An address is derived from a public key (or script) and is safe to share.</p>
+        <div class="also">Also see: <code>Public Key</code>, <code>Private Key</code>, <code>UTXO</code></div>
+      </div>
+
+      <div class="entry" data-tags="transactions">
+        <div class="term">
+          <h3>Adoption</h3>
+          <div class="meta"><span class="tagpill">Basics</span></div>
+        </div>
+        <p>More people and institutions using Bitcoin to save, spend, settle payments, and run infrastructure (nodes, Lightning, etc.).</p>
+      </div>
+
+      <div class="entry" data-tags="security wallets">
+        <div class="term">
+          <h3>Air-gapped</h3>
+          <div class="meta"><span class="tagpill">Security</span></div>
+        </div>
+        <p>A device kept offline (no internet) to reduce attack risk. Often used for signing transactions in high-security setups.</p>
+      </div>
+
+      <div class="entry" id="B" data-tags="transactions wallets">
+        <div class="term">
+          <h3>Backup</h3>
+          <div class="meta"><span class="tagpill">Security</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A way to recover your wallet if a device is lost. Usually your <strong>seed phrase</strong> (and sometimes a <strong>passphrase</strong>).</p>
+        <div class="also">Also see: <code>Seed Phrase</code>, <code>Passphrase</code></div>
+      </div>
+
+      <div class="entry" data-tags="basics">
+        <div class="term">
+          <h3>Bitcoin (BTC)</h3>
+          <div class="meta"><span class="tagpill">Basics</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A decentralized digital monetary network with a fixed supply cap (21 million). BTC is the unit used to measure amounts on the network.</p>
+      </div>
+
+      <div class="entry" data-tags="basics">
+        <div class="term">
+          <h3>Block</h3>
+          <div class="meta"><span class="tagpill">Basics</span></div>
+        </div>
+        <p>A bundle of transactions added to the blockchain. Blocks are produced roughly every ~10 minutes on average.</p>
+      </div>
+
+      <div class="entry" data-tags="basics nodes transactions">
+        <div class="term">
+          <h3>Blockchain</h3>
+          <div class="meta"><span class="tagpill">Basics</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The public ledger of Bitcoin transactions. Blocks link together in order, forming a history that nodes can verify.</p>
+      </div>
+
+      <div class="entry" data-tags="security">
+        <div class="term">
+          <h3>Bitcoin Improvement Proposal (BIP)</h3>
+          <div class="meta"><span class="tagpill">Basics</span></div>
+        </div>
+        <p>A standard way for developers and the community to propose changes or standards for Bitcoin (e.g., wallet formats, address types).</p>
+      </div>
+
+      <div class="entry" data-tags="mining nodes">
+        <div class="term">
+          <h3>Block Reward</h3>
+          <div class="meta"><span class="tagpill">Mining</span></div>
+        </div>
+        <p>The bitcoin paid to miners for producing a valid block. It includes the <strong>block subsidy</strong> + transaction fees.</p>
+      </div>
+
+      <div class="entry" data-tags="mining">
+        <div class="term">
+          <h3>Block Subsidy</h3>
+          <div class="meta"><span class="tagpill">Mining</span></div>
+        </div>
+        <p>New bitcoin issued with each block. This subsidy decreases over time via the <strong>halving</strong>.</p>
+      </div>
+
+      <div class="entry" id="C" data-tags="transactions security">
+        <div class="term">
+          <h3>Confirmation</h3>
+          <div class="meta"><span class="tagpill">Transactions</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>When your transaction is included in a mined block, it has <strong>1 confirmation</strong>. Each new block added afterward increases confirmations, making reversal increasingly unlikely.</p>
+      </div>
+
+      <div class="entry" data-tags="basics markets">
+        <div class="term">
+          <h3>Custody</h3>
+          <div class="meta"><span class="tagpill">Wallets</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>Who holds the keys. <strong>Self-custody</strong> means you control the private keys. <strong>Third-party custody</strong> means an exchange or company controls them.</p>
+      </div>
+
+      <div class="entry" id="D" data-tags="mining">
+        <div class="term">
+          <h3>Difficulty</h3>
+          <div class="meta"><span class="tagpill">Mining</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A measure of how hard it is to find a valid block. Bitcoin adjusts difficulty about every 2016 blocks to keep block times near ~10 minutes.</p>
+      </div>
+
+      <div class="entry" data-tags="basics">
+        <div class="term">
+          <h3>Decentralization</h3>
+          <div class="meta"><span class="tagpill">Basics</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>No single party controls the network. Many independent nodes enforce the same rules, and miners compete globally.</p>
+      </div>
+
+      <div class="entry" id="E" data-tags="basics markets">
+        <div class="term">
+          <h3>Exchange</h3>
+          <div class="meta"><span class="tagpill">Markets</span></div>
+        </div>
+        <p>A service where you can buy/sell bitcoin (usually with KYC). Exchanges are convenient but introduce custodial risk if you leave coins on them.</p>
+      </div>
+
+      <div class="entry" id="F" data-tags="security markets">
+        <div class="term">
+          <h3>Fiat</h3>
+          <div class="meta"><span class="tagpill">Basics</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>Government-issued currency (USD, EUR). Fiat supply can expand; its value is maintained by policy and demand.</p>
+      </div>
+
+      <div class="entry" data-tags="nodes mining">
+        <div class="term">
+          <h3>Fork (Soft Fork / Hard Fork)</h3>
+          <div class="meta"><span class="tagpill">Nodes</span></div>
+        </div>
+        <p>A change to the rules. <strong>Soft forks</strong> are backward-compatible (old nodes still recognize new blocks). <strong>Hard forks</strong> are not (old nodes reject new blocks).</p>
+      </div>
+
+      <div class="entry" id="H" data-tags="mining">
+        <div class="term">
+          <h3>Halving</h3>
+          <div class="meta"><span class="tagpill">Mining</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>An event that cuts the block subsidy in half about every 210,000 blocks (~4 years), slowing new issuance until the cap is reached.</p>
+      </div>
+
+      <div class="entry" data-tags="mining">
+        <div class="term">
+          <h3>Hash</h3>
+          <div class="meta"><span class="tagpill">Mining</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A “digital fingerprint” of data produced by a hash function (Bitcoin uses SHA-256). Small input changes produce a totally different output.</p>
+      </div>
+
+      <div class="entry" data-tags="mining">
+        <div class="term">
+          <h3>Hashrate</h3>
+          <div class="meta"><span class="tagpill">Mining</span></div>
+        </div>
+        <p>The total computing power securing Bitcoin (hashes per second). Higher hashrate generally means higher cost to attack the network.</p>
+      </div>
+
+      <div class="entry" id="K" data-tags="security wallets transactions">
+        <div class="term">
+          <h3>Key Pair (Public Key / Private Key)</h3>
+          <div class="meta"><span class="tagpill">Security</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A public key helps generate addresses. A private key proves ownership and authorizes spending. <strong>Never share your private key.</strong></p>
+      </div>
+
+      <div class="entry" id="L" data-tags="lightning">
+        <div class="term">
+          <h3>Lightning Network</h3>
+          <div class="meta"><span class="tagpill">Lightning</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A layer-2 network for fast, low-fee bitcoin payments using payment channels. It still anchors to Bitcoin’s base layer for security.</p>
+      </div>
+
+      <div class="entry" data-tags="lightning">
+        <div class="term">
+          <h3>Lightning Channel</h3>
+          <div class="meta"><span class="tagpill">Lightning</span></div>
+        </div>
+        <p>A two-party (or multi-path) payment channel funded by an on-chain transaction. Once open, payments can flow instantly off-chain.</p>
+      </div>
+
+      <div class="entry" id="M" data-tags="transactions nodes">
+        <div class="term">
+          <h3>Mempool</h3>
+          <div class="meta"><span class="tagpill">Transactions</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The waiting room for unconfirmed transactions. Miners typically prioritize transactions with higher fees per byte.</p>
+      </div>
+
+      <div class="entry" data-tags="mining">
+        <div class="term">
+          <h3>Mining</h3>
+          <div class="meta"><span class="tagpill">Mining</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The process of using Proof-of-Work to add new blocks. Miners compete to find a valid block hash and earn the block reward.</p>
+      </div>
+
+      <div class="entry" data-tags="mining">
+        <div class="term">
+          <h3>Mining Pool</h3>
+          <div class="meta"><span class="tagpill">Mining</span></div>
+        </div>
+        <p>A group of miners who combine hashrate and share rewards more frequently. Payout methods vary (FPPS, PPS, PPLNS, etc.).</p>
+      </div>
+
+      <div class="entry" id="N" data-tags="nodes">
+        <div class="term">
+          <h3>Node (Full Node)</h3>
+          <div class="meta"><span class="tagpill">Nodes</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>Software that verifies Bitcoin rules. A full node downloads/validates blocks and transactions and enforces the protocol without trusting anyone.</p>
+      </div>
+
+      <div class="entry" data-tags="nodes">
+        <div class="term">
+          <h3>Non-custodial</h3>
+          <div class="meta"><span class="tagpill">Wallets</span></div>
+        </div>
+        <p>A wallet or service where you control the private keys. You can transact without relying on a third party to authorize spending.</p>
+      </div>
+
+      <div class="entry" id="O" data-tags="security wallets">
+        <div class="term">
+          <h3>Open-source</h3>
+          <div class="meta"><span class="tagpill">Basics</span></div>
+        </div>
+        <p>Software whose code is public and inspectable. Bitcoin’s transparency helps people verify how the system works.</p>
+      </div>
+
+      <div class="entry" id="P" data-tags="security wallets transactions">
+        <div class="term">
+          <h3>Passphrase</h3>
+          <div class="meta"><span class="tagpill">Security</span></div>
+        </div>
+        <p>An optional extra word/phrase added to your seed phrase (BIP39) to create a new wallet. If used, losing it can make funds unrecoverable.</p>
+      </div>
+
+      <div class="entry" data-tags="security">
+        <div class="term">
+          <h3>Phishing</h3>
+          <div class="meta"><span class="tagpill">Security</span></div>
+        </div>
+        <p>Tricking you into revealing secrets (seed phrase, passwords). Never type your seed phrase into random sites or share it with “support.”</p>
+      </div>
+
+      <div class="entry" data-tags="basics mining">
+        <div class="term">
+          <h3>Proof-of-Work (PoW)</h3>
+          <div class="meta"><span class="tagpill">Mining</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The consensus mechanism Bitcoin uses. Miners spend energy to produce verifiable work, making attacks expensive and history hard to rewrite.</p>
+      </div>
+
+      <div class="entry" id="R" data-tags="security transactions">
+        <div class="term">
+          <h3>RBF (Replace-By-Fee)</h3>
+          <div class="meta"><span class="tagpill">Transactions</span></div>
+        </div>
+        <p>A feature that lets a sender bump fees on an unconfirmed transaction by replacing it with a higher-fee version.</p>
+      </div>
+
+      <div class="entry" data-tags="security wallets">
+        <div class="term">
+          <h3>Recovery</h3>
+          <div class="meta"><span class="tagpill">Wallets</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>Restoring wallet access using your seed phrase (and passphrase, if used). Recovery depends on correct backups and compatible wallet standards.</p>
+      </div>
+
+      <div class="entry" id="S" data-tags="basics wallets">
+        <div class="term">
+          <h3>Satoshis (sats)</h3>
+          <div class="meta"><span class="tagpill">Basics</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The smallest bitcoin unit. <strong>1 BTC = 100,000,000 sats</strong>. Most everyday Lightning payments are measured in sats.</p>
+      </div>
+
+      <div class="entry" data-tags="security wallets">
+        <div class="term">
+          <h3>Seed Phrase (Recovery Phrase)</h3>
+          <div class="meta"><span class="tagpill">Security</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A list of 12–24 words that can recreate your wallet keys. Anyone with your seed phrase can spend your bitcoin—treat it like treasure.</p>
+      </div>
+
+      <div class="entry" data-tags="nodes">
+        <div class="term">
+          <h3>SegWit</h3>
+          <div class="meta"><span class="tagpill">Nodes</span></div>
+        </div>
+        <p>A protocol upgrade that improved transaction format and capacity, reducing certain malleability issues and enabling better scaling.</p>
+      </div>
+
+      <div class="entry" data-tags="nodes">
+        <div class="term">
+          <h3>Taproot</h3>
+          <div class="meta"><span class="tagpill">Nodes</span></div>
+        </div>
+        <p>A major upgrade improving privacy and efficiency for certain scripts and multisig setups, and enabling more flexible smart-contract-like behavior.</p>
+      </div>
+
+      <div class="entry" id="T" data-tags="transactions">
+        <div class="term">
+          <h3>Transaction (TX)</h3>
+          <div class="meta"><span class="tagpill">Transactions</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A signed message that moves bitcoin from one set of UTXOs to new UTXOs. It includes inputs, outputs, and fees.</p>
+      </div>
+
+      <div class="entry" data-tags="transactions">
+        <div class="term">
+          <h3>Transaction Fee</h3>
+          <div class="meta"><span class="tagpill">Transactions</span></div>
+        </div>
+        <p>The incentive paid to miners to include your transaction. Fees are usually based on transaction size (bytes), not the amount of BTC sent.</p>
+      </div>
+
+      <div class="entry" id="U" data-tags="transactions wallets nodes">
+        <div class="term">
+          <h3>UTXO (Unspent Transaction Output)</h3>
+          <div class="meta"><span class="tagpill">Transactions</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>The “chunks” of bitcoin in your wallet. Bitcoin doesn’t work like a bank balance; it works like spendable outputs you can combine and split.</p>
+        <div class="also">Also see: <code>Inputs</code>, <code>Outputs</code>, <code>Coin Control</code></div>
+      </div>
+
+      <div class="entry" id="W" data-tags="wallets security">
+        <div class="term">
+          <h3>Wallet (Hot / Cold)</h3>
+          <div class="meta"><span class="tagpill">Wallets</span><span class="tagpill key">Key Term</span></div>
+        </div>
+        <p>A tool for managing keys and signing transactions. <strong>Hot wallets</strong> are connected to the internet (convenient). <strong>Cold wallets</strong> keep keys offline (safer).</p>
+      </div>
+
+      <div class="entry" data-tags="security">
+        <div class="term">
+          <h3>Whitepaper</h3>
+          <div class="meta"><span class="tagpill">Basics</span></div>
+        </div>
+        <p>The original 2008 paper “Bitcoin: A Peer-to-Peer Electronic Cash System” published by Satoshi Nakamoto.</p>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h2 style="margin-top:0;">Safety Reminders (Bitcoin 101)</h2>
+      <ul>
+        <li><strong>Never share</strong> your seed phrase or private keys — not with anyone, not ever.</li>
+        <li>Use <strong>2FA</strong> on exchanges, and prefer an authenticator app over SMS.</li>
+        <li>Verify URLs and downloads. Most losses come from <strong>scams</strong>, not the protocol.</li>
+        <li>Start small, test sends, and learn how <strong>fees</strong> and confirmations work.</li>
+      </ul>
+      <p class="muted" style="margin-top:10px;">
+        Bitcoin gives you sovereignty — but sovereignty comes with responsibility.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Want this glossary to grow?</h2>
+      <p class="muted">
+        This is a strong Bitcoin 101 base. Next expansions (when you’re ready):
+      </p>
+      <ul>
+        <li>Address types: Legacy / SegWit / Taproot (with examples)</li>
+        <li>Scripts: Multisig, timelocks, PSBT</li>
+        <li>Lightning terms: invoice, LNURL, liquidity, routing, channels</li>
+        <li>Mining terms: ASIC, pool payout methods, difficulty epochs</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <div class="footer-title">
+      Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+    </div>
+    <hr />
+    <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+    <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+
+  </main>
+
+  <script>
+    // Simple client-side filter (search + category chips)
+    const q = document.getElementById('q');
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const entries = Array.from(document.querySelectorAll('.entry'));
+
+    let activeFilter = 'all';
+
+    function normalize(s){
+      return (s || '').toLowerCase().trim();
+    }
+
+    function applyFilters(){
+      const query = normalize(q.value);
+      entries.forEach(el => {
+        const tags = (el.getAttribute('data-tags') || '').split(/\s+/).filter(Boolean);
+        const text = normalize(el.innerText);
+
+        const matchesQuery = !query || text.includes(query);
+        const matchesTag = (activeFilter === 'all') || tags.includes(activeFilter);
+
+        el.style.display = (matchesQuery && matchesTag) ? '' : 'none';
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        chips.forEach(x => x.classList.remove('active'));
+        ch.classList.add('active');
+        activeFilter = ch.getAttribute('data-filter') || 'all';
+        applyFilters();
+      });
+    });
+
+    q.addEventListener('input', applyFilters);
+    applyFilters();
+  </script>
+</body>
+</html>
