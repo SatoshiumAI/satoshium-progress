@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Satoshium • Bitcoin vs Fiat</title>
+
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+      --ok:rgba(124, 225, 160, .85);
+      --warn:rgba(255, 196, 106, .9);
+      --bad:rgba(255, 120, 120, .85);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px;white-space:nowrap}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:26px}
+    h3{font-size:16px;color:var(--gold2);margin-top:0}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width: 860px){
+      .grid{grid-template-columns:1.1fr .9fr}
+    }
+
+    /* Table */
+    .tablewrap{overflow:auto;border-radius:14px;border:1px solid var(--line)}
+    table{width:100%;border-collapse:collapse;min-width:680px;background:rgba(7,9,13,.35)}
+    th,td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{color:var(--gold2);text-align:left;font-size:13px;letter-spacing:.04em;background:rgba(214,163,74,.06)}
+    td{color:var(--text);font-size:14px}
+    tr:last-child td{border-bottom:none}
+    .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(214,163,74,.06);color:var(--muted);font-weight:800;font-size:12px
+    }
+    .chip.ok{color:var(--ok)}
+    .chip.warn{color:var(--warn)}
+    .chip.bad{color:var(--bad)}
+    .callout{
+      border-left:3px solid rgba(244,195,106,.7);
+      padding:12px 12px 12px 14px;
+      background:rgba(214,163,74,.06);
+      border-radius:12px;
+    }
+
+    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../what-is-satoshium.html">What is Satoshium?</a>
+        <a href="../what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="../why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="../roadmap.html">Roadmap</a>
+        <a href="../changelog.html">Changelog</a>
+        <a href="../demos.html">Demos</a>
+        <a href="../repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="pill">🟠 Bitcoin 101</div>
+
+    <h1 style="margin-top:12px;">Bitcoin vs Fiat</h1>
+    <p class="muted">
+      Fiat is government-issued currency (like USD). Bitcoin is decentralized, digital money with a fixed supply.
+      This page explains the difference in plain English — and why it matters for saving, spending, and building.
+    </p>
+
+    <div class="card">
+      <div class="callout">
+        <div class="k">One-sentence summary</div>
+        <div style="margin-top:6px;">
+          <strong>Fiat is managed by institutions.</strong> <strong>Bitcoin is governed by code.</strong>
+          That single difference changes supply, trust, and long-term incentives.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Quick Comparison</h2>
+      <div class="tablewrap" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:22%;">Category</th>
+              <th style="width:39%;">Fiat (USD / traditional money)</th>
+              <th style="width:39%;">Bitcoin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Supply</strong></td>
+              <td>
+                Can expand (printing / credit expansion).<br>
+                <span class="chip warn">Flexible</span>
+              </td>
+              <td>
+                Fixed maximum supply: 21,000,000 BTC.<br>
+                <span class="chip ok">Hard-capped</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Control</strong></td>
+              <td>
+                Centralized policy (central bank + regulators).<br>
+                <span class="chip warn">Policy-driven</span>
+              </td>
+              <td>
+                Decentralized consensus (nodes enforce rules).<br>
+                <span class="chip ok">Rule-driven</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Trust</strong></td>
+              <td>
+                “Trust the issuer” (banks, governments, intermediaries).<br>
+                <span class="chip warn">Trust-based</span>
+              </td>
+              <td>
+                “Verify the rules” (open protocol, predictable issuance).<br>
+                <span class="chip ok">Verification-based</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Settlement</strong></td>
+              <td>
+                Bank rails can be reversed/frozen; finality depends on intermediaries.<br>
+                <span class="chip warn">Institutional</span>
+              </td>
+              <td>
+                On-chain settlement is final after confirmations; censorship is difficult.<br>
+                <span class="chip ok">Protocol finality</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Portability</strong></td>
+              <td>
+                Cross-border transfers are slow/limited without banks.<br>
+                <span class="chip warn">Friction</span>
+              </td>
+              <td>
+                Can move globally with an internet connection (and good security).<br>
+                <span class="chip ok">Borderless</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Privacy</strong></td>
+              <td>
+                Banking is identity-linked; surveillance varies by jurisdiction.<br>
+                <span class="chip warn">ID-linked</span>
+              </td>
+              <td>
+                Public ledger, but no built-in identity; privacy depends on your practices.<br>
+                <span class="chip warn">Pseudonymous</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Inflation Risk</strong></td>
+              <td>
+                Purchasing power can decline over time (inflation).<br>
+                <span class="chip bad">Ongoing risk</span>
+              </td>
+              <td>
+                Issuance schedule is fixed; volatility exists, but supply is known.<br>
+                <span class="chip ok">Known supply</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Failure Modes</strong></td>
+              <td>
+                Bank failure, capital controls, policy shocks, debasement.<br>
+                <span class="chip warn">Counterparty risk</span>
+              </td>
+              <td>
+                User error, key loss, scams; protocol risk is minimized by decentralization.<br>
+                <span class="chip warn">Self-custody risk</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin:10px 0 0;">
+        Both systems have tradeoffs. Bitcoin shifts risk from institutions → personal responsibility (keys, backups, opsec).
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin-top:0;">What Fiat Does Well</h2>
+        <ul>
+          <li><strong>Easy to use</strong> (everyone accepts it locally)</li>
+          <li><strong>Stable day-to-day</strong> (prices don’t swing hourly)</li>
+          <li><strong>Consumer protections</strong> (chargebacks, fraud departments)</li>
+          <li><strong>Credit system</strong> (loans, mortgages, business lines)</li>
+        </ul>
+        <p class="muted" style="margin-top:10px;">
+          Fiat is optimized for local commerce and credit markets — but stability is maintained by policy, not physics.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0;">What Bitcoin Does Differently</h2>
+        <ul>
+          <li><strong>Fixed supply</strong> (no surprise dilution)</li>
+          <li><strong>Permissionless</strong> (no account required)</li>
+          <li><strong>Verifiable</strong> (anyone can run a node and audit rules)</li>
+          <li><strong>Global settlement</strong> (moves value across borders)</li>
+        </ul>
+        <p class="muted" style="margin-top:10px;">
+          Bitcoin is optimized for <em>credible scarcity</em>, independent verification, and long-term resilience.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Why This Matters (Real Life)</h2>
+      <ul>
+        <li><strong>Savings:</strong> Fiat can lose purchasing power. Bitcoin’s supply is fixed — but price can be volatile.</li>
+        <li><strong>Access:</strong> Banking is permissioned. Bitcoin is open to anyone with keys.</li>
+        <li><strong>Ownership:</strong> Bank balances are claims on a system. Bitcoin can be held in self-custody.</li>
+        <li><strong>Portability:</strong> Bitcoin can cross borders faster than legacy rails (especially with Lightning).</li>
+      </ul>
+      <p class="muted" style="margin:10px 0 0;">
+        Think of it like this: fiat is great for <strong>spending</strong>. bitcoin is engineered for <strong>sovereign saving</strong> and
+        <strong>global settlement</strong>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Common Misconceptions</h2>
+      <ul>
+        <li><strong>“Bitcoin is anonymous.”</strong> It’s better described as <em>pseudonymous</em>. The ledger is public.</li>
+        <li><strong>“Bitcoin is backed by nothing.”</strong> It’s backed by verifiable rules, security, and a global network.</li>
+        <li><strong>“Fiat is always safer.”</strong> Fiat is safer for chargebacks; bitcoin is safer for censorship-resistance (if used correctly).</li>
+        <li><strong>“Bitcoin is only for investing.”</strong> It’s also a payment rail and settlement network (Lightning expands this).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Next Steps</h2>
+      <ul>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">Back to: What is Bitcoin?</a></li>
+        <li><a href="./history-origins.html">Read next: History & Origins</a></li>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Explore: Why Bitcoin + AI</a></li>
+      </ul>
+      <p class="muted" style="margin-top:10px;">
+        Building slowly. One page at a time. No hype — just clarity.
+      </p>
+    </div>
+
+    <hr />
+
+    <div class="footer-title">
+      Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+    </div>
+    <p></p>
+    <hr />
+    <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+    <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+  </main>
+</body>
+</html>
