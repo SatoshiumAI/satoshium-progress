@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buying and storing bitcoin • Satoshium</title>
+  <meta name="description" content="A practical, security-first guide to buying bitcoin and storing it safely—custody options, steps, checklists, and common mistakes to avoid." />
+
+  <style>
+    :root{
+      --bg:#070a0f;
+      --panel:#0b1220;
+      --panel2:#0a1020;
+      --text:#e7edf7;
+      --muted:#a9b6cc;
+      --gold:#f5b942;
+      --gold2:#ffcf6a;
+      --line:rgba(245,185,66,.18);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:14px;
+      --max: 1080px;
+      --link:#ffd480;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 600px at 20% -10%, rgba(245,185,66,.12), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, rgba(245,185,66,.08), transparent 55%),
+        radial-gradient(700px 500px at 50% 115%, rgba(80,160,255,.08), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(245,185,66,.22), rgba(245,185,66,.05));
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      box-shadow: var(--shadow);
+      flex:0 0 auto;
+    }
+    .logo span{font-weight:800; color:var(--gold); letter-spacing:.5px}
+    .brandtext{display:flex; flex-direction:column}
+    .brandname{font-weight:800; letter-spacing:.6px}
+    .tagline{font-size:12px; color:var(--muted); margin-top:2px}
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{border-color:var(--line); color:var(--text); text-decoration:none}
+
+    .crumbs{
+      margin:6px 0 14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--muted)}
+    .crumbs a:hover{color:var(--text)}
+
+    .hero{
+      background: linear-gradient(180deg, rgba(245,185,66,.10), rgba(245,185,66,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:22px 18px;
+      box-shadow: var(--shadow);
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(245,185,66,.06);
+    }
+    h1{
+      margin:14px 0 6px;
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing:-.4px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width:75ch;
+      font-size:15.5px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (min-width: 960px){
+      .grid{grid-template-columns: 1.1fr .9fr}
+    }
+
+    .card{
+      background: rgba(11,18,32,.72);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      color: var(--gold2);
+      letter-spacing:.2px;
+    }
+    .toc a{
+      display:block;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(245,185,66,.12);
+      background: rgba(245,185,66,.05);
+      color: var(--text);
+      margin:8px 0;
+      font-size:14px;
+    }
+    .toc a:hover{border-color:rgba(245,185,66,.26); text-decoration:none}
+
+    section{
+      margin-top:14px;
+      background: rgba(11,18,32,.62);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    section h2{
+      margin:0 0 10px;
+      font-size:22px;
+      color: var(--gold2);
+      letter-spacing:.1px;
+    }
+    section h3{
+      margin:18px 0 8px;
+      font-size:16px;
+      color: var(--text);
+    }
+    p{margin:10px 0; color:var(--text)}
+    .muted{color:var(--muted)}
+    ul{margin:10px 0 10px 22px}
+    li{margin:6px 0}
+    .callout{
+      margin:14px 0 0;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(80,160,255,.18);
+      background: rgba(80,160,255,.07);
+      color: var(--text);
+    }
+    .warn{
+      border-color: rgba(255,140,70,.22);
+      background: rgba(255,140,70,.08);
+    }
+    .ok{
+      border-color: rgba(80,220,140,.20);
+      background: rgba(80,220,140,.06);
+    }
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px
+    }
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(245,185,66,.14);
+      background: rgba(245,185,66,.06);
+      color: var(--text);
+      white-space:nowrap;
+    }
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius: 14px;
+      border:1px solid rgba(245,185,66,.16);
+      background: rgba(245,185,66,.04);
+      margin-top:12px;
+    }
+    th, td{
+      text-align:left;
+      padding:12px 12px;
+      vertical-align:top;
+      border-bottom:1px solid rgba(245,185,66,.10);
+      font-size:13.5px;
+    }
+    th{color:var(--gold2); font-weight:700}
+    tr:last-child td{border-bottom:none}
+
+    .mini{
+      font-size:12.5px;
+      color:var(--muted);
+    }
+    footer{
+      margin-top:18px;
+      padding:16px 0 0;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .back{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(245,185,66,.18);
+      background: rgba(245,185,66,.06);
+      color:var(--text);
+    }
+    .back:hover{text-decoration:none; border-color:rgba(245,185,66,.30)}
+    .codeish{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12.5px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(245,185,66,.14);
+      background: rgba(0,0,0,.20);
+      overflow:auto;
+      margin-top:10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>S</span></div>
+        <div class="brandtext">
+          <div class="brandname">SATOSHIUM</div>
+          <div class="tagline">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../bitcoin/index.html">Bitcoin</a>
+        <a href="../../build/index.html">Join the Build</a>
+        <a href="../../contact/index.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="crumbs">
+      <a href="../../bitcoin/index.html">Bitcoin</a> / <span class="muted">Wallets &amp; security</span> / <strong>Buying and storing bitcoin</strong>
+    </div>
+
+    <div class="hero">
+      <div class="kicker">Wallets &amp; security • Security-first • Practical guide</div>
+      <h1>Buying and storing bitcoin</h1>
+      <p class="sub">
+        This page is designed to help normal people buy bitcoin safely and store it responsibly—without hype,
+        without complicated jargon, and without trusting strangers with your future.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to choose a buying method that fits your goals and risk tolerance</li>
+            <li>What “custody” actually means—and why it matters</li>
+            <li>A simple path from first purchase → self-custody (when you’re ready)</li>
+            <li>Security habits that prevent the most common losses</li>
+          </ul>
+
+          <div class="callout ok">
+            <strong>Guiding rule:</strong> start simple, then level up.
+            You don’t need to be an expert to begin—just avoid preventable mistakes.
+          </div>
+
+          <div class="pillrow" aria-label="Key themes">
+            <span class="pill">Self-custody</span>
+            <span class="pill">Cold storage</span>
+            <span class="pill">Seed phrase safety</span>
+            <span class="pill">Scam resistance</span>
+            <span class="pill">Operational discipline</span>
+          </div>
+        </div>
+
+        <div class="card toc">
+          <h2>On this page</h2>
+          <a href="#basics">1) The basics: buy vs store</a>
+          <a href="#ways-to-buy">2) Ways to buy bitcoin</a>
+          <a href="#custody-options">3) Storage & custody options</a>
+          <a href="#recommended-path">4) A recommended “level-up” path</a>
+          <a href="#step-by-step">5) Step-by-step: buy → withdraw → verify</a>
+          <a href="#checklists">6) Checklists (do this, avoid that)</a>
+          <a href="#mistakes">7) Common mistakes & how to avoid them</a>
+          <a href="#faq">8) Quick FAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="basics">
+      <h2>1) The basics: buy vs store</h2>
+      <p>
+        Buying bitcoin is the acquisition step. Storing bitcoin is the protection step.
+        Most people focus on “where do I buy?” and forget to ask “who can move it?”
+      </p>
+
+      <h3>Two truths that keep you safe</h3>
+      <ul>
+        <li><strong>If you don’t control the keys, you don’t control the bitcoin.</strong> (You may still be the owner on paper—but you are not the final authority.)</li>
+        <li><strong>Security is a process, not a product.</strong> Your habits matter more than your app.</li>
+      </ul>
+
+      <div class="callout warn">
+        <strong>Important:</strong> Exchanges are great for buying and selling. They are not designed to be your forever vault.
+      </div>
+    </section>
+
+    <section id="ways-to-buy">
+      <h2>2) Ways to buy bitcoin</h2>
+      <p class="muted">
+        There are multiple “right” ways. Your best choice depends on convenience, privacy, cost, and how quickly you plan to move into self-custody.
+      </p>
+
+      <table aria-label="Ways to buy bitcoin comparison">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Best for</th>
+            <th>Tradeoffs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Centralized exchange (CEX)</strong></td>
+            <td>Fast onboarding, recurring buys, simple UI</td>
+            <td>Requires account + verification, custodial by default, withdrawal limits/rules</td>
+          </tr>
+          <tr>
+            <td><strong>Broker-style apps</strong></td>
+            <td>“Just buy” simplicity for beginners</td>
+            <td>Spreads can be higher, sometimes fewer control options</td>
+          </tr>
+          <tr>
+            <td><strong>Peer-to-peer (P2P)</strong></td>
+            <td>More privacy and flexibility</td>
+            <td>Higher personal responsibility, requires scam awareness</td>
+          </tr>
+          <tr>
+            <td><strong>Bitcoin ATMs</strong></td>
+            <td>Cash convenience in some locations</td>
+            <td>Often very high fees; verify what you’re paying</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>Satoshium mindset:</strong> Choose the method that helps you become more sovereign over time.
+        Convenience is fine—just don’t confuse convenience with security.
+      </div>
+    </section>
+
+    <section id="custody-options">
+      <h2>3) Storage & custody options</h2>
+      <p>
+        “Custody” answers one question: <strong>who can move the bitcoin?</strong>
+        The safer your custody, the harder it is for attackers (or companies) to take it.
+      </p>
+
+      <table aria-label="Storage options comparison">
+        <thead>
+          <tr>
+            <th>Storage</th>
+            <th>Who controls the keys?</th>
+            <th>When it makes sense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Exchange wallet</strong></td>
+            <td>The exchange</td>
+            <td>Short-term holding while you learn or while waiting to withdraw</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile wallet</strong> (hot)</td>
+            <td>You</td>
+            <td>Spending money, small balances, daily use</td>
+          </tr>
+          <tr>
+            <td><strong>Hardware wallet</strong> (cold)</td>
+            <td>You</td>
+            <td>Long-term savings, larger balances, inheritance planning</td>
+          </tr>
+          <tr>
+            <td><strong>Multisig</strong></td>
+            <td>Multiple keys / policy</td>
+            <td>Higher security needs, families, businesses, larger holdings</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Hot vs Cold (simple definition)</h3>
+      <ul>
+        <li><strong>Hot wallet:</strong> connected to the internet (fast, convenient, higher risk).</li>
+        <li><strong>Cold wallet:</strong> keys kept offline (slower, safer, requires discipline).</li>
+      </ul>
+
+      <div class="callout warn">
+        <strong>Never store your seed phrase in:</strong> screenshots, email drafts, cloud notes, Google Drive, iCloud, or password managers you don’t fully understand.
+      </div>
+    </section>
+
+    <section id="recommended-path">
+      <h2>4) A recommended “level-up” path</h2>
+      <p>
+        You don’t need to jump straight to the most advanced setup.
+        This path helps you build confidence without creating fragile complexity.
+      </p>
+
+      <h3>Level 1 — Beginner (start here)</h3>
+      <ul>
+        <li>Buy a small amount on a reputable platform</li>
+        <li>Learn what a <strong>receive address</strong> and <strong>transaction ID</strong> are</li>
+        <li>Practice a small withdrawal to a wallet you control (hot wallet)</li>
+      </ul>
+
+      <h3>Level 2 — Intermediate (own your keys)</h3>
+      <ul>
+        <li>Set up a hardware wallet (cold storage)</li>
+        <li>Write down the seed phrase carefully (offline)</li>
+        <li>Withdraw routinely (e.g., monthly) instead of leaving a growing balance on an exchange</li>
+      </ul>
+
+      <h3>Level 3 — Advanced (resilience)</h3>
+      <ul>
+        <li>Consider multisig for larger amounts</li>
+        <li>Create an inheritance and emergency-access plan</li>
+        <li>Verify backups by doing a controlled restore test (carefully)</li>
+      </ul>
+
+      <div class="callout ok">
+        <strong>Good strategy:</strong> keep a small “spending” balance hot, and a long-term “savings” balance cold.
+      </div>
+    </section>
+
+    <section id="step-by-step">
+      <h2>5) Step-by-step: buy → withdraw → verify</h2>
+      <p class="muted">This is the safest “first time” flow for most people.</p>
+
+      <h3>Step A — Buy</h3>
+      <ul>
+        <li>Enable strong account security (unique password + 2FA)</li>
+        <li>Make your purchase</li>
+        <li>Do <strong>not</strong> rush—scams thrive on urgency</li>
+      </ul>
+
+      <h3>Step B — Create a wallet you control</h3>
+      <ul>
+        <li>Start with a reputable mobile wallet for a small test</li>
+        <li>Later, upgrade to a hardware wallet for savings</li>
+      </ul>
+
+      <h3>Step C — Withdraw a small test amount</h3>
+      <ul>
+        <li>Copy the receive address from your wallet</li>
+        <li>Paste it into the withdrawal screen</li>
+        <li>Send a small amount first (a “test transaction”)</li>
+      </ul>
+
+      <h3>Step D — Verify it arrived</h3>
+      <ul>
+        <li>Confirm your wallet shows the incoming transaction</li>
+        <li>Confirm the address matches what you expected</li>
+        <li>Only then consider moving larger amounts</li>
+      </ul>
+
+      <div class="codeish" aria-label="Verification mindset">
+        Verification mindset:
+        1) I control the destination wallet
+        2) I confirmed the address
+        3) I tested small
+        4) I verified receipt
+        5) I scaled up
+      </div>
+    </section>
+
+    <section id="checklists">
+      <h2>6) Checklists (do this, avoid that)</h2>
+
+      <h3>✅ Do this</h3>
+      <ul>
+        <li>Use unique passwords + strong 2FA (prefer app-based 2FA over SMS)</li>
+        <li>Withdraw to self-custody once your balance becomes meaningful</li>
+        <li>Do test transactions</li>
+        <li>Keep your seed phrase offline and protected from fire/water</li>
+        <li>Tell trusted family what to do <em>without</em> revealing sensitive details publicly</li>
+      </ul>
+
+      <h3>❌ Avoid this</h3>
+      <ul>
+        <li>Copy/pasting addresses from random chats or “support” DMs</li>
+        <li>Saving seed phrases in photos, cloud notes, email, or documents</li>
+        <li>Buying because someone said “this is your last chance”</li>
+        <li>Installing unknown wallet apps from unofficial links</li>
+        <li>Keeping all funds in one place with one point of failure</li>
+      </ul>
+
+      <div class="callout warn">
+        <strong>Rule:</strong> No legitimate company will ever need your seed phrase. Ever.
+      </div>
+    </section>
+
+    <section id="mistakes">
+      <h2>7) Common mistakes & how to avoid them</h2>
+      <h3>Mistake: “I’ll move it later.”</h3>
+      <p class="muted">Later becomes never, balances grow, and risk silently increases.</p>
+      <ul>
+        <li><strong>Fix:</strong> Choose a withdrawal rhythm (monthly is fine) and stick to it.</li>
+      </ul>
+
+      <h3>Mistake: Mixing convenience with custody</h3>
+      <p class="muted">If the platform can freeze withdrawals, you are not fully sovereign.</p>
+      <ul>
+        <li><strong>Fix:</strong> Use platforms for buying. Use wallets for holding.</li>
+      </ul>
+
+      <h3>Mistake: Seed phrase stored digitally</h3>
+      <p class="muted">Digital storage multiplies your attack surface.</p>
+      <ul>
+        <li><strong>Fix:</strong> Keep it offline, private, and durable.</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>8) Quick FAQ</h2>
+
+      <h3>How much bitcoin should I withdraw to cold storage?</h3>
+      <p class="muted">
+        As a general rule: withdraw when the amount would <em>hurt</em> to lose.
+        Many people start withdrawing once they’re past “learning money.”
+      </p>
+
+      <h3>Do I need a hardware wallet immediately?</h3>
+      <p class="muted">
+        Not immediately. Start by learning with small amounts first.
+        Hardware wallets shine when you’re ready to store long-term savings.
+      </p>
+
+      <h3>What’s the safest “simple” setup?</h3>
+      <p class="muted">
+        A reputable buying platform + a hardware wallet + an offline seed phrase backup
+        (and a calm, repeatable routine).
+      </p>
+
+      <div class="callout ok">
+        <strong>Satoshium principle:</strong> Sovereignty is earned through repeatable, calm process—not panic.
+      </div>
+    </section>
+
+    <footer>
+      <a class="back" href="../../bitcoin/index.html">← Back to Bitcoin</a>
+      <div style="margin-top:10px" class="mini">
+        Satoshium • Wallets &amp; security • Buying and storing bitcoin
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
