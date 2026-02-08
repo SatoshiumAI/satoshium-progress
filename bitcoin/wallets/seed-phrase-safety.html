@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seed phrase safety • Satoshium</title>
+  <meta name="description" content="Seed phrase safety is the foundation of Bitcoin self-custody. Learn how seed phrases work, how people lose them, and a security-first setup you can actually follow." />
+
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
+    }
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:22px}
+    h3{font-size:16px;color:var(--gold2);margin-top:14px}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 860px){.grid{grid-template-columns:1fr 1fr}}
+    .kicker{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    .quote{
+      border-left:3px solid var(--line);
+      padding:10px 12px;
+      background:rgba(214,163,74,.06);
+      border-radius:12px;
+      color:var(--text);
+    }
+    .tiny{font-size:12px;color:var(--muted)}
+    section[id]{scroll-margin-top: 18px;}
+    .toc{
+      margin:8px 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .toc li{margin:8px 0}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <!-- Standardized absolute nav (your required format) -->
+      <nav class="nav">
+        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="pill">Wallets &amp; security</div>
+
+    <h1 style="margin-top:12px;">Seed phrase safety</h1>
+    <p class="muted">
+      Your seed phrase is the <strong>master key</strong> to your bitcoin.
+      If someone gets it, they can take everything. If you lose it, you may lose access forever.
+      This page shows a security-first setup that normal people can follow.
+    </p>
+
+    <!-- Intro (two cards) -->
+    <div class="grid">
+      <div class="card">
+        <div class="kicker">What this page will do</div>
+        <h2 style="margin-top:6px;">✅ Make seed safety practical</h2>
+        <ul>
+          <li>Explain what a seed phrase is (in plain English)</li>
+          <li>Show the most common ways people lose funds</li>
+          <li>Give a safe, repeatable backup method</li>
+          <li>Help you avoid “digital leak” mistakes</li>
+        </ul>
+
+        <div class="quote" style="margin-top:12px;">
+          <strong>Satoshium rule:</strong> if your seed phrase ever touches the internet, assume it’s compromised.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Quick navigation</div>
+        <h2 style="margin-top:6px;">📌 Sections</h2>
+
+        <!-- Numbers without bullets (cleaner) -->
+        <ol class="toc">
+          <li><a href="#what-it-is"><strong>1)</strong> What a seed phrase is</a></li>
+          <li><a href="#how-loss-happens"><strong>2)</strong> How people lose bitcoin</a></li>
+          <li><a href="#golden-rules"><strong>3)</strong> The golden rules</a></li>
+          <li><a href="#backup-setup"><strong>4)</strong> A safe backup setup</a></li>
+          <li><a href="#storage-options"><strong>5)</strong> Paper vs metal backups</a></li>
+          <li><a href="#recovery-test"><strong>6)</strong> How to do a safe recovery test</a></li>
+          <li><a href="#do-not"><strong>7)</strong> Never-do list</a></li>
+          <li><a href="#faq"><strong>8)</strong> Quick FAQ</a></li>
+        </ol>
+
+        <p class="tiny" style="margin-top:12px;">
+          Tip: Bookmark this page. Seed phrase safety is a “once done right, sleep better forever” upgrade.
+        </p>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <section class="card" id="what-it-is">
+      <div class="kicker">1) The concept</div>
+      <h2 style="margin-top:6px;">What a seed phrase is</h2>
+      <p>
+        A seed phrase (also called a <em>recovery phrase</em> or <em>mnemonic</em>) is a list of words that can recreate
+        the private keys to your wallet.
+      </p>
+      <ul>
+        <li><strong>If you have the seed phrase</strong>, you can restore the wallet and move the bitcoin.</li>
+        <li><strong>If someone else gets the seed phrase</strong>, they can restore the wallet and move the bitcoin.</li>
+        <li><strong>If you lose the seed phrase</strong> and your device dies, you may lose access forever.</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        Think of a seed phrase like the root password to your vault. The wallet device/app is just a “viewer.”
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="card" id="how-loss-happens">
+      <div class="kicker">2) Real-world risk</div>
+      <h2 style="margin-top:6px;">How people lose bitcoin</h2>
+      <ul>
+        <li><strong>Photos:</strong> taking a picture of the seed phrase “just for a second” (cloud sync, malware, backup leakage).</li>
+        <li><strong>Notes apps:</strong> saving words in Apple Notes, Google Keep, Evernote, etc.</li>
+        <li><strong>Email:</strong> sending it to yourself or keeping drafts.</li>
+        <li><strong>Fake support:</strong> scammers asking for it in DMs or “verification checks.”</li>
+        <li><strong>One backup only:</strong> paper destroyed by fire/water, or lost during a move.</li>
+        <li><strong>Overconfidence:</strong> “I’ll remember it” or “I’ll write it later.”</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        Most losses are not “hackers.” They’re ordinary mistakes + ordinary life events.
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="card" id="golden-rules">
+      <div class="kicker">3) Core principles</div>
+      <h2 style="margin-top:6px;">The golden rules</h2>
+      <ul>
+        <li><strong>Rule #1:</strong> Never type your seed phrase into a website. Not even “wallet support.”</li>
+        <li><strong>Rule #2:</strong> Never store your seed phrase digitally (photos, cloud, docs, email).</li>
+        <li><strong>Rule #3:</strong> Keep at least one backup that survives fire/water/time.</li>
+        <li><strong>Rule #4:</strong> Your backup must be <em>findable by you</em> but not <em>discoverable by strangers</em>.</li>
+        <li><strong>Rule #5:</strong> Test recovery once (carefully) so you know your backup works.</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        The goal is simple: your seed phrase should be safe from thieves, accidents, and forgetfulness.
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="card" id="backup-setup">
+      <div class="kicker">4) Recommended setup</div>
+      <h2 style="margin-top:6px;">A safe backup setup</h2>
+      <p class="muted">This is the clean, “sleep well” approach for most people.</p>
+
+      <h3>Step A — Write it down offline</h3>
+      <ul>
+        <li>Write the words clearly, in order.</li>
+        <li>Double-check spelling (one wrong letter can break recovery).</li>
+        <li>Never read the words aloud near smart devices.</li>
+      </ul>
+
+      <h3>Step B — Make a second backup</h3>
+      <ul>
+        <li>Two backups protect you from fire, water, loss, and moves.</li>
+        <li>Store them in separate secure locations (not side-by-side).</li>
+      </ul>
+
+      <h3>Step C — Add a label that doesn’t leak meaning</h3>
+      <ul>
+        <li>Don’t write “Bitcoin seed” on it.</li>
+        <li>Use a neutral label only you understand.</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        <strong>Satoshium principle:</strong> redundancy + discretion beats cleverness.
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="card" id="storage-options">
+      <div class="kicker">5) Backup media</div>
+      <h2 style="margin-top:6px;">Paper vs metal backups</h2>
+
+      <div class="grid">
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Paper backup</h3>
+          <ul>
+            <li>Easy and cheap</li>
+            <li>Vulnerable to fire/water/tearing</li>
+            <li>Good for small amounts or as an interim step</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Metal backup</h3>
+          <ul>
+            <li>Built for long-term durability</li>
+            <li>Better resistance to fire/water/time</li>
+            <li>Ideal for long-term holdings</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote" style="margin-top:12px;">
+        If your bitcoin is a long-term asset, your backup should be long-term too.
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="card" id="recovery-test">
+      <div class="kicker">6) Verification</div>
+      <h2 style="margin-top:6px;">How to do a safe recovery test</h2>
+      <p>
+        A recovery test proves your backup works. Do it when calm — not during an emergency.
+      </p>
+
+      <h3>Safe method (high-level)</h3>
+      <ul>
+        <li>Use the wallet’s official recovery process (offline, on device, not on a website).</li>
+        <li>Verify you can “see” the expected wallet again.</li>
+        <li>Do not leave your seed phrase exposed while testing. Cover it when not writing.</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        Your backup is not real until it has been tested successfully at least once.
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="card" id="do-not">
+      <div class="kicker">7) Hard lines</div>
+      <h2 style="margin-top:6px;">Never-do list</h2>
+      <ul>
+        <li>Never put your seed phrase into a browser, form, or “support” chat.</li>
+        <li>Never store it in photos, cloud storage, email, or notes apps.</li>
+        <li>Never share it with friends, family, or “helpers.” (Teach them process, not secrets.)</li>
+        <li>Never keep only one backup.</li>
+        <li>Never assume your house is “safe enough” without thinking about fire/water/burglary.</li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        If someone asks for your seed phrase, the conversation is over. No exceptions.
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="card" id="faq">
+      <div class="kicker">8) Quick FAQ</div>
+      <h2 style="margin-top:6px;">Fast answers</h2>
+
+      <h3>Is a seed phrase the same as a password?</h3>
+      <p class="muted">
+        No. Passwords protect accounts. A seed phrase recreates your wallet keys. It’s more powerful than a password.
+      </p>
+
+      <h3>Should I split my seed phrase into parts?</h3>
+      <p class="muted">
+        Usually not for beginners. Splitting can increase complexity and failure risk. Start simple: two full backups in separate secure locations.
+      </p>
+
+      <h3>Should I tell my spouse or kids where it is?</h3>
+      <p class="muted">
+        You should have an inheritance plan. It’s better to teach “how to access safely” than to casually disclose secrets. Document process carefully.
+      </p>
+    </section>
+
+    <!-- Footer mission statement + links -->
+    <hr />
+    <div style="font-weight:800;margin-bottom:6px;">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+    <hr />
+
+    <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+    <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+  </main>
+</body>
+</html>
