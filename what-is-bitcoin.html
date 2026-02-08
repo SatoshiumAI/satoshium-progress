@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Satoshium — What is Bitcoin?</title>
+
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
+    }
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:22px}
+    h3{font-size:16px;color:var(--gold2);margin-top:14px}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 860px){.grid{grid-template-columns:1fr 1fr}}
+    .kicker{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    .quote{
+      border-left:3px solid var(--line);
+      padding:10px 12px;
+      background:rgba(214,163,74,.06);
+      border-radius:12px;
+      color:var(--text);
+    }
+    .footer{
+      border-top:1px solid var(--line);
+      padding:18px 0 32px;
+      color:var(--muted)
+    }
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.10);
+      color:var(--gold2);
+      font-weight:800;
+      font-size:13px;
+    }
+    .btn:hover{background:rgba(214,163,74,.16)}
+    .tiny{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="./">Home</a>
+        <a href="./what-is-satoshium.html">What is Satoshium?</a>
+        <a href="./what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./changelog.html">Changelog</a>
+        <a href="./demos.html">Demos</a>
+        <a href="./repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="pill">₿ Bitcoin • Satoshium Lens</div>
+
+    <h1 style="margin-top:12px;">What is Bitcoin?</h1>
+    <p class="muted">
+      Bitcoin is the foundation of sovereign money — and a blueprint for systems governed by verifiable truth.
+      This page explains Bitcoin clearly, then connects it to Satoshium: decentralized intelligence built on the Bitcoin standard.
+    </p>
+
+    <div class="card">
+      <div class="kicker">The simple definition</div>
+      <h2 style="margin-top:8px;">Bitcoin is digital money with rules, not rulers.</h2>
+      <p class="muted" style="margin:8px 0 0;">
+        It is a global peer-to-peer network that lets people send value directly, without needing a bank, payment company, or government to approve the transaction.
+        Bitcoin is open, verifiable, and enforced by math and consensus.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin-top:0;">✅ What Bitcoin gives humanity</h2>
+        <ul>
+          <li><b>Digital scarcity</b> — a fixed supply (no surprise printing)</li>
+          <li><b>Self-custody</b> — you can hold your own money</li>
+          <li><b>Global access</b> — anyone can use it</li>
+          <li><b>Verification</b> — anyone can audit the rules</li>
+          <li><b>Durability</b> — it keeps running without permission</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0;">🧠 Why Satoshium cares</h2>
+        <p class="muted" style="margin:8px 0 10px;">
+          Bitcoin is more than money — it is a working example of a system where truth is verifiable.
+          Satoshium extends that principle from money to intelligence:
+        </p>
+        <ul>
+          <li><b>Rules over whims</b></li>
+          <li><b>Proof over persuasion</b></li>
+          <li><b>Transparency over authority</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Why it exists</div>
+      <h2 style="margin-top:8px;">Bitcoin was created to remove the need for trust.</h2>
+      <p class="muted" style="margin:8px 0 0;">
+        Traditional money systems require trust: trust in institutions, trust in gatekeepers, trust in policy makers.
+        Bitcoin introduced a different model: a public ledger anyone can verify, where the rules are known in advance.
+      </p>
+      <div class="quote" style="margin-top:12px;">
+        <b>Bitcoin introduced verifiable truth to money.</b><br />
+        <span class="muted">Satoshium is being built to extend verifiable truth to intelligence.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">How it works (plain English)</div>
+      <h2 style="margin-top:8px;">Bitcoin is a public ledger secured by proof-of-work.</h2>
+
+      <h3>1) The blockchain</h3>
+      <p class="muted">
+        Think of the blockchain as a public notebook where transactions are recorded in “blocks.”
+        Each new block is linked to the previous one, making history extremely hard to rewrite.
+      </p>
+
+      <h3>2) Keys and ownership</h3>
+      <p class="muted">
+        Wallets hold cryptographic keys. Your <b>private key</b> proves you can spend your bitcoin.
+        Your <b>public address</b> is where others can send bitcoin to you.
+      </p>
+
+      <h3>3) Mining and security</h3>
+      <p class="muted">
+        Miners compete to add the next block by expending real-world energy (proof-of-work).
+        This makes attacks expensive and aligns security with physical reality.
+      </p>
+
+      <h3>4) Nodes and verification</h3>
+      <p class="muted">
+        Anyone can run a Bitcoin node to independently verify the rules and the ledger.
+        Nodes are how the network resists manipulation: <b>don’t trust — verify.</b>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Why it matters</div>
+      <h2 style="margin-top:8px;">Bitcoin is a sovereignty tool.</h2>
+      <p class="muted" style="margin:8px 0 10px;">
+        For the first time, individuals can opt into a monetary system with:
+      </p>
+      <ul>
+        <li><b>Predictable rules</b> instead of changing policies</li>
+        <li><b>Final settlement</b> without permission</li>
+        <li><b>Ownership</b> that can’t be diluted by printing</li>
+        <li><b>Global portability</b> across borders and generations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Bitcoin + the future of intelligence</div>
+      <h2 style="margin-top:8px;">As AI grows, truth must harden.</h2>
+      <p class="muted" style="margin:8px 0 10px;">
+        The next era will be shaped by autonomous systems — agents that act on behalf of people, companies, and communities.
+        If intelligence becomes powerful and centralized, society becomes fragile.
+        If intelligence becomes verifiable and decentralized, society becomes resilient.
+      </p>
+      <ul>
+        <li><b>Bitcoin shows how to build systems that resist manipulation.</b></li>
+        <li><b>Satoshium aims to apply those principles to AI agents.</b></li>
+        <li><b>Truth becomes a protocol — not a preference.</b></li>
+      </ul>
+
+      <div class="quote" style="margin-top:12px;">
+        <b>Satoshium exists because Bitcoin exists.</b><br />
+        <span class="muted">Bitcoin is the base layer of truth for value. Satoshium is building toward truth for intelligence.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Learn more (expands into future pages)</div>
+      <h2 style="margin-top:8px;">Explore Bitcoin topics</h2>
+      <p class="muted" style="margin:8px 0 10px;">
+        These sections will expand into dedicated pages over time — one solid release at a time.
+      </p>
+
+      <div class="grid">
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Bitcoin 101</h3>
+          <ul>
+            <li>History & origins</li>
+            <li>Bitcoin vs fiat</li>
+            <li>Glossary</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Wallets & security</h3>
+          <ul>
+            <li>Buying and storing bitcoin</li>
+            <li>Seed phrase safety</li>
+            <li>Common scams to avoid</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Mining & network</h3>
+          <ul>
+            <li>Proof-of-work</li>
+            <li>Hashrate & difficulty</li>
+            <li>Network health basics</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin:0;">
+          <h3 style="margin-top:0;">Lightning & scaling</h3>
+          <ul>
+            <li>Instant payments</li>
+            <li>Layer-2 basics</li>
+            <li>Real-world use</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn" href="./what-is-satoshium.html">What is Satoshium?</a>
+        <a class="btn" href="./demos.html">Try the Demos</a>
+        <a class="btn" href="./roadmap.html">View the Roadmap</a>
+      </div>
+
+      <p class="tiny" style="margin-top:10px;">
+        Note: This is an educational overview and not financial advice.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div class="footer-title">
+        Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+      </div>
+      <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+      <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+    </div>
+  </main>
+</body>
+</html>
