@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Real-world use • Satoshium</title>
+<meta name="description" content="Real-world use explains how Bitcoin and Lightning are used globally today for payments, savings, remittances, and financial independence.">
+
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+.content{padding:34px 0 60px}
+
+/* header */
+.topbar{position:sticky;top:0;background:rgba(7,9,13,.95);border-bottom:1px solid var(--line);z-index:20}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));border:1px solid var(--line);color:var(--gold2);font-weight:900}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted)}
+
+.nav{display:flex;gap:16px;flex-wrap:wrap}
+.nav a{color:var(--muted);font-size:13px;text-decoration:none}
+.nav a:hover{color:var(--gold2)}
+
+h1{color:var(--gold2);font-size:30px;margin:10px 0}
+h2{color:var(--gold2);margin:16px 0}
+p{line-height:1.55}
+.small{color:var(--muted);font-size:14px}
+.kicker{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin:18px 0}
+.grid{display:grid;gap:16px}
+@media (min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+
+.pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(214,163,74,.08);border:1px solid var(--line);color:var(--gold2);font-size:12px;font-weight:800}
+
+.quote{border-left:3px solid var(--line);padding:10px 12px;background:rgba(214,163,74,.06);border-radius:12px;margin-top:12px}
+
+ul{margin-left:18px}
+li{margin:6px 0}
+
+/* TOC style (standard across Satoshium) */
+ol.toc{list-style:none;padding-left:22px;margin-top:10px}
+ol.toc li{margin:8px 0}
+ol.toc a{color:var(--gold2);text-decoration:none}
+ol.toc a:hover{color:var(--gold)}
+
+.footer{color:var(--muted);font-size:13px;margin-top:30px}
+hr{border:none;border-top:1px solid var(--line);margin:30px 0}
+
+section[id]{scroll-margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+<div class="wrap">
+  <div class="brand">
+    <div class="mark">S</div>
+    <div>
+      <div class="name">SATOSHIUM</div>
+      <div class="tag">AI, governed by Bitcoin</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+    <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+    <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+  </nav>
+</div>
+</header>
+
+<main class="wrap content">
+
+<div class="pill">🌍 Lightning &amp; scaling</div>
+<h1>Real-world use</h1>
+
+<p class="small">
+Bitcoin is not theory anymore. It’s used globally every day for payments, savings, remittances, and financial independence. This page shows how Bitcoin and Lightning are actually used in the real world — right now.
+</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="kicker">What you’ll learn</div>
+    <h2 style="margin-top:6px;">💡 Practical understanding</h2>
+    <ul class="small">
+      <li>Where Bitcoin is used daily</li>
+      <li>Why Lightning enables real commerce</li>
+      <li>How people use Bitcoin differently worldwide</li>
+      <li>What adoption actually looks like on the ground</li>
+    </ul>
+    <div class="quote small">
+      Satoshium lens: Adoption doesn’t happen in headlines — it happens quietly in everyday life.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Quick navigation</div>
+    <h2 style="margin-top:6px;">📌 Sections</h2>
+
+    <ol class="toc">
+      <li><a href="#payments">1) Everyday payments</a></li>
+      <li><a href="#remittance">2) Global remittances</a></li>
+      <li><a href="#savings">3) Savings &amp; inflation protection</a></li>
+      <li><a href="#business">4) Businesses &amp; merchants</a></li>
+      <li><a href="#freedom">5) Financial freedom use cases</a></li>
+      <li><a href="#emerging">6) Emerging economies</a></li>
+      <li><a href="#future">7) Where this is heading</a></li>
+      <li><a href="#faq">8) Quick FAQ</a></li>
+    </ol>
+  </div>
+</div>
+
+<section class="card" id="payments">
+<div class="kicker">1) Daily usage</div>
+<h2>Everyday payments</h2>
+<p class="small">
+With Lightning, Bitcoin can be used for instant payments worldwide. Coffee, groceries, subscriptions, and online purchases can all be paid in seconds.
+</p>
+<ul class="small">
+<li>Instant global transactions</li>
+<li>Near-zero fees</li>
+<li>No bank approval needed</li>
+<li>Works across borders</li>
+</ul>
+<div class="quote small">
+Bitcoin becomes most powerful when it’s spendable — not just held.
+</div>
+</section>
+
+<section class="card" id="remittance">
+<div class="kicker">2) Cross-border money</div>
+<h2>Global remittances</h2>
+<p class="small">
+Millions of people send money across borders to family. Traditional systems can take days and charge high fees. Bitcoin moves value in minutes.
+</p>
+<ul class="small">
+<li>Send globally in seconds</li>
+<li>Lower fees than traditional remittance</li>
+<li>No bank required</li>
+<li>Accessible with only a phone</li>
+</ul>
+<div class="quote small">
+For many families, Bitcoin isn’t speculation — it’s survival infrastructure.
+</div>
+</section>
+
+<section class="card" id="savings">
+<div class="kicker">3) Store of value</div>
+<h2>Savings &amp; inflation protection</h2>
+<p class="small">
+In countries with unstable currencies, Bitcoin serves as long-term savings protection.
+</p>
+<ul class="small">
+<li>Fixed supply (cannot be printed)</li>
+<li>Global portability</li>
+<li>Self-custody possible</li>
+<li>Independent of local banking systems</li>
+</ul>
+<div class="quote small">
+Bitcoin is often used first as savings, then as payments.
+</div>
+</section>
+
+<section class="card" id="business">
+<div class="kicker">4) Commerce</div>
+<h2>Businesses &amp; merchants</h2>
+<p class="small">
+Businesses worldwide now accept Bitcoin and Lightning.
+</p>
+<ul class="small">
+<li>Lower payment processing fees</li>
+<li>No chargebacks</li>
+<li>Instant settlement</li>
+<li>Global customer reach</li>
+</ul>
+<div class="quote small">
+For merchants, Bitcoin reduces friction and removes middlemen.
+</div>
+</section>
+
+<section class="card" id="freedom">
+<div class="kicker">5) Independence</div>
+<h2>Financial freedom use cases</h2>
+<p class="small">
+Bitcoin enables financial independence where traditional systems restrict access.
+</p>
+<ul class="small">
+<li>Banking for the unbanked</li>
+<li>Censorship-resistant transactions</li>
+<li>Ownership without permission</li>
+<li>Portable wealth</li>
+</ul>
+<div class="quote small">
+If you can memorize 12 words, you can cross a border with your wealth.
+</div>
+</section>
+
+<section class="card" id="emerging">
+<div class="kicker">6) Adoption zones</div>
+<h2>Emerging economies</h2>
+<p class="small">
+Bitcoin adoption often grows fastest where traditional systems fail.
+</p>
+<ul class="small">
+<li>High inflation countries</li>
+<li>Capital control regions</li>
+<li>Areas with limited banking</li>
+<li>Younger digital-first populations</li>
+</ul>
+<div class="quote small">
+Bitcoin spreads fastest where it solves real problems.
+</div>
+</section>
+
+<section class="card" id="future">
+<div class="kicker">7) Forward view</div>
+<h2>Where this is heading</h2>
+<p class="small">
+Bitcoin and Lightning are building toward a parallel global financial system:
+</p>
+<ul class="small">
+<li>Instant global payments</li>
+<li>Machine-to-machine transactions</li>
+<li>AI agent commerce</li>
+<li>Borderless digital economies</li>
+</ul>
+<div class="quote small">
+Satoshium exists because Bitcoin enables programmable, verifiable value.
+</div>
+</section>
+
+<section class="card" id="faq">
+<div class="kicker">8) Quick FAQ</div>
+<h2>Quick FAQ</h2>
+
+<p class="small"><strong>Is Bitcoin really used daily?</strong><br>
+Yes. Millions use it globally for payments, savings, and transfers.</p>
+
+<p class="small"><strong>Is Lightning required?</strong><br>
+Lightning enables instant small payments. Base layer handles long-term settlement.</p>
+
+<p class="small"><strong>Will adoption grow?</strong><br>
+Adoption typically follows utility. As infrastructure improves, usage expands.</p>
+
+<div class="quote small">
+Real adoption rarely trends on social media — it grows quietly, then suddenly.
+</div>
+</section>
+
+<hr>
+
+<div class="footer">
+<strong>Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</strong>
+
+<hr>
+  
+<div style="margin-top:10px;">GitHub: <a href="https://github.com/SatoshiumAI">SatoshiumAI</a></div>
+<div>Main Site: <a href="https://satoshium.ai">satoshium.ai</a></div>
+</div>
+
+</main>
+</body>
+</html>
