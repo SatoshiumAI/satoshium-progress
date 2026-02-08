@@ -1,209 +1,178 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium • Public Repo Map</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Satoshium • Public Repo Map</title>
 
-  <style>
-    :root{
-      --bg:#07090d;
-      --panel:#0c1018;
-      --text:#e8edf7;
-      --muted:#9aa7bd;
-      --gold:#d6a34a;
-      --gold2:#f4c36a;
-      --line:rgba(214,163,74,.18);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-    a{color:var(--gold2);text-decoration:none}
-    a:hover{color:var(--gold)}
-    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-    .topbar{
-      position:sticky;top:0;z-index:20;
-      background:rgba(7,9,13,.92);
-      border-bottom:1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .mark{
-      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-      border:1px solid var(--line);color:var(--gold2);font-weight:900
-    }
-    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-    .tag{font-size:12px;color:var(--muted);margin-top:2px}
-    .nav{display:flex;gap:16px;align-items:center}
-    .nav a{color:var(--muted);font-size:13px}
-    .nav a:hover{color:var(--gold2)}
-    .content{padding:34px 18px 60px}
-    h1,h2{margin:0 0 10px}
-    h1{font-size:30px;color:var(--gold2)}
-    h2{font-size:20px;color:var(--gold2);margin-top:26px}
-    p,li{color:var(--text)}
-    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px;
-      margin:16px 0;
-    }
-    .muted{color:var(--muted)}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
-      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
-    }
-    ul{margin:8px 0 0 18px}
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid var(--line);
-      background:rgba(214,163,74,.10);
-      color:var(--gold2);
-      font-weight:700;
-      font-size:13px;
-    }
-    .btn:hover{background:rgba(214,163,74,.16)}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;font-weight:800;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(214,163,74,.06);
-      color:var(--muted);
-    }
-    .badge.live{color:var(--gold2)}
-    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
-    .footer .muted{margin-top:6px}
-    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
-  </style>
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
+}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,9,13,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 18px
+}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+  border:1px solid var(--line);color:var(--gold2);font-weight:900
+}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:16px;align-items:center}
+.nav a{color:var(--muted);font-size:13px}
+.nav a:hover{color:var(--gold2)}
+.content{padding:40px 18px 60px}
+h1,h2{margin:0 0 10px}
+h1{font-size:32px;color:var(--gold2)}
+h2{font-size:20px;color:var(--gold2);margin-top:26px}
+p,li{color:var(--text)}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  margin:18px 0;
+}
+.muted{color:var(--muted)}
+.footer{
+  border-top:1px solid var(--line);
+  padding:22px 0 32px;
+  margin-top:40px;
+}
+.footer-title{
+  font-weight:800;
+  color:var(--text);
+  margin-bottom:6px;
+}
+.center{text-align:center;margin-top:30px}
+.button{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.12);
+  color:var(--gold2);
+  font-weight:700;
+}
+.button:hover{background:rgba(214,163,74,.2)}
+ul{margin-left:20px}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="mark">S</div>
-        <div>
-          <div class="name">SATOSHIUM</div>
-          <div class="tag">AI, governed by Bitcoin</div>
-        </div>
-      </div>
 
-      <nav class="nav">
-  <a href="./">Home</a>
-  <a href="./what-is-satoshium.html">What is Satoshium?</a>
-  <a href="./roadmap.html">Roadmap</a>
-  <a href="./changelog.html">Changelog</a>
-  <a href="./demos.html">Demos</a>
-  <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
-</nav>
-    </div>
-  </header>
-<body>
+<!-- HEADER -->
 <header class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="mark">S</div>
-        <div>
-          <div class="name">SATOSHIUM</div>
-          <div class="tag">AI, governed by Bitcoin</div>
-        </div>
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
       </div>
-<!-- NAV -->
-<div class="nav">
-  <a href="./index.html">Home</a>
-  <a href="./what-is-satoshium.html">What is Satoshium?</a>
-  <a href="./roadmap.html">Roadmap</a>
-  <a href="./changelog.html">Changelog</a>
-  <a href="./demos.html">Demos</a>
-  <a href="https://satoshium.ai" target="_blank">Main Site</a>
-</div>
+    </div>
 
-<div class="container">
+    <nav class="nav">
+      <a href="./">Home</a>
+      <a href="./what-is-satoshium.html">What is Satoshium?</a>
+      <a href="./roadmap.html">Roadmap</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./demos.html">Demos</a>
+      <a href="https://satoshium.ai" target="_blank">Main Site</a>
+    </nav>
+  </div>
+</header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Public Repo Map</h1>
-  <p class="muted">
-    A high-level view of the Satoshium ecosystem.<br>
-    Some repositories remain private during development — this map shows what each system does and how it fits together.
-  </p>
-</div>
+<!-- CONTENT -->
+<main class="wrap content">
 
-<!-- CORE INFRASTRUCTURE -->
+<h1>Public Repo Map</h1>
+<p class="muted">
+A high-level view of the Satoshium ecosystem.<br>
+Some repositories remain private during development — this map shows what each system does and how it fits together.
+</p>
+
 <div class="card">
-  <h2>🟢 Core Infrastructure</h2>
-  <ul class="clean">
-    <li><strong>Satoshium Core</strong> — protocol logic, agent rules, trust architecture</li>
-    <li><strong>Satoshium Agents</strong> — sovereign AI agents governed by cryptographic rules</li>
-    <li><strong>Satoshium Safety (Aegis)</strong> — agent firewall + decision transparency</li>
-    <li><strong>Satoshium Signals</strong> — public releases, progress tracking, milestones</li>
-  </ul>
+<h2>🟢 Core Infrastructure</h2>
+<ul>
+<li><strong>Satoshium Core</strong> — protocol logic, agent rules, trust architecture</li>
+<li><strong>Satoshium Agents</strong> — sovereign AI agents governed by cryptographic rules</li>
+<li><strong>Satoshium Safety (Aegis)</strong> — agent firewall + decision transparency</li>
+<li><strong>Satoshium Signals</strong> — public releases, progress tracking, milestones</li>
+</ul>
 </div>
 
-<!-- PUBLIC LAYER -->
 <div class="card">
-  <h2>🟡 Public Build Layer</h2>
-  <ul class="clean">
-    <li><strong>satoshium-progress</strong> — public roadmap, demos, changelog (this site)</li>
-    <li><strong>Live Demos</strong> — working tools released when ready</li>
-    <li><strong>Explainers</strong> — plain-English architecture + mission pages</li>
-  </ul>
+<h2>🟡 Public Build Layer</h2>
+<ul>
+<li><strong>satoshium-progress</strong> — public roadmap, demos, changelog (this site)</li>
+<li><strong>Live Demos</strong> — working tools released when ready</li>
+<li><strong>Explainers</strong> — plain-English architecture + mission pages</li>
+</ul>
 </div>
 
-<!-- PRIVATE LAYER -->
 <div class="card">
-  <h2>🔵 Private Development (in progress)</h2>
-  <p class="muted">
-    These systems are under active development and will open gradually as they stabilize.
-  </p>
-
-  <ul class="clean">
-    <li>Agent simulation environments</li>
-    <li>Decentralized knowledge systems</li>
-    <li>Governance + trust scoring frameworks</li>
-    <li>Future apps and experiments</li>
-    <li>Bitcoin-aligned AI infrastructure components</li>
-  </ul>
+<h2>🔵 Private Development (in progress)</h2>
+<p class="muted">These systems are under active development and will open gradually as they stabilize.</p>
+<ul>
+<li>Agent simulation environments</li>
+<li>Decentralized knowledge systems</li>
+<li>Governance + trust scoring frameworks</li>
+<li>Future apps and experiments</li>
+<li>Bitcoin-aligned AI infrastructure components</li>
+</ul>
 </div>
 
-<!-- FUTURE -->
 <div class="card">
-  <h2>🟠 Long-Term Vision</h2>
-  <ul class="clean">
-    <li>AI governed by cryptographic truth</li>
-    <li>Open, inspectable autonomous agents</li>
-    <li>Decentralized intelligence infrastructure</li>
-    <li>Public progress. Real tools. Long-term future.</li>
-  </ul>
+<h2>🟠 Long-Term Vision</h2>
+<ul>
+<li>AI governed by cryptographic truth</li>
+<li>Open, inspectable autonomous agents</li>
+<li>Decentralized intelligence infrastructure</li>
+<li>Public progress. Real tools. Long-term future.</li>
+</ul>
 </div>
 
-<!-- GITHUB BUTTON -->
 <div class="center">
-  <a class="button" href="https://github.com/SatoshiumAI" target="_blank">
-    View GitHub Organization
-  </a>
+<a class="button" href="https://github.com/SatoshiumAI" target="_blank">
+View GitHub Organization
+</a>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  <p class="muted">
-    Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
-  </p>
-
-  <p class="muted">
-    GitHub: <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a><br>
-    Main Site: <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-  </p>
+<div class="footer-title">
+Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
 </div>
 
+<div class="muted">
+GitHub: <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a><br>
+Main Site: <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
 </div>
+</div>
+
+</main>
 </body>
 </html>
