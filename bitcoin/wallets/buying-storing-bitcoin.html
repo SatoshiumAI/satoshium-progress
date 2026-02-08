@@ -4,330 +4,100 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Buying and storing bitcoin • Satoshium</title>
-  <meta name="description" content="A practical, security-first guide to buying bitcoin and storing it safely—custody options, steps, checklists, and common mistakes to avoid." />
 
   <style>
     :root{
-      --bg:#070a0f;
-      --panel:#0b1220;
-      --panel2:#0b1428;
-      --text:#e7edf7;
-      --muted:#a9b6cc;
-      --gold:#f5b942;
-      --gold2:#ffcf6a;
-      --line:rgba(245,185,66,.18);
-      --line2:rgba(255,255,255,.06);
-      --shadow: 0 12px 30px rgba(0,0,0,.38);
-      --radius:18px;
-      --radius2:14px;
-      --max: 1120px;
-      --link:#ffd480;
-      --ok:#50dc8c;
-      --warn:#ff8c46;
-      --blue:#50a0ff;
-      --pink:#ff5fd7;
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
     }
-
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(900px 600px at 20% -10%, rgba(245,185,66,.10), transparent 60%),
-        radial-gradient(900px 600px at 85% 0%, rgba(245,185,66,.07), transparent 55%),
-        radial-gradient(700px 500px at 50% 115%, rgba(80,160,255,.06), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.55;
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
     }
-
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 18px 64px}
-
-    /* ===== Top header (Public Build Progress style) ===== */
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
     .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:10px 0 18px;
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 220px;
+    .topbar .wrap{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px
     }
-    .logo{
-      width:34px; height:34px;
-      border-radius:10px;
-      background: linear-gradient(135deg, rgba(245,185,66,.22), rgba(245,185,66,.05));
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:22px}
+    h3{font-size:16px;color:var(--gold2);margin-top:14px}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
       border:1px solid var(--line);
-      display:grid; place-items:center;
-      box-shadow: var(--shadow);
-      flex:0 0 auto;
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
     }
-    .logo span{font-weight:800; color:var(--gold); letter-spacing:.5px}
-    .brandtext{display:flex; flex-direction:column}
-    .brandname{font-weight:800; letter-spacing:.6px}
-    .tagline{font-size:12px; color:var(--muted); margin-top:2px}
-
-    .nav{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-    .nav a{
-      font-size:13.5px;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-    }
-    .nav a:hover{
-      border-color:var(--line2);
-      color:var(--text);
-      text-decoration:none;
-    }
-    .nav .active{
-      color:var(--text);
-      border-color:var(--line);
-      background: rgba(245,185,66,.06);
-    }
-
-    /* ===== Badge pill (Public Build Progress style) ===== */
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line2);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      font-size:13px;
-      width: fit-content;
-      box-shadow: 0 10px 26px rgba(0,0,0,.22);
-    }
-    .dot{
-      width:10px; height:10px;
-      border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), rgba(255,255,255,0) 55%),
-                  linear-gradient(135deg, rgba(255,95,215,.95), rgba(80,160,255,.75));
-      box-shadow: 0 0 0 3px rgba(255,95,215,.10);
-      flex:0 0 auto;
-    }
-
-    /* ===== Title block ===== */
-    h1{
-      margin:14px 0 8px;
-      font-size:36px;
-      line-height:1.15;
-      letter-spacing:-.5px;
-      color:var(--gold2);
-    }
-    .lede{
-      margin:0 0 18px;
-      color:var(--muted);
-      max-width: 92ch;
-      font-size:15.5px;
-    }
-
-    /* ===== Panels (Public Build Progress cards) ===== */
-    .panel{
-      background: rgba(11,18,32,.70);
-      border:1px solid var(--line2);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-      margin-top:14px;
-    }
-    .panel h2{
-      margin:0 0 12px;
-      font-size:18px;
-      letter-spacing:.2px;
-      color: var(--gold2);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .panel h3{
-      margin:16px 0 8px;
-      font-size:15.5px;
-      color: var(--text);
-    }
-    .panel p{margin:10px 0}
     .muted{color:var(--muted)}
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:14px;
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
     }
-    @media (min-width: 980px){
-      .split{grid-template-columns: 1.2fr .8fr}
-    }
-
-    /* ===== List styles ===== */
-    ul{margin:10px 0 10px 22px}
-    li{margin:6px 0}
-
-    /* ===== Mini “feature” list boxes ===== */
-    .box{
-      border:1px solid var(--line2);
-      background: rgba(0,0,0,.18);
-      border-radius: var(--radius2);
-      padding:14px;
-    }
-
-    /* ===== TOC ===== */
-    .toc a{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 860px){.grid{grid-template-columns:1fr 1fr}}
+    .kicker{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    .quote{
+      border-left:3px solid var(--line);
       padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      margin:8px 0;
-      font-size:13.5px;
-    }
-    .toc a:hover{
-      border-color: rgba(245,185,66,.22);
-      background: rgba(245,185,66,.06);
-      text-decoration:none;
-    }
-    .toc .hint{color:var(--muted); font-size:12px}
-
-    /* ===== Status lines (like Now Shipping / Focus list) ===== */
-    .statuslist{
-      list-style:none;
-      padding:0;
-      margin:10px 0 0;
-    }
-    .statuslist li{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      margin:9px 0;
-    }
-    .check{
-      width:18px; height:18px;
-      border-radius:6px;
-      display:grid; place-items:center;
-      border:1px solid rgba(80,220,140,.30);
-      background: rgba(80,220,140,.10);
-      color: var(--ok);
-      flex:0 0 auto;
-      font-weight:800;
-      font-size:12px;
-      line-height:1;
-      margin-top:2px;
-    }
-    .bullet{
-      width:18px; height:18px;
-      border-radius:6px;
-      display:grid; place-items:center;
-      border:1px solid rgba(245,185,66,.22);
-      background: rgba(245,185,66,.08);
-      color: var(--gold2);
-      flex:0 0 auto;
-      font-weight:900;
-      font-size:12px;
-      line-height:1;
-      margin-top:2px;
-    }
-
-    /* ===== Callouts ===== */
-    .callout{
-      margin-top:12px;
-      padding:12px 12px;
-      border-radius: 14px;
-      border:1px solid rgba(80,160,255,.18);
-      background: rgba(80,160,255,.07);
-      color: var(--text);
-    }
-    .callout.ok{
-      border-color: rgba(80,220,140,.20);
-      background: rgba(80,220,140,.07);
-    }
-    .callout.warn{
-      border-color: rgba(255,140,70,.22);
-      background: rgba(255,140,70,.08);
-    }
-
-    /* ===== Table ===== */
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      overflow:hidden;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
-      margin-top:12px;
-    }
-    th, td{
-      text-align:left;
-      padding:12px 12px;
-      vertical-align:top;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      font-size:13.5px;
-    }
-    th{
-      color:var(--gold2);
-      font-weight:800;
-      background: rgba(0,0,0,.12);
-    }
-    tr:last-child td{border-bottom:none}
-
-    /* ===== Footer links ===== */
-    .footer{
-      margin-top:18px;
-      padding-top:14px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      color: var(--muted);
-      font-size:12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .back{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
+      background:rgba(214,163,74,.06);
+      border-radius:12px;
       color:var(--text);
     }
-    .back:hover{
-      text-decoration:none;
-      border-color: rgba(245,185,66,.22);
-      background: rgba(245,185,66,.06);
+    .footer{
+      border-top:1px solid var(--line);
+      padding:18px 0 32px;
+      color:var(--muted)
     }
-    .mini{
-      font-size:12.5px;
-      color: var(--muted);
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.10);
+      color:var(--gold2);
+      font-weight:800;
+      font-size:13px;
     }
-
-    /* Anchor offset for fixed-like header feel */
-    section[id]{scroll-margin-top: 18px;}
+    .btn:hover{background:rgba(214,163,74,.16)}
+    .tiny{font-size:12px;color:var(--muted)}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-
-    <!-- ===== Header (match Public Build Progress) ===== -->
+  <header class="topbar">
     <div class="wrap">
       <div class="brand">
         <div class="mark">S</div>
@@ -338,24 +108,18 @@
       </div>
 
       <nav class="nav">
-        <a href="../index.html">Home</a>
-        <a href="../what-is-satoshium.html">What is Satoshium?</a>
-        <a href="../what-is-bitcoin.html">What is Bitcoin?</a>
-        <a href="../why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-        <a href="../roadmap.html">Roadmap</a>
-        <a href="../changelog.html">Changelog</a>
-        <a href="../demos.html">Demos</a>
-        <a href="../repo-map.html">Repo Map</a>
+        <a href="./">Home</a>
+        <a href="./what-is-satoshium.html">What is Satoshium?</a>
+        <a href="./what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./changelog.html">Changelog</a>
+        <a href="./demos.html">Demos</a>
+        <a href="./repo-map.html">Repo Map</a>
         <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
       </nav>
     </div>
-
-    <!-- ===== Badge + Title (match Public Build Progress) ===== -->
-    <div class="badge">
-      <span class="dot" aria-hidden="true"></span>
-      Wallets &amp; security
-    </div>
-
+  </header>
     <h1>Buying and storing bitcoin</h1>
     <p class="lede">
       This is a <strong>security-first</strong>, step-by-step guide to buying bitcoin and storing it responsibly.
