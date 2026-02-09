@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Satoshium • How Bitcoin Works</title>
+
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+      --ok:rgba(124, 225, 160, .85);
+      --warn:rgba(255, 196, 106, .9);
+      --bad:rgba(255, 120, 120, .85);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:var(--muted);font-size:13px;white-space:nowrap}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:26px}
+    h3{font-size:16px;color:var(--gold2);margin-top:0}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    .callout{
+      border-left:3px solid rgba(244,195,106,.7);
+      padding:12px 12px 12px 14px;
+      background:rgba(214,163,74,.06);
+      border-radius:12px;
+    }
+    ul{margin:8px 0 0 18px}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width: 860px){
+      .grid{grid-template-columns:1.1fr .9fr}
+    }
+
+    /* Sections list (matches your preferred look) */
+    .toc{
+      list-style:none;
+      padding-left:18px;   /* ✅ pushes numbers inward */
+      margin:10px 0 0 0;
+    }
+    .toc li{margin:8px 0}
+
+    /* Table */
+    .tablewrap{overflow:auto;border-radius:14px;border:1px solid var(--line)}
+    table{width:100%;border-collapse:collapse;min-width:720px;background:rgba(7,9,13,.35)}
+    th,td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{color:var(--gold2);text-align:left;font-size:13px;letter-spacing:.04em;background:rgba(214,163,74,.06)}
+    td{color:var(--text);font-size:14px}
+    tr:last-child td{border-bottom:none}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(214,163,74,.06);color:var(--muted);font-weight:800;font-size:12px
+    }
+    .chip.ok{color:var(--ok)}
+    .chip.warn{color:var(--warn)}
+    .chip.bad{color:var(--bad)}
+
+    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+    code{color:var(--gold2)}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <!-- ✅ Use this exact nav format going forward -->
+      <nav class="nav">
+        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="pill">🟠 Bitcoin 101</div>
+
+    <h1 style="margin-top:12px;">How Bitcoin Works</h1>
+    <p class="muted">
+      Bitcoin is not “an app” — it’s a global network that lets people transfer value without needing a bank.
+      This page explains the moving parts in plain English: transactions, blocks, mining, nodes, and why it’s hard to fake.
+    </p>
+
+    <div class="card">
+      <div class="callout">
+        <div class="k">One-sentence summary</div>
+        <div style="margin-top:6px;">
+          <strong>Bitcoin works because thousands of independent computers (nodes) enforce the same rules</strong> —
+          and miners prove work to add new blocks, making history expensive to rewrite.
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick navigation / Sections -->
+    <div class="card">
+      <div class="k">Quick navigation</div>
+      <h2 style="margin-top:6px;">📌 Sections</h2>
+      <ol class="toc">
+        <li><a href="#parts">1) The 5 parts of Bitcoin (simple map)</a></li>
+        <li><a href="#keys">2) Keys, addresses, and ownership</a></li>
+        <li><a href="#tx">3) Transactions & the mempool</a></li>
+        <li><a href="#blocks">4) Blocks & confirmations</a></li>
+        <li><a href="#mining">5) Mining & proof-of-work (why it’s secure)</a></li>
+        <li><a href="#nodes">6) Nodes & consensus (who enforces rules)</a></li>
+        <li><a href="#fees">7) Fees, finality, and “why it sometimes costs more”</a></li>
+        <li><a href="#supply">8) Fixed supply, halving, and difficulty</a></li>
+        <li><a href="#risks">9) What can go wrong (and what cannot)</a></li>
+        <li><a href="#next">10) Next steps</a></li>
+      </ol>
+    </div>
+
+    <div class="card" id="parts">
+      <h2 style="margin-top:0;">1) The 5 parts of Bitcoin (simple map)</h2>
+      <div class="tablewrap" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:22%;">Part</th>
+              <th style="width:48%;">What it does</th>
+              <th style="width:30%;">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wallet</strong></td>
+              <td>Stores your <em>keys</em> (proof you own bitcoin).</td>
+              <td><span class="chip warn">Ownership</span> is key control.</td>
+            </tr>
+            <tr>
+              <td><strong>Transaction</strong></td>
+              <td>A signed message that moves bitcoin from one owner to another.</td>
+              <td>Transfers value without asking permission.</td>
+            </tr>
+            <tr>
+              <td><strong>Mempool</strong></td>
+              <td>A waiting room where unconfirmed transactions sit.</td>
+              <td>Fees help decide what gets confirmed first.</td>
+            </tr>
+            <tr>
+              <td><strong>Blocks</strong></td>
+              <td>Batches of transactions linked together in time order.</td>
+              <td>Creates shared history for everyone.</td>
+            </tr>
+            <tr>
+              <td><strong>Mining + Nodes</strong></td>
+              <td>Miners propose blocks; nodes verify and enforce rules.</td>
+              <td><span class="chip ok">Rules</span> stay predictable and enforceable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin:10px 0 0;">
+        Think of Bitcoin as a rule-governed ledger: miners <em>earn the right</em> to write the next page, and nodes decide if the page is valid.
+      </p>
+    </div>
+
+    <div class="card" id="keys">
+      <h2 style="margin-top:0;">2) Keys, addresses, and ownership</h2>
+      <ul>
+        <li><strong>Private key</strong>: your secret. It authorizes spending.</li>
+        <li><strong>Public key</strong>: derived from the private key. Used to verify signatures.</li>
+        <li><strong>Address</strong>: a shareable destination (like an inbox). It points to where bitcoin can be sent.</li>
+      </ul>
+      <div class="callout" style="margin-top:12px;">
+        <div class="k">Core idea</div>
+        <div style="margin-top:6px;">
+          <strong>If you control the private keys, you control the bitcoin.</strong>
+          If you don’t, you’re relying on someone else.
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px;">
+        A wallet doesn’t “hold coins” like a pocket. It holds the keys that can unlock spending rights recorded on the blockchain.
+      </p>
+    </div>
+
+    <div class="card" id="tx">
+      <h2 style="margin-top:0;">3) Transactions & the mempool</h2>
+      <p>
+        When you send bitcoin, your wallet creates a transaction that:
+      </p>
+      <ul>
+        <li>references previous outputs you own (the “inputs”)</li>
+        <li>specifies who receives it (the “outputs”)</li>
+        <li>includes a fee for miners</li>
+        <li>is signed with your private key</li>
+      </ul>
+
+      <div class="grid" style="margin-top:12px;">
+        <div class="card" style="margin:0;">
+          <h3>What is the mempool?</h3>
+          <p class="muted" style="margin-top:6px;">
+            The mempool is a shared waiting area. Nodes relay valid transactions to each other.
+            Miners pick from the mempool when building a block.
+          </p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h3>Why do fees exist?</h3>
+          <p class="muted" style="margin-top:6px;">
+            Block space is limited. Fees help prioritize which transactions get included first —
+            especially during busy times.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="blocks">
+      <h2 style="margin-top:0;">4) Blocks & confirmations</h2>
+      <p>
+        A <strong>block</strong> is a bundle of transactions plus a link to the previous block.
+        These links create a chain: the <strong>blockchain</strong>.
+      </p>
+      <ul>
+        <li><strong>1 confirmation</strong> = your transaction is included in a block.</li>
+        <li><strong>More confirmations</strong> = more blocks are built on top of that block.</li>
+      </ul>
+
+      <div class="callout" style="margin-top:12px;">
+        <div class="k">Why confirmations matter</div>
+        <div style="margin-top:6px;">
+          Rewriting history would require redoing the work for that block <em>and</em> catching up with the network.
+          The deeper the confirmation, the harder it is to reverse.
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="mining">
+      <h2 style="margin-top:0;">5) Mining & proof-of-work (why it’s secure)</h2>
+      <p>
+        Mining is a competition to find a valid block by performing computational work.
+        This work is called <strong>proof-of-work</strong>.
+      </p>
+      <ul>
+        <li>Miners try many guesses (hashes) until they find one that meets the network’s target.</li>
+        <li>The first miner to find a valid block broadcasts it to the network.</li>
+        <li>Nodes verify the block. If valid, it becomes the next block in the chain.</li>
+      </ul>
+
+      <div class="grid" style="margin-top:12px;">
+        <div class="card" style="margin:0;">
+          <h3>What miners do</h3>
+          <p class="muted" style="margin-top:6px;">
+            Miners propose blocks and earn rewards (block subsidy + fees) for securing the network.
+          </p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h3>What proof-of-work prevents</h3>
+          <p class="muted" style="margin-top:6px;">
+            It makes attacks expensive. To rewrite history, an attacker must outspend the honest network’s power.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="nodes">
+      <h2 style="margin-top:0;">6) Nodes & consensus (who enforces rules)</h2>
+      <p>
+        A <strong>node</strong> is a computer running Bitcoin software that verifies rules:
+      </p>
+      <ul>
+        <li>Are transactions properly signed?</li>
+        <li>Are coins being spent twice?</li>
+        <li>Are block rules followed (size, validity, subsidy, etc.)?</li>
+      </ul>
+
+      <div class="callout" style="margin-top:12px;">
+        <div class="k">Important distinction</div>
+        <div style="margin-top:6px;">
+          <strong>Miners propose.</strong> <strong>Nodes decide what is valid.</strong>
+          Consensus is rule-enforcement across many independent nodes.
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="fees">
+      <h2 style="margin-top:0;">7) Fees, finality, and “why it sometimes costs more”</h2>
+      <ul>
+        <li><strong>Fees</strong> are paid to miners and measured in sats per byte (or sats/vB).</li>
+        <li>When the mempool is crowded, higher fees tend to confirm faster.</li>
+        <li><strong>Finality</strong> increases with confirmations (practical finality for most use cases after multiple confirmations).</li>
+      </ul>
+      <p class="muted" style="margin-top:10px;">
+        For instant, low-fee payments, Bitcoin uses Layer-2 systems like the Lightning Network (when appropriate).
+      </p>
+    </div>
+
+    <div class="card" id="supply">
+      <h2 style="margin-top:0;">8) Fixed supply, halving, and difficulty</h2>
+      <div class="grid" style="margin-top:8px;">
+        <div class="card" style="margin:0;">
+          <h3>Fixed supply</h3>
+          <p class="muted" style="margin-top:6px;">
+            Bitcoin’s maximum supply is capped at <strong>21,000,000 BTC</strong>.
+            New bitcoin is issued on a schedule built into the protocol.
+          </p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h3>Halving</h3>
+          <p class="muted" style="margin-top:6px;">
+            Roughly every four years, the new-coin reward per block is cut in half.
+            This slows new issuance over time.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin:14px 0 0;">
+        <h3>Difficulty adjustment</h3>
+        <p class="muted" style="margin-top:6px;">
+          The network adjusts mining difficulty periodically to target a steady block rhythm.
+          If miners add more power, difficulty rises. If power drops, difficulty falls.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" id="risks">
+      <h2 style="margin-top:0;">9) What can go wrong (and what cannot)</h2>
+
+      <div class="tablewrap" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:34%;">Risk</th>
+              <th style="width:36%;">What it looks like</th>
+              <th style="width:30%;">Best defense</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>User error</strong></td>
+              <td>Sending to wrong address, losing keys, weak backups.</td>
+              <td><span class="chip warn">Self-custody discipline</span></td>
+            </tr>
+            <tr>
+              <td><strong>Scams</strong></td>
+              <td>Fake support, phishing, “send to receive more,” malware.</td>
+              <td><span class="chip warn">Verification + caution</span></td>
+            </tr>
+            <tr>
+              <td><strong>Exchange risk</strong></td>
+              <td>Withdrawals paused, insolvency, account freezes.</td>
+              <td><span class="chip warn">Withdraw to your wallet</span></td>
+            </tr>
+            <tr>
+              <td><strong>Protocol rule break</strong></td>
+              <td>Trying to create invalid coins or fake signatures.</td>
+              <td><span class="chip ok">Nodes reject invalid data</span></td>
+            </tr>
+            <tr>
+              <td><strong>“Someone changes the rules”</strong></td>
+              <td>Attempt to force a rule change without broad agreement.</td>
+              <td><span class="chip ok">Consensus is voluntary</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted" style="margin:10px 0 0;">
+        The most common failures are human-level (keys, scams, custody), not “Bitcoin got hacked.”
+      </p>
+    </div>
+
+    <div class="card" id="next">
+      <h2 style="margin-top:0;">10) Next steps</h2>
+      <ul>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">Back to: What is Bitcoin?</a></li>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/bitcoin-vs-fiat.html">Read: Bitcoin vs Fiat</a></li>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/glossary.html">Open: Glossary (Bitcoin 101)</a></li>
+        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/wallets-security/buying-and-storing-bitcoin.html">Next: Buying & Storing Bitcoin</a></li>
+      </ul>
+      <p class="muted" style="margin-top:10px;">
+        Built in public. No hype — just clarity.
+      </p>
+    </div>
+
+    <hr />
+
+    <div class="footer-title">
+      Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+    </div>
+    <p></p>
+    <hr />
+    <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+    <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+  </main>
+</body>
+</html>
