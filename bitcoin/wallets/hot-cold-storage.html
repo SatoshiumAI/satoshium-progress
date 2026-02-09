@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hot wallets vs cold storage — Satoshium</title>
+  <meta name="description" content="A beginner-friendly explanation of hot wallets vs cold storage, with practical rules for spending vs saving." />
+
+  <style>
+    :root{
+      --bg:#070A0F;
+      --panel:#0B0F17;
+      --panel2:#0B111B;
+      --border:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.86);
+      --muted:rgba(255,255,255,.64);
+      --dim:rgba(255,255,255,.50);
+      --gold:#F4B451;
+      --gold2:#E9A946;
+      --green:#5EE1A0;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(244,180,81,.10), transparent 55%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(94,225,160,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      background: rgba(7,10,15,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(244,180,81,.18);
+    }
+    .topbar-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 210px;
+    }
+    .logo{
+      width:38px; height:38px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      background: linear-gradient(180deg, rgba(244,180,81,.22), rgba(244,180,81,.06));
+      border: 1px solid rgba(244,180,81,.28);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      font-weight:800;
+      color: var(--gold);
+    }
+    .brand-text .name{
+      letter-spacing: .12em;
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--gold);
+    }
+    .brand-text .tag{
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav{
+      display:flex; flex-wrap:wrap; gap:14px;
+      justify-content:flex-end;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      border-color: rgba(244,180,81,.25);
+      background: rgba(244,180,81,.06);
+      text-decoration:none;
+      color: rgba(255,255,255,.88);
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 34px 18px 70px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(244,180,81,.22);
+      background: rgba(244,180,81,.08);
+      color: rgba(255,255,255,.82);
+      font-size: 12px;
+      letter-spacing:.02em;
+      width: fit-content;
+    }
+
+    h1{
+      margin: 14px 0 6px;
+      font-size: 38px;
+      letter-spacing: -.02em;
+      color: var(--gold);
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+      .nav{ justify-content:flex-start; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .kicker{
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
+    }
+    h2{
+      margin: 8px 0 10px;
+      font-size: 20px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 6px 0; }
+
+    /* Quick navigation list */
+    .toc{
+      list-style: none;     /* remove default bullets */
+      margin: 10px 0 0;
+      padding-left: 14px;  /* <— this indents the numbers away from the edge */
+    }
+    .toc li{ margin: 8px 0; }
+    .toc a{
+      color: rgba(255,255,255,.88);
+    }
+    .toc a:hover{
+      color: var(--gold);
+      text-decoration:none;
+    }
+
+    .section{
+      margin-top: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .section h3{
+      margin: 2px 0 8px;
+      font-size: 18px;
+      color: rgba(255,255,255,.92);
+    }
+    .section p{
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .note{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(94,225,160,.22);
+      background: rgba(94,225,160,.06);
+      color: rgba(255,255,255,.84);
+      font-size: 13px;
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      overflow:hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    th,td{
+      text-align:left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    th{
+      color: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.03);
+      font-weight: 700;
+    }
+    tr:last-child td{ border-bottom:none; }
+
+    .rule{
+      margin: 10px 0 0;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(244,180,81,.22);
+      background: rgba(244,180,81,.06);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+    }
+
+    footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
+    }
+    .footer-links{
+      margin-top: 10px;
+      display:flex; gap:18px; flex-wrap:wrap;
+      color: rgba(255,255,255,.65);
+    }
+    .footer-links a{ color: rgba(255,255,255,.72); }
+    .footer-links a:hover{ color: var(--gold); text-decoration:none; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div class="brand-text">
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="pill">🛡️ Wallets & security</div>
+    <h1>Hot wallets vs cold storage</h1>
+    <p class="subtitle">
+      Understanding where your Bitcoin lives is one of the most important lessons in your entire journey.
+      Hot wallets give convenience. Cold storage gives protection. The goal is learning when to use each.
+    </p>
+
+    <section class="grid">
+      <div class="card">
+        <div class="kicker">What you’ll learn</div>
+        <h2 style="margin-top:6px;">✅ The core idea</h2>
+        <ul class="bullets">
+          <li>What “hot wallet” means (and what it’s good for)</li>
+          <li>What “cold storage” means (and why it’s safer for savings)</li>
+          <li>A simple rule to protect most people from major mistakes</li>
+          <li>How experienced users combine both</li>
+        </ul>
+
+        <div class="rule">
+          <strong>Satoshium rule:</strong> hot wallet for spending, cold storage for saving.
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="kicker">Quick navigation</div>
+        <h2 style="margin-top:6px;">📌 Sections</h2>
+
+        <!-- NOTE: Using list-style:none so we control the "1)" text ourselves -->
+        <ol class="toc">
+          <li><a href="#simple">1) The simple explanation</a></li>
+          <li><a href="#hot">2) What is a hot wallet?</a></li>
+          <li><a href="#cold">3) What is cold storage?</a></li>
+          <li><a href="#compare">4) Hot vs cold — quick comparison</a></li>
+          <li><a href="#both">5) The smart way to use both</a></li>
+          <li><a href="#mistake">6) Common beginner mistake</a></li>
+          <li><a href="#rule">7) Simple safety rule</a></li>
+          <li><a href="#future">8) Why this matters for the future</a></li>
+          <li><a href="#next">9) Coming next</a></li>
+          <li><a href="#final">10) Final thought</a></li>
+        </ol>
+
+        <div class="note">
+          Tip: Bookmark this page. Wallet choices are where most avoidable losses begin.
+        </div>
+      </aside>
+    </section>
+
+    <section id="simple" class="section">
+      <h3>📌 The simple explanation</h3>
+      <p>There are two main ways to store Bitcoin:</p>
+      <ul class="bullets">
+        <li><strong>Hot wallet</strong> = connected to the internet</li>
+        <li><strong>Cold storage</strong> = kept offline</li>
+      </ul>
+      <p>Both are useful. Both have tradeoffs. The key is knowing when to use each.</p>
+    </section>
+
+    <section id="hot" class="section">
+      <h3>🔥 What is a hot wallet?</h3>
+      <p>A <strong>hot wallet</strong> is any wallet connected to the internet.</p>
+      <p><strong>Examples:</strong> mobile wallets, desktop wallets, exchange accounts, web wallets, Lightning wallets.</p>
+      <p>Hot wallets are designed for <strong>convenience and quick access</strong> — perfect for spending, small balances, everyday use, and learning.</p>
+      <div class="note">Think of a hot wallet like cash in your physical wallet: easy to access, not where you store your life savings.</div>
+    </section>
+
+    <section id="cold" class="section">
+      <h3>🧊 What is cold storage?</h3>
+      <p><strong>Cold storage</strong> means your Bitcoin keys are stored <strong>offline</strong>.</p>
+      <p><strong>Examples:</strong> hardware wallets, air-gapped devices, metal seed backups, paper backups (less common today).</p>
+      <p>Cold storage is designed for <strong>long-term security</strong> — savings, long-term holding, generational wealth, and Bitcoin you don’t plan to spend soon.</p>
+      <div class="note">Think of cold storage like a vault: harder to access, much harder to steal.</div>
+    </section>
+
+    <section id="compare" class="section">
+      <h3>⚖️ Hot vs cold — quick comparison</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Hot Wallet</th>
+            <th>Cold Storage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Internet connected</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Convenience</td>
+            <td>Very high</td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td>Medium</td>
+            <td>Very high</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Spending</td>
+            <td>Saving</td>
+          </tr>
+          <tr>
+            <td>Risk if hacked</td>
+            <td>Higher</td>
+            <td>Very low</td>
+          </tr>
+          <tr>
+            <td>Beginner friendly</td>
+            <td>Yes</td>
+            <td>Yes (with guidance)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="both" class="section">
+      <h3>🧠 The smart way to use both</h3>
+      <p>Most experienced Bitcoin users use <strong>both</strong>:</p>
+      <ul class="bullets">
+        <li>Small amount in a hot wallet for spending + learning</li>
+        <li>Majority in cold storage for long-term savings</li>
+      </ul>
+      <p>This gives you <strong>convenience + security</strong>.</p>
+    </section>
+
+    <section id="mistake" class="section">
+      <h3>⚠️ Common beginner mistake</h3>
+      <p>Keeping all Bitcoin on an exchange.</p>
+      <p>If an exchange freezes withdrawals, gets hacked, goes bankrupt, or locks your account, your Bitcoin is at risk.</p>
+      <div class="rule"><strong>Reminder:</strong> Not your keys = not your Bitcoin.</div>
+    </section>
+
+    <section id="rule" class="section">
+      <h3>🛡️ Simple safety rule</h3>
+      <p>Use this rule forever:</p>
+      <div class="rule"><strong>Hot wallet for spending.</strong> <strong>Cold storage for saving.</strong></div>
+      <p>That one principle alone protects most people from major loss.</p>
+    </section>
+
+    <section id="future" class="section">
+      <h3>🔮 Why this matters for the future</h3>
+      <p>As Bitcoin grows globally:</p>
+      <ul class="bullets">
+        <li>More people will self-custody</li>
+        <li>Security will matter more</li>
+        <li>Personal responsibility increases</li>
+      </ul>
+      <p>Learning hot vs cold storage now puts you ahead of the curve.</p>
+    </section>
+
+    <section id="next" class="section">
+      <h3>🧭 Coming next</h3>
+      <p>Future Wallet &amp; Security guides will include:</p>
+      <ul class="bullets">
+        <li>Step-by-step cold storage setup</li>
+        <li>Choosing your first hardware wallet</li>
+        <li>Multi-device backups</li>
+        <li>Inheritance planning</li>
+      </ul>
+      <p>One solid step at a time.</p>
+    </section>
+
+    <section id="final" class="section">
+      <h3>🧠 Final thought</h3>
+      <p>Bitcoin gives you something rare: <strong>true ownership</strong>.</p>
+      <p>Hot wallets give you freedom to use it. Cold storage gives you power to protect it.</p>
+      <p>Learn both — and you control your future.</p>
+    </section>
+  <hr>
+    <footer>
+      <div><strong>Satoshium</strong> is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <div class="footer-links">
+
+          <hr>
+        <a href="https://github.com/satoshiumai" target="_blank" rel="noreferrer">GitHub: SatoshiumAI</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main site: satoshium.ai</a>
+        </div>
+    </footer>
+  </main>
+</body>
+</html>
