@@ -11,14 +11,14 @@
     a{color:var(--gold2);text-decoration:none} a:hover{color:var(--gold)}
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
     .topbar{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.92);border-bottom:1px solid var(--line);backdrop-filter: blur(8px);}
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));border:1px solid var(--line);color:var(--gold2);font-weight:900}
     .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
-    .nav{display:flex;gap:16px;align-items:center}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
     .nav a{color:var(--muted);font-size:13px} .nav a:hover{color:var(--gold2)}
-    .content{padding:34px 18px 60px}
+    .content{padding:34px 0 60px}
     h1{font-size:30px;color:var(--gold2);margin:10px 0 10px}
     h2{font-size:16px;color:var(--gold2);margin:0 0 8px}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}
@@ -26,8 +26,10 @@
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700}
     ul{margin:8px 0 0 18px}
     .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted);margin-top:20px}
+    .footer .links{margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="wrap">
@@ -38,6 +40,7 @@
           <div class="tag">AI, governed by Bitcoin</div>
         </div>
       </div>
+
       <nav class="nav">
         <a href="./">Home</a>
         <a href="./what-is-satoshium.html">What is Satoshium?</a>
@@ -49,14 +52,45 @@
         <a href="./repo-map.html">Repo Map</a>
         <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
       </nav>
-
     </div>
   </header>
 
   <main class="wrap content">
     <div class="pill">🧾 Changelog</div>
     <h1>Changelog</h1>
-    <p class="muted">Short, honest updates. Every commit = forward motion.</p>
+    <p class="muted">Short, honest updates. Built in public. Every commit = forward motion.</p>
+
+    <!-- Next (kept accurate + forward-looking) -->
+    <div class="card">
+      <h2>Next</h2>
+      <ul>
+        <li>Continue expanding Bitcoin 101 pages (Glossary + additional fundamentals)</li>
+        <li>Add/expand “Buying & storing bitcoin” and other security guides</li>
+        <li>Keep improving consistency across all satoshium-progress pages (layout + nav + tables)</li>
+      </ul>
+    </div>
+
+    <!-- Newest-first entries -->
+    <div class="card">
+      <h2>2026-02-08 — Satoshium AI + education layer expansion</h2>
+      <ul>
+        <li>Deployed Satoshium AI chatbot to main website</li>
+        <li>Trained a unified intelligence agent on Satoshium, Bitcoin, AI, and future tech sources</li>
+        <li>Integrated Chatbase knowledge sources:
+          <ul>
+            <li>Satoshium main site + manifesto</li>
+            <li>Satoshium progress hub + GitHub repos</li>
+            <li>Bitcoin education sources (bitcoin.org, Lightning, River)</li>
+            <li>Select AI research sources for balanced intelligence layer</li>
+          </ul>
+        </li>
+        <li>Refined Satoshium AI opening dialogue for clarity and first-time visitors</li>
+        <li>Added guided prompt suggestions inside the chatbot interface</li>
+        <li>Expanded Bitcoin education section, including “Hot wallets vs cold storage”</li>
+        <li>Improved page consistency across the progress hub</li>
+        <li>Internal repo alignment moving toward Phase003 default structure</li>
+      </ul>
+    </div>
 
     <div class="card">
       <h2>2026-02-07 — Progress hub goes live</h2>
@@ -67,55 +101,13 @@
       </ul>
     </div>
 
-    <div class="card">
-      <h2>Next</h2>
-      <ul>
-        <li>Add “What is Satoshium?” explainer page</li>
-        <li>Add “Demos” page linking to chatbot + planned tools</li>
-        <li>Add a simple repo map (what each repo does)</li>
-      </ul>
-    </div>
-
-<hr>
-    <div class="card">
-  <h2>2026-02-08 — Satoshium AI + education layer expansion</h2>
-  <ul>
-    <li>Deployed Satoshium AI chatbot to main website</li>
-    <li>Trained unified intelligence agent on Satoshium, Bitcoin, AI, and future tech sources</li>
-    <li>Integrated Chatbase knowledge sources:
-      <ul>
-        <li>Satoshium main site + manifesto</li>
-        <li>Satoshium progress hub + GitHub repos</li>
-        <li>Bitcoin education sources (bitcoin.org, Lightning, River)</li>
-        <li>Select AI research sources for balanced intelligence layer</li>
-      </ul>
-    </li>
-    <li>Refined Satoshium AI opening dialogue for clarity and first-time visitors</li>
-    <li>Added guided prompt suggestions inside chatbot interface</li>
-    <li>Updated main website to feature live Satoshium AI system</li>
-    <li>Expanded Bitcoin education section:
-      <ul>
-        <li>“Hot wallets vs cold storage” full guide</li>
-        <li>Navigation structure + security learning path</li>
-      </ul>
-    </li>
-    <li>Improved site consistency across progress hub pages</li>
-    <li>Internal repo alignment moving toward Phase003 default structure</li>
-  </ul>
-</div>
-<hr>
-    
     <div class="footer">
       <div class="muted">Built in public. No hype. Visible progress only.</div>
+      <div class="links">
+        <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
+        <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
+      </div>
     </div>
-    <div class="footer">
-  <div class="muted">GitHub: 
-    <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
-  </div>
-  <div class="muted">Main Site: 
-    <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-  </div>
-</div>
   </main>
 </body>
 </html>
