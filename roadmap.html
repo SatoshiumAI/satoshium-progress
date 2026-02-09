@@ -16,7 +16,7 @@
     .mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));border:1px solid var(--line);color:var(--gold2);font-weight:900}
     .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
-    .nav{display:flex;gap:16px;align-items:center}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
     .nav a{color:var(--muted);font-size:13px} .nav a:hover{color:var(--gold2)}
     .content{padding:34px 18px 60px}
     h1{font-size:30px;color:var(--gold2);margin:10px 0 10px}
@@ -55,28 +55,28 @@
   </header>
 
   <main class="wrap content">
-   
     <div class="pill">🗺️ Roadmap</div>
     <h1>Satoshium Roadmap</h1>
     <p class="muted">A public, realistic plan. Built one visible step at a time.</p>
 
     <div class="grid">
       <div class="card">
-        <h2>Phase 0 — Proof of Progress (now)</h2>
+        <h2>Phase 0 — Proof of Progress (foundation)</h2>
         <ul>
           <li>✅ Public build hub (this site)</li>
           <li>✅ Roadmap + Changelog pages</li>
-          <li>✅ “What is Satoshium?” explainer page</li>
-          <li>✅ Public repo map (what each repo does)</li>
+          <li>✅ Core explainer pages (Satoshium, Bitcoin, Why Bitcoin + AI)</li>
+          <li>✅ Demos page + repo map</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2>Phase 1 — Public Demos</h2>
+        <h2>Phase 1 — Public Demos (shipping now)</h2>
         <ul>
-          <li>⬜ “Satoshium Hub Chat” demo page (links to chatbot)</li>
-          <li>⬜ Bitcoin imitator checker (simple form + result)</li>
-          <li>⬜ Aegis explorer (rules shown + examples)</li>
+          <li>✅ Satoshium AI (live demo)</li>
+          <li>⬜ Bitcoin imitator checker (quick input → simple result)</li>
+          <li>⬜ Aegis explorer (rules, severity, decision examples)</li>
+          <li>⬜ Public signals (visible progress, releases, milestones)</li>
         </ul>
       </div>
 
@@ -84,7 +84,7 @@
         <h2>Phase 2 — Developer Onboarding</h2>
         <ul>
           <li>⬜ “Start Here” page (mission, repos, how to contribute)</li>
-          <li>⬜ Public docs hub</li>
+          <li>⬜ Public docs hub (how it works, architecture, standards)</li>
           <li>⬜ First “good first issue” list</li>
         </ul>
       </div>
@@ -92,25 +92,25 @@
       <div class="card">
         <h2>Phase 3 — Ecosystem & Community</h2>
         <ul>
-          <li>⬜ Newsletter updates (monthly)</li>
-          <li>⬜ Public milestones + releases</li>
+          <li>⬜ Monthly updates (newsletter / release notes)</li>
+          <li>⬜ Public milestones + tagged releases</li>
           <li>⬜ Community contributions + showcase</li>
         </ul>
       </div>
     </div>
 
     <div class="footer">
-      <div class="muted">
-        Built in public. No hype. Visible progress only.</div>
+      <div class="muted">Built in public. No hype. Visible progress only.</div>
     </div>
+
     <div class="footer">
-  <div class="muted">GitHub: 
-    <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
-  </div>
-  <div class="muted">Main Site: 
-    <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-  </div>
-</div>
+      <div class="muted">GitHub:
+        <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a>
+      </div>
+      <div class="muted">Main Site:
+        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
