@@ -1,287 +1,148 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hot wallets vs cold storage — Satoshium</title>
-  <meta name="description" content="A beginner-friendly explanation of hot wallets vs cold storage, with practical rules for spending vs saving." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hot wallets vs cold storage — Satoshium</title>
+<meta name="description" content="Instant payments explains why Bitcoin on-chain is slow by design, how faster payments work, and what Lightning adds to Bitcoin without changing Bitcoin’s base rules.">
 
-  <style>
-    :root{
-      --bg:#070A0F;
-      --panel:#0B0F17;
-      --panel2:#0B111B;
-      --border:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.86);
-      --muted:rgba(255,255,255,.64);
-      --dim:rgba(255,255,255,.50);
-      --gold:#F4B451;
-      --gold2:#E9A946;
-      --green:#5EE1A0;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius:18px;
-    }
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 20% 0%, rgba(244,180,81,.10), transparent 55%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(94,225,160,.08), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
-    }
+/* layout */
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+.content{padding:34px 0 60px}
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+/* top bar */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,9,13,.95);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:saturate(130%) blur(6px);
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.mark{
+  width:42px;height:42px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+  border:1px solid var(--line);
+  color:var(--gold2);
+  font-weight:900;
+}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted)}
 
-    .topbar{
-      position:sticky; top:0; z-index:30;
-      background: rgba(7,10,15,.72);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(244,180,81,.18);
-    }
-    .topbar-inner{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 14px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width: 210px;
-    }
-    .logo{
-      width:38px; height:38px;
-      border-radius: 12px;
-      display:grid; place-items:center;
-      background: linear-gradient(180deg, rgba(244,180,81,.22), rgba(244,180,81,.06));
-      border: 1px solid rgba(244,180,81,.28);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      font-weight:800;
-      color: var(--gold);
-    }
-    .brand-text .name{
-      letter-spacing: .12em;
-      font-weight: 800;
-      font-size: 12px;
-      color: var(--gold);
-    }
-    .brand-text .tag{
-      margin-top: 2px;
-      font-size: 12px;
-      color: var(--muted);
-    }
+/* nav */
+.nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{color:var(--muted);font-size:13px;text-decoration:none}
+.nav a:hover{color:var(--gold2)}
 
-    .nav{
-      display:flex; flex-wrap:wrap; gap:14px;
-      justify-content:flex-end;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .nav a{
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-    .nav a:hover{
-      border-color: rgba(244,180,81,.25);
-      background: rgba(244,180,81,.06);
-      text-decoration:none;
-      color: rgba(255,255,255,.88);
-    }
+/* typography */
+h1{color:var(--gold2);font-size:30px;line-height:1.15;margin:10px 0 10px}
+h2{color:var(--gold2);margin:18px 0 10px}
+p{color:var(--text);line-height:1.55}
+.small{color:var(--muted);font-size:13px;line-height:1.5}
+.kicker{
+  font-size:12px;color:var(--muted);
+  letter-spacing:.12em;text-transform:uppercase;
+}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
 
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 34px 18px 70px;
-    }
+/* components */
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  margin:18px 0;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 12px;border-radius:999px;
+  background:rgba(214,163,74,.08);
+  border:1px solid var(--line);
+  color:var(--gold2);
+  font-size:12px;font-weight:800;
+}
+.quote{
+  border-left:3px solid var(--line);
+  padding:10px 12px;
+  background:rgba(214,163,74,.06);
+  border-radius:12px;
+  margin-top:12px;
+}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width: 860px){.grid{grid-template-columns:1fr 1fr}}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(244,180,81,.22);
-      background: rgba(244,180,81,.08);
-      color: rgba(255,255,255,.82);
-      font-size: 12px;
-      letter-spacing:.02em;
-      width: fit-content;
-    }
+/* lists */
+ul{margin:10px 0 0 18px}
+li{margin:6px 0}
 
-    h1{
-      margin: 14px 0 6px;
-      font-size: 38px;
-      letter-spacing: -.02em;
-      color: var(--gold);
-    }
-    .subtitle{
-      margin: 0 0 18px;
-      color: var(--muted);
-      max-width: 76ch;
-    }
+/* ✅ Standard TOC fix for ALL Satoshium pages */
+ol.toc{
+  list-style:none;           /* removes automatic 1. 2. 3. */
+  padding-left:22px;         /* moves numbers off the edge */
+  margin-top:10px;
+}
+ol.toc li{margin:10px 0}
+ol.toc a{color:var(--gold2)}
+ol.toc a:hover{color:var(--gold)}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.3fr .9fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-      .brand{ min-width:auto; }
-      .nav{ justify-content:flex-start; }
-    }
+hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+.footer{color:var(--muted);font-size:13px;line-height:1.55}
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-    .kicker{
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: 11px;
-      color: rgba(255,255,255,.55);
-    }
-    h2{
-      margin: 8px 0 10px;
-      font-size: 20px;
-      color: rgba(255,255,255,.92);
-    }
-
-    .bullets{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-    .bullets li{ margin: 6px 0; }
-
-    /* Quick navigation list */
-    .toc{
-      list-style: none;     /* remove default bullets */
-      margin: 10px 0 0;
-      padding-left: 14px;  /* <— this indents the numbers away from the edge */
-    }
-    .toc li{ margin: 8px 0; }
-    .toc a{
-      color: rgba(255,255,255,.88);
-    }
-    .toc a:hover{
-      color: var(--gold);
-      text-decoration:none;
-    }
-
-    .section{
-      margin-top: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-
-    .section h3{
-      margin: 2px 0 8px;
-      font-size: 18px;
-      color: rgba(255,255,255,.92);
-    }
-    .section p{
-      margin: 0 0 10px;
-      color: var(--muted);
-    }
-
-    .note{
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(94,225,160,.22);
-      background: rgba(94,225,160,.06);
-      color: rgba(255,255,255,.84);
-      font-size: 13px;
-    }
-
-    table{
-      width:100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      overflow:hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    th,td{
-      text-align:left;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    th{
-      color: rgba(255,255,255,.86);
-      background: rgba(255,255,255,.03);
-      font-weight: 700;
-    }
-    tr:last-child td{ border-bottom:none; }
-
-    .rule{
-      margin: 10px 0 0;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(244,180,81,.22);
-      background: rgba(244,180,81,.06);
-      color: rgba(255,255,255,.88);
-      font-size: 13px;
-    }
-
-    footer{
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.60);
-      font-size: 13px;
-    }
-    .footer-links{
-      margin-top: 10px;
-      display:flex; gap:18px; flex-wrap:wrap;
-      color: rgba(255,255,255,.65);
-    }
-    .footer-links a{ color: rgba(255,255,255,.72); }
-    .footer-links a:hover{ color: var(--gold); text-decoration:none; }
-  </style>
+/* anchor scroll nicety */
+section[id]{scroll-margin-top:18px;}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="logo">S</div>
-        <div class="brand-text">
-          <div class="name">SATOSHIUM</div>
-          <div class="tag">AI, governed by Bitcoin</div>
-        </div>
-      </div>
 
-      <nav class="nav">
-        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
-      </nav>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
+      </div>
     </div>
-  </header>
+
+    <!-- ✅ Your required NAV format -->
+    <nav class="nav">
+      <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+    </nav>
+  </div>
+</header>
 
   <main class="wrap">
     <div class="pill">🛡️ Wallets & security</div>
