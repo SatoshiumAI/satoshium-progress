@@ -114,6 +114,81 @@ hr{border:none;border-top:1px solid var(--line);margin:28px 0}
 
 /* anchor scroll nicety */
 section[id]{scroll-margin-top:18px;}
+/* --- Missing styles for lower sections --- */
+.subtitle{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.55;
+  margin:0 0 18px;
+}
+
+/* Make each lower section match the top "card" look */
+.section{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  margin:16px 0;
+}
+
+/* Your lower headings are h3, so style them */
+h3{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size:18px;
+  line-height:1.25;
+}
+
+/* Bullet lists used in sections */
+.bullets{
+  margin:10px 0 0 18px;
+}
+.bullets li{margin:6px 0}
+
+/* Note + Rule boxes (you reference these classes multiple times) */
+.note{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.06);
+  color:var(--text);
+}
+
+.rule{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.08);
+  color:var(--text);
+}
+
+/* Table styling (your compare table is currently unstyled) */
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  margin-top:10px;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(7,9,13,.35);
+}
+th, td{
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+th{
+  text-align:left;
+  color:var(--gold2);
+  background:rgba(214,163,74,.06);
+  font-weight:800;
+}
+tbody tr:last-child td{border-bottom:none}
+td{color:var(--text)}
+  
 </style>
 </head>
 
