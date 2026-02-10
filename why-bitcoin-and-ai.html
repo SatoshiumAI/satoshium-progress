@@ -145,7 +145,31 @@
 .card h2{
   letter-spacing:.3px;
 }
-    
+    /* section-level watermark (clean + cinematic) */
+.wm-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.wm-section::before{
+  content:"";
+  position:absolute;
+  inset:-120px;
+  background-image: var(--wm);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: min(900px, 70vw);
+  opacity:0.035;   /* subtle */
+  filter:blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.wm-section > *{
+  position:relative;
+  z-index:1;
+}
+
   </style>
 </head>
 
@@ -241,8 +265,8 @@
         <li><b>Satoshium</b> is the attempt to apply Bitcoin-style verifiability to intelligence itself.</li>
       </ul>
     </div>
-
-    <div class="card" style="--card-wm:url('./assets/seal.png');">
+  <!-- BUILD PHILOSOPHY content here including 4 small cards -->
+   <section class="wm-section" style="--wm:url('assets/seal.png');">
       <div class="kicker">The build philosophy</div>
       <h2 style="margin-top:8px;">One tool at a time. Visible progress only.</h2>
       <p class="muted" style="margin:8px 0 10px;">
