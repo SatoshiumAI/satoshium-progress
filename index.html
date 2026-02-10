@@ -59,48 +59,6 @@
       background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
     }
     ul{margin:8px 0 0 18px}
-
-    /* ===========
-       OPTION A: Ultra-subtle watermark system
-       =========== */
-    .wm{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .wm::before{
-      content:"";
-      position:absolute;
-      inset:-60px;
-      background-image: var(--wm-image);
-      background-repeat:no-repeat;
-      background-size: min(900px, 80vw);
-      background-position:right -120px center;
-      opacity:.045;           /* ~4.5% */
-      filter:blur(1px);
-      pointer-events:none;
-      z-index:0;
-    }
-
-    .wm > *{
-      position:relative;
-      z-index:1;
-    }
-
-    /* Footer watermark variation */
-    .wm-footer::before{
-      background-position:center bottom -120px;
-      background-size:min(700px,70vw);
-      opacity:.05;
-    }
-
-    /* Mobile: even softer */
-    @media(max-width:700px){
-      .wm::before{
-        opacity:.025;
-        background-position:center 40%;
-      }
-    }
   </style>
 </head>
 
@@ -129,110 +87,106 @@
     </div>
   </header>
 
-  <!-- HERO watermark (banner) -->
-  <main class="wrap content wm" style="--wm-image:url('assets/banner.png');">
-    <div class="pill">🧠 Public Build Progress</div>
+  <main class="wrap content">
+  <div class="pill">🧠 Public Build Progress</div>
 
-    <h1 style="margin-top:12px;">Satoshium: Public Build Progress</h1>
-    <p class="muted">
-      This is the live public build log for Satoshium — a Bitcoin-anchored intelligence project exploring decentralized AI, verifiable agents, and cryptographic trust systems.
-      <br><br>
-      No hype. No vapor. Just visible progress.
+  <h1 style="margin-top:12px;">Satoshium: Public Build Progress</h1>
+  <p class="muted">
+    This is the live public build log for Satoshium — a Bitcoin-anchored intelligence project exploring decentralized AI, verifiable agents, and cryptographic trust systems.
+    <br><br>
+    No hype. No vapor. Just visible progress.
+  </p>
+
+  <!-- 🔴 LIVE STATUS -->
+  <div class="card">
+    <h2 style="margin-top:0;">🟢 Current Status</h2>
+    <ul>
+      <li>Live Satoshium AI deployed on main site</li>
+      <li>Bitcoin education layer expanding</li>
+      <li>Progress hub + documentation growing</li>
+      <li>Phase003 repo alignment underway</li>
+    </ul>
+    <p class="muted" style="margin-top:10px;">
+      Last major update: <strong>February 8, 2026</strong> — unified intelligence agent trained and deployed.
     </p>
+  </div>
 
-    <!-- 🔴 LIVE STATUS -->
-    <div class="card">
-      <h2 style="margin-top:0;">🟢 Current Status</h2>
-      <ul>
-        <li>Live Satoshium AI deployed on main site</li>
-        <li>Bitcoin education layer expanding</li>
-        <li>Progress hub + documentation growing</li>
-        <li>Phase003 repo alignment underway</li>
-      </ul>
-      <p class="muted" style="margin-top:10px;">
-        Last major update: <strong>February 8, 2026</strong> — unified intelligence agent trained and deployed.
-      </p>
+  <!-- 🚧 NOW SHIPPING -->
+  <div class="card">
+    <h2 style="margin-top:0;">🚧 Now Live</h2>
+    <ul>
+      <li>✅ Satoshium AI chatbot (main website)</li>
+      <li>✅ Bitcoin education pages (growing library)</li>
+      <li>✅ Public roadmap + changelog</li>
+      <li>✅ Early agent safety framework (Aegis)</li>
+      <li>✅ 47+ repo ecosystem foundation</li>
+    </ul>
+  </div>
+
+  <!-- 🧭 CURRENT FOCUS -->
+  <div class="card">
+    <h2 style="margin-top:0;">🗺️ 2026 Build Focus</h2>
+    <ul>
+      <li>Unified Satoshium intelligence layer</li>
+      <li>Bitcoin + AI education system</li>
+      <li>Public demo tools</li>
+      <li>Agent safety + trust frameworks</li>
+      <li>Phase003 repo structure alignment</li>
+    </ul>
+  </div>
+
+  <!-- 🧪 DEMOS -->
+  <div class="card">
+    <h2 style="margin-top:0;">🧪 Demo Systems (building)</h2>
+    <ul>
+      <li>Satoshium AI knowledge interface</li>
+      <li>Bitcoin imitator detection tool</li>
+      <li>Agent firewall explorer</li>
+      <li>Satoshium architecture explorer</li>
+    </ul>
+    <p class="muted">Released gradually as stable.</p>
+  </div>
+
+  <!-- 📚 EXPLORE -->
+  <div class="card">
+    <h2 style="margin-top:0;">📚 Explore the System</h2>
+    <ul>
+      <li><a href="./what-is-satoshium.html">What is Satoshium?</a></li>
+      <li><a href="./what-is-bitcoin.html">Bitcoin fundamentals</a></li>
+      <li><a href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a></li>
+      <li><a href="./demos.html">Demos & experiments</a></li>
+      <li><a href="./changelog.html">Changelog (live progress)</a></li>
+    </ul>
+  </div>
+
+  <!-- 📜 PHILOSOPHY -->
+  <div class="card">
+    <h2 style="margin-top:0;">📜 Build Philosophy</h2>
+    <p>
+      Satoshium is being built as open, Bitcoin-anchored intelligence infrastructure.
+      <br><br>
+      Not a product.  
+      Not a pitch deck.  
+      A long-term public build.
+    </p>
+    <p class="muted">Every commit = forward motion.</p>
+  </div>
+
+  <hr />
+
+  <div class="muted" style="margin-bottom:14px; max-width:760px;">
+    Satoshium explores the intersection of Bitcoin, AI, and decentralized trust.
+    Built step-by-step in public for the future intelligence layer of the internet.
+  </div>
+
+  <div class="footer">
+    <div class="muted">GitHub: 
+      <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
     </div>
-
-    <!-- 🚧 NOW SHIPPING -->
-    <div class="card">
-      <h2 style="margin-top:0;">🚧 Now Live</h2>
-      <ul>
-        <li>✅ Satoshium AI chatbot (main website)</li>
-        <li>✅ Bitcoin education pages (growing library)</li>
-        <li>✅ Public roadmap + changelog</li>
-        <li>✅ Early agent safety framework (Aegis)</li>
-        <li>✅ 47+ repo ecosystem foundation</li>
-      </ul>
+    <div class="muted">Main Site: 
+      <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
     </div>
-
-    <!-- 🧭 CURRENT FOCUS -->
-    <div class="card">
-      <h2 style="margin-top:0;">🗺️ 2026 Build Focus</h2>
-      <ul>
-        <li>Unified Satoshium intelligence layer</li>
-        <li>Bitcoin + AI education system</li>
-        <li>Public demo tools</li>
-        <li>Agent safety + trust frameworks</li>
-        <li>Phase003 repo structure alignment</li>
-      </ul>
-    </div>
-
-    <!-- 🧪 DEMOS -->
-    <div class="card">
-      <h2 style="margin-top:0;">🧪 Demo Systems (building)</h2>
-      <ul>
-        <li>Satoshium AI knowledge interface</li>
-        <li>Bitcoin imitator detection tool</li>
-        <li>Agent firewall explorer</li>
-        <li>Satoshium architecture explorer</li>
-      </ul>
-      <p class="muted">Released gradually as stable.</p>
-    </div>
-
-    <!-- 📚 EXPLORE -->
-    <div class="card">
-      <h2 style="margin-top:0;">📚 Explore the System</h2>
-      <ul>
-        <li><a href="./what-is-satoshium.html">What is Satoshium?</a></li>
-        <li><a href="./what-is-bitcoin.html">Bitcoin fundamentals</a></li>
-        <li><a href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a></li>
-        <li><a href="./demos.html">Demos & experiments</a></li>
-        <li><a href="./changelog.html">Changelog (live progress)</a></li>
-      </ul>
-    </div>
-
-    <!-- 📜 PHILOSOPHY -->
-    <div class="card">
-      <h2 style="margin-top:0;">📜 Build Philosophy</h2>
-      <p>
-        Satoshium is being built as open, Bitcoin-anchored intelligence infrastructure.
-        <br><br>
-        Not a product.
-        <br>
-        Not a pitch deck.
-        <br>
-        A long-term public build.
-      </p>
-      <p class="muted">Every commit = forward motion.</p>
-    </div>
-
-    <hr />
-
-    <div class="muted" style="margin-bottom:14px; max-width:760px;">
-      Satoshium explores the intersection of Bitcoin, AI, and decentralized trust.
-      Built step-by-step in public for the future intelligence layer of the internet.
-    </div>
-
-    <!-- FOOTER watermark (seal) -->
-    <div class="footer wm wm-footer" style="--wm-image:url('assets/seal.png');">
-      <div class="muted">GitHub:
-        <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
-      </div>
-      <div class="muted">Main Site:
-        <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-      </div>
-    </div>
-  </main>
+  </div>
+</main>
 </body>
 </html>
