@@ -93,6 +93,58 @@
     }
     .btn:hover{background:rgba(214,163,74,.16)}
     .tiny{font-size:12px;color:var(--muted)}
+/* ===== Card watermark (uses --card-wm) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+.card{
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+  .card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92);
+  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+}
+.card h2{
+  letter-spacing:.3px;
+}
   </style>
 </head>
 
@@ -130,7 +182,7 @@
       This page explains Bitcoin clearly, then connects it to Satoshium: decentralized intelligence built on the Bitcoin standard.
     </p>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">The simple definition</div>
       <h2 style="margin-top:8px;">Bitcoin is digital money with rules, not rulers.</h2>
       <p class="muted" style="margin:8px 0 0;">
@@ -151,7 +203,7 @@
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
         <h2 style="margin-top:0;">🧠 Why Satoshium cares</h2>
         <p class="muted" style="margin:8px 0 10px;">
           Bitcoin is more than money — it is a working example of a system where truth is verifiable.
@@ -165,7 +217,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">Why it exists</div>
       <h2 style="margin-top:8px;">Bitcoin was created to remove the need for trust.</h2>
       <p class="muted" style="margin:8px 0 0;">
@@ -178,7 +230,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">How it works (plain English)</div>
       <h2 style="margin-top:8px;">Bitcoin is a public ledger secured by proof-of-work.</h2>
 
@@ -207,7 +259,7 @@
       </p>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">Why it matters</div>
       <h2 style="margin-top:8px;">Bitcoin is a sovereignty tool.</h2>
       <p class="muted" style="margin:8px 0 10px;">
@@ -221,7 +273,7 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">Bitcoin + the future of intelligence</div>
       <h2 style="margin-top:8px;">As AI grows, truth must harden.</h2>
       <p class="muted" style="margin:8px 0 10px;">
@@ -241,7 +293,7 @@
       </div>
     </div>
 
-<div class="card">
+<div class="card" style="--card-wm:url('./assets/seal.png');">
   <div class="kicker">Why Bitcoin + AI → Satoshium</div>
   <h2 style="margin-top:8px;">This is the moment that changed the direction.</h2>
   <p class="muted" style="margin:8px 0 10px;">
@@ -259,14 +311,14 @@
   </div>
 </div>
    
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="kicker">Learn more (expands into future pages)</div>
       <h2 style="margin-top:8px;">Explore Bitcoin topics</h2>
       <p class="muted" style="margin:8px 0 10px;">
         These sections will expand into dedicated pages over time — one solid release at a time.
       </p>
 
-  <div class="card" style="margin:0;">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h3 style="margin-top:0;">🟠 Bitcoin 101</h3>
     <ul>
       <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/history-origins.html">History & origins</a></li>
@@ -277,7 +329,7 @@
   </div>
 </div>
 
-        <div class="card" style="margin:0;">
+        <div class="card" style="--card-wm:url('./assets/seal.png');">
           <h3 style="margin-top:0;">🛡️ Wallets & security</h3>
           <ul>
             <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/wallets/buying-storing-bitcoin.html">Buying and storing bitcoin</a></li>
@@ -287,7 +339,7 @@
           </ul>
         </div>
 
-        <div class="card" style="margin:0;">
+        <div class="card" style="--card-wm:url('./assets/seal.png');">
           <h3 style="margin-top:0;">⛏️ Mining & network</h3>
           <ul>
             <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/network/proof-of-work.html">Proof-of-work</a></li>
@@ -297,7 +349,7 @@
           </ul>
         </div>
 
-        <div class="card" style="margin:0;">
+        <div class="card" style="--card-wm:url('./assets/seal.png');">
           <h3 style="margin-top:0;">⚡ Lightning & scaling</h3>
           <ul>
             <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/lightning/instant-payments.html">Instant payments</a></li>
