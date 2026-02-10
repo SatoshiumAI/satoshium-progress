@@ -89,7 +89,58 @@ ul{margin-left:20px}
   font-weight: 600;
   margin-bottom: 10px;
 }
+/* ===== Card watermark (uses --card-wm) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+}
 
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+.card{
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+  .card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92);
+  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+}
+.card h2{
+  letter-spacing:.3px;
+}
 </style>
 </head>
 
@@ -132,7 +183,7 @@ Some repositories remain private during development — this map shows what each
   <p></p>
   <p>A live map of the Satoshium ecosystem — structure before scale.</p>
 
-<div class="card">
+<div class="card" style="--card-wm:url('./assets/seal.png');">
 <h2>🟢 Core Infrastructure</h2>
 <ul>
 <li><strong>Satoshium Core</strong> — protocol logic, agent rules, trust architecture</li>
@@ -142,7 +193,7 @@ Some repositories remain private during development — this map shows what each
 </ul>
 </div>
 
-<div class="card">
+<div class="card" style="--card-wm:url('./assets/seal.png');">
 <h2>🟡 Public Build Layer</h2>
 <ul>
 <li><strong>satoshium-progress</strong> — public roadmap, demos, changelog (this site)</li>
@@ -151,7 +202,7 @@ Some repositories remain private during development — this map shows what each
 </ul>
 </div>
 
-<div class="card">
+<div class="card" style="--card-wm:url('./assets/seal.png');">
 <h2>🔵 Private Development (in progress)</h2>
 <p class="muted">These systems are under active development and will open gradually as they stabilize.</p>
 <ul>
@@ -163,7 +214,7 @@ Some repositories remain private during development — this map shows what each
 </ul>
 </div>
 
-<div class="card">
+<div class="card" style="--card-wm:url('./assets/seal.png');">
 <h2>🟠 Long-Term Vision</h2>
 <ul>
 <li>AI governed by cryptographic truth</li>
