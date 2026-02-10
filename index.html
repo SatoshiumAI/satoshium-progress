@@ -59,6 +59,39 @@
       background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
     }
     ul{margin:8px 0 0 18px}
+/* ===== Card watermark (uses --card-wm) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+   
   </style>
 </head>
 
@@ -98,7 +131,7 @@
   </p>
 
   <!-- 🔴 LIVE STATUS -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">🟢 Current Status</h2>
     <ul>
       <li>Live Satoshium AI deployed on main site</li>
@@ -112,7 +145,7 @@
   </div>
 
   <!-- 🚧 NOW SHIPPING -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">🚧 Now Live</h2>
     <ul>
       <li>✅ Satoshium AI chatbot (main website)</li>
@@ -124,7 +157,7 @@
   </div>
 
   <!-- 🧭 CURRENT FOCUS -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">🗺️ 2026 Build Focus</h2>
     <ul>
       <li>Unified Satoshium intelligence layer</li>
@@ -136,7 +169,7 @@
   </div>
 
   <!-- 🧪 DEMOS -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">🧪 Demo Systems (building)</h2>
     <ul>
       <li>Satoshium AI knowledge interface</li>
@@ -148,7 +181,7 @@
   </div>
 
   <!-- 📚 EXPLORE -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">📚 Explore the System</h2>
     <ul>
       <li><a href="./what-is-satoshium.html">What is Satoshium?</a></li>
@@ -160,7 +193,7 @@
   </div>
 
   <!-- 📜 PHILOSOPHY -->
-  <div class="card" style="--card-wm:url('https://satoshiumai.github.io/satoshium-progress/assets/seal.png');">
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
     <h2 style="margin-top:0;">📜 Build Philosophy</h2>
     <p>
       Satoshium is being built as open, Bitcoin-anchored intelligence infrastructure.
