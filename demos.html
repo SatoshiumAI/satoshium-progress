@@ -82,7 +82,59 @@
     .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
     .footer .muted{margin-top:6px}
     .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
-  </style>
+    /* ===== Card watermark (uses --card-wm) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+.card{
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+  .card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92);
+  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+}
+.card h2{
+  letter-spacing:.3px;
+}
+</style>
 </head>
 
 <body>
@@ -119,7 +171,7 @@
       Satoshium ships tools publicly — one visible step at a time.
     </p>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
         <h2 style="margin-top:0;">Satoshium Hub Chat</h2>
         <span class="badge live">✅ LIVE</span>
@@ -136,7 +188,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
         <h2 style="margin-top:0;">Coming Soon</h2>
         <span class="badge">⏳ IN PROGRESS</span>
