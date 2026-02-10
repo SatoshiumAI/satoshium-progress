@@ -15,79 +15,54 @@
       --gold2:#f4c36a;
       --line:rgba(214,163,74,.18);
     }
-
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.55
-    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
     a{color:var(--gold2);text-decoration:none}
     a:hover{color:var(--gold)}
-
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-    .content{padding:34px 18px 60px}
-
     .topbar{
       position:sticky;top:0;z-index:20;
       background:rgba(7,9,13,.92);
       border-bottom:1px solid var(--line);
       backdrop-filter: blur(8px);
     }
-    .topbar .wrap{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 18px
-    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .mark{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
       background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-      border:1px solid var(--line);
-      color:var(--gold2);
-      font-weight:900
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
     }
     .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
     .nav{display:flex;gap:16px;align-items:center}
     .nav a{color:var(--muted);font-size:13px}
     .nav a:hover{color:var(--gold2)}
-
+    .content{padding:34px 18px 60px}
     h1,h2,h3{margin:0 0 10px}
     h1{font-size:30px;color:var(--gold2)}
-    h2{font-size:20px;color:var(--gold2);margin-top:22px;letter-spacing:.3px}
+    h2{font-size:20px;color:var(--gold2);margin-top:22px}
     h3{font-size:16px;color:var(--gold2);margin-top:14px}
     p,li{color:var(--text)}
-    .muted{color:var(--muted)}
     hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
     .pill{
       display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(214,163,74,.08);
-      color:var(--gold2);
-      font-size:12px;
-      font-weight:700
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
     }
-
     ul{margin:8px 0 0 18px}
-
-    .grid2{display:grid;grid-template-columns:1fr;gap:14px}
-    @media (min-width:860px){ .grid2{grid-template-columns:1fr 1fr} }
-
-    .kvs{
-      display:grid;
-      grid-template-columns:160px 1fr;
-      gap:10px 14px;
-      margin-top:8px
-    }
+    .kvs{display:grid;grid-template-columns:160px 1fr;gap:10px 14px;margin-top:8px}
     .k{color:var(--muted);font-weight:700;font-size:13px}
     .v{color:var(--text)}
-
     .callout{
       background:rgba(214,163,74,.06);
       border:1px solid var(--line);
@@ -95,7 +70,6 @@
       padding:12px 12px;
       margin-top:10px;
     }
-
     .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
@@ -107,8 +81,8 @@
       font-size:13px;
     }
     .btn:hover{background:rgba(214,163,74,.16)}
-
     .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
+    .footer .muted{margin-top:6px}
     .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
     .note{font-size:13px;color:var(--muted)}
     .quote{
@@ -118,50 +92,41 @@
       padding-left:12px;
       margin:10px 0 0;
     }
-
-    /* ===== Card (single source of truth) ===== */
-    .card{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px;
-      margin:16px 0;
-      background: linear-gradient(
-        to bottom right,
-        rgba(12,16,24,.94),
-        rgba(12,16,24,.88)
-      );
-      box-shadow:
-        0 0 0 1px rgba(214,163,74,.08),
-        0 20px 50px rgba(0,0,0,.45);
-    }
-
+    .grid2{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:860px){ .grid2{grid-template-columns:1fr 1fr} }
     /* ===== Card watermark (uses --card-wm) ===== */
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-60px;
-      background-image: var(--card-wm);
-      background-repeat:no-repeat;
-      background-size: min(720px, 70vw);
-      background-position: right -140px center;
-      opacity: 0.026; /* BTC pages: slightly softer */
-      filter: blur(1px);
-      pointer-events:none;
-      z-index:0;
-    }
-    .card > *{position:relative;z-index:1}
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+}
 
-    @media(max-width:700px){
-      .card::before{
-        opacity:0.018;
-        background-position:center 35%;
-        background-size:min(600px, 90vw);
-      }
-      .kvs{grid-template-columns:1fr}
-    }
-    .card{
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+.card{
   background: linear-gradient(
     to bottom right,
     rgba(12,16,24,.94),
@@ -181,8 +146,7 @@
 .card h2{
   letter-spacing:.3px;
 }
-
-  </style>
+</style>
 </head>
 
 <body>
@@ -219,7 +183,7 @@
       and the problem of creating money that doesn’t require trust in a central authority.
     </p>
 
-    <section class="wm-section" style="--wm:url('assets/btc-seal.png');">
+    <div class="card">
       <h2>1) The world before Bitcoin</h2>
       <p class="muted">
         Before 2008, many people tried to build “digital cash.” The hard part wasn’t making coins — it was making
@@ -245,7 +209,7 @@
         </div>
       </div>
     </div>
-      </section>
+
     <div class="card" style="--card-wm:url('./assets/btc-seal.png');">
       <h2>2) 2008: Satoshi Nakamoto publishes the whitepaper</h2>
       <p class="muted">
@@ -273,7 +237,7 @@
       <p class="note">Tip: In Satoshium language, this is the moment “truth became inspectable.”</p>
     </div>
 
-    <section class="wm-section" style="--wm:url('assets/btc-seal.png');">
+    <div class="card">
       <h2>3) 2009: The Genesis Block</h2>
       <p class="muted">
         In January 2009, Satoshi mined the first block — the <strong>Genesis Block</strong> — and launched the network.
@@ -293,7 +257,7 @@
         </p>
       </div>
     </div>
-</section>
+
     <div class="card" style="--card-wm:url('./assets/btc-seal.png');">
       <h2>4) Early growth: from experiment to network</h2>
       <p class="muted">
@@ -311,7 +275,7 @@
       <p class="note">Bitcoin isn’t a company. It’s a protocol + a set of rules that people choose to run.</p>
     </div>
 
-    <section class="wm-section" style="--wm:url('assets/btc-seal.png');">
+    <div class="card">
       <h2>5) Why origins matter for Satoshium</h2>
       <p class="muted">
         Satoshium is built on a simple belief: if Bitcoin can produce <strong>incorruptible money</strong>,
@@ -328,7 +292,7 @@
           <li><strong>Public progress:</strong> build in the open, ship what works.</li>
         </ul>
       </div>
-</section>
+
       <div class="btnrow">
         <a class="btn" href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
         <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">Back to What is Bitcoin?</a>
@@ -337,6 +301,7 @@
 
     <hr />
 
+    <!-- Footer mission statement + links -->
     <div class="footer-title">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
     <hr />
 
