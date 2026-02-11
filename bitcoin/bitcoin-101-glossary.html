@@ -161,6 +161,60 @@
     .btn:hover{background:rgba(214,163,74,.16)}
 
     .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+    /* ===== Base card (normal) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  margin:16px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.10),
+    0 18px 40px rgba(0,0,0,.35);
+}
+
+/* ===== Watermark ONLY on large cards ===== */
+.card--wm::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.03;          /* increase if needed: 0.02–0.06 */
+  filter: blur(0.5px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card--wm > *{
+  position:relative;
+  z-index:1;
+}
+
+@media (max-width:700px){
+  .card--wm::before{
+    background-position:center 35%;
+  }
+}
+
+/* ===== Small inner cards (no watermark) ===== */
+.subcard{
+  background: rgba(7,9,13,.35);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: none;
+  margin: 0;
+}
+
   </style>
 </head>
 
@@ -198,7 +252,7 @@
       Use the search box to filter instantly.
     </p>
 
-    <div class="card">
+    <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="toolbar">
         <div class="search" title="Search terms (instant filter)">
           🔎
@@ -588,7 +642,7 @@
 
     </div>
 
-    <div class="card" style="margin-top:18px;">
+    <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');" style="margin-top:18px;">
       <h2 style="margin-top:0;">Safety Reminders (Bitcoin 101)</h2>
       <ul>
         <li><strong>Never share</strong> your seed phrase or private keys — not with anyone, not ever.</li>
@@ -601,7 +655,7 @@
       </p>
     </div>
 
-    <div class="card">
+    <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
       <h2 style="margin-top:0;">Want this glossary to grow?</h2>
       <p class="muted">
         This is a strong Bitcoin 101 base. Next expansions (when you’re ready):
