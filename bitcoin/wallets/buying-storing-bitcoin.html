@@ -172,6 +172,59 @@
       color:var(--muted)
     }
     .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+    /* ===== Base card (normal) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  margin:16px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.10),
+    0 18px 40px rgba(0,0,0,.35);
+}
+
+/* ===== Watermark ONLY on large cards ===== */
+.card--wm::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.03;          /* increase if needed: 0.02–0.06 */
+  filter: blur(0.5px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card--wm > *{
+  position:relative;
+  z-index:1;
+}
+
+@media (max-width:700px){
+  .card--wm::before{
+    background-position:center 35%;
+  }
+}
+
+/* ===== Small inner cards (no watermark) ===== */
+.subcard{
+  background: rgba(7,9,13,.35);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: none;
+  margin: 0;
+}
   </style>
 </head>
 
@@ -210,7 +263,7 @@
     </p>
 
     <div class="grid">
-      <div class="card">
+      <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
         <div class="kicker">What you’ll learn</div>
         <h2 style="margin-top:6px;">✅ Practical outcomes</h2>
         <ul>
@@ -224,7 +277,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
         <div class="kicker">Quick navigation</div>
         <h2 style="margin-top:6px;">📌 Sections</h2>
 
@@ -241,7 +294,7 @@
       </div>
     </div>
 
-    <div class="card" id="basics">
+    <div class="card card--wm" id="basics" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">1) The basics</div>
       <h2 style="margin-top:6px;">Buying vs storing</h2>
       <p>
@@ -260,7 +313,7 @@
       </div>
     </div>
 
-    <div class="card" id="ways">
+    <div class="card card--wm" id="ways" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">2) Ways to buy</div>
       <h2 style="margin-top:6px;">Choose the method that fits your goals</h2>
       <p class="muted">
@@ -304,7 +357,7 @@
       </div>
     </div>
 
-    <div class="card" id="storage">
+    <div class="card card--wm" id="storage" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">3) Storage &amp; custody</div>
       <h2 style="margin-top:6px;">Who can move the bitcoin?</h2>
       <p>
@@ -355,7 +408,7 @@
       </div>
     </div>
 
-    <div class="card" id="levelup">
+    <div class="card card--wm" id="levelup" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">4) Recommended path</div>
       <h2 style="margin-top:6px;">Level up without fragile complexity</h2>
       <p>
@@ -388,7 +441,7 @@
       </div>
     </div>
 
-    <div class="card" id="steps">
+    <div class="card card--wm" id="steps" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">5) Step-by-step</div>
       <h2 style="margin-top:6px;">Buy → withdraw → verify</h2>
       <p class="muted">This is the safest first-time flow for most people.</p>
@@ -425,7 +478,7 @@
       </div>
     </div>
 
-    <div class="card" id="checklists">
+    <div class="card card--wm" id="checklists" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">6) Checklists</div>
       <h2 style="margin-top:6px;">Do this, avoid that</h2>
 
@@ -458,7 +511,7 @@
       </div>
     </div>
 
-    <div class="card" id="mistakes">
+    <div class="card card--wm" id="mistakes" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">7) Common mistakes</div>
       <h2 style="margin-top:6px;">And how to avoid them</h2>
 
@@ -475,7 +528,7 @@
       <ul><li><strong>Fix:</strong> keep it offline, private, and durable.</li></ul>
     </div>
 
-    <div class="card" id="faq">
+    <div class="card card--wm" id="faq" style="--card-wm:url('../assets/btc-seal.png');">
       <div class="kicker">8) Quick FAQ</div>
       <h2 style="margin-top:6px;">Fast answers</h2>
 
