@@ -23,6 +23,7 @@
     a{color:var(--gold2);text-decoration:none}
     a:hover{color:var(--gold)}
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
     .topbar{
       position:sticky;top:0;z-index:20;
       background:rgba(7,9,13,.92);
@@ -31,9 +32,9 @@
     }
     .topbar .wrap{
       display:flex;align-items:center;justify-content:space-between;
-      padding:14px 18px
+      padding:14px 18px;gap:14px
     }
-    .brand{display:flex;align-items:center;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
     .mark{
       width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
       background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
@@ -42,8 +43,9 @@
     .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
     .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .nav a{color:var(--muted);font-size:13px}
+    .nav a{color:var(--muted);font-size:13px;white-space:nowrap}
     .nav a:hover{color:var(--gold2)}
+
     .content{padding:34px 18px 60px}
     h1,h2,h3{margin:0 0 10px}
     h1{font-size:30px;color:var(--gold2)}
@@ -51,23 +53,20 @@
     h3{font-size:16px;color:var(--gold2);margin-top:14px}
     p,li{color:var(--text)}
     hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px;
-      margin:16px 0;
-    }
     .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+
     .pill{
       display:inline-flex;align-items:center;gap:8px;
       padding:8px 10px;border:1px solid var(--line);border-radius:999px;
       background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
     }
-    ul{margin:8px 0 0 18px}
+
     .grid{display:grid;grid-template-columns:1fr;gap:16px}
     @media (min-width: 860px){.grid{grid-template-columns:1fr 1fr}}
+
     .kicker{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
     .quote{
       border-left:3px solid var(--line);
       padding:10px 12px;
@@ -75,12 +74,7 @@
       border-radius:12px;
       color:var(--text);
     }
-    .footer{
-      border-top:1px solid var(--line);
-      padding:18px 0 32px;
-      color:var(--muted)
-    }
-    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+
     .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
@@ -94,78 +88,91 @@
     .btn:hover{background:rgba(214,163,74,.16)}
     .tiny{font-size:12px;color:var(--muted)}
 
-    .toc {
-  list-style: none;      /* removes default numbering */
-  padding-left: 0;
-  margin-top: 10px;
-}
+    /* TOC */
+    .toc{
+      list-style:none;
+      padding-left:24px;
+      margin-top:12px;
+    }
+    .toc li{margin:10px 0}
 
-.toc li {
-  margin: 6px 0;
-}
-.toc {
-  list-style: none;
-  padding-left: 24px;
-  margin-top: 12px;
-}
+    /* Tables */
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{border-bottom:1px solid var(--line);padding:10px 10px;text-align:left;vertical-align:top}
+    th{color:var(--gold2);font-size:13px;letter-spacing:.02em;background:rgba(214,163,74,.06)}
+    tr:last-child td{border-bottom:none}
 
-.toc li {
-  margin: 10px 0;
-}
-    /* ===== Base card (normal) ===== */
-.card{
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    to bottom right,
-    rgba(12,16,24,.94),
-    rgba(12,16,24,.88)
-  );
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:16px;
-  margin:16px 0;
-  box-shadow:
-    0 0 0 1px rgba(214,163,74,.10),
-    0 18px 40px rgba(0,0,0,.35);
-}
+    /* ===== LARGE CARDS (watermark ON) ===== */
+    .card{
+      position: relative;
+      overflow: hidden;
 
-/* ===== Watermark ONLY on large cards ===== */
-.card--wm::before{
-  content:"";
-  position:absolute;
-  inset:-60px;
-  background-image: var(--card-wm);
-  background-repeat:no-repeat;
-  background-size: min(720px, 70vw);
-  background-position: right -140px center;
-  opacity: 0.03;          /* increase if needed: 0.02–0.06 */
-  filter: blur(0.5px);
-  pointer-events:none;
-  z-index:0;
-}
+      background: linear-gradient(
+        to bottom right,
+        rgba(12,16,24,.94),
+        rgba(12,16,24,.88)
+      );
 
-.card--wm > *{
-  position:relative;
-  z-index:1;
-}
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      margin:16px 0;
 
-@media (max-width:700px){
-  .card--wm::before{
-    background-position:center 35%;
-  }
-}
- /* ===== Small inner cards (no watermark) ===== */
-.subcard{
-  background: rgba(7,9,13,.35);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px;
-  box-shadow: none;
-  margin: 0;
-}
+      box-shadow:
+        0 0 0 1px rgba(214,163,74,.08),
+        0 18px 40px rgba(0,0,0,.35);
+    }
 
-</style>
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+
+      /* IMPORTANT: this page lives in /bitcoin/wallets/ so ../assets is correct */
+      background-image:url('../assets/btc-seal.png');
+      background-repeat:no-repeat;
+      background-size:min(720px, 70vw);
+      background-position:right -120px center;
+
+      opacity:.035;          /* tune 0.03–0.06 */
+      filter:blur(.3px);
+
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .card > *{
+      position:relative;
+      z-index:1;
+    }
+
+    @media(max-width:700px){
+      .card::before{
+        background-position:center 40%;
+        opacity:.03;
+      }
+    }
+
+    /* ===== SMALL INNER CARDS (watermark OFF) ===== */
+    .subcard{
+      background: rgba(7,9,13,.35);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: none;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    .footer{
+      border-top:1px solid var(--line);
+      padding:18px 0 32px;
+      color:var(--muted)
+    }
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
+  </style>
 </head>
 
 <body>
@@ -194,7 +201,7 @@
   </header>
 
   <main class="wrap content">
-    <div class="pill">🛡️ Wallets & security</div>
+    <div class="pill">🛡️ Wallets &amp; security</div>
 
     <h1 style="margin-top:12px;">Buying and storing bitcoin</h1>
     <p class="muted">
@@ -202,12 +209,8 @@
       Built for real people: clear decisions, minimal jargon, and practical habits that prevent the most common losses.
     </p>
 
-    <!-- =========================
-         SECTIONS (UPDATED ONLY)
-         ========================= -->
-
     <div class="grid">
-      <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
+      <div class="card">
         <div class="kicker">What you’ll learn</div>
         <h2 style="margin-top:6px;">✅ Practical outcomes</h2>
         <ul>
@@ -221,25 +224,24 @@
         </div>
       </div>
 
-      <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
-  <div class="kicker">Quick navigation</div>
-  <h2 style="margin-top:6px;">📌 Sections</h2>
+      <div class="card">
+        <div class="kicker">Quick navigation</div>
+        <h2 style="margin-top:6px;">📌 Sections</h2>
 
-  <ol class="toc">
-    <li><a href="#basics">1) The basics: buy vs store</a></li>
-    <li><a href="#ways">2) Ways to buy bitcoin</a></li>
-    <li><a href="#storage">3) Storage & custody options</a></li>
-    <li><a href="#levelup">4) A recommended “level-up” path</a></li>
-    <li><a href="#steps">5) Step-by-step: buy → withdraw → verify</a></li>
-    <li><a href="#checklists">6) Checklists (do this, avoid that)</a></li>
-    <li><a href="#mistakes">7) Common mistakes & how to avoid them</a></li>
-    <li><a href="#faq">8) Quick FAQ</a></li>
-  </ol>
- 
+        <ol class="toc">
+          <li><a href="#basics">1) The basics: buy vs store</a></li>
+          <li><a href="#ways">2) Ways to buy bitcoin</a></li>
+          <li><a href="#storage">3) Storage &amp; custody options</a></li>
+          <li><a href="#levelup">4) A recommended “level-up” path</a></li>
+          <li><a href="#steps">5) Step-by-step: buy → withdraw → verify</a></li>
+          <li><a href="#checklists">6) Checklists (do this, avoid that)</a></li>
+          <li><a href="#mistakes">7) Common mistakes &amp; how to avoid them</a></li>
+          <li><a href="#faq">8) Quick FAQ</a></li>
+        </ol>
       </div>
     </div>
 
-    <div class="card card--wm" id="basics" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="basics">
       <div class="kicker">1) The basics</div>
       <h2 style="margin-top:6px;">Buying vs storing</h2>
       <p>
@@ -258,14 +260,13 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="ways" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="ways">
       <div class="kicker">2) Ways to buy</div>
       <h2 style="margin-top:6px;">Choose the method that fits your goals</h2>
       <p class="muted">
         There are multiple “right” ways. Your best choice depends on convenience, privacy, cost, and how soon you plan to withdraw into self-custody.
       </p>
 
-      <!-- Keeping your exact table content/structure -->
       <table aria-label="Ways to buy bitcoin comparison">
         <thead>
           <tr>
@@ -303,7 +304,7 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="storage" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="storage">
       <div class="kicker">3) Storage &amp; custody</div>
       <h2 style="margin-top:6px;">Who can move the bitcoin?</h2>
       <p>
@@ -311,7 +312,6 @@
         The safer your custody, the harder it is for attackers (or companies) to take it.
       </p>
 
-      <!-- Keeping your exact table content/structure -->
       <table aria-label="Storage options comparison">
         <thead>
           <tr>
@@ -355,7 +355,7 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="levelup" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="levelup">
       <div class="kicker">4) Recommended path</div>
       <h2 style="margin-top:6px;">Level up without fragile complexity</h2>
       <p>
@@ -388,7 +388,7 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="steps" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="steps">
       <div class="kicker">5) Step-by-step</div>
       <h2 style="margin-top:6px;">Buy → withdraw → verify</h2>
       <p class="muted">This is the safest first-time flow for most people.</p>
@@ -425,12 +425,12 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="checklists" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="checklists">
       <div class="kicker">6) Checklists</div>
       <h2 style="margin-top:6px;">Do this, avoid that</h2>
 
       <div class="grid">
-        <div class="card" style="margin:0;">
+        <div class="subcard">
           <h3 style="margin-top:0;">✅ Do this</h3>
           <ul>
             <li>Use unique passwords + strong 2FA (prefer app-based 2FA over SMS)</li>
@@ -441,7 +441,7 @@
           </ul>
         </div>
 
-        <div class="card" style="margin:0;">
+        <div class="subcard">
           <h3 style="margin-top:0;">❌ Avoid this</h3>
           <ul>
             <li>Copy/pasting addresses from random chats or “support” DMs</li>
@@ -458,7 +458,7 @@
       </div>
     </div>
 
-    <div class="card card--wm" id="mistakes" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="mistakes">
       <div class="kicker">7) Common mistakes</div>
       <h2 style="margin-top:6px;">And how to avoid them</h2>
 
@@ -475,7 +475,7 @@
       <ul><li><strong>Fix:</strong> keep it offline, private, and durable.</li></ul>
     </div>
 
-    <div class="card card--wm" id="faq" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" id="faq">
       <div class="kicker">8) Quick FAQ</div>
       <h2 style="margin-top:6px;">Fast answers</h2>
 
@@ -498,7 +498,6 @@
       </p>
     </div>
 
-    <!-- Footer mission statement + links -->
     <hr />
     <div class="footer-title">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
     <hr />
