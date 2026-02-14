@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Satoshium • Public Repo Map</title>
+<title>Satoshium • Repo Map</title>
 
 <style>
 :root{
@@ -40,32 +40,27 @@ a:hover{color:var(--gold)}
 }
 .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
 .tag{font-size:12px;color:var(--muted);margin-top:2px}
-.nav{display:flex;gap:16px;align-items:center}
+.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .nav a{color:var(--muted);font-size:13px}
 .nav a:hover{color:var(--gold2)}
 .content{padding:40px 18px 60px}
 h1,h2{margin:0 0 10px}
 h1{font-size:32px;color:var(--gold2)}
-h2{font-size:20px;color:var(--gold2);margin-top:26px}
+h2{font-size:20px;color:var(--gold2);margin-top:0}
 p,li{color:var(--text)}
 .card{
-  background:var(--panel);
+  position: relative;
+  overflow: hidden;
   border:1px solid var(--line);
   border-radius:16px;
   padding:18px;
   margin:18px 0;
+  background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
 }
 .muted{color:var(--muted)}
-.footer{
-  border-top:1px solid var(--line);
-  padding:22px 0 32px;
-  margin-top:40px;
-}
-.footer-title{
-  font-weight:800;
-  color:var(--text);
-  margin-bottom:6px;
-}
 .center{text-align:center;margin-top:30px}
 .button{
   display:inline-block;
@@ -78,24 +73,20 @@ p,li{color:var(--text)}
 }
 .button:hover{background:rgba(214,163,74,.2)}
 ul{margin-left:20px}
-  .pill {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,184,77,0.35);
-  background: rgba(255,184,77,0.08);
-  color: #ffb84d;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-/* ===== Card watermark (uses --card-wm) ===== */
-.card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+
+.pill{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:20px;
+  border:1px solid rgba(255,184,77,0.35);
+  background:rgba(255,184,77,0.08);
+  color:#ffb84d;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:10px;
 }
 
+/* ===== Card watermark (uses --card-wm) ===== */
 .card::before{
   content:"";
   position:absolute;
@@ -104,42 +95,25 @@ ul{margin-left:20px}
   background-repeat:no-repeat;
   background-size: min(720px, 70vw);
   background-position: right -140px center;
-  opacity: 0.028;          /* 2.8% ultra subtle */
+  opacity: 0.028;
   filter: blur(1px);
   pointer-events:none;
   z-index:0;
 }
-
-.card > *{
-  position:relative;
-  z-index:1;
-}
-
+.card > *{position:relative;z-index:1}
 @media(max-width:700px){
-  .card::before{
-    opacity:0.02;
-    background-position:center 35%;
-  }
-}
-.card{
-  background: linear-gradient(
-    to bottom right,
-    rgba(12,16,24,.94),
-    rgba(12,16,24,.88)
-  );
-  box-shadow:
-    0 0 0 1px rgba(214,163,74,.08),
-    0 20px 50px rgba(0,0,0,.45);
+  .card::before{opacity:0.02;background-position:center 35%}
 }
 
-  .card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92);
-  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+.footer{
+  border-top:1px solid var(--line);
+  padding:22px 0 32px;
+  margin-top:40px;
 }
-.card h2{
-  letter-spacing:.3px;
+.footer-title{
+  font-weight:800;
+  color:var(--text);
+  margin-bottom:6px;
 }
 </style>
 </head>
@@ -158,90 +132,108 @@ ul{margin-left:20px}
     </div>
 
     <nav class="nav">
-        <a href="./">Home</a>
-        <a href="./what-is-satoshium.html">What is Satoshium?</a>
-        <a href="./what-is-bitcoin.html">What is Bitcoin?</a>
-        <a href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-        <a href="./roadmap.html">Roadmap</a>
-        <a href="./changelog.html">Changelog</a>
-        <a href="./demos.html">Demos</a>
-        <a href="./repo-map.html">Repo Map</a>
-        <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
-      </nav>
+      <a href="./">Home</a>
+      <a href="./what-is-satoshium.html">What is Satoshium?</a>
+      <a href="./what-is-bitcoin.html">What is Bitcoin?</a>
+      <a href="./why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+      <a href="./roadmap.html">Roadmap</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./demos.html">Demos</a>
+      <a href="./repo-map.html">Repo Map</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+    </nav>
   </div>
 </header>
 
 <!-- CONTENT -->
 <main class="wrap content">
-<div class="pill">🧠 Satoshium architecture</div>
+  <div class="pill">🧠 Satoshium ecosystem map</div>
 
-<h1>Public Repo Map</h1>
-<p class="muted">
-A high-level view of the Satoshium ecosystem.<br>
-Some repositories remain private during development — this map shows what each system does and how it fits together.
-</p>
-  <p></p>
-  <p>A live map of the Satoshium ecosystem — structure before scale.</p>
+  <h1>Repo Map</h1>
+  <p class="muted">
+    A high-level view of the Satoshium ecosystem.<br>
+    Some repositories remain private during development — this map explains how the pieces fit together.
+  </p>
 
-<div class="card" style="--card-wm:url('./assets/seal.png');">
-<h2>🟢 Core Infrastructure</h2>
-<ul>
-<li><strong>Satoshium Core</strong> — protocol logic, agent rules, trust architecture</li>
-<li><strong>Satoshium Agents</strong> — sovereign AI agents governed by cryptographic rules</li>
-<li><strong>Satoshium Safety (Aegis)</strong> — agent firewall + decision transparency</li>
-<li><strong>Satoshium Signals</strong> — public releases, progress tracking, milestones</li>
-</ul>
-</div>
+  <!-- 1) Constitutional Layer -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🪨 Constitutional Layer (Private)</h2>
+    <p class="muted">This is the “source of truth” that keeps future agents coherent.</p>
+    <ul>
+      <li><strong>satoshium-canon</strong> — Canon Curator (definitions, claim boundaries, tone rules, citations)</li>
+      <li><strong>Canon policy</strong> — locked-by-default; evolves slowly and intentionally</li>
+    </ul>
+  </div>
 
-<div class="card" style="--card-wm:url('./assets/seal.png');">
-<h2>🟡 Public Build Layer</h2>
-<ul>
-<li><strong>satoshium-progress</strong> — public roadmap, demos, changelog (this site)</li>
-<li><strong>Live Demos</strong> — working tools released when ready</li>
-<li><strong>Explainers</strong> — plain-English architecture + mission pages</li>
-</ul>
-</div>
+  <!-- 2) Core Infrastructure -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🟢 Core Infrastructure (Mostly Private)</h2>
+    <ul>
+      <li><strong>Satoshium Core</strong> — foundational protocols, trust primitives, and long-horizon architecture</li>
+      <li><strong>Satoshium Safety (Aegis)</strong> — safety patterns and alignment guardrails (agent firewall direction)</li>
+      <li><strong>Satoshium Signals</strong> — progress signals, milestones, and system-level status concepts</li>
+    </ul>
+    <p class="muted">These repos may open gradually as stability increases.</p>
+  </div>
 
-<div class="card" style="--card-wm:url('./assets/seal.png');">
-<h2>🔵 Private Development (in progress)</h2>
-<p class="muted">These systems are under active development and will open gradually as they stabilize.</p>
-<ul>
-<li>Agent simulation environments</li>
-<li>Decentralized knowledge systems</li>
-<li>Governance + trust scoring frameworks</li>
-<li>Future apps and experiments</li>
-<li>Bitcoin-aligned AI infrastructure components</li>
-</ul>
-</div>
+  <!-- 3) Agents -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🤖 Agent Layer (Emerging)</h2>
+    <ul>
+      <li><strong>Aligned agents</strong> — built slowly, guided by the canon framework</li>
+      <li><strong>Education agents</strong> — clarity-first tools for learning and understanding</li>
+      <li><strong>Internal alignment agents</strong> — tone/claim/citation consistency checks (quiet infrastructure)</li>
+    </ul>
+    <p class="muted">Agents are created only when useful — not for volume.</p>
+  </div>
 
-<div class="card" style="--card-wm:url('./assets/seal.png');">
-<h2>🟠 Long-Term Vision</h2>
-<ul>
-<li>AI governed by cryptographic truth</li>
-<li>Open, inspectable autonomous agents</li>
-<li>Decentralized intelligence infrastructure</li>
-<li>Public progress. Real tools. Long-term future.</li>
-</ul>
-</div>
+  <!-- 4) Public Build Layer -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🌐 Public Build Layer (Live)</h2>
+    <ul>
+      <li><strong>satoshium-progress</strong> — roadmap, changelog, demos, and public explainer pages</li>
+      <li><strong>Bitcoin 101</strong> — glossary + fundamentals + security guides (expanded over time)</li>
+      <li><strong>Demos</strong> — small tools shared when ready (not rushed)</li>
+    </ul>
+  </div>
 
-<div class="center">
-<a class="button" href="https://github.com/SatoshiumAI" target="_blank">
-View GitHub Organization
-</a>
-</div>
+  <!-- 5) Media Track -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🎬 Media & Storytelling (Ongoing)</h2>
+    <ul>
+      <li><strong>YouTube releases</strong> — narrative + visual storytelling to make the future understandable</li>
+      <li><strong>Long-form scenes</strong> — built slowly alongside the technical foundation</li>
+      <li><strong>Public education</strong> — explainers that stay calm, practical, and non-hype</li>
+    </ul>
+  </div>
 
-<!-- FOOTER -->
-<div class="footer">
-<div class="footer-title">
-Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
-</div>
-<div class="footer">
-<div>
-<div class="muted">
-GitHub: <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a><br>
-Main Site: <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-</div>
-</div>
+  <!-- 6) Long-Term Vision -->
+  <div class="card" style="--card-wm:url('./assets/seal.png');">
+    <h2>🟠 Long-Term Vision</h2>
+    <ul>
+      <li>Clarity-first AI agents that respect human agency</li>
+      <li>Inspectable, governed systems that avoid authority creep</li>
+      <li>Quiet infrastructure that scales only when useful</li>
+      <li>Public progress, real tools, long-horizon build</li>
+    </ul>
+  </div>
+
+  <div class="center">
+    <a class="button" href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">
+      View GitHub Organization
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-title">
+      Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+    </div>
+    <div class="muted">
+      GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a><br>
+      Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a>
+    </div>
+  </div>
 
 </main>
 </body>
