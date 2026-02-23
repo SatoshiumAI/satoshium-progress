@@ -28,59 +28,48 @@
     .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted);margin-top:20px}
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+
     /* ===== Card watermark (uses --card-wm) ===== */
-.card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-60px;
-  background-image: var(--card-wm);
-  background-repeat:no-repeat;
-  background-size: min(720px, 70vw);
-  background-position: right -140px center;
-  opacity: 0.028;          /* 2.8% ultra subtle */
-  filter: blur(1px);
-  pointer-events:none;
-  z-index:0;
-}
-
-.card > *{
-  position:relative;
-  z-index:1;
-}
-
-@media(max-width:700px){
-  .card::before{
-    opacity:0.02;
-    background-position:center 35%;
-  }
-}
-.card{
-  background: linear-gradient(
-    to bottom right,
-    rgba(12,16,24,.94),
-    rgba(12,16,24,.88)
-  );
-  box-shadow:
-    0 0 0 1px rgba(214,163,74,.08),
-    0 20px 50px rgba(0,0,0,.45);
-}
-
-  .card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92);
-  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
-}
-.card h2{
-  letter-spacing:.3px;
-}
-</style>
+    .card{
+      position: relative;
+      overflow: hidden;
+      background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background-image: var(--card-wm);
+      background-repeat:no-repeat;
+      background-size: min(720px, 70vw);
+      background-position: right -140px center;
+      opacity: 0.028;          /* 2.8% ultra subtle */
+      filter: blur(1px);
+      pointer-events:none;
+      z-index:0;
+    }
+    .card > *{ position:relative; z-index:1; }
+    @media(max-width:700px){
+      .card::before{ opacity:0.02; background-position:center 35%; }
+    }
+    .card{
+      background: linear-gradient(
+        to bottom right,
+        rgba(12,16,24,.94),
+        rgba(12,16,24,.88)
+      );
+      box-shadow:
+        0 0 0 1px rgba(214,163,74,.08),
+        0 20px 50px rgba(0,0,0,.45);
+    }
+    .card{
+      position: relative;
+      overflow: hidden;
+      background: rgba(12,16,24,0.92);
+      box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+    }
+    .card h2{ letter-spacing:.3px; }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -113,64 +102,78 @@
 
     <div class="grid">
 
-  <!-- Phase 0 -->
-  <div class="card" style="--card-wm:url('./assets/seal.png');">
-    <h2>Phase 0 — Public Foundation</h2>
-    <ul>
-      <li>✅ Public build hub (this site)</li>
-      <li>✅ Roadmap + changelog transparency</li>
-      <li>✅ Core explainer pages (Satoshium, Bitcoin, Why Bitcoin + AI)</li>
-      <li>✅ Repo map + visible progress structure</li>
-      <li>✅ Long-form Satoshium visual storytelling begins</li>
-    </ul>
-  </div>
+      <!-- Phase 0 -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Phase 0 — Public Foundation</h2>
+        <ul>
+          <li>✅ Public build hub (this site)</li>
+          <li>✅ Roadmap + changelog transparency</li>
+          <li>✅ Core explainer pages (Satoshium, Bitcoin, Why Bitcoin + AI)</li>
+          <li>✅ Repo map + visible progress structure</li>
+          <li>✅ Long-form Satoshium visual storytelling begins</li>
+        </ul>
+      </div>
 
-  <!-- Phase 1 -->
-  <div class="card" style="--card-wm:url('./assets/seal.png');">
-    <h2>Phase 1 — Constitutional Layer (current)</h2>
-    <ul>
-      <li>✅ Canon Curator constitutional repository created</li>
-      <li>✅ Definitions, claims, tone, and manifesto aligned</li>
-      <li>✅ Internal “source-of-truth” framework established</li>
-      <li>⬜ Ongoing refinement and slow canon expansion</li>
-      <li>⬜ Preparation for future agent alignment</li>
-    </ul>
-  </div>
+      <!-- Phase 1 -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Phase 1 — Constitutional Layer (current)</h2>
+        <ul>
+          <li>✅ Canon Curator constitutional repository created</li>
+          <li>✅ Definitions, claims, tone, and manifesto aligned</li>
+          <li>✅ Internal “source-of-truth” framework established</li>
+          <li>⬜ Ongoing refinement and slow canon expansion</li>
+          <li>⬜ Preparation for future agent alignment</li>
+        </ul>
+      </div>
 
-  <!-- Phase 2 -->
-  <div class="card" style="--card-wm:url('./assets/seal.png');">
-    <h2>Phase 2 — First Aligned Agents</h2>
-    <ul>
-      <li>⬜ Canon-aligned Satoshium agents (early internal builds)</li>
-      <li>⬜ Educational and research-focused agent systems</li>
-      <li>⬜ Structured knowledge and clarity tools</li>
-      <li>⬜ Quiet testing and refinement</li>
-    </ul>
-  </div>
+      <!-- Phase 2 -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Phase 2 — First Aligned Agents</h2>
+        <ul>
+          <li>⬜ Canon-aligned Satoshium agents (early internal builds)</li>
+          <li>⬜ Educational and research-focused agent systems</li>
+          <li>⬜ Structured knowledge and clarity tools</li>
+          <li>⬜ Quiet testing and refinement</li>
+        </ul>
+      </div>
 
-  <!-- Phase 3 -->
-  <div class="card" style="--card-wm:url('./assets/seal.png');">
-    <h2>Phase 3 — Public Experience</h2>
-    <ul>
-      <li>⬜ Expanded interactive demos</li>
-      <li>⬜ Public educational tools and guides</li>
-      <li>⬜ Visible aligned-AI demonstrations</li>
-      <li>⬜ Continued media and narrative expansion</li>
-    </ul>
-  </div>
+      <!-- Satoshium Labs -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Satoshium Labs — Holodeck Experiments (experimental)</h2>
+        <p class="muted">An interactive “Exploratorium-style” space for Bitcoin + AI futures — built as small, awe-inspiring apps.</p>
+        <ul>
+          <li>✅ “2035 Mode” concept: learn-by-experience through simulated future scenarios</li>
+          <li>✅ Rapid prototyping cadence (small apps, fast iteration, low ceremony)</li>
+          <li>✅ Early prototypes (examples): Bitcoin historical console, sovereign pulse signals, proof-of-reality / verification flows</li>
+          <li>⬜ Curated “experience shelves” (Beginner → Advanced) to guide visitors</li>
+          <li>⬜ Publish a clean public hub page that links Labs experiments from the Demos section</li>
+        </ul>
+      </div>
 
-  <!-- Phase 4 -->
-  <div class="card" style="--card-wm:url('./assets/seal.png');">
-    <h2>Phase 4 — Long-Term Ecosystem</h2>
-    <ul>
-      <li>⬜ Open developer entry points</li>
-      <li>⬜ Additional aligned agents and systems</li>
-      <li>⬜ Expanded educational infrastructure</li>
-      <li>⬜ Slow, durable ecosystem growth</li>
-    </ul>
-  </div>
+      <!-- Phase 3 -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Phase 3 — Public Experience</h2>
+        <ul>
+          <li>⬜ Expanded interactive demos</li>
+          <li>⬜ <strong>Satoshium Labs</strong> becomes a public “future experience” gallery (Holodeck)</li>
+          <li>⬜ Public educational tools and guides</li>
+          <li>⬜ Visible aligned-AI demonstrations</li>
+          <li>⬜ Continued media and narrative expansion</li>
+        </ul>
+      </div>
 
-</div>
+      <!-- Phase 4 -->
+      <div class="card" style="--card-wm:url('./assets/seal.png');">
+        <h2>Phase 4 — Long-Term Ecosystem</h2>
+        <ul>
+          <li>⬜ Open developer entry points</li>
+          <li>⬜ Additional aligned agents and systems</li>
+          <li>⬜ Expanded educational infrastructure</li>
+          <li>⬜ Slow, durable ecosystem growth</li>
+        </ul>
+      </div>
+
+    </div>
 
     <div class="card" style="--card-wm:url('./assets/seal.png');">
       <div class="muted">Built in public. No hype. Visible progress only.</div>
