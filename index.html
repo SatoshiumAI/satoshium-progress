@@ -6,61 +6,114 @@
 <title>Satoshium — Building Bitcoin-Governed Intelligence</title>
 
 <style>
-:root{
-  --bg:#07090d;
-  --panel:#0c1018;
-  --text:#e8edf7;
-  --muted:#9aa7bd;
-  --gold:#d6a34a;
-  --gold2:#f4c36a;
-  --line:rgba(214,163,74,.18);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-a{color:var(--gold2);text-decoration:none}
-a:hover{color:var(--gold)}
-.wrap{max-width:980px;margin:0 auto;padding:0 18px}
-.topbar{
-  position:sticky;top:0;z-index:20;
-  background:rgba(7,9,13,.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter: blur(8px);
-}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-.brand{display:flex;align-items:center;gap:12px}
-.mark{
-  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-  border:1px solid var(--line);color:var(--gold2);font-weight:900
-}
-.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-.tag{font-size:12px;color:var(--muted);margin-top:2px}
-.nav{display:flex;gap:16px;align-items:center}
-.nav a{color:var(--muted);font-size:13px}
-.nav a:hover{color:var(--gold2)}
-.content{padding:34px 18px 60px}
-h1,h2{margin:0 0 10px}
-h1{font-size:30px;color:var(--gold2)}
-h2{font-size:20px;color:var(--gold2);margin-top:26px}
-p,li{color:var(--text)}
-hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    :root{
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .nav{display:flex;gap:16px;align-items:center}
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .content{padding:34px 18px 60px}
+    h1,h2{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin-top:26px}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px;
+      margin:16px 0;
+    }
+    .muted{color:var(--muted)}
+    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+    }
+    ul{margin:8px 0 0 18px}
+    .mini{font-size:12px}
+    /* ===== Card watermark (uses --card-wm) ===== */
 .card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:16px 16px;
-  margin:16px 0;
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
 }
-.muted{color:var(--muted)}
-.footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
-.pill{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 10px;border:1px solid var(--line);border-radius:999px;
-  background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;          /* 2.8% ultra subtle */
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
 }
-ul{margin:8px 0 0 18px}
-</style>
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  .card::before{
+    opacity:0.02;
+    background-position:center 35%;
+  }
+}
+.card{
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+  .card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92);
+  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+}
+.card h2{
+  letter-spacing:.3px;
+}
+  </style>
 </head>
 
 <body>
