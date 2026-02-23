@@ -125,6 +125,68 @@
 </div>
 
     <!-- Newest-first entries -->
+    <div class="card">
+      <h2>2026-02-21 — Satoshium Labs Apps scaffolding (structure-first)</h2>
+      <ul>
+        <li>Focused work on Satoshium Labs Apps (structure &amp; organization, not app logic yet).</li>
+        <li>Created/updated app folders and README scaffolding for future Labs experiences.</li>
+        <li>Maintained ‘slow-and-steady’ build posture; prioritized clarity and clean structure.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-20 — Trust Mode doctrine + dashboard presence</h2>
+      <ul>
+        <li>Defined Phase I Trust Modes: UNLOCKED (experimental), LOCKED (governed), SOVEREIGN (future).</li>
+        <li>Added trust_mode to /trust/state output (UNLOCKED when authority_lock is false; LOCKED when true).</li>
+        <li>Updated Trust Dashboard to display header lines: “SATOSHIUM STATUS: ACTIVE” and “TRUST MODE: &lt;mode&gt;”.</li>
+        <li>Regenerated and validated signed verification artifacts (verification_report.json + .sig + verifier_public.pem) with OpenSSL.</li>
+        <li>Implemented/used tools/generate_signed_trust_proof.py to generate a signed proof bundle and archive it under exports/proofs/.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-19 — External verification + signed trust proof layer</h2>
+      <ul>
+        <li>Finalized signed verification report pipeline (report → sign → verify) producing portable trust artifacts.</li>
+        <li>Resolved indentation/tab issues and boot integrity/snapshot issues encountered during hardening.</li>
+        <li>Stabilized external signature verification (regenerate report, re-sign with correct key pair, Verified OK).</li>
+        <li>Completed tools/generate_signed_trust_proof.py for end-to-end proof creation and archival bundles.</li>
+        <li>Validated full flow via /trust/state, /trust/require, export/verify endpoints, and local dashboard.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-18 — Trust engine dashboard + export history + verification endpoints</h2>
+      <ul>
+        <li>Built/iterated the Satoshium Trust Dashboard for at-a-glance system trust visibility.</li>
+        <li>Implemented export endpoints and index/history tracking (exports/index.json + snapshot history).</li>
+        <li>Added authority lock gating and /trust/require enforcement semantics (REFUSE_OPERATION vs PROCEED).</li>
+        <li>Validated export chain creation and confirmed external verification flags/state reporting.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-17 — Satoshium Curator: Canon/Trust build continuation (local Beehive work)</h2>
+      <ul>
+        <li>Continued local Curator + Trust Engine work in the Beehive environment (WSL/Ubuntu).</li>
+        <li>Focused on step-by-step operational runbook habits (cd into repo, activate venv, run services, verify outputs).</li>
+        <li>Prepared for Phase D Trust Layer Completion workstream continuation (dashboard/authority lock/multi-agent binding/external verifier mode).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-16 — Major Canon milestone day + new repos + progress update</h2>
+      <ul>
+        <li>Completed Phase 1–4 Canon build work and established a stronger Canon/Curator direction.</li>
+        <li>Updated satoshium-progress with major milestones and captured daily contribution stats (63 commits; 6,156 total).</li>
+        <li>Created/published Satoshium Intelligence Systems positioning and related updates.</li>
+        <li>Created two new infrastructure repositories: satoshium-console and satoshium-curator.</li>
+        <li>Drafted initial Curator/Console integration direction for local agent execution via localhost (Beehive).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>2026-02-15 — Canon Phase 0 completion + Phase 1 readiness</h2>
+      <ul>
+        <li>Completed Phase 0 for satoshium-canon and prepared to enter Phase 1 (structure-first).</li>
+        <li>Clarified operating posture: keep Canon as the immutable base and build Curator/Trust layers around it.</li>
+      </ul>
+    </div>
 <div class="card" style="--card-wm:url('./assets/seal.png');">
   <h2>2026-02-14 — Foundation expansion & Canon completion</h2>
   <ul>
