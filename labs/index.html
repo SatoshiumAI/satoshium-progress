@@ -1,384 +1,475 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium Labs — Experimental Modules</title>
-  <meta name="description" content="Satoshium Labs — experimental modules and early demonstrations of the Satoshium Intelligence System." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Satoshium Labs — Experimental Modules</title>
+<meta name="description" content="Satoshium Labs — experimental modules and early demonstrations of the Satoshium Intelligence System." />
 
-  <style>
-    :root{
-      --bg:#07090d;
-      --panel:#0c1018;
-      --text:#e8edf7;
-      --muted:#9aa7bd;
-      --gold:#d6a34a;
-      --gold2:#f4c36a;
-      --line:rgba(214,163,74,.18);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-    a{color:var(--gold2);text-decoration:none}
-    a:hover{color:var(--gold)}
-    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-    .topbar{
-      position:sticky;top:0;z-index:20;
-      background:rgba(7,9,13,.92);
-      border-bottom:1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .mark{
-      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-      border:1px solid var(--line);color:var(--gold2);font-weight:900
-    }
-    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-    .tag{font-size:12px;color:var(--muted);margin-top:2px}
-    .nav{display:flex;gap:16px;align-items:center}
-    .nav a{color:var(--muted);font-size:13px}
-    .nav a:hover{color:var(--gold2)}
-    .content{padding:34px 18px 60px}
-    h1,h2{margin:0 0 10px}
-    h1{font-size:30px;color:var(--gold2)}
-    h2{font-size:20px;color:var(--gold2);margin-top:26px}
-    p,li{color:var(--text)}
-    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px;
-      margin:16px 0;
-    }
-    .muted{color:var(--muted)}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
-      background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
-    }
-    ul{margin:8px 0 0 18px}
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid var(--line);
-      background:rgba(214,163,74,.10);
-      color:var(--gold2);
-      font-weight:700;
-      font-size:13px;
-    }
-    .btn:hover{background:rgba(214,163,74,.16)}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;font-weight:800;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(214,163,74,.06);
-      color:var(--muted);
-    }
-    .badge.live{color:var(--gold2)}
-    .footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted)}
-    .footer .muted{margin-top:6px}
-    .footer-title{color:var(--text);font-weight:800;margin-bottom:6px}
-    /* ===== Card watermark (uses --card-wm) ===== */
-.card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92); /* slight transparency so watermark feels natural */
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0c1018;
+  --panel2:#0b0f14;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+
+  --shadow: 0 18px 40px rgba(0,0,0,.35);
+  --radius: 18px;
 }
 
-.card::before{
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,9,13,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+  border:1px solid var(--line);color:var(--gold2);font-weight:900
+}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{color:var(--muted);font-size:13px}
+.nav a:hover{color:var(--gold2)}
+
+main{padding:34px 0 60px}
+
+/* pill */
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 10px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(214,163,74,.08);
+  color:var(--gold2);font-size:12px;font-weight:700
+}
+
+h1{font-size:30px;color:var(--gold2);margin:14px 0 10px}
+.lede{color:var(--muted);max-width:82ch;margin:0 0 18px}
+
+/* ===== Card watermark (uses --card-wm) ===== */
+.card, .group{
+  position: relative;
+  overflow: hidden;
+}
+.card::before, .group::before{
   content:"";
   position:absolute;
   inset:-60px;
   background-image: var(--card-wm);
   background-repeat:no-repeat;
-  background-size: min(720px, 70vw);
-  background-position: right -140px center;
-  opacity: 0.028;          /* 2.8% ultra subtle */
+  background-size: min(760px, 70vw);
+  background-position: right -160px center;
+  opacity: 0.028;
   filter: blur(1px);
   pointer-events:none;
   z-index:0;
 }
-
-.card > *{
-  position:relative;
-  z-index:1;
-}
-
+.card > *, .group > *{ position:relative; z-index:1; }
 @media(max-width:700px){
-  .card::before{
-    opacity:0.02;
-    background-position:center 35%;
-  }
-}
-.card{
-  background: linear-gradient(
-    to bottom right,
-    rgba(12,16,24,.94),
-    rgba(12,16,24,.88)
-  );
-  box-shadow:
-    0 0 0 1px rgba(214,163,74,.08),
-    0 20px 50px rgba(0,0,0,.45);
+  .card::before, .group::before{ opacity:0.02; background-position:center 35%; }
 }
 
-  .card{
-  position: relative;
-  overflow: hidden;
-  background: rgba(12,16,24,0.92);
-  box-shadow: 0 0 0 1px rgba(214,163,74,.10), 0 18px 40px rgba(0,0,0,.35);
+/* overview card */
+.overview{
+  background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  box-shadow: var(--shadow);
+  margin: 14px 0 18px;
 }
-.card h2{
-  letter-spacing:.3px;
+.overview h2{
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--gold2);
+  letter-spacing:.08em;
+}
+.overview ul{margin:8px 0 0 18px}
+.overview li{margin:6px 0}
+.links{
+  display:flex;gap:14px;flex-wrap:wrap;
+  margin-top:14px;padding-top:12px;
+  border-top:1px solid rgba(214,163,74,.14);
+}
+.links a{font-size:13px;color:var(--gold2)}
+.links a:hover{color:var(--gold)}
+
+/* group sections */
+.group{
+  background: rgba(12,16,24,0.92);
+  border:1px solid rgba(214,163,74,.14);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 16px 0;
+  padding: 16px;
+}
+.group-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-bottom:10px;
+}
+.group-title{
+  font-size:12px;
+  letter-spacing:.14em;
+  color:var(--gold2);
+  font-weight:800;
+}
+.group-sub{margin:0 0 14px;color:var(--muted);font-size:13px;max-width:90ch}
+
+/* cards grid */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+.module{
+  grid-column: span 6;
+  background: linear-gradient(to bottom right, rgba(12,16,24,.96), rgba(12,16,24,.86));
+  border:1px solid rgba(214,163,74,.16);
+  border-radius:16px;
+  padding:14px;
+  box-shadow: 0 14px 28px rgba(0,0,0,.28);
+}
+.module:hover{
+  border-color: rgba(214,163,74,.28);
+  box-shadow: 0 18px 36px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.module-top{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+}
+.module h3{margin:0;font-size:16px;color:var(--text)}
+.tagpill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:rgba(232,237,247,.82);
+  font-size:12px;
+  white-space:nowrap;
+}
+.module p{margin:10px 0 0;color:var(--muted);font-size:13px;max-width:72ch}
+
+.actions{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:12px;
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 12px;border-radius:12px;
+  border:1px solid rgba(214,163,74,.35);
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  font-size:12px;
+  min-width:120px;
+}
+.btn:hover{
+  background:rgba(214,163,74,.12);
+  border-color:rgba(214,163,74,.55);
+}
+.btn:active{transform:translateY(1px)}
+.meta{
+  color:rgba(154,167,189,.95);
+  font-size:11px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+/* WIP */
+.wip{
+  background: rgba(12,16,24,0.92);
+  border:1px solid rgba(214,163,74,.14);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+  margin-top: 18px;
+}
+.wip h2{margin:0 0 8px;font-size:14px;color:var(--gold2);letter-spacing:.08em}
+.wip p{margin:0;color:var(--muted);font-size:13px}
+
+@media(max-width:860px){
+  .module{grid-column: span 12;}
+  h1{font-size:26px}
+  .nav{gap:10px}
 }
 </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="mark">S</div>
-        <div>
-          <div class="name">SATOSHIUM</div>
-          <div class="tag">AI, governed by Bitcoin</div>
-        </div>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
       </div>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-        <a href="https://satoshium.ai">Main Site</a>
-      </nav>
     </div>
-  </header>
+    <nav class="nav">
+      <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="wrap">
-    <div class="crumb">🧪 Satoshium Labs • Experimental</div>
-    <h1>SATOSHIUM LABS — EXPERIMENTAL MODULES</h1>
+<main class="wrap">
+  <div class="pill">🧪 Satoshium Labs • Experimental</div>
+  <h1>SATOSHIUM LABS — EXPERIMENTAL MODULES</h1>
+  <p class="lede">
+    These applications are early demonstrations of the Satoshium Intelligence System.
+    They explore decentralized truth verification, sovereign infrastructure signals,
+    future scenario intelligence, and cryptographic governance models.
+    All modules are experimental and evolving — prototypes of future Satoshium capabilities.
+  </p>
 
-    <p class="lede">
-      These applications are early demonstrations of the Satoshium Intelligence System.
-      They explore concepts such as decentralized truth verification, sovereign infrastructure signals,
-      future scenario intelligence, and cryptographic governance models.
-      All modules are experimental and evolving — prototypes of future Satoshium capabilities.
+  <section class="overview card" style="--card-wm:url('../assets/seal.png');" aria-label="Labs overview">
+    <h2>What you'll find here</h2>
+    <ul>
+      <li>decentralized truth verification</li>
+      <li>sovereign infrastructure signals</li>
+      <li>future scenario intelligence</li>
+      <li>cryptographic governance models</li>
+    </ul>
+    <div class="links">
+      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">← Back to Demos</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">View Repo Map</a>
+      <a href="https://github.com/satoshiumai" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </section>
+
+  <!-- CORE INTELLIGENCE -->
+  <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Core intelligence modules">
+    <div class="group-head">
+      <div class="group-title">CORE INTELLIGENCE</div>
+      <div class="pill">✦ Experimental</div>
+    </div>
+    <p class="group-sub">Core flows: horizon navigation, claim verification, and foresight synthesis.</p>
+
+    <div class="cards">
+      <section class="module">
+        <div class="module-top">
+          <h3>Timeline Navigator</h3>
+          <span class="tagpill">Navigation</span>
+        </div>
+        <p>Time-slider console for exploring long-horizon transitions across money, AI, and truth.</p>
+        <div class="actions">
+          <a class="btn" href="https://timeline-navigator.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">2035 Mode</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Proof of Reality</h3>
+          <span class="tagpill">Truth</span>
+        </div>
+        <p>Structured claim-verification flow: reality checks, proof paths, and canon lens signals.</p>
+        <div class="actions">
+          <a class="btn" href="https://proof-of-reality.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Verification</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Future Intelligence Console</h3>
+          <span class="tagpill">Foresight</span>
+        </div>
+        <p>Probabilistic signals by domain and horizon — a strategic foresight interface for scenario synthesis.</p>
+        <div class="actions">
+          <a class="btn" href="https://future-intelligence-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Signals</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Future Headlines 2035</h3>
+          <span class="tagpill">Newswire</span>
+        </div>
+        <p>Calm, institutional future headlines generator — a 2035 newswire module.</p>
+        <div class="actions">
+          <a class="btn" href="https://future-headlines.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">2035 Feed</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- SYSTEM SIGNALS -->
+  <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="System signals modules">
+    <div class="group-head">
+      <div class="group-title">SYSTEM SIGNALS</div>
+      <div class="pill">✦ Experimental</div>
+    </div>
+    <p class="group-sub">System-level integrity, stress, and drift indicators.</p>
+
+    <div class="cards">
+      <section class="module">
+        <div class="module-top">
+          <h3>Global Signal Console</h3>
+          <span class="tagpill">Signals</span>
+        </div>
+        <p>Macro signal dashboard for integrity, sovereignty, and governance drift indicators.</p>
+        <div class="actions">
+          <a class="btn" href="https://global-signal-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Global</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Fiat System Stress Simulator</h3>
+          <span class="tagpill">Simulation</span>
+        </div>
+        <p>Stress simulator for monetary regimes — stability, strain, distortion, transition.</p>
+        <div class="actions">
+          <a class="btn" href="https://fiat-system-stress.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Stress</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- SIMULATION ENVIRONMENTS -->
+  <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Simulation environments modules">
+    <div class="group-head">
+      <div class="group-title">SIMULATION ENVIRONMENTS</div>
+      <div class="pill">✦ Experimental</div>
+    </div>
+    <p class="group-sub">Interactive labs exploring constraints, incentives, and long-arc outcomes under different governance paths.</p>
+
+    <div class="cards">
+      <section class="module">
+        <div class="module-top">
+          <h3>Sovereignty Score Simulator</h3>
+          <span class="tagpill">Model</span>
+        </div>
+        <p>Assess freedoms and resilience under constraints — a sovereignty lens for systems.</p>
+        <div class="actions">
+          <a class="btn" href="https://sovereign-labs-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Constraints</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>AI Alignment Simulator</h3>
+          <span class="tagpill">Alignment</span>
+        </div>
+        <p>Explore how intelligent systems may evolve, coordinate, and align inside decentralized governance frameworks.</p>
+        <div class="actions">
+          <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Emergence</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Satoshium Labs Experience</h3>
+          <span class="tagpill">Experience</span>
+        </div>
+        <p>Choose-the-future decision lab — explore branching paths and long-term outcomes (shared environment while it matures).</p>
+        <div class="actions">
+          <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Decision Lab</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- CONTEXT & SUPPORT -->
+  <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Context and support modules">
+    <div class="group-head">
+      <div class="group-title">CONTEXT &amp; SUPPORT</div>
+      <div class="pill">✦ Experimental</div>
+    </div>
+    <p class="group-sub">Supporting tools that provide context, reference, and UI utilities for exploration.</p>
+
+    <div class="cards">
+      <section class="module">
+        <div class="module-top">
+          <h3>Bitcoin Price Tracker</h3>
+          <span class="tagpill">History</span>
+        </div>
+        <p>Bitcoin price-tracking console — a practical history lens and reference dashboard.</p>
+        <div class="actions">
+          <a class="btn" href="https://bitcoin-price-tracker-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Reference</span>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-top">
+          <h3>Interactive Web Assets</h3>
+          <span class="tagpill">Utilities</span>
+        </div>
+        <p>UI utilities for experimenting with interactive components in the Satoshium OS style.</p>
+        <div class="actions">
+          <a class="btn" href="https://interactive-web-assets.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">UI Assets</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- LABS EXPERIMENTS (ADDITIONAL) -->
+  <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Additional experiments">
+    <div class="group-head">
+      <div class="group-title">ADDITIONAL EXPERIMENTS</div>
+      <div class="pill">✦ Experimental</div>
+    </div>
+    <p class="group-sub">Supporting environments used to test interaction patterns and narrative modules.</p>
+
+    <div class="cards">
+      <section class="module">
+        <div class="module-top">
+          <h3>Satoshium Labs UI Sandbox</h3>
+          <span class="tagpill">Sandbox</span>
+        </div>
+        <p>A dedicated sandbox for testing labs layout, typography, and interface patterns.</p>
+        <div class="actions">
+          <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+          <span class="meta">Sandbox</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="wip card" style="--card-wm:url('../assets/seal.png');" aria-label="Work in progress">
+    <h2>Work in Progress</h2>
+    <p>
+      These modules are published so visitors can explore the emerging interface layer.
+      Expect iterative refinement, consistent OS styling upgrades, and occasional consolidation as Satoshium Labs matures.
+      <br><br>
+      Built in public. No hype. Visible progress only.
     </p>
-
-    <section class="panel" aria-label="Satoshium Labs overview">
-      <div style="position:relative;z-index:1">
-        <div style="font-size:12px;color:rgba(243,181,74,.92);letter-spacing:.12em;text-transform:uppercase;font-weight:800;">
-          What you'll find here
-        </div>
-        <ul>
-          <li>decentralized truth verification</li>
-          <li>sovereign infrastructure signals</li>
-          <li>future scenario intelligence</li>
-          <li>cryptographic governance models</li>
-        </ul>
-
-        <div class="links">
-          <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">← Back to Demos</a>
-          <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">View Repo Map</a>
-          <a href="https://github.com/satoshiumai">GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CORE INTELLIGENCE -->
-    <section class="group" aria-label="Core intelligence modules">
-      <div class="group-head">
-        <h2>CORE INTELLIGENCE</h2>
-        <div class="badge">✦ EXPERIMENTAL</div>
-      </div>
-      <p class="group-sub">Prototypes that demonstrate core Satoshium flows: timeline navigation, verification, and foresight synthesis.</p>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <h3>Timeline Navigator</h3>
-            <span class="pill">Navigation</span>
-          </div>
-          <p class="desc">Time-slider console for exploring long-horizon transitions across money, AI, and truth.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://timeline-navigator.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">2035 Mode</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Proof of Reality</h3>
-            <span class="pill">Truth</span>
-          </div>
-          <p class="desc">Structured claim-verification flow with reality checks, proof paths, and canon lens signals.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://proof-of-reality.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Verification</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Future Intelligence Console</h3>
-            <span class="pill">Foresight</span>
-          </div>
-          <p class="desc">Probabilistic signals by domain and horizon — a strategic foresight interface for scenario synthesis.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://future-intelligence-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Signals</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SYSTEM SIGNALS -->
-    <section class="group" aria-label="System signals modules">
-      <div class="group-head">
-        <h2>SYSTEM SIGNALS</h2>
-        <div class="badge">✦ EXPERIMENTAL</div>
-      </div>
-      <p class="group-sub">Dashboards and simulators that model system-level integrity, stress, and drift indicators.</p>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <h3>Global Signal Console</h3>
-            <span class="pill">Signals</span>
-          </div>
-          <p class="desc">Macro signal dashboard for integrity, sovereignty, and governance drift indicators.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://global-signal-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Global</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Fiat System Stress Simulator</h3>
-            <span class="pill">Simulation</span>
-          </div>
-          <p class="desc">Stress simulator for monetary regimes — stability, strain, distortion, and transition phases.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://fiat-system-stress.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Stress</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SIMULATION ENVIRONMENTS -->
-    <section class="group" aria-label="Simulation environments modules">
-      <div class="group-head">
-        <h2>SIMULATION ENVIRONMENTS</h2>
-        <div class="badge">✦ EXPERIMENTAL</div>
-      </div>
-      <p class="group-sub">Interactive labs that explore constraints, incentives, and long-arc outcomes under different governance paths.</p>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <h3>Sovereignty Score Simulator</h3>
-            <span class="pill">Model</span>
-          </div>
-          <p class="desc">Assess freedoms and resilience under constraints — a sovereignty lens for systems.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://sovereign-labs-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Constraints</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>AI Alignment Simulator</h3>
-            <span class="pill">Alignment</span>
-          </div>
-          <p class="desc">Explore how intelligent systems may evolve, coordinate, and align within decentralized governance frameworks.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Emergence</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Satoshium Labs Experience</h3>
-            <span class="pill">Experience</span>
-          </div>
-          <p class="desc">Choose-the-future decision lab — explore branching paths and long-term outcomes.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Decision Lab</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTEXT & SUPPORT -->
-    <section class="group" aria-label="Context and support modules">
-      <div class="group-head">
-        <h2>CONTEXT &amp; SUPPORT</h2>
-        <div class="badge">✦ EXPERIMENTAL</div>
-      </div>
-      <p class="group-sub">Supporting tools that provide context, timelines, and structured content for exploration.</p>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <h3>Bitcoin Historical Console</h3>
-            <span class="pill">History</span>
-          </div>
-          <p class="desc">Interactive Bitcoin time-travel: key events and historical context.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://bitcoin-price-tracker-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Time Travel</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Future Headlines 2035</h3>
-            <span class="pill">Feed</span>
-          </div>
-          <p class="desc">Calm, institutional future headlines generator — a 2035 newswire module.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://future-headlines.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">Newswire</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Interactive Web Assets</h3>
-            <span class="pill">Utilities</span>
-          </div>
-          <p class="desc">A lightweight utilities module for experimenting with interactive UI assets inside the Satoshium OS style.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://interactive-web-assets.replit.app/" target="_blank" rel="noreferrer">Launch</a>
-            <span class="meta">UI Assets</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="wip" aria-label="Work in progress">
-      <h2>Work in Progress</h2>
-      <p>
-        These modules are published so visitors can explore the emerging interface layer.
-        Expect iterative refinement, consistent OS styling upgrades, and occasional consolidation as Satoshium Labs matures.
-        <br><br>
-        Built in public. No hype. Visible progress only.
-      </p>
-    </section>
-  </main>
+  </section>
+</main>
 </body>
 </html>
