@@ -7,7 +7,7 @@
   <meta name="description" content="Satoshium Labs — experimental modules and early demonstrations of the Satoshium Intelligence System." />
 
   <style>
-:root{
+    :root{
       --bg0:#070a0d;
       --bg1:#0b1016;
       --panel:#0e141c;
@@ -52,55 +52,17 @@
       opacity:.55;
     }
 
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:-10%;
-      background-image: var(--card-wm);
-      background-repeat:no-repeat;
-      background-position: 55% 45%;
-      background-size: min(1200px, 90vw);
-      opacity:.06;
-      pointer-events:none;
-      filter: blur(0.2px);
-      mix-blend-mode: screen;
-    }
     a{color:inherit}
-    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
 
     /* Topbar */
     .topbar{
-  position:sticky;top:0;z-index:20;
-  background:rgba(7,9,13,.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter: blur(8px);
-}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-.brand{display:flex;align-items:center;gap:12px}
-.mark{
-  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-  border:1px solid var(--line);color:var(--gold2);font-weight:900
-}
-.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-.tag{font-size:12px;color:var(--muted);margin-top:2px}
-.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav a{color:var(--muted);font-size:13px}
-.nav a:hover{color:var(--gold2)}
-.content{padding:34px 18px 60px}
-h1{font-size:30px;color:var(--gold2);margin:10px 0 10px}
-h2{font-size:18px;color:var(--gold2);margin:0 0 10px}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:16px;
-  margin:16px 0;
-}
-.muted{color:var(--muted)}
-
-.wrap{
+      position:sticky;top:0;z-index:50;
+      background: rgba(5,8,12,.72);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar .wrap{
       display:flex;align-items:center;justify-content:space-between;
       gap:18px;padding:14px 18px;
     }
@@ -338,54 +300,39 @@ h2{font-size:18px;color:var(--gold2);margin:0 0 10px}
     .wip p{margin:0;color:var(--muted);line-height:1.55;font-size:12px}
 
     /* Responsive */
-    
-    /* Subtle seal watermark inside cards for consistency */
-    .section, .module-card { position: relative; overflow: hidden; }
-    .section::before, .module-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: var(--card-wm);
-      background-repeat:no-repeat;
-      background-position: 120% 55%;
-      background-size: 720px;
-      opacity:.05;
-      pointer-events:none;
-      filter: blur(0.2px);
-    }
-
-@media (max-width: 860px){
+    @media (max-width: 860px){
       .brand{min-width:unset}
       .nav{gap:8px}
       .card{grid-column: span 12;}
       h1{font-size:22px}
     }
-</style>
+  </style>
 </head>
 
 <body>
   <header class="topbar">
-  <div class="wrap">
-    <div class="brand">
-      <div class="mark">S</div>
-      <div>
-        <div class="name">SATOSHIUM</div>
-        <div class="tag">AI, governed by Bitcoin</div>
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
       </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai">Main Site</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main class="wrap">
     <div class="crumb">🧪 Satoshium Labs • Experimental</div>
