@@ -1,1 +1,282 @@
-This is a test
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Satoshium Labs • Experimental Modules</title>
+
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,9,13,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+  border:1px solid var(--line);color:var(--gold2);font-weight:900
+}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{color:var(--muted);font-size:13px}
+.nav a:hover{color:var(--gold2)}
+.content{padding:34px 18px 60px}
+h1{font-size:30px;color:var(--gold2);margin:10px 0 10px}
+h2{font-size:18px;color:var(--gold2);margin:0 0 10px}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  margin:16px 0;
+}
+.muted{color:var(--muted)}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 10px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(214,163,74,.08);
+  color:var(--gold2);font-size:12px;font-weight:700
+}
+ul{margin:8px 0 0 18px}
+
+/* ===== Card watermark (uses --card-wm) ===== */
+.card{
+  position: relative;
+  overflow: hidden;
+  background: rgba(12,16,24,0.92);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity: 0.028;
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+.card > *{ position:relative; z-index:1; }
+@media(max-width:700px){
+  .card::before{ opacity:0.02; background-position:center 35%; }
+}
+.card{
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.10),
+    0 18px 40px rgba(0,0,0,.35);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:12px;
+}
+@media(max-width:820px){ .grid{grid-template-columns:1fr} }
+
+.module{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  background:rgba(7,9,13,.35);
+}
+.module h3{
+  margin:0 0 4px;
+  font-size:14px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--gold2);
+}
+.module p{margin:0 0 10px;color:var(--muted);font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:10px 12px;border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-weight:800;
+  font-size:13px;
+}
+.btn:hover{background:rgba(214,163,74,.14)}
+.btn.secondary{
+  background:transparent;
+  color:var(--muted);
+}
+.btn.secondary:hover{color:var(--gold2)}
+.small{font-size:12px}
+hr.sep{
+  border:0;border-top:1px solid var(--line);
+  margin:18px 0;
+  opacity:.8;
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap content">
+  <div class="pill">🧪 Satoshium Labs • Experimental</div>
+  <h1>SATOSHIUM LABS — EXPERIMENTAL MODULES</h1>
+
+  <div class="card" style="--card-wm:url('../assets/seal.png');">
+    <p class="muted">These applications are early demonstrations of the Satoshium Intelligence System.</p>
+    <p class="muted">They explore concepts such as:</p>
+    <ul>
+      <li>decentralized truth verification</li>
+      <li>sovereign infrastructure signals</li>
+      <li>future scenario intelligence</li>
+      <li>cryptographic governance models</li>
+    </ul>
+    <p class="muted">All modules are experimental and evolving. They represent prototypes of future Satoshium capabilities.</p>
+    <hr class="sep" />
+    <div class="actions">
+      <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/demos.html">← Back to Demos</a>
+      <a class="btn secondary" href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">View Repo Map</a>
+    </div>
+  </div>
+
+  <div class="card" style="--card-wm:url('../assets/seal.png');">
+    <h2>🚀 Launch Modules</h2>
+    <p class="muted small">Ordered for clarity: core navigation & truth tools first, then signals/simulations, then supporting experiments.</p>
+
+    <div class="grid">
+      <section class="module">
+        <h3>Timeline Navigator</h3>
+        <p>Time-slider console for exploring long-horizon transitions across money, AI, and truth.</p>
+        <div class="actions">
+          <a class="btn" href="https://timeline-navigator.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Proof of Reality</h3>
+        <p>Early truth verification workflow: reality checks, proof paths, and canon lens signals.</p>
+        <div class="actions">
+          <a class="btn" href="https://proof-of-reality.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Future Intelligence Console</h3>
+        <p>Probabilistic signals by domain and horizon — a strategic foresight interface.</p>
+        <div class="actions">
+          <a class="btn" href="https://future-intelligence-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Global Signal Console</h3>
+        <p>Macro signal dashboard: integrity, sovereignty, and AI governance drift indicators.</p>
+        <div class="actions">
+          <a class="btn" href="https://global-signal-console.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Fiat System Stress</h3>
+        <p>System stress simulator for monetary regimes — stability, strain, distortion, transition.</p>
+        <div class="actions">
+          <a class="btn" href="https://fiat-system-stress.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Sovereignty Score Simulator</h3>
+        <p>Assess freedoms & resilience under constraints — a sovereignty lens for systems.</p>
+        <div class="actions">
+          <a class="btn" href="https://sovereign-labs-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Satoshium Labs Experience</h3>
+        <p>Choose-the-future decision lab — explores branching paths and long-term outcomes.</p>
+        <div class="actions">
+          <a class="btn" href="https://satoshium-labs-experience.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Bitcoin Historical Console</h3>
+        <p>Interactive Bitcoin time-travel: key events and historical context.</p>
+        <div class="actions">
+          <a class="btn" href="https://bitcoin-price-tracker-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Future Headlines 2035</h3>
+        <p>Calm, institutional future headlines generator — a “2035 newswire” module.</p>
+        <div class="actions">
+          <a class="btn" href="https://future-headlines.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+
+      <section class="module">
+        <h3>Interactive Web Assets</h3>
+        <p>UI/interaction sandbox for reusable visual components and interface experiments.</p>
+        <div class="actions">
+          <a class="btn" href="https://interactive-web-assets.replit.app/" target="_blank" rel="noreferrer">Launch</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="card" style="--card-wm:url('../assets/seal.png');">
+    <p class="muted"><strong>Experimental note:</strong> modules may change, rename, or consolidate as the OS visual system stabilizes.</p>
+    <p class="muted">Built in public. No hype. Visible progress only.</p>
+  </div>
+</main>
+</body>
+</html>
