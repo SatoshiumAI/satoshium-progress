@@ -2,9 +2,9 @@
   "meta": {
     "project": "Satoshium",
     "dataset": "glossary",
-    "version": "1.0.0",
-    "last_updated": "2026-02-28",
-    "notes": "Canonical glossary dataset for Satoshium sites, demos, and future agent modes."
+    "version": "1.1.0",
+    "last_updated": "2026-02-27",
+    "notes": "Official canonical glossary dataset for Satoshium. 50 foundational terms for the Canon vocabulary. Each term includes status."
   },
   "terms": [
     {
@@ -13,8 +13,18 @@
       "short": "Bitcoin-anchored decentralized intelligence infrastructure.",
       "definition": "Satoshium is a long-term project building decentralized intelligence infrastructure on the Bitcoin standard, anchoring AI behavior to cryptographic rules instead of human whims.",
       "category": "core",
-      "tags": ["canon", "infrastructure", "bitcoin", "ai"],
-      "see_also": ["canon", "trust-layer", "sovereign-intelligence"]
+      "tags": [
+        "canon",
+        "infrastructure",
+        "bitcoin",
+        "ai"
+      ],
+      "see_also": [
+        "canon",
+        "trust-layer",
+        "sovereign-intelligence"
+      ],
+      "status": "foundational"
     },
     {
       "id": "sovereign-intelligence",
@@ -22,8 +32,17 @@
       "short": "Rule-bound intelligence with cryptographic verifiability.",
       "definition": "Sovereign intelligence refers to systems that operate under explicit rules, verifiable constraints, and decentralized governance rather than centralized authority or personality-based trust.",
       "category": "core",
-      "tags": ["governance", "verification", "agents"],
-      "see_also": ["cryptographic-governance", "verification", "trust-layer"]
+      "tags": [
+        "governance",
+        "verification",
+        "agents"
+      ],
+      "see_also": [
+        "cryptographic-governance",
+        "verification",
+        "trust-layer"
+      ],
+      "status": "foundational"
     },
     {
       "id": "canon",
@@ -31,8 +50,16 @@
       "short": "The long-term truth-source for Satoshium principles and rules.",
       "definition": "The Canon is the reference layer that defines the philosophical and operational rules of Satoshium. It anchors intent, prevents drift, and provides a stable source of truth as the ecosystem evolves.",
       "category": "governance",
-      "tags": ["truth-source", "rules", "alignment"],
-      "see_also": ["trust-layer", "verification"]
+      "tags": [
+        "truth-source",
+        "rules",
+        "alignment"
+      ],
+      "see_also": [
+        "trust-layer",
+        "verification"
+      ],
+      "status": "foundational"
     },
     {
       "id": "trust-layer",
@@ -40,8 +67,17 @@
       "short": "Verification framework for claims, sources, and agent behavior.",
       "definition": "The Trust Layer is the system responsible for verifying claims, scoring confidence, tracking provenance, and constraining agent behavior using structured rules and evidence-aware checks.",
       "category": "trust",
-      "tags": ["verification", "labels", "provenance"],
-      "see_also": ["verification", "source-transparency", "claim"]
+      "tags": [
+        "verification",
+        "labels",
+        "provenance"
+      ],
+      "see_also": [
+        "verification",
+        "source-transparency",
+        "claim"
+      ],
+      "status": "foundational"
     },
     {
       "id": "agent",
@@ -49,8 +85,17 @@
       "short": "A rule-bound software system that can act and reason.",
       "definition": "An agent is a software system capable of executing tasks, reasoning over inputs, and interacting with tools or systems under defined rule constraints. In Satoshium, agents are expected to be auditable and verifiable over time.",
       "category": "agents",
-      "tags": ["automation", "rules", "audit"],
-      "see_also": ["trust-layer", "verification", "cryptographic-governance"]
+      "tags": [
+        "automation",
+        "rules",
+        "audit"
+      ],
+      "see_also": [
+        "trust-layer",
+        "verification",
+        "cryptographic-governance"
+      ],
+      "status": "foundational"
     },
     {
       "id": "simulation-environment",
@@ -58,8 +103,17 @@
       "short": "Interactive modules to explore long-horizon scenarios and constraints.",
       "definition": "A simulation environment is an experimental module used to explore system behaviors, governance constraints, and long-horizon outcomes. These modules help test assumptions and surface tradeoffs in a controlled interface.",
       "category": "labs",
-      "tags": ["labs", "scenarios", "experiments"],
-      "see_also": ["sovereignty-score", "ai-alignment-simulator", "decision-lab"]
+      "tags": [
+        "labs",
+        "scenarios",
+        "experiments"
+      ],
+      "see_also": [
+        "sovereignty-score",
+        "ai-alignment-simulator",
+        "decision-lab"
+      ],
+      "status": "foundational"
     },
     {
       "id": "verification",
@@ -67,8 +121,17 @@
       "short": "Checking whether a claim or output is supported by evidence or rules.",
       "definition": "Verification is the process of confirming whether a claim, action, or output is supported by evidence, explicit rules, or cryptographic proof. It is a core design principle in Satoshium.",
       "category": "trust",
-      "tags": ["evidence", "rules", "proof"],
-      "see_also": ["trust-layer", "claim", "source-transparency"]
+      "tags": [
+        "evidence",
+        "rules",
+        "proof"
+      ],
+      "see_also": [
+        "trust-layer",
+        "claim",
+        "source-transparency"
+      ],
+      "status": "foundational"
     },
     {
       "id": "cryptographic-governance",
@@ -76,8 +139,17 @@
       "short": "Governance enforced by code and cryptography.",
       "definition": "Cryptographic governance is a governance model where rules are enforced through code and cryptographic mechanisms rather than institutional trust alone. It enables auditability and repeatable enforcement.",
       "category": "governance",
-      "tags": ["rules", "enforcement", "audit"],
-      "see_also": ["canon", "trust-layer", "verification"]
+      "tags": [
+        "rules",
+        "enforcement",
+        "audit"
+      ],
+      "see_also": [
+        "canon",
+        "trust-layer",
+        "verification"
+      ],
+      "status": "foundational"
     },
     {
       "id": "claim",
@@ -85,8 +157,17 @@
       "short": "A statement that can be evaluated for truth and support.",
       "definition": "A claim is a statement presented as true (or likely true) that can be evaluated using evidence, sources, and reasoning. Claims are the primary unit of verification in many Satoshium tools.",
       "category": "trust",
-      "tags": ["labels", "truth", "support"],
-      "see_also": ["verification", "trust-label", "source-transparency"]
+      "tags": [
+        "labels",
+        "truth",
+        "support"
+      ],
+      "see_also": [
+        "verification",
+        "trust-label",
+        "source-transparency"
+      ],
+      "status": "foundational"
     },
     {
       "id": "trust-label",
@@ -94,8 +175,15 @@
       "short": "A structured confidence tag for an answer or claim.",
       "definition": "A trust label is a standardized tag used to express the confidence level of an output (e.g., Verified, Likely, Speculative, Unknown). Labels help users distinguish evidence-backed outputs from uncertain reasoning.",
       "category": "trust",
-      "tags": ["labels", "confidence"],
-      "see_also": ["trust-layer", "verification"]
+      "tags": [
+        "labels",
+        "confidence"
+      ],
+      "see_also": [
+        "trust-layer",
+        "verification"
+      ],
+      "status": "foundational"
     },
     {
       "id": "source-transparency",
@@ -103,8 +191,16 @@
       "short": "Showing where an answer came from.",
       "definition": "Source transparency is the practice of clearly indicating whether an answer is based on canon, external sources, direct observation, or reasoning. It improves auditability and reduces ambiguity.",
       "category": "trust",
-      "tags": ["provenance", "citations"],
-      "see_also": ["verification", "trust-layer", "canon"]
+      "tags": [
+        "provenance",
+        "citations"
+      ],
+      "see_also": [
+        "verification",
+        "trust-layer",
+        "canon"
+      ],
+      "status": "foundational"
     },
     {
       "id": "sovereignty-score",
@@ -112,8 +208,15 @@
       "short": "A modeled score reflecting resilience and independence under constraints.",
       "definition": "A sovereignty score is an exploratory metric used in simulations to assess resilience, freedoms, and independence under different constraints. It is a modeling tool, not a definitive measure.",
       "category": "labs",
-      "tags": ["model", "constraints"],
-      "see_also": ["simulation-environment", "cryptographic-governance"]
+      "tags": [
+        "model",
+        "constraints"
+      ],
+      "see_also": [
+        "simulation-environment",
+        "cryptographic-governance"
+      ],
+      "status": "foundational"
     },
     {
       "id": "ai-alignment-simulator",
@@ -121,8 +224,15 @@
       "short": "A lab module exploring alignment objectives and constraints.",
       "definition": "The AI Alignment Simulator is an experimental module that explores how intelligent systems may evolve, coordinate, and align under different objectives and governance constraints.",
       "category": "labs",
-      "tags": ["alignment", "simulation"],
-      "see_also": ["simulation-environment", "trust-layer"]
+      "tags": [
+        "alignment",
+        "simulation"
+      ],
+      "see_also": [
+        "simulation-environment",
+        "trust-layer"
+      ],
+      "status": "foundational"
     },
     {
       "id": "decision-lab",
@@ -130,8 +240,15 @@
       "short": "A branching scenario tool for long-horizon outcomes.",
       "definition": "Decision Lab is an interactive experience that lets users explore branching decision paths and long-horizon outcomes across plausible civilization trajectories.",
       "category": "labs",
-      "tags": ["scenarios", "foresight"],
-      "see_also": ["simulation-environment", "future-intelligence"]
+      "tags": [
+        "scenarios",
+        "foresight"
+      ],
+      "see_also": [
+        "simulation-environment",
+        "future-intelligence"
+      ],
+      "status": "foundational"
     },
     {
       "id": "future-intelligence",
@@ -139,18 +256,607 @@
       "short": "Structured foresight signals across domains and time horizons.",
       "definition": "Future intelligence refers to structured signals and scenario-aware insights used to understand plausible futures across domains and horizons. In Satoshium, it is treated as probabilistic and evidence-aware rather than predictive certainty.",
       "category": "labs",
-      "tags": ["foresight", "signals", "scenarios"],
-      "see_also": ["simulation-environment", "source-transparency"]
+      "tags": [
+        "foresight",
+        "signals",
+        "scenarios"
+      ],
+      "see_also": [
+        "simulation-environment",
+        "source-transparency"
+      ],
+      "status": "foundational"
     },
     {
-  "id": "agent-alignment",
-  "term": "Agent Alignment",
-  "short": "The degree to which an agent’s actions match its intended rules and goals.",
-  "definition": "Agent alignment is the property of an autonomous system consistently acting in accordance with its stated objectives, constraints, and governance rules. In Satoshium, alignment is evaluated through explicit rule boundaries, verification checks, and auditability over time rather than assumptions of intent.",
-  "category": "agents",
-  "tags": ["alignment", "agents", "governance", "verification"],
-  "see_also": ["ai-alignment-simulator", "trust-layer", "verification", "canon"],
-  "notes": "Test term: validates id handling + filters + export/import."
-}
+      "id": "agent-alignment",
+      "term": "Agent Alignment",
+      "short": "The degree to which an agent’s actions match its intended rules and goals.",
+      "definition": "Agent alignment is the property of an autonomous system consistently acting in accordance with its stated objectives, constraints, and governance rules. In Satoshium, alignment is evaluated through explicit rule boundaries, verification checks, and auditability over time rather than assumptions of intent.",
+      "category": "agents",
+      "tags": [
+        "alignment",
+        "agents",
+        "governance",
+        "verification"
+      ],
+      "see_also": [
+        "ai-alignment-simulator",
+        "trust-layer",
+        "verification",
+        "canon"
+      ],
+      "notes": "Test term: validates id handling + filters + export/import.",
+      "status": "foundational"
+    },
+    {
+      "id": "bitcoin-standard",
+      "term": "Bitcoin Standard",
+      "category": "core",
+      "short": "Bitcoin as the base layer of trust and value for the Satoshium ecosystem.",
+      "definition": "A design principle: treat Bitcoin as the settlement and truth anchor for value, time, and verification. Systems align to Bitcoin’s security assumptions and avoid dependencies that undermine neutrality or auditability.",
+      "tags": [
+        "bitcoin",
+        "base-layer",
+        "trust"
+      ],
+      "see_also": [],
+      "status": "foundational"
+    },
+    {
+      "id": "base-layer-of-trust",
+      "term": "Base Layer of Trust",
+      "category": "trust",
+      "short": "The minimal, verifiable foundation a system relies on to establish truth.",
+      "definition": "A lowest-common-denominator trust anchor (e.g., Bitcoin + cryptographic proofs) that other layers can build on without requiring human authority. The goal is verification over persuasion.",
+      "tags": [
+        "trust",
+        "verification",
+        "foundation"
+      ],
+      "see_also": [
+        "bitcoin-standard"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "canonical-vocabulary",
+      "term": "Canonical Vocabulary",
+      "category": "governance",
+      "short": "The official set of terms used across Satoshium interfaces and documents.",
+      "definition": "A curated glossary that standardizes language across apps, docs, and agent modes. Canonical vocabulary reduces ambiguity, supports consistent prompts, and enables dependable cross-module references.",
+      "tags": [
+        "canon",
+        "glossary",
+        "standards"
+      ],
+      "see_also": [
+        "canon",
+        "glossary-builder"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "glossary-builder",
+      "term": "Glossary Builder",
+      "category": "core",
+      "short": "A tool for creating and maintaining canonical Satoshium terminology.",
+      "definition": "A structured editor that loads the canonical glossary from GitHub, lets users draft terms locally, and exports glossary files for review and commit. Intended to keep definitions consistent across the ecosystem.",
+      "tags": [
+        "glossary",
+        "tooling",
+        "documentation"
+      ],
+      "see_also": [
+        "canonical-vocabulary"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "prompt-template",
+      "term": "Prompt Template",
+      "category": "agents",
+      "short": "A reusable instruction pattern for generating consistent outputs.",
+      "definition": "A standardized prompt structure that references canonical terms and constraints. Prompt templates reduce drift, improve reproducibility, and make agent behavior easier to audit.",
+      "tags": [
+        "prompting",
+        "templates",
+        "agents"
+      ],
+      "see_also": [
+        "canonical-vocabulary"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "audit-trail",
+      "term": "Audit Trail",
+      "category": "trust",
+      "short": "A record of changes and actions that can be reviewed later.",
+      "definition": "A chronological log (commits, hashes, exports, decisions) that makes system evolution inspectable. In Satoshium, the audit trail supports accountability and repeatable verification.",
+      "tags": [
+        "audit",
+        "logging",
+        "provenance"
+      ],
+      "see_also": [
+        "snapshot",
+        "hash-commitment"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "snapshot",
+      "term": "Snapshot",
+      "category": "trust",
+      "short": "A point-in-time capture of state that can be verified later.",
+      "definition": "A frozen representation of data or configuration (e.g., glossary.json) with identifiers and hashes. Snapshots allow comparing changes over time and validating that public outputs match committed inputs.",
+      "tags": [
+        "snapshot",
+        "versioning",
+        "verification"
+      ],
+      "see_also": [
+        "audit-trail",
+        "hash-commitment"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "hash-commitment",
+      "term": "Hash Commitment",
+      "category": "trust",
+      "short": "A cryptographic fingerprint that commits to data without revealing it.",
+      "definition": "A hash used to bind a claim to a specific payload. If the payload changes, the hash changes. Commitments support tamper-evidence and are useful for proofs, logs, and integrity checks.",
+      "tags": [
+        "hash",
+        "integrity",
+        "tamper-evident"
+      ],
+      "see_also": [
+        "verification",
+        "audit-trail"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "provenance",
+      "term": "Provenance",
+      "category": "trust",
+      "short": "Where information came from and how it was produced.",
+      "definition": "Traceable lineage for data, outputs, or decisions. Provenance links sources, timestamps, and transformations so others can validate origins and assess reliability.",
+      "tags": [
+        "sources",
+        "lineage",
+        "trust"
+      ],
+      "see_also": [
+        "source-transparency",
+        "audit-trail"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "attestation",
+      "term": "Attestation",
+      "category": "trust",
+      "short": "A signed statement asserting that something is true or was observed.",
+      "definition": "A cryptographic or institutional signature over a claim and its supporting evidence. Attestations add accountability and can be verified independently.",
+      "tags": [
+        "signature",
+        "claims",
+        "verification"
+      ],
+      "see_also": [
+        "claim",
+        "verification",
+        "provenance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "merkle-proof",
+      "term": "Merkle Proof",
+      "category": "trust",
+      "short": "A compact proof that a data item is included in a larger set.",
+      "definition": "A verification method that shows a leaf belongs to a Merkle tree without revealing the entire dataset. Useful for scalable integrity checks and decentralized verification.",
+      "tags": [
+        "merkle",
+        "proofs",
+        "integrity"
+      ],
+      "see_also": [
+        "hash-commitment",
+        "verification"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "consensus",
+      "term": "Consensus",
+      "category": "trust",
+      "short": "Agreement on system state reached through defined rules.",
+      "definition": "A mechanism that resolves what is considered true in a network. In Satoshium contexts, consensus is anchored to verifiable proofs rather than authority.",
+      "tags": [
+        "consensus",
+        "rules",
+        "verification"
+      ],
+      "see_also": [
+        "proof-of-reality",
+        "cryptographic-governance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "governance-rule",
+      "term": "Governance Rule",
+      "category": "governance",
+      "short": "A constraint that defines allowed behaviors and decisions.",
+      "definition": "A machine- and human-readable rule with metadata (ID, description, severity) that governs agents or systems. Rules enable consistent enforcement and auditability across modules.",
+      "tags": [
+        "rules",
+        "constraints",
+        "governance"
+      ],
+      "see_also": [
+        "cryptographic-governance",
+        "agent-firewall"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "rule-metadata",
+      "term": "Rule Metadata",
+      "category": "governance",
+      "short": "Structured identifiers and descriptors attached to a rule.",
+      "definition": "Metadata fields such as ID, category, description, severity, and rationale. Good metadata enables filtering, reporting, and consistent handling across enforcement layers.",
+      "tags": [
+        "rules",
+        "metadata",
+        "standards"
+      ],
+      "see_also": [
+        "governance-rule"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "severity",
+      "term": "Severity",
+      "category": "governance",
+      "short": "A level indicating how critical a violation or risk is.",
+      "definition": "A standardized scale used to prioritize responses, logging, and enforcement. Higher severity implies stronger controls and more stringent review.",
+      "tags": [
+        "risk",
+        "policy",
+        "controls"
+      ],
+      "see_also": [
+        "governance-rule",
+        "agent-firewall"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "operator",
+      "term": "Operator",
+      "category": "agents",
+      "short": "A human who configures, deploys, or supervises an agent/system.",
+      "definition": "The person responsible for providing prompts, approving updates, managing keys, and monitoring outputs. Operators are part of the accountability chain in Satoshium deployments.",
+      "tags": [
+        "human-in-the-loop",
+        "operations"
+      ],
+      "see_also": [
+        "audit-trail"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "identity",
+      "term": "Identity",
+      "category": "trust",
+      "short": "A verifiable representation of an entity.",
+      "definition": "Identity may be represented by keypairs, signatures, and attestations rather than centralized accounts. Verifiable identity supports trust-minimized coordination.",
+      "tags": [
+        "identity",
+        "keys",
+        "verification"
+      ],
+      "see_also": [
+        "keypair",
+        "signature"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "keypair",
+      "term": "Keypair",
+      "category": "trust",
+      "short": "A public/private cryptographic key set used for signing and verification.",
+      "definition": "The private key signs; the public key verifies. Keypairs are the foundation for authentication, attestations, and integrity in decentralized systems.",
+      "tags": [
+        "crypto",
+        "keys",
+        "signing"
+      ],
+      "see_also": [
+        "signature",
+        "identity"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "signature",
+      "term": "Signature",
+      "category": "trust",
+      "short": "A cryptographic proof that a message was approved by a key holder.",
+      "definition": "Digital signatures bind identity to content. They allow others to verify integrity and authenticity without sharing secrets.",
+      "tags": [
+        "signing",
+        "integrity",
+        "auth"
+      ],
+      "see_also": [
+        "keypair",
+        "attestation"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "lightning",
+      "term": "Lightning",
+      "category": "core",
+      "short": "Bitcoin’s payment layer for fast, low-fee transactions.",
+      "definition": "A network of payment channels enabling instant settlement for small payments. In Satoshium, Lightning is a candidate rail for micro-payments between agents and services.",
+      "tags": [
+        "bitcoin",
+        "payments",
+        "layer2"
+      ],
+      "see_also": [
+        "bitcoin-standard"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "payment-rail",
+      "term": "Payment Rail",
+      "category": "core",
+      "short": "A mechanism for transferring value between parties.",
+      "definition": "A standardized interface for payments (e.g., on-chain, Lightning). Payment rails allow agents and services to transact with clear settlement and audit properties.",
+      "tags": [
+        "payments",
+        "settlement"
+      ],
+      "see_also": [
+        "lightning"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "oracle",
+      "term": "Oracle",
+      "category": "labs",
+      "short": "A module that brings external signals into a verifiable system.",
+      "definition": "An oracle collects, verifies, and publishes data feeds (prices, events, statuses). Oracles must emphasize source transparency and proofs to avoid becoming trusted single points of failure.",
+      "tags": [
+        "signals",
+        "data",
+        "verification"
+      ],
+      "see_also": [
+        "provenance",
+        "attestation"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "signal",
+      "term": "Signal",
+      "category": "labs",
+      "short": "A structured indicator used for foresight and decision-making.",
+      "definition": "Signals summarize meaningful changes across domains (policy, markets, infrastructure) and are tracked with sources and confidence. They support long-horizon planning tools.",
+      "tags": [
+        "signals",
+        "foresight",
+        "tracking"
+      ],
+      "see_also": [
+        "future-intelligence",
+        "provenance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "registry",
+      "term": "Registry",
+      "category": "governance",
+      "short": "A catalog of objects with IDs and metadata.",
+      "definition": "A structured index for agents, rules, modules, or assets. Registries support discoverability, versioning, and consistent referencing across the ecosystem.",
+      "tags": [
+        "registry",
+        "index",
+        "metadata"
+      ],
+      "see_also": [
+        "canonical-vocabulary"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "certifier",
+      "term": "Certifier",
+      "category": "governance",
+      "short": "A system that evaluates and certifies readiness or safety.",
+      "definition": "A certifier checks artifacts against standards (rules, tests, audits) and produces verifiable reports. It helps ensure deployments meet defined safety and trust criteria.",
+      "tags": [
+        "safety",
+        "verification",
+        "standards"
+      ],
+      "see_also": [
+        "audit-trail",
+        "severity"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "safety-layer",
+      "term": "Safety Layer",
+      "category": "security",
+      "short": "Controls that reduce the risk of harmful behavior or misuse.",
+      "definition": "Policies, rules, and enforcement mechanisms that constrain agents and interfaces. Safety layers include rate limits, validation, redaction, and escalation paths.",
+      "tags": [
+        "safety",
+        "controls",
+        "policy"
+      ],
+      "see_also": [
+        "agent-firewall",
+        "governance-rule"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "layer-2",
+      "term": "Layer 2",
+      "category": "core",
+      "short": "A protocol layer built on top of Bitcoin for additional functionality.",
+      "definition": "Systems such as Lightning or smart-contract layers that extend Bitcoin without changing its base rules. Layer 2 aims for scalability while preserving base-layer security assumptions.",
+      "tags": [
+        "bitcoin",
+        "layer2",
+        "scaling"
+      ],
+      "see_also": [
+        "lightning"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "smart-contracts",
+      "term": "Smart Contracts",
+      "category": "governance",
+      "short": "Programs that enforce rules on-chain or via verifiable execution.",
+      "definition": "In Satoshium contexts, smart contracts are used cautiously and must be auditable. They can encode governance, escrow, or verification logic with cryptographic enforcement.",
+      "tags": [
+        "contracts",
+        "rules",
+        "automation"
+      ],
+      "see_also": [
+        "cryptographic-governance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "evidence-artifact",
+      "term": "Evidence Artifact",
+      "category": "trust",
+      "short": "A stored piece of evidence supporting a claim.",
+      "definition": "An artifact can be a document, hash, screenshot, or dataset used to justify outputs. Evidence artifacts should be linkable, versioned, and attributable.",
+      "tags": [
+        "evidence",
+        "artifacts",
+        "verification"
+      ],
+      "see_also": [
+        "claim",
+        "provenance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "proof-of-reality",
+      "term": "Proof of Reality",
+      "category": "trust",
+      "short": "A cryptographic consensus mechanism verifying real-world events.",
+      "definition": "A protocol pattern used by decentralized networks to reach agreement about external events and states. Proof of Reality emphasizes verifiable evidence, provenance, and audit trails so agents can base actions on validated facts.",
+      "tags": [
+        "consensus",
+        "verification",
+        "evidence"
+      ],
+      "see_also": [
+        "verification",
+        "claim",
+        "provenance"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "agent-firewall",
+      "term": "Agent Firewall",
+      "category": "security",
+      "short": "Security boundary for autonomous agent interactions.",
+      "definition": "A policy-and-rule enforcement layer that constrains what agents can do, validates inputs/outputs, and escalates risky actions. In Satoshium this concept is embodied by Aegis: The Agent Firewall.",
+      "tags": [
+        "firewall",
+        "safety",
+        "rules"
+      ],
+      "see_also": [
+        "governance-rule",
+        "severity",
+        "safety-layer"
+      ],
+      "status": "foundational",
+      "notes": "Public-facing name: Aegis: The Agent Firewall"
+    },
+    {
+      "id": "timeline-navigator",
+      "term": "Timeline Navigator",
+      "category": "labs",
+      "short": "A tool for exploring major Bitcoin and AI adoption milestones across time.",
+      "definition": "An interactive timeline module that helps users understand long-arc phases, inflection points, and scenario milestones. Used for education and foresight rather than prediction.",
+      "tags": [
+        "timeline",
+        "foresight",
+        "education"
+      ],
+      "see_also": [
+        "future-intelligence",
+        "signal",
+        "scenario"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "foresight",
+      "term": "Foresight",
+      "category": "labs",
+      "short": "The practice of exploring plausible futures using signals and scenarios.",
+      "definition": "Foresight tools map uncertainties, evaluate trajectories, and test strategies. In Satoshium Labs, foresight supports decision labs and scenario engines.",
+      "tags": [
+        "foresight",
+        "scenarios",
+        "signals"
+      ],
+      "see_also": [
+        "future-intelligence",
+        "decision-lab",
+        "signal"
+      ],
+      "status": "foundational"
+    },
+    {
+      "id": "scenario",
+      "term": "Scenario",
+      "category": "labs",
+      "short": "A structured what-if narrative used to test decisions.",
+      "definition": "A scenario is a bounded future state with assumptions and constraints. Scenarios help evaluate resilience and outcomes under different conditions.",
+      "tags": [
+        "scenarios",
+        "simulation",
+        "planning"
+      ],
+      "see_also": [
+        "future-intelligence",
+        "decision-lab",
+        "signal"
+      ],
+      "status": "foundational"
+    }
   ]
 }
