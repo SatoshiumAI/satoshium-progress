@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Satoshium Glossary</title>
+
+<style>
+
+body{
+  background:#0b0f14;
+  color:#e6edf3;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  margin:0;
+  padding:40px;
+}
+
+h1{
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#8b949e;
+  margin-bottom:30px;
+}
+
+.term{
+  border:1px solid #1f2a36;
+  padding:18px;
+  margin-bottom:16px;
+  border-radius:8px;
+  background:#0f141a;
+}
+
+.term h3{
+  margin:0 0 6px 0;
+}
+
+.short{
+  color:#9fb3c8;
+  margin-bottom:10px;
+}
+
+.meta{
+  font-size:13px;
+  color:#7a8a99;
+  margin-top:10px;
+}
+
+.tag{
+  background:#1b2733;
+  padding:4px 8px;
+  border-radius:6px;
+  margin-right:6px;
+  font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Satoshium Glossary</h1>
+
+<div class="subtitle">
+Canonical definitions used across Satoshium systems, documentation, and agents.
+</div>
+
+<div id="glossary"></div>
+
+<script>
+
+async function loadGlossary(){
+
+  const res = await fetch("./glossary.json")
+  const data = await res.json()
+
+  const container = document.getElementById("glossary")
+
+  data.terms.forEach(term => {
+
+    const el = document.createElement("div")
+    el.className = "term"
+
+    const tags = term.tags
+      .map(t => `<span class="tag">${t}</span>`)
+      .join("")
+
+    el.innerHTML = `
+      <h3>${term.term}</h3>
+      <div class="short">${term.short}</div>
+      <div>${term.definition}</div>
+      <div class="meta">
+        Category: ${term.category}
+        <br>
+        Tags: ${tags}
+      </div>
+    `
+
+    container.appendChild(el)
+
+  })
+
+}
+
+loadGlossary()
+
+</script>
+
+</body>
+</html>
