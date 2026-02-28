@@ -1,1 +1,86 @@
-
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Satoshium Glossary Schema",
+  "description": "Schema enforcing structure for glossary terms used across the Satoshium ecosystem.",
+  "type": "object",
+  "required": ["meta", "terms"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "version", "updated", "source"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the glossary dataset."
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version of the glossary."
+        },
+        "updated": {
+          "type": "string",
+          "description": "Date the glossary was last updated."
+        },
+        "source": {
+          "type": "string",
+          "description": "Canonical file path."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "description": "Collection of glossary terms.",
+      "items": {
+        "type": "object",
+        "required": ["term", "slug", "definition"],
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Human-readable glossary term."
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL-safe identifier for the term."
+          },
+          "definition": {
+            "type": "string",
+            "description": "Primary explanation of the concept."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Categorization labels."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "review", "approved"],
+            "description": "Editorial status of the definition."
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Alternative terms or synonyms."
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Links or sources supporting the definition."
+          },
+          "updated": {
+            "type": "string",
+            "description": "Date this term was last updated."
+          }
+        }
+      }
+    }
+  }
+}
