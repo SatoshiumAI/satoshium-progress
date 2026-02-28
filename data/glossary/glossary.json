@@ -1,71 +1,146 @@
 {
   "meta": {
-    "name": "Satoshium Glossary",
-    "version": "0.1.0",
-    "updated": "2026-02-27",
-    "source": "satoshium-progress/data/glossary/glossary.json",
-    "notes": "Canonical glossary for Satoshium. Edit terms carefully; keep definitions calm, verifiable, and non-hype."
+    "project": "Satoshium",
+    "dataset": "glossary",
+    "version": "1.0.0",
+    "last_updated": "2026-02-28",
+    "notes": "Canonical glossary dataset for Satoshium sites, demos, and future agent modes."
   },
   "terms": [
     {
+      "id": "satoshium",
       "term": "Satoshium",
-      "slug": "satoshium",
-      "definition": "A long-term project building decentralized intelligence infrastructure anchored to Bitcoin-grade verification—so systems can be audited and trusted without relying on personalities.",
-      "tags": ["project", "identity", "verification"],
-      "status": "draft",
-      "aliases": [],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "Bitcoin-anchored decentralized intelligence infrastructure.",
+      "definition": "Satoshium is a long-term project building decentralized intelligence infrastructure on the Bitcoin standard, anchoring AI behavior to cryptographic rules instead of human whims.",
+      "category": "core",
+      "tags": ["canon", "infrastructure", "bitcoin", "ai"],
+      "see_also": ["canon", "trust-layer", "sovereign-intelligence"]
     },
     {
+      "id": "sovereign-intelligence",
       "term": "Sovereign Intelligence",
-      "slug": "sovereign-intelligence",
-      "definition": "Intelligence that retains agency under constraints and remains verifiable—able to operate without depending on trust in a single operator, institution, or narrative.",
-      "tags": ["ai", "governance", "resilience"],
-      "status": "draft",
-      "aliases": ["sovereignty intelligence"],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "Rule-bound intelligence with cryptographic verifiability.",
+      "definition": "Sovereign intelligence refers to systems that operate under explicit rules, verifiable constraints, and decentralized governance rather than centralized authority or personality-based trust.",
+      "category": "core",
+      "tags": ["governance", "verification", "agents"],
+      "see_also": ["cryptographic-governance", "verification", "trust-layer"]
     },
     {
+      "id": "canon",
+      "term": "Canon",
+      "short": "The long-term truth-source for Satoshium principles and rules.",
+      "definition": "The Canon is the reference layer that defines the philosophical and operational rules of Satoshium. It anchors intent, prevents drift, and provides a stable source of truth as the ecosystem evolves.",
+      "category": "governance",
+      "tags": ["truth-source", "rules", "alignment"],
+      "see_also": ["trust-layer", "verification"]
+    },
+    {
+      "id": "trust-layer",
+      "term": "Trust Layer",
+      "short": "Verification framework for claims, sources, and agent behavior.",
+      "definition": "The Trust Layer is the system responsible for verifying claims, scoring confidence, tracking provenance, and constraining agent behavior using structured rules and evidence-aware checks.",
+      "category": "trust",
+      "tags": ["verification", "labels", "provenance"],
+      "see_also": ["verification", "source-transparency", "claim"]
+    },
+    {
+      "id": "agent",
+      "term": "Agent",
+      "short": "A rule-bound software system that can act and reason.",
+      "definition": "An agent is a software system capable of executing tasks, reasoning over inputs, and interacting with tools or systems under defined rule constraints. In Satoshium, agents are expected to be auditable and verifiable over time.",
+      "category": "agents",
+      "tags": ["automation", "rules", "audit"],
+      "see_also": ["trust-layer", "verification", "cryptographic-governance"]
+    },
+    {
+      "id": "simulation-environment",
+      "term": "Simulation Environment",
+      "short": "Interactive modules to explore long-horizon scenarios and constraints.",
+      "definition": "A simulation environment is an experimental module used to explore system behaviors, governance constraints, and long-horizon outcomes. These modules help test assumptions and surface tradeoffs in a controlled interface.",
+      "category": "labs",
+      "tags": ["labs", "scenarios", "experiments"],
+      "see_also": ["sovereignty-score", "ai-alignment-simulator", "decision-lab"]
+    },
+    {
+      "id": "verification",
       "term": "Verification",
-      "slug": "verification",
-      "definition": "The practice of proving what happened and why—using logs, rules, and evidence—so decisions can be audited after the fact.",
-      "tags": ["verification", "audit"],
-      "status": "draft",
-      "aliases": ["auditability", "provability"],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "Checking whether a claim or output is supported by evidence or rules.",
+      "definition": "Verification is the process of confirming whether a claim, action, or output is supported by evidence, explicit rules, or cryptographic proof. It is a core design principle in Satoshium.",
+      "category": "trust",
+      "tags": ["evidence", "rules", "proof"],
+      "see_also": ["trust-layer", "claim", "source-transparency"]
     },
     {
+      "id": "cryptographic-governance",
       "term": "Cryptographic Governance",
-      "slug": "cryptographic-governance",
-      "definition": "Governance enforced by explicit rules and cryptographic proofs rather than informal authority—so behavior can be constrained and verified.",
-      "tags": ["governance", "rules", "crypto"],
-      "status": "draft",
-      "aliases": [],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "Governance enforced by code and cryptography.",
+      "definition": "Cryptographic governance is a governance model where rules are enforced through code and cryptographic mechanisms rather than institutional trust alone. It enables auditability and repeatable enforcement.",
+      "category": "governance",
+      "tags": ["rules", "enforcement", "audit"],
+      "see_also": ["canon", "trust-layer", "verification"]
     },
     {
+      "id": "claim",
       "term": "Claim",
-      "slug": "claim",
-      "definition": "A specific statement that can be evaluated. A claim is written so it can be labeled, checked, and referenced.",
-      "tags": ["verification", "truth"],
-      "status": "draft",
-      "aliases": [],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "A statement that can be evaluated for truth and support.",
+      "definition": "A claim is a statement presented as true (or likely true) that can be evaluated using evidence, sources, and reasoning. Claims are the primary unit of verification in many Satoshium tools.",
+      "category": "trust",
+      "tags": ["labels", "truth", "support"],
+      "see_also": ["verification", "trust-label", "source-transparency"]
     },
     {
+      "id": "trust-label",
       "term": "Trust Label",
-      "slug": "trust-label",
-      "definition": "A short classification that summarizes confidence in an answer (for example: Verified, Likely, Speculative, Unknown) based on available evidence and reasoning.",
-      "tags": ["trust", "verification", "ux"],
-      "status": "draft",
-      "aliases": ["confidence label"],
-      "references": [],
-      "updated": "2026-02-27"
+      "short": "A structured confidence tag for an answer or claim.",
+      "definition": "A trust label is a standardized tag used to express the confidence level of an output (e.g., Verified, Likely, Speculative, Unknown). Labels help users distinguish evidence-backed outputs from uncertain reasoning.",
+      "category": "trust",
+      "tags": ["labels", "confidence"],
+      "see_also": ["trust-layer", "verification"]
+    },
+    {
+      "id": "source-transparency",
+      "term": "Source Transparency",
+      "short": "Showing where an answer came from.",
+      "definition": "Source transparency is the practice of clearly indicating whether an answer is based on canon, external sources, direct observation, or reasoning. It improves auditability and reduces ambiguity.",
+      "category": "trust",
+      "tags": ["provenance", "citations"],
+      "see_also": ["verification", "trust-layer", "canon"]
+    },
+    {
+      "id": "sovereignty-score",
+      "term": "Sovereignty Score",
+      "short": "A modeled score reflecting resilience and independence under constraints.",
+      "definition": "A sovereignty score is an exploratory metric used in simulations to assess resilience, freedoms, and independence under different constraints. It is a modeling tool, not a definitive measure.",
+      "category": "labs",
+      "tags": ["model", "constraints"],
+      "see_also": ["simulation-environment", "cryptographic-governance"]
+    },
+    {
+      "id": "ai-alignment-simulator",
+      "term": "AI Alignment Simulator",
+      "short": "A lab module exploring alignment objectives and constraints.",
+      "definition": "The AI Alignment Simulator is an experimental module that explores how intelligent systems may evolve, coordinate, and align under different objectives and governance constraints.",
+      "category": "labs",
+      "tags": ["alignment", "simulation"],
+      "see_also": ["simulation-environment", "trust-layer"]
+    },
+    {
+      "id": "decision-lab",
+      "term": "Decision Lab",
+      "short": "A branching scenario tool for long-horizon outcomes.",
+      "definition": "Decision Lab is an interactive experience that lets users explore branching decision paths and long-horizon outcomes across plausible civilization trajectories.",
+      "category": "labs",
+      "tags": ["scenarios", "foresight"],
+      "see_also": ["simulation-environment", "future-intelligence"]
+    },
+    {
+      "id": "future-intelligence",
+      "term": "Future Intelligence",
+      "short": "Structured foresight signals across domains and time horizons.",
+      "definition": "Future intelligence refers to structured signals and scenario-aware insights used to understand plausible futures across domains and horizons. In Satoshium, it is treated as probabilistic and evidence-aware rather than predictive certainty.",
+      "category": "labs",
+      "tags": ["foresight", "signals", "scenarios"],
+      "see_also": ["simulation-environment", "source-transparency"]
     }
   ]
 }
