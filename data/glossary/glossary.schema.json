@@ -1,84 +1,74 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Satoshium Glossary Schema",
-  "description": "Schema enforcing structure for glossary terms used across the Satoshium ecosystem.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://satoshiumai.github.io/satoshium-progress/data/glossary/glossary.schema.json",
+  "title": "Satoshium Glossary Dataset Schema",
   "type": "object",
+  "additionalProperties": false,
   "required": ["meta", "terms"],
   "properties": {
     "meta": {
       "type": "object",
-      "required": ["name", "version", "updated", "source"],
+      "additionalProperties": false,
+      "required": ["project", "dataset", "version", "last_updated"],
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the glossary dataset."
-        },
+        "project": { "type": "string", "minLength": 1 },
+        "dataset": { "type": "string", "const": "glossary" },
         "version": {
           "type": "string",
-          "description": "Semantic version of the glossary."
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
         },
-        "updated": {
+        "last_updated": {
           "type": "string",
-          "description": "Date the glossary was last updated."
+          "description": "YYYY-MM-DD",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
         },
-        "source": {
-          "type": "string",
-          "description": "Canonical file path."
-        },
-        "notes": {
-          "type": "string"
-        }
+        "notes": { "type": "string" }
       }
     },
     "terms": {
       "type": "array",
-      "description": "Collection of glossary terms.",
-      "items": {
-        "type": "object",
-        "required": ["term", "slug", "definition"],
-        "properties": {
-          "term": {
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/term" }
+    }
+  },
+  "$defs": {
+    "term": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "term", "short", "definition", "category", "tags"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "kebab-case stable identifier"
+        },
+        "term": { "type": "string", "minLength": 1 },
+        "short": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "definition": { "type": "string", "minLength": 1 },
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Grouping bucket used by the Glossary Builder UI"
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "see_also": {
+          "type": "array",
+          "items": {
             "type": "string",
-            "description": "Human-readable glossary term."
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
           },
-          "slug": {
-            "type": "string",
-            "description": "URL-safe identifier for the term."
-          },
-          "definition": {
-            "type": "string",
-            "description": "Primary explanation of the concept."
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Categorization labels."
-          },
-          "status": {
-            "type": "string",
-            "enum": ["draft", "review", "approved"],
-            "description": "Editorial status of the definition."
-          },
-          "aliases": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Alternative terms or synonyms."
-          },
-          "references": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Links or sources supporting the definition."
-          },
-          "updated": {
-            "type": "string",
-            "description": "Date this term was last updated."
-          }
+          "uniqueItems": true
+        },
+        "sources": {
+          "type": "array",
+          "description": "Optional: citations / references (URLs or canonical refs).",
+          "items": { "type": "string", "minLength": 1 }
         }
       }
     }
