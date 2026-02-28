@@ -1,1 +1,71 @@
-test
+{
+  "meta": {
+    "name": "Satoshium Glossary",
+    "version": "0.1.0",
+    "updated": "2026-02-27",
+    "source": "satoshium-progress/data/glossary/glossary.json",
+    "notes": "Canonical glossary for Satoshium. Edit terms carefully; keep definitions calm, verifiable, and non-hype."
+  },
+  "terms": [
+    {
+      "term": "Satoshium",
+      "slug": "satoshium",
+      "definition": "A long-term project building decentralized intelligence infrastructure anchored to Bitcoin-grade verification—so systems can be audited and trusted without relying on personalities.",
+      "tags": ["project", "identity", "verification"],
+      "status": "draft",
+      "aliases": [],
+      "references": [],
+      "updated": "2026-02-27"
+    },
+    {
+      "term": "Sovereign Intelligence",
+      "slug": "sovereign-intelligence",
+      "definition": "Intelligence that retains agency under constraints and remains verifiable—able to operate without depending on trust in a single operator, institution, or narrative.",
+      "tags": ["ai", "governance", "resilience"],
+      "status": "draft",
+      "aliases": ["sovereignty intelligence"],
+      "references": [],
+      "updated": "2026-02-27"
+    },
+    {
+      "term": "Verification",
+      "slug": "verification",
+      "definition": "The practice of proving what happened and why—using logs, rules, and evidence—so decisions can be audited after the fact.",
+      "tags": ["verification", "audit"],
+      "status": "draft",
+      "aliases": ["auditability", "provability"],
+      "references": [],
+      "updated": "2026-02-27"
+    },
+    {
+      "term": "Cryptographic Governance",
+      "slug": "cryptographic-governance",
+      "definition": "Governance enforced by explicit rules and cryptographic proofs rather than informal authority—so behavior can be constrained and verified.",
+      "tags": ["governance", "rules", "crypto"],
+      "status": "draft",
+      "aliases": [],
+      "references": [],
+      "updated": "2026-02-27"
+    },
+    {
+      "term": "Claim",
+      "slug": "claim",
+      "definition": "A specific statement that can be evaluated. A claim is written so it can be labeled, checked, and referenced.",
+      "tags": ["verification", "truth"],
+      "status": "draft",
+      "aliases": [],
+      "references": [],
+      "updated": "2026-02-27"
+    },
+    {
+      "term": "Trust Label",
+      "slug": "trust-label",
+      "definition": "A short classification that summarizes confidence in an answer (for example: Verified, Likely, Speculative, Unknown) based on available evidence and reasoning.",
+      "tags": ["trust", "verification", "ux"],
+      "status": "draft",
+      "aliases": ["confidence label"],
+      "references": [],
+      "updated": "2026-02-27"
+    }
+  ]
+}
