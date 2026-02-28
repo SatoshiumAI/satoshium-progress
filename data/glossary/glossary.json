@@ -141,6 +141,16 @@
       "category": "labs",
       "tags": ["foresight", "signals", "scenarios"],
       "see_also": ["simulation-environment", "source-transparency"]
-    }
+    },
+    {
+  "id": "agent-alignment",
+  "term": "Agent Alignment",
+  "short": "The degree to which an agent’s actions match its intended rules and goals.",
+  "definition": "Agent alignment is the property of an autonomous system consistently acting in accordance with its stated objectives, constraints, and governance rules. In Satoshium, alignment is evaluated through explicit rule boundaries, verification checks, and auditability over time rather than assumptions of intent.",
+  "category": "agents",
+  "tags": ["alignment", "agents", "governance", "verification"],
+  "see_also": ["ai-alignment-simulator", "trust-layer", "verification", "canon"],
+  "notes": "Test term: validates id handling + filters + export/import."
+}
   ]
 }
