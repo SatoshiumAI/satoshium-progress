@@ -209,6 +209,53 @@ ul{
 margin:8px 0 0 18px
 }
 
+
+/* ===== Labs Module Layout (Card-separated, no <hr>) ===== */
+.group.card{ padding:16px; }
+.group-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+.group-title{ letter-spacing:.12em; font-weight:800; font-size:12px; color:var(--gold2); opacity:.95; }
+.group-sub{ margin:6px 0 12px; color:var(--muted); }
+
+.cards{ display:grid; gap:14px; margin-top:10px; }
+.module{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  background:rgba(12,16,24,.45);
+}
+.module-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.module h3{ margin:0; font-size:16px; color:var(--text); }
+.tagpill{
+  display:inline-flex; align-items:center;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.06);
+  color:var(--gold2);
+  font-size:12px; font-weight:700;
+}
+.actions{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.meta{ color:var(--muted); font-size:12px; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.10);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700;
+}
+.btn:hover{ background:rgba(214,163,74,.14); color:var(--gold2); }
+
+.links{ margin-top:10px; color:var(--muted); font-size:13px; }
+.links a{ color:var(--gold2); }
+.links a:hover{ color:var(--gold); }
+
+.lede{ color:var(--muted); margin:8px 0 0; }
+/* ======================================================= */
+
 </style>
 </head>
 
@@ -252,18 +299,15 @@ margin:8px 0 0 18px
 </header>
 
 <main class="wrap content">
-
   <div class="pill">🧪 Satoshium Labs • Experimental</div>
-
-  <h1 style="margin-top:12px;">SATOSHIUM LABS — EXPERIMENTAL MODULES</h1>
-
-  <p class="muted">
+  <h1>SATOSHIUM LABS — EXPERIMENTAL MODULES</h1>
+  <p class="lede">
     These applications are early demonstrations of the Satoshium Intelligence System.
     They explore decentralized truth verification, sovereign infrastructure signals,
     future scenario intelligence, and cryptographic governance models.
     All modules are experimental and evolving — prototypes of future Satoshium capabilities.
   </p>
-  <hr></hr>
+
   <section class="overview card" style="--card-wm:url('../assets/seal.png');" aria-label="Labs overview">
     <h2>What you'll find here</h2>
     <ul>
@@ -272,14 +316,14 @@ margin:8px 0 0 18px
       <li>future scenario intelligence</li>
       <li>cryptographic governance models</li>
     </ul>
-   <p></p>
+   
     <div class="links">
       <a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">← Back to Satoshium Labs</a> | 
       <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">View Repo Map</a> |
       <a href="https://github.com/satoshiumai" target="_blank" rel="noreferrer">GitHub</a>
     </div>
   </section>
-  <hr></hr>
+
   <!-- CORE INTELLIGENCE -->
   <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Core intelligence modules">
     <div class="group-head">
@@ -287,7 +331,6 @@ margin:8px 0 0 18px
       <div class="pill">✦ Experimental</div>
     </div>
     <p class="group-sub">Core flows: horizon navigation, claim verification, and foresight synthesis.</p>
-<hr></hr>
 
     <div class="cards">
       <section class="module">
@@ -301,7 +344,7 @@ margin:8px 0 0 18px
           <span class="meta">2035 Mode</span>
         </div>
       </section>
-<hr></hr>
+
       <section class="module">
         <div class="module-top">
           <h3>Proof of Reality</h3>
@@ -313,7 +356,7 @@ margin:8px 0 0 18px
           <span class="meta">Verification</span>
         </div>
       </section>
- <hr></hr>
+
       <section class="module">
         <div class="module-top">
           <h3>Future Intelligence Console</h3>
@@ -325,7 +368,7 @@ margin:8px 0 0 18px
           <span class="meta">Signals</span>
         </div>
       </section>
- <hr></hr>
+
       <section class="module">
         <div class="module-top">
           <h3>Future Headlines 2035</h3>
@@ -339,7 +382,7 @@ margin:8px 0 0 18px
       </section>
     </div>
   </section>
- <hr></hr>
+
   <!-- SYSTEM SIGNALS -->
   <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="System signals modules">
     <div class="group-head">
@@ -349,8 +392,6 @@ margin:8px 0 0 18px
     <p class="group-sub">System-level integrity, stress, and drift indicators.</p>
 
     <div class="cards">
-  </section>
- <hr></hr> 
       <section class="module">
         <div class="module-top">
           <h3>Global Signal Console</h3>
@@ -362,7 +403,7 @@ margin:8px 0 0 18px
           <span class="meta">Global</span>
         </div>
       </section>
- <hr></hr>
+
       <section class="module">
         <div class="module-top">
           <h3>Fiat System Stress Simulator</h3>
@@ -376,7 +417,7 @@ margin:8px 0 0 18px
       </section>
     </div>
   </section>
- <hr></hr>
+
 <!-- SIMULATION LABS -->
 <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Simulation environments modules">
   <div class="group-head">
@@ -401,7 +442,7 @@ margin:8px 0 0 18px
         <span class="meta">Constraints</span>
       </div>
     </section>
- <hr></hr>
+
     <!-- AI Alignment Simulator -->
     <section class="module">
       <div class="module-top">
@@ -414,7 +455,7 @@ margin:8px 0 0 18px
         <span class="meta">Emergence</span>
       </div>
     </section>
- <hr></hr>
+
     <!-- Decision Lab -->
     <section class="module">
       <div class="module-top">
@@ -429,8 +470,8 @@ margin:8px 0 0 18px
     </section>
   </div>
 </section>
-  
-<hr></hr> 
+
+
   <!-- CONTEXT & SUPPORT -->
   <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Context and support modules">
     <div class="group-head">
@@ -449,10 +490,12 @@ margin:8px 0 0 18px
         <div class="actions">
           <a class="btn" href="https://bitcoin-price-tracker-satoshium.replit.app/" target="_blank" rel="noreferrer">Launch</a>
           <span class="meta">Reference</span>
-      </div>
+        </div>
       </section>
 
-<hr></hr> 
+      </div>
+  </section>
+
   <!-- LABS EXPERIMENTS (ADDITIONAL) -->
   <section class="group" style="--card-wm:url('../assets/seal.png');" aria-label="Additional experiments">
     <div class="group-head">
@@ -465,13 +508,13 @@ Some modules are internal prototypes, others are released here as public test en
 </p>
 
   </section>
-<hr></hr> 
+
   <section class="wip card" style="--card-wm:url('../assets/seal.png');" aria-label="Work in progress">
     <h2>Work in Progress</h2>
     <p>
       These modules are published so visitors can explore the emerging interface layer.
       Expect iterative refinement, consistent OS styling upgrades, and occasional consolidation as Satoshium Labs matures.
-      <br><br><p></p>
+      <br><br>
       Built in public. No hype. Visible progress only.
     </p>
   </section>
