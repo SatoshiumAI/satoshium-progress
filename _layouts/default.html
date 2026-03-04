@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <link rel="stylesheet" href="{{ site.github.url }}{{ site.github.baseurl }}/assets/css/style.scss" />
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
   </head>
 
   <body>
@@ -20,9 +20,33 @@
         </div>
 
         <nav class="nav">
-          <a href="{{ '/' | relative_url }}">Home</a>
-          <a href="{{ '/roadmap' | relative_url }}">Roadmap</a>
-          <a href="{{ '/changelog' | relative_url }}">Changelog</a>
+          <a href="{{ '/' | relative_url }}"
+             class="{% if page.nav == 'home' %}active{% endif %}">Home</a>
+
+          <a href="{{ '/architecture.html' | relative_url }}"
+             class="{% if page.nav == 'architecture' %}active{% endif %}">Architecture</a>
+
+          <a href="{{ '/systems.html' | relative_url }}"
+             class="{% if page.nav == 'systems' %}active{% endif %}">Systems</a>
+
+          <a href="{{ '/services.html' | relative_url }}"
+             class="{% if page.nav == 'services' %}active{% endif %}">Services</a>
+
+          <a href="{{ '/education.html' | relative_url }}"
+             class="{% if page.nav == 'education' %}active{% endif %}">Education</a>
+
+          <a href="{{ '/labs/index.html' | relative_url }}"
+             class="{% if page.nav == 'labs' %}active{% endif %}">Labs</a>
+
+          <a href="{{ '/roadmap.html' | relative_url }}"
+             class="{% if page.nav == 'roadmap' %}active{% endif %}">Roadmap</a>
+
+          <a href="{{ '/changelog.html' | relative_url }}"
+             class="{% if page.nav == 'changelog' %}active{% endif %}">Changelog</a>
+
+          <a href="{{ '/repo-map.html' | relative_url }}"
+             class="{% if page.nav == 'repomap' %}active{% endif %}">Repo Map</a>
+
           <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
         </nav>
       </div>
@@ -37,8 +61,6 @@
         <div class="footline">Built in public. No hype. Visible progress only.</div>
         <div class="footlinks">
           <a href="https://github.com/SatoshiumAI" target="_blank" rel="noopener">GitHub</a>
-          <span>•</span>
-          <a href="https://satoshium.carrd.co" target="_blank" rel="noopener">Beta</a>
         </div>
       </div>
     </footer>
