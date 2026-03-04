@@ -7,234 +7,248 @@
 <meta name="description" content="Satoshium Labs — experimental modules and early demonstrations of the Satoshium Intelligence System." />
 
 <style>
-:root{
-  --bg:#07090d;
-  --panel:#0c1018;
-  --panel2:#0b0f14;
-  --text:#e8edf7;
-  --muted:#9aa7bd;
-  --gold:#d6a34a;
-  --gold2:#f4c36a;
-  --line:rgba(214,163,74,.18);
 
-  --shadow: 0 18px 40px rgba(0,0,0,.35);
-  --radius: 18px;
+/* ===== Core Theme ===== */
+
+:root{
+ --card-wm: url('./assets/seal.png');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;}
+
+html,body{
+margin:0;
+padding:0;
+background:var(--bg);
+color:var(--text);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+line-height:1.55
+}
+
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
-.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+/* ===== Top Navigation ===== */
 
 .topbar{
-  position:sticky;top:0;z-index:20;
-  background:rgba(7,9,13,.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter: blur(8px);
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(7,9,13,.92);
+border-bottom:1px solid var(--line);
+backdrop-filter: blur(8px);
 }
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:14px}
-.brand{display:flex;align-items:center;gap:12px}
+
+.topbar .wrap{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 18px
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px
+}
+
 .mark{
-  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-  border:1px solid var(--line);color:var(--gold2);font-weight:900
+width:42px;
+height:42px;
+border-radius:14px;
+display:grid;
+place-items:center;
+background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+border:1px solid var(--line);
+color:var(--gold2);
+font-weight:900
 }
-.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-.tag{font-size:12px;color:var(--muted);margin-top:2px}
-.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav a{color:var(--muted);font-size:13px}
-.nav a:hover{color:var(--gold2)}
 
-main{padding:34px 0 60px}
+.name{
+letter-spacing:.16em;
+font-weight:800;
+font-size:12px;
+color:var(--gold2)
+}
 
-/* pill */
+.tag{
+font-size:12px;
+color:var(--muted);
+margin-top:2px
+}
+
+.nav{
+display:flex;
+gap:16px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.nav a{
+color:var(--muted);
+font-size:13px
+}
+
+.nav a:hover{
+color:var(--gold2)
+}
+
+.nav a.active{
+color:var(--gold2);
+font-weight:600
+}
+
+/* ===== Layout ===== */
+
+.content{
+padding:34px 18px 60px
+}
+
+h1,h2{
+margin:0 0 10px
+}
+
+h1{
+font-size:30px;
+color:var(--gold2)
+}
+
+h2{
+font-size:20px;
+color:var(--gold2);
+margin-top:26px
+}
+
+p,li{
+color:var(--text)
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:22px 0
+}
+
+/* ===== Cards ===== */
+
+.card{
+position: relative;
+overflow: hidden;
+
+background: linear-gradient(
+to bottom right,
+rgba(12,16,24,.94),
+rgba(12,16,24,.88)
+);
+
+border:1px solid var(--line);
+border-radius:16px;
+
+padding:16px 16px;
+margin:16px 0;
+
+box-shadow:
+0 0 0 1px rgba(214,163,74,.08),
+0 20px 50px rgba(0,0,0,.45);
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:-60px;
+background-image: var(--card-wm);
+background-repeat:no-repeat;
+background-size: min(720px, 70vw);
+background-position: right -140px center;
+opacity:0.028;
+filter: blur(1px);
+pointer-events:none;
+z-index:0;
+}
+
+.card > *{
+position:relative;
+z-index:1
+}
+
+.muted{
+color:var(--muted)
+}
+
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
+}
+
+/* ===== Pills ===== */
+
 .pill{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 10px;border:1px solid var(--line);
-  border-radius:999px;background:rgba(214,163,74,.08);
-  color:var(--gold2);font-size:12px;font-weight:700
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 10px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(214,163,74,.08);
+color:var(--gold2);
+font-size:12px;
+font-weight:700
 }
 
-h1{font-size:30px;color:var(--gold2);margin:14px 0 10px}
-.lede{color:var(--muted);max-width:82ch;margin:0 0 18px}
-
-/* ===== Card watermark (uses --card-wm) ===== */
-.card, .group{
-  position: relative;
-  overflow: hidden;
-}
-.card::before, .group::before{
-  content:"";
-  position:absolute;
-  inset:-60px;
-  background-image: var(--card-wm);
-  background-repeat:no-repeat;
-  background-size: min(760px, 70vw);
-  background-position: right -160px center;
-  opacity: 0.028;
-  filter: blur(1px);
-  pointer-events:none;
-  z-index:0;
-}
-.card > *, .group > *{ position:relative; z-index:1; }
-@media(max-width:700px){
-  .card::before, .group::before{ opacity:0.02; background-position:center 35%; }
+ul{
+margin:8px 0 0 18px
 }
 
-/* overview card */
-.overview{
-  background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-  box-shadow: var(--shadow);
-  margin: 14px 0 18px;
-}
-.overview h2{
-  margin:0 0 10px;
-  font-size:14px;
-  color:var(--gold2);
-  letter-spacing:.08em;
-}
-.overview ul{margin:8px 0 0 18px}
-.overview li{margin:6px 0}
-.links{
-  display:flex;gap:14px;flex-wrap:wrap;
-  margin-top:14px;padding-top:12px;
-  border-top:1px solid rgba(214,163,74,.14);
-}
-.links a{font-size:13px;color:var(--gold2)}
-.links a:hover{color:var(--gold)}
-
-/* group sections */
-.group{
-  background: rgba(12,16,24,0.92);
-  border:1px solid rgba(214,163,74,.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 16px 0;
-  padding: 16px;
-}
-.group-head{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-bottom:10px;
-}
-.group-title{
-  font-size:12px;
-  letter-spacing:.14em;
-  color:var(--gold2);
-  font-weight:800;
-}
-.group-sub{margin:0 0 14px;color:var(--muted);font-size:13px;max-width:90ch}
-
-/* cards grid */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
-}
-.module{
-  grid-column: span 6;
-  background: linear-gradient(to bottom right, rgba(12,16,24,.96), rgba(12,16,24,.86));
-  border:1px solid rgba(214,163,74,.16);
-  border-radius:16px;
-  padding:14px;
-  box-shadow: 0 14px 28px rgba(0,0,0,.28);
-}
-.module:hover{
-  border-color: rgba(214,163,74,.28);
-  box-shadow: 0 18px 36px rgba(0,0,0,.35);
-  transform: translateY(-1px);
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-}
-
-.module-top{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
-}
-.module h3{margin:0;font-size:16px;color:var(--text)}
-.tagpill{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 10px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.03);
-  color:rgba(232,237,247,.82);
-  font-size:12px;
-  white-space:nowrap;
-}
-.module p{margin:10px 0 0;color:var(--muted);font-size:13px;max-width:72ch}
-
-.actions{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin-top:12px;
-}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:10px 12px;border-radius:12px;
-  border:1px solid rgba(214,163,74,.35);
-  background:rgba(214,163,74,.08);
-  color:var(--gold2);
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  font-size:12px;
-  min-width:120px;
-}
-.btn:hover{
-  background:rgba(214,163,74,.12);
-  border-color:rgba(214,163,74,.55);
-}
-.btn:active{transform:translateY(1px)}
-.meta{
-  color:rgba(154,167,189,.95);
-  font-size:11px;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-/* WIP */
-.wip{
-  background: rgba(12,16,24,0.92);
-  border:1px solid rgba(214,163,74,.14);
-  border-radius: var(--radius);
-  padding:16px;
-  box-shadow: var(--shadow);
-  margin-top: 18px;
-}
-.wip h2{margin:0 0 8px;font-size:14px;color:var(--gold2);letter-spacing:.08em}
-.wip p{margin:0;color:var(--muted);font-size:13px}
-
-@media(max-width:860px){
-  .module{grid-column: span 12;}
-  h1{font-size:26px}
-  .nav{gap:10px}
-}
 </style>
 </head>
 
 <body>
+
 <header class="topbar">
-  <div class="wrap">
-    <div class="brand">
-      <div class="mark">S</div>
-      <div>
-        <div class="name">SATOSHIUM</div>
-        <div class="tag">AI, governed by Bitcoin</div>
-      </div>
-    </div>
-    <nav class="nav">
-      <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html">What is Satoshium?</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">What is Bitcoin?</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/demos.html">Demos</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-      <a href="https://satoshium.ai" target="_blank" rel="noreferrer">Main Site</a>
-    </nav>
-  </div>
+<div class="wrap">
+
+<div class="brand">
+<div class="mark">S</div>
+<div>
+<div class="name">SATOSHIUM</div>
+<div class="tag">AI, governed by Bitcoin</div>
+</div>
+</div>
+
+<nav class="nav">
+
+<a href="./">Home</a>
+
+<a href="./architecture.html">Architecture</a>
+
+<a href="./systems.html">Systems</a>
+
+<a href="./services.html">Services</a>
+
+<a href="./education.html">Education</a>
+
+<a href="./labs/index.html" class="active">Labs</a>
+
+<a href="./roadmap.html">Roadmap</a>
+
+<a href="./changelog.html">Changelog</a>
+
+<a href="./repo-map.html">Repo Map</a>
+
+<a href="https://satoshium.ai" target="_blank">Main Site</a>
+
+</nav>
+</div>
 </header>
 
 <main class="wrap">
