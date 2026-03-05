@@ -274,7 +274,7 @@ hr{
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -444,15 +444,24 @@ SATOSHIUM™ develops decentralized intelligence infrastructure, AI research too
 governance frameworks, and educational systems aligned with the Bitcoin standard.
 </div>
 
-<div class="footer">
-  <div class="muted">GitHub:
-    <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
-  </div>
-  <div class="muted">Main Site:
-    <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-  </div>
-</div>
+            <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
 
-</main>
+      </div>
+
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </body>
 </html>
