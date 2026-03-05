@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Satoshium Film Library</title>
+  <title>Satoshium Film Library — Cinematic Archive</title>
 
   <style>
-    /* ===== Core Theme ===== */
     :root{
       --card-wm: url('./assets/seal.png');
       --bg:#07090d;
@@ -19,35 +18,20 @@
     }
 
     *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.55;
-    }
-
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
     a{color:var(--gold2);text-decoration:none}
     a:hover{color:var(--gold)}
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-    /* ===== Top Navigation ===== */
+    /* Topbar */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
+      position:sticky;top:0;z-index:20;
       background:rgba(7,9,13,.92);
       border-bottom:1px solid var(--line);
       backdrop-filter: blur(8px);
     }
-    .topbar .wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 18px;
-    }
-
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .mark{
       width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
@@ -56,25 +40,19 @@
     }
     .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
-
-    .nav{
-      display:flex;gap:16px;align-items:center;flex-wrap:wrap;
-    }
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     .nav a{color:var(--muted);font-size:13px}
     .nav a:hover{color:var(--gold2)}
     .nav a.active{color:var(--gold2);font-weight:600}
 
-    /* ===== Layout ===== */
+    /* Layout */
     .content{padding:34px 18px 60px}
     h1,h2{margin:0 0 10px}
     h1{font-size:30px;color:var(--gold2)}
     h2{font-size:20px;color:var(--gold2);margin:0}
-    p,li{color:var(--text)}
+    .muted{color:var(--muted)}
     hr{border:none;border-top:1px solid var(--line);margin:22px 0}
 
-    .muted{color:var(--muted)}
-
-    /* ===== Pills ===== */
     .pill{
       display:inline-flex;align-items:center;gap:8px;
       padding:8px 10px;border:1px solid var(--line);border-radius:999px;
@@ -82,26 +60,7 @@
       font-size:12px;font-weight:700
     }
 
-    /* ===== Film Library Layout ===== */
-    .hero-tag{
-      font-size:12px;
-      letter-spacing:.14em;
-      font-weight:800;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:16px;
-      margin-top:18px;
-    }
-    @media (max-width: 760px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* ===== Cards ===== */
+    /* Cards (match site) */
     .card{
       position:relative;
       overflow:hidden;
@@ -109,12 +68,12 @@
       border:1px solid var(--line);
       border-radius:16px;
       padding:16px;
+      margin:16px 0;
       box-shadow:0 0 0 1px rgba(214,163,74,.08), 0 20px 50px rgba(0,0,0,.45);
     }
     .card::before{
       content:"";
-      position:absolute;
-      inset:-60px;
+      position:absolute;inset:-60px;
       background-image: var(--card-wm);
       background-repeat:no-repeat;
       background-size: min(720px, 70vw);
@@ -126,25 +85,32 @@
     }
     .card > *{position:relative;z-index:1}
 
-    a.card{display:block}
-    a.card:hover{transform:translateY(-1px)}
-    a.card{transition:transform .15s ease}
-
-    .soon{opacity:.9}
-    .soon .badge{
+    .cardhead{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+    .kicker{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--muted)}
+    .badge{
       display:inline-flex;align-items:center;gap:8px;
       padding:6px 10px;border:1px solid var(--line);border-radius:999px;
-      background:rgba(214,163,74,.06);color:var(--muted);
-      font-size:12px;font-weight:700;
-      margin-top:10px;
-    }
-
-    /* Optional simple footer text (page-specific) */
-    .pagefoot{
-      margin-top:26px;
+      background:rgba(214,163,74,.06);
+      font-size:12px;font-weight:800;
       color:var(--muted);
-      font-size:12px;
+      white-space:nowrap;
     }
+    .badge.live{color:#cfead7}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(214,163,74,.06);
+      color:var(--gold2);
+      font-size:12px;font-weight:800;
+    }
+    .btn:hover{background:rgba(214,163,74,.10)}
+
+    .pagefoot{margin-top:22px;color:var(--muted);font-size:12px}
   </style>
 </head>
 
@@ -175,37 +141,48 @@
   </header>
 
   <main class="wrap content">
-    <div class="hero-tag">SATOSHIUM FILM LIBRARY</div>
-    <h1>Cinematic Archive</h1>
+    <div class="pill">🎞️ Film Library</div>
+    <h1 style="margin-top:12px;">Cinematic Archive</h1>
     <p class="muted">
       Stories of a quieter future.<br>
       Built in public. Preserved in time.
     </p>
 
-    <div class="grid" aria-label="Film list">
-      <a href="./film-001.html" class="card" aria-label="Film 001 — The Quiet Future Is Being Built">
-        <h2>Film 001</h2>
-        <p><strong>The Quiet Future Is Being Built</strong></p>
-        <p class="muted">
-          A cinematic introduction to the Satoshium vision.<br>
-          AI governed by Bitcoin. Built quietly. In public.
-        </p>
-      </a>
-
-      <div class="card soon" aria-label="Film 002 — In Development">
-        <h2>Film 002</h2>
-        <p><strong>In Development</strong></p>
-        <p class="muted">
-          The next chapter of the Satoshium story is underway.<br>
-          Releasing when the time is right.
-        </p>
-        <div class="badge">⏳ Coming next</div>
+    <!-- Film 001 (FIXED: now a full card like the rest of the site) -->
+    <section class="card" aria-label="Film 001">
+      <div class="cardhead">
+        <div>
+          <div class="kicker">FILM 001</div>
+          <h2 style="margin-top:6px;">The Quiet Future Is Being Built</h2>
+        </div>
+        <span class="badge live">✅ AVAILABLE</span>
       </div>
-    </div>
 
-    <div class="pagefoot">
-      Satoshium Film Archive • Ongoing series
-    </div>
+      <p class="muted" style="margin:0;">
+        A cinematic introduction to the Satoshium vision — Bitcoin-governed intelligence, built deliberately and in public.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn" href="./film-001.html">Enter Film 001</a>
+      </div>
+    </section>
+
+    <!-- Film 002 -->
+    <section class="card" aria-label="Film 002">
+      <div class="cardhead">
+        <div>
+          <div class="kicker">FILM 002</div>
+          <h2 style="margin-top:6px;">In Development</h2>
+        </div>
+        <span class="badge">⏳ COMING NEXT</span>
+      </div>
+
+      <p class="muted" style="margin:0;">
+        The next chapter is underway. Release occurs when the narrative and platform are ready.
+      </p>
+    </section>
+
+    <div class="pagefoot">Satoshium Film Archive • Ongoing series</div>
   </main>
 
   <!-- Global footer include -->
