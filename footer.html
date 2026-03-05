@@ -1,0 +1,191 @@
+<!-- footer.html | Satoshium Progress (Global Footer) -->
+<footer class="footer" aria-label="Satoshium global footer">
+  <div class="wrap">
+
+    <!-- Brand + tagline -->
+    <div class="footer-brand">
+      <div class="footer-mark" aria-hidden="true">S</div>
+      <div class="footer-brandtext">
+        <div class="footer-name">SATOSHIUM<span class="tm">™</span></div>
+        <div class="footer-tag">AI, governed by Bitcoin</div>
+      </div>
+    </div>
+
+    <div class="footer-title">
+      Sovereign intelligence infrastructure for the Bitcoin era.
+    </div>
+
+    <!-- Primary quick links (mirrors topbar, stable paths) -->
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/satoshium-progress/">Home</a>
+      <a href="/satoshium-progress/architecture.html">Architecture</a>
+      <a href="/satoshium-progress/systems.html">Systems</a>
+      <a href="/satoshium-progress/services.html">Services</a>
+      <a href="/satoshium-progress/education.html">Education</a>
+      <a href="/satoshium-progress/labs/index.html">Labs</a>
+      <a href="/satoshium-progress/roadmap.html">Roadmap</a>
+      <a href="/satoshium-progress/changelog.html">Changelog</a>
+      <a href="/satoshium-progress/repo-map.html">Repo Map</a>
+      <a href="/satoshium-progress/legal.html">Legal</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
+    </nav>
+
+    <!-- Status bar (platform-level, not hype) -->
+    <div class="footer-status" role="group" aria-label="Platform status">
+      <span class="chip"><span class="dot on" aria-hidden="true"></span>Platform: Active</span>
+      <span class="chip"><span class="dot warn" aria-hidden="true"></span>Labs: Experimental</span>
+      <span class="chip"><span class="dot on" aria-hidden="true"></span>Docs: Live</span>
+      <span class="chip"><span class="dot info" aria-hidden="true"></span>Access: Public build</span>
+    </div>
+
+    <!-- Three-column footer body -->
+    <div class="footer-grid">
+
+      <section class="footer-col" aria-label="Platform">
+        <div class="footer-h">Platform</div>
+        <a href="/satoshium-progress/systems.html">System catalog</a>
+        <a href="/satoshium-progress/architecture.html">Architecture overview</a>
+        <a href="/satoshium-progress/services.html">Service scope</a>
+        <a href="/satoshium-progress/labs/index.html">Labs modules</a>
+      </section>
+
+      <section class="footer-col" aria-label="Documentation">
+        <div class="footer-h">Documentation</div>
+        <a href="/satoshium-progress/changelog.html">Public changelog</a>
+        <a href="/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="/satoshium-progress/education.html">Education</a>
+        <a href="/satoshium-progress/repo-map.html">Repository map</a>
+      </section>
+
+      <section class="footer-col" aria-label="Connect">
+        <div class="footer-h">Connect</div>
+        <a href="https://github.com/satoshiumai" target="_blank" rel="noopener">GitHub: satoshiumai</a>
+        <a href="mailto:contact@satoshium.ai">contact@satoshium.ai</a>
+        <a href="/satoshium-progress/legal.html">Legal notice</a>
+        <a href="#top" class="backtop">Back to top ↑</a>
+      </section>
+
+    </div>
+
+    <!-- Meta strip (the "Apple/Stripe" polish layer) -->
+    <div class="footer-sub" aria-label="Build metadata">
+      <div class="footer-subrow">
+        <div class="meta-line">
+          <span class="k">Version</span> <span class="v">v0.1</span>
+          <span class="sep">•</span>
+          <span class="k">Channel</span> <span class="v">Satoshium Progress Build</span>
+          <span class="sep">•</span>
+          <span class="k">Update</span> <span class="v">March 2026</span>
+        </div>
+        <div class="meta-line subtle">
+          Built in public • Visible progress • Long-horizon development
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal microcopy (short, screenshot-safe) -->
+    <div class="footer-legal">
+      <div class="legal-line">
+        SATOSHIUM<span class="tm">™</span> is an experimental software platform. Tools and modules may evolve as development progresses.
+        Nothing on this site constitutes financial, legal, or investment advice.
+      </div>
+      <div class="legal-line subtle">
+        © 2026 Satoshium. All rights reserved.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Self-contained footer styles (so you don't need to touch site-wide CSS) -->
+  <style>
+    .footer{
+      border-top:1px solid var(--line);
+      margin-top:60px;
+      padding:28px 0 28px;
+      color:var(--muted);
+    }
+    .footer .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+    .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .footer-mark{
+      width:40px;height:40px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .footer-name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .footer-tag{font-size:12px;color:var(--muted);margin-top:2px}
+    .tm{font-size:.85em; opacity:.9}
+
+    .footer-title{color:var(--text);font-weight:600;margin:0 0 14px}
+
+    .footer-links{
+      display:flex;flex-wrap:wrap;gap:12px;
+      margin:0 0 14px;
+      font-size:13px;
+    }
+    .footer-links a{color:var(--gold2)}
+    .footer-links a:hover{color:var(--gold)}
+
+    .footer-status{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 18px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(214,163,74,.06);
+      color:var(--text);
+      font-size:12px;
+    }
+    .dot{width:8px;height:8px;border-radius:99px;display:inline-block}
+    .dot.on{background:#38d48a}
+    .dot.warn{background:#f4c36a}
+    .dot.info{background:#6aa9ff}
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin:0 0 18px;
+    }
+    @media (max-width: 780px){
+      .footer-grid{grid-template-columns:1fr}
+    }
+    .footer-col{
+      border:1px solid rgba(214,163,74,.12);
+      border-radius:14px;
+      padding:14px;
+      background:rgba(12,16,24,.35);
+    }
+    .footer-h{
+      font-size:12px;
+      letter-spacing:.12em;
+      font-weight:800;
+      color:var(--gold2);
+      margin-bottom:10px;
+    }
+    .footer-col a{display:block;margin:8px 0;color:var(--gold2);font-size:13px}
+    .footer-col a:hover{color:var(--gold)}
+    .backtop{opacity:.9}
+
+    /* The polish layer: subtle divider + two-line meta strip */
+    .footer-sub{
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top:10px;
+      padding-top:14px;
+    }
+    .footer-subrow{display:flex;flex-direction:column;gap:8px}
+    .meta-line{font-size:12px;color:var(--text);opacity:.92}
+    .meta-line .k{color:var(--muted)}
+    .meta-line .v{color:var(--text)}
+    .sep{opacity:.45;margin:0 6px}
+    .subtle{color:var(--muted);opacity:.85}
+
+    .footer-legal{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+    .legal-line{font-size:12px;color:var(--muted);line-height:1.55}
+    .legal-line.subtle{opacity:.75;margin-top:8px}
+  </style>
+</footer>
