@@ -1,336 +1,220 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Satoshium Film Library</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satoshium Film Library</title>
 
-<style>
+  <style>
+    /* ===== Core Theme ===== */
+    :root{
+      --card-wm: url('./assets/seal.png');
+      --bg:#07090d;
+      --panel:#0c1018;
+      --text:#e8edf7;
+      --muted:#9aa7bd;
+      --gold:#d6a34a;
+      --gold2:#f4c36a;
+      --line:rgba(214,163,74,.18);
+    }
 
-/* ===== Core Theme ===== */
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.55;
+    }
 
-:root{
- --card-wm: url('./assets/seal.png');
- --bg:#07090d;
- --panel:#0c1018;
- --text:#e8edf7;
- --muted:#9aa7bd;
- --gold:#d6a34a;
- --gold2:#f4c36a;
- --line:rgba(214,163,74,.18);
-}
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-*{box-sizing:border-box}
+    /* ===== Top Navigation ===== */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(7,9,13,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 18px;
+    }
 
-html,body{
-margin:0;
-padding:0;
-background:var(--bg);
-color:var(--text);
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-line-height:1.55
-}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+      border:1px solid var(--line);color:var(--gold2);font-weight:900
+    }
+    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
 
-a{color:var(--gold2);text-decoration:none}
-a:hover{color:var(--gold)}
+    .nav{
+      display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+    }
+    .nav a{color:var(--muted);font-size:13px}
+    .nav a:hover{color:var(--gold2)}
+    .nav a.active{color:var(--gold2);font-weight:600}
 
-.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    /* ===== Layout ===== */
+    .content{padding:34px 18px 60px}
+    h1,h2{margin:0 0 10px}
+    h1{font-size:30px;color:var(--gold2)}
+    h2{font-size:20px;color:var(--gold2);margin:0}
+    p,li{color:var(--text)}
+    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
 
-/* ===== Top Navigation ===== */
+    .muted{color:var(--muted)}
 
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
+    /* ===== Pills ===== */
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.08);color:var(--gold2);
+      font-size:12px;font-weight:700
+    }
 
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
+    /* ===== Film Library Layout ===== */
+    .hero-tag{
+      font-size:12px;
+      letter-spacing:.14em;
+      font-weight:800;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
 
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width: 760px){
+      .grid{grid-template-columns:1fr}
+    }
 
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
+    /* ===== Cards ===== */
+    .card{
+      position:relative;
+      overflow:hidden;
+      background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      box-shadow:0 0 0 1px rgba(214,163,74,.08), 0 20px 50px rgba(0,0,0,.45);
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background-image: var(--card-wm);
+      background-repeat:no-repeat;
+      background-size: min(720px, 70vw);
+      background-position: right -140px center;
+      opacity:0.028;
+      filter: blur(1px);
+      pointer-events:none;
+      z-index:0;
+    }
+    .card > *{position:relative;z-index:1}
 
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
+    a.card{display:block}
+    a.card:hover{transform:translateY(-1px)}
+    a.card{transition:transform .15s ease}
 
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
+    .soon{opacity:.9}
+    .soon .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(214,163,74,.06);color:var(--muted);
+      font-size:12px;font-weight:700;
+      margin-top:10px;
+    }
 
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
-
-/* ===== Layout ===== */
-
-.content{
-padding:34px 18px 60px
-}
-
-h1,h2{
-margin:0 0 10px
-}
-
-h1{
-font-size:30px;
-color:var(--gold2)
-}
-
-h2{
-font-size:20px;
-color:var(--gold2);
-margin-top:26px
-}
-
-p,li{
-color:var(--text)
-}
-
-hr{
-border:none;
-border-top:1px solid var(--line);
-margin:22px 0
-}
-
-/* ===== Cards ===== */
-
-.card{
-position: relative;
-overflow: hidden;
-
-background: linear-gradient(
-to bottom right,
-rgba(12,16,24,.94),
-rgba(12,16,24,.88)
-);
-
-border:1px solid var(--line);
-border-radius:16px;
-
-padding:16px 16px;
-margin:16px 0;
-
-box-shadow:
-0 0 0 1px rgba(214,163,74,.08),
-0 20px 50px rgba(0,0,0,.45);
-}
-
-.card::before{
-content:"";
-position:absolute;
-inset:-60px;
-background-image: var(--card-wm);
-background-repeat:no-repeat;
-background-size: min(720px, 70vw);
-background-position: right -140px center;
-opacity:0.028;
-filter: blur(1px);
-pointer-events:none;
-z-index:0;
-}
-
-.card > *{
-position:relative;
-z-index:1
-}
-
-.muted{
-color:var(--muted)
-}
-
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0 32px;
-color:var(--muted)
-}
-
-/* ===== Pills ===== */
-
-.pill{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 10px;
-border:1px solid var(--line);
-border-radius:999px;
-background:rgba(214,163,74,.08);
-color:var(--gold2);
-font-size:12px;
-font-weight:700
-}
-
-ul{
-margin:8px 0 0 18px
-}
-
-<div class="grid">
-
-<a href="./film-001.html" class="card">
-  <h2>Film 001</h2>
-  <p><strong>The Quiet Future Is Being Built</strong></p>
-  <p>
-  A cinematic introduction to the Satoshium vision.<br>
-  AI governed by Bitcoin. Built quietly. In public.
-  </p>
-</a>
-
-<div class="card soon">
-  <h2>Film 002</h2>
-  <p><strong>In Development</strong></p>
-  <p>
-  The next chapter of the Satoshium story is already underway.<br>
-  Releasing when the time is right.
-  </p>
-</div>
-
-</div>
-  
-</style>
+    /* Optional simple footer text (page-specific) */
+    .pagefoot{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:12px;
+    }
+  </style>
 </head>
 
-<body>
-
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
-  
 <body id="top">
-
-<div class="wrap center">
-
-<div class="tag">SATOSHIUM FILM LIBRARY</div>
-
-<h1>Cinematic Archive</h1>
-
-<p>
-Stories of a quieter future.<br>
-Built in public. Preserved in time.
-</p>
-
-<div class="grid">
-
-<a href="./film-001.html" class="card">
-  <h2>Film 001</h2>
-  <p><strong>The Quiet Future Is Being Built</strong></p>
-  <p>
-  A cinematic introduction to the Satoshium vision.<br>
-  AI governed by Bitcoin. Built quietly. In public.
-  </p>
-</a>
-
-<div class="card soon">
-  <h2>Film 002</h2>
-  <p><strong>In Development</strong></p>
-  <p>
-  The next chapter of the Satoshium story is already underway.<br>
-  Releasing when the time is right.
-  </p>
-</div>
-
-</div>
-
-<div class="footer">
-<hr style="margin:40px 0;border-color:var(--line);opacity:.3;">
-Satoshium Film Archive • Ongoing Series
-</div>
-
-            <!-- Footer mission statement + links -->
-      <hr />
-      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
-      <hr />
-
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <div class="name">SATOSHIUM</div>
+          <div class="tag">AI, governed by Bitcoin</div>
+        </div>
       </div>
 
-</main>                     
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/education.html">Education</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
+        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
+        <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
+      </nav>
+    </div>
+  </header>
 
-<div id="footer-container"></div>
+  <main class="wrap content">
+    <div class="hero-tag">SATOSHIUM FILM LIBRARY</div>
+    <h1>Cinematic Archive</h1>
+    <p class="muted">
+      Stories of a quieter future.<br>
+      Built in public. Preserved in time.
+    </p>
 
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
+    <div class="grid" aria-label="Film list">
+      <a href="./film-001.html" class="card" aria-label="Film 001 — The Quiet Future Is Being Built">
+        <h2>Film 001</h2>
+        <p><strong>The Quiet Future Is Being Built</strong></p>
+        <p class="muted">
+          A cinematic introduction to the Satoshium vision.<br>
+          AI governed by Bitcoin. Built quietly. In public.
+        </p>
+      </a>
 
+      <div class="card soon" aria-label="Film 002 — In Development">
+        <h2>Film 002</h2>
+        <p><strong>In Development</strong></p>
+        <p class="muted">
+          The next chapter of the Satoshium story is underway.<br>
+          Releasing when the time is right.
+        </p>
+        <div class="badge">⏳ Coming next</div>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      Satoshium Film Archive • Ongoing series
+    </div>
+  </main>
+
+  <!-- Global footer include -->
+  <div id="footer-container"></div>
+  <script>
+    fetch("/satoshium-progress/footer.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("footer-container").innerHTML = html; })
+      .catch(() => {});
+  </script>
+</body>
 </html>
