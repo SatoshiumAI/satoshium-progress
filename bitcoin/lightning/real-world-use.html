@@ -212,7 +212,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -436,10 +436,19 @@ Real adoption rarely trends on social media — it grows quietly, then suddenly.
 
 <hr>
   
-<div style="margin-top:10px;">GitHub: <a href="https://github.com/SatoshiumAI">SatoshiumAI</a></div>
-<div>Main Site: <a href="https://satoshium.ai">satoshium.ai</a></div>
 </div>
 
 </main>
+
+ <div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </body>
 </html>
