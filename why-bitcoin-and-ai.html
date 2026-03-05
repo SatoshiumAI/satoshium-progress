@@ -211,7 +211,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -378,15 +378,24 @@ margin:8px 0 0 18px
       </p>
     </div>
 
-    <div class="footer">
-      <div class="footer-title">
-        Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+                <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
+
       </div>
-      <p></p>
-      <div class="footer">
-      <div class="muted">GitHub: <a href="https://github.com/SatoshiumAI" target="_blank" rel="noreferrer">SatoshiumAI</a></div>
-      <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
-    </div>
-  </main>
+
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </body>
 </html>
