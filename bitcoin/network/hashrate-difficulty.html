@@ -212,7 +212,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -227,27 +227,28 @@ margin:8px 0 0 18px
 
 <nav class="nav">
 
-<a href="./">Home</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
 
-<a href="./architecture.html">Architecture</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
 
-<a href="./systems.html">Systems</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
 
-<a href="./services.html">Services</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
 
-<a href="./education.html" class="active">Education</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
 
-<a href="./labs/index.html">Labs</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
 
-<a href="./roadmap.html">Roadmap</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
 
-<a href="./changelog.html">Changelog</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
 
-<a href="./repo-map.html">Repo Map</a>
+<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
 
 <a href="https://satoshium.ai" target="_blank">Main Site</a>
 
 </nav>
+
 </div>
 </header>
 
@@ -413,15 +414,27 @@ margin:8px 0 0 18px
     </div>
   </section>
 
-  <hr>
-
-  <div class="footer">
-    <strong>Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</strong>
-      <hr>
-    <div style="margin-top:10px;">GitHub: <a href="https://github.com/SatoshiumAI">SatoshiumAI</a></div>
-    <div>Main Site: <a href="https://satoshium.ai">satoshium.ai</a></div>
-  </div>
-
 </main>
+ 
+              <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
+
+      </div>
+
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
+
 </body>
 </html>
