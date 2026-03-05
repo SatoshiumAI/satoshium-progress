@@ -211,7 +211,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -323,6 +323,23 @@ margin:8px 0 0 18px
   <div class="card" style="--card-wm:url('./assets/seal.png');">
     <p class="muted">Built in public. No hype. Visible progress only.</p>
   </div>
-</main>
+            <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
+
+      </div>
+
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
 </body>
 </html>
