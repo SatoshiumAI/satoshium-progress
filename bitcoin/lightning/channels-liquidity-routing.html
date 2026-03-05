@@ -211,7 +211,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
 <div class="wrap">
@@ -490,5 +490,16 @@ margin:8px 0 0 18px
       <div class="muted">Main Site: <a href="https://satoshium.ai" target="_blank" rel="noreferrer">satoshium.ai</a></div>
     </div>
   </main>
+
+ <div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </body>
 </html>
