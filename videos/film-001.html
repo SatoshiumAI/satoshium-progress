@@ -82,7 +82,7 @@ p{
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <div class="wrap center">
 
@@ -118,5 +118,23 @@ It is built quietly — step by step.
 
 </div>
 
-</body>
+            <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
+
+      </div>
+
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </html>
