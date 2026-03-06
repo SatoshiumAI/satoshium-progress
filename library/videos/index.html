@@ -24,28 +24,7 @@
     a:hover{color:var(--gold)}
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-    /* Topbar */
-    .topbar{
-      position:sticky;top:0;z-index:20;
-      background:rgba(7,9,13,.92);
-      border-bottom:1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .mark{
-      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-      border:1px solid var(--line);color:var(--gold2);font-weight:900
-    }
-    .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
-    .tag{font-size:12px;color:var(--muted);margin-top:2px}
-    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-    .nav a{color:var(--muted);font-size:13px}
-    .nav a:hover{color:var(--gold2)}
-    .nav a.active{color:var(--gold2);font-weight:600}
-
-    /* Layout */
+     /* Layout */
     .content{padding:34px 18px 60px}
     h1,h2{margin:0 0 10px}
     h1{font-size:30px;color:var(--gold2)}
@@ -114,32 +93,16 @@
   </style>
 </head>
 
+  <div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
+  
 <body id="top">
-  <header class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="mark">S</div>
-        <div>
-          <div class="name">SATOSHIUM</div>
-          <div class="tag">AI, governed by Bitcoin</div>
-        </div>
-      </div>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/education.html">Education</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-        <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-        <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="wrap content">
     <div class="pill">🎞️ Film Library</div>
     <h1 style="margin-top:12px;">Cinematic Archive</h1>
