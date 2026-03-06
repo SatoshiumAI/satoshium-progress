@@ -36,17 +36,6 @@ a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-/* ===== Top Navigation ===== */
-
-<div id="topbar-container"></div>
-<script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-  });
-</script>
-
 /* ===== Layout ===== */
 
 .content{
@@ -152,6 +141,15 @@ margin:8px 0 0 18px
 </style>
 </head>
 
+  <div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
+  
 <body id="top">
 
 <main class="wrap content">
