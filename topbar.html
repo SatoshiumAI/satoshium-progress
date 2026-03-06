@@ -1,0 +1,113 @@
+<!-- topbar.html | Satoshium Progress (Global Topbar) -->
+<style>
+  :root{
+    --card-wm: url('./assets/seal.png');
+    --bg:#07090d;
+    --panel:#0c1018;
+    --text:#e8edf7;
+    --muted:#9aa7bd;
+    --gold:#d6a34a;
+    --gold2:#f4c36a;
+    --line:rgba(214,163,74,.18);
+  }
+
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.55;
+  }
+
+  a{color:var(--gold2);text-decoration:none}
+  a:hover{color:var(--gold)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+  /* ===== Top Navigation ===== */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(7,9,13,.92);
+    border-bottom:1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+  .topbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 18px;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{
+    width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+    border:1px solid var(--line);color:var(--gold2);font-weight:900
+  }
+  .name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+  .tag{font-size:12px;color:var(--muted);margin-top:2px}
+  .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .nav a{color:var(--muted);font-size:13px}
+  .nav a:hover{color:var(--gold2)}
+  .nav a.active{color:var(--gold2);font-weight:600}
+</style>
+
+<header class="topbar" aria-label="Satoshium global topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="https://satoshiumai.github.io/satoshium-progress/" data-nav="home">Home</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/architecture.html" data-nav="architecture">Architecture</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/systems.html" data-nav="systems">Systems</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/services.html" data-nav="services">Services</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/education.html" data-nav="education">Education</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html" data-nav="labs">Labs</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html" data-nav="roadmap">Roadmap</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html" data-nav="changelog">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html" data-nav="repomap">Repo Map</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/system-registry.html" data-nav="registry">Registry</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noopener" data-nav="mainsite">Main Site</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  const current = window.location.pathname.toLowerCase();
+
+  const map = [
+    { key: "home", match: ["/satoshium-progress/", "/satoshium-progress/index.html"] },
+    { key: "architecture", match: ["/satoshium-progress/architecture.html"] },
+    { key: "systems", match: ["/satoshium-progress/systems.html"] },
+    { key: "services", match: ["/satoshium-progress/services.html"] },
+    { key: "education", match: ["/satoshium-progress/education.html"] },
+    { key: "labs", match: ["/satoshium-progress/labs/index.html", "/satoshium-progress/labs/experiments.html"] },
+    { key: "roadmap", match: ["/satoshium-progress/roadmap.html"] },
+    { key: "changelog", match: ["/satoshium-progress/changelog.html"] },
+    { key: "repomap", match: ["/satoshium-progress/repo-map.html"] },
+    { key: "registry", match: ["/satoshium-progress/system-registry.html"] }
+  ];
+
+  let activeKey = null;
+  for (const item of map) {
+    if (item.match.includes(current)) {
+      activeKey = item.key;
+      break;
+    }
+  }
+
+  if (activeKey) {
+    const el = document.querySelector('.topbar .nav a[data-nav="' + activeKey + '"]');
+    if (el) el.classList.add('active');
+  }
+})();
+</script>
