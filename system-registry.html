@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Satoshium System Registry</title>
+
+<style>
+:root{
+  --card-wm: url('./assets/seal.png');
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+}
+
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+/* ===== Top Navigation ===== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(7,9,13,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.topbar .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
+  border:1px solid var(--line);color:var(--gold2);font-weight:900
+}
+.name{letter-spacing:.16em;font-weight:800;font-size:12px;color:var(--gold2)}
+.tag{font-size:12px;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--muted);font-size:13px}
+.nav a:hover{color:var(--gold2)}
+.nav a.active{color:var(--gold2);font-weight:600}
+
+/* ===== Layout ===== */
+.content{padding:34px 18px 60px}
+h1,h2,h3{margin:0 0 10px}
+h1{font-size:30px;color:var(--gold2)}
+h2{font-size:20px;color:var(--gold2);margin-top:0}
+h3{font-size:16px;color:var(--gold2);margin-top:0}
+p,li{color:var(--text)}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+.muted{color:var(--muted)}
+
+/* ===== Pills ===== */
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 10px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(214,163,74,.08);color:var(--gold2);
+  font-size:12px;font-weight:700
+}
+.pill.ok{
+  background:rgba(96,196,132,.10);
+  border-color:rgba(96,196,132,.25);
+  color:#bdf5d0;
+}
+.pill.warn{
+  background:rgba(244,195,106,.10);
+  border-color:rgba(244,195,106,.25);
+  color:var(--gold2);
+}
+.pill.dev{
+  background:rgba(120,165,255,.10);
+  border-color:rgba(120,165,255,.22);
+  color:#cfe0ff;
+}
+.pill.gray{
+  background:rgba(154,167,189,.08);
+  border-color:rgba(154,167,189,.20);
+  color:var(--muted);
+}
+
+/* ===== Cards ===== */
+.card{
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 16px;
+  margin:16px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity:0.028;
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+.card > *{position:relative;z-index:1}
+
+/* ===== Registry Layout ===== */
+.registry-intro{
+  margin-top:22px;
+  margin-bottom:24px;
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+  box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+.registry-title{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  margin-bottom:6px;
+}
+.registry-description{
+  font-size:14px;
+  color:var(--text);
+  margin-bottom:10px;
+}
+.registry-meta{
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.04em;
+}
+
+.registry-section{
+  margin-top:18px;
+}
+
+.registry-item{
+  border-top:1px solid rgba(214,163,74,.10);
+  padding-top:14px;
+  margin-top:14px;
+}
+.registry-item:first-of-type{
+  border-top:none;
+  padding-top:0;
+  margin-top:0;
+}
+
+.registry-id{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.registry-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.registry-name{
+  font-weight:700;
+  color:var(--text);
+}
+
+.registry-meta-line{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.registry-links{
+  margin-top:8px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.footer-note{
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body id="top">
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <div class="name">SATOSHIUM</div>
+        <div class="tag">AI, governed by Bitcoin</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="./">Home</a>
+      <a href="./architecture.html">Architecture</a>
+      <a href="./systems.html">Systems</a>
+      <a href="./services.html">Services</a>
+      <a href="./education.html">Education</a>
+      <a href="./labs/index.html">Labs</a>
+      <a href="./roadmap.html">Roadmap</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./repo-map.html">Repo Map</a>
+      <a href="./system-registry.html" class="active">Registry</a>
+      <a href="https://satoshium.ai" target="_blank" rel="noopener">Main Site</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap content">
+
+  <div class="pill">🗂️ System Registry</div>
+
+  <h1 style="margin-top:12px;">Satoshium System Registry</h1>
+
+  <p class="muted">
+    The Satoshium System Registry provides the canonical index of operational, foundational, and experimental software systems
+    documented within the Satoshium™ platform architecture.
+  </p>
+
+  <div class="registry-intro">
+    <div class="registry-title">Canonical Registry Index</div>
+    <div class="registry-description">
+      Each entry below identifies a named software system within the Satoshium architecture using a stable System Registry ID.
+      These identifiers support long-term documentation consistency, platform traceability, and future system expansion.
+    </div>
+    <div class="registry-meta">
+      Registry Scope: Platform Systems • Namespace: SYS-* • Status Model: Operational / Foundation / In Development / Experimental / Internal
+    </div>
+  </div>
+
+  <!-- KNOWLEDGE -->
+  <section class="card registry-section">
+    <h2>📚 Knowledge Systems</h2>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-KNOW-001</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Canonical Terminology System (Glossary Builder)</div>
+          <div class="registry-meta-line">Layer: Knowledge Systems • Type: Canonical Vocabulary Engine</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <span class="pill warn">Foundation</span>
+        <a class="pill" href="https://glossary-hub.replit.app/" target="_blank" rel="noopener">Open System</a>
+      </div>
+    </div>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-KNOW-002</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Canon Repository</div>
+          <div class="registry-meta-line">Layer: Knowledge Systems • Type: Canonical Framework Repository</div>
+        </div>
+        <div class="pill warn">Foundation</div>
+      </div>
+      <div class="registry-links">
+        <a class="pill" href="./repo-map.html">Reference</a>
+      </div>
+    </div>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-KNOW-003</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Specifications Repository (Canon &amp; Specs)</div>
+          <div class="registry-meta-line">Layer: Knowledge Systems • Type: Platform Specifications Repository</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <span class="pill warn">Foundation</span>
+        <a class="pill" href="./repo-map.html">Reference</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTELLIGENCE -->
+  <section class="card registry-section">
+    <h2>🧠 Intelligence Systems</h2>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-INTEL-001</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Satoshium AI (Research Interface)</div>
+          <div class="registry-meta-line">Layer: Intelligence Systems • Type: AI Research Interface</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <span class="pill gray">Access: Restricted / Limited</span>
+        <a class="pill" href="https://satoshium.ai" target="_blank" rel="noopener">Open Interface</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section class="card registry-section">
+    <h2>🛡️ Governance Systems</h2>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-GOV-001</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Aegis: The Agent Firewall</div>
+          <div class="registry-meta-line">Layer: Governance Systems • Type: Agent Safety Firewall</div>
+        </div>
+        <div class="pill dev">In Development</div>
+      </div>
+      <div class="registry-links">
+        <span class="pill gray">Internal</span>
+        <a class="pill" href="./repo-map.html">Reference</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATION -->
+  <section class="card registry-section">
+    <h2>🧪 Simulation Systems</h2>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-SIM-001</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Satoshium Labs (Simulation Modules)</div>
+          <div class="registry-meta-line">Layer: Simulation Systems • Type: Experimental Simulation Environment</div>
+        </div>
+        <div class="pill warn">Experimental</div>
+      </div>
+      <div class="registry-links">
+        <a class="pill" href="./labs/index.html">Open Labs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTATION -->
+  <section class="card registry-section">
+    <h2>🧾 Documentation Systems</h2>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-DOC-001</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Public Build Changelog</div>
+          <div class="registry-meta-line">Layer: Documentation Systems • Type: Public Development Record</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <a class="pill" href="./changelog.html">Open Changelog</a>
+      </div>
+    </div>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-DOC-002</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Canon &amp; Specs Documentation Layer</div>
+          <div class="registry-meta-line">Layer: Documentation Systems • Type: Technical Documentation Layer</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <span class="pill warn">Foundation</span>
+        <a class="pill" href="./repo-map.html">Open Reference</a>
+      </div>
+    </div>
+
+    <div class="registry-item">
+      <div class="registry-id">System Registry ID: SYS-DOC-003</div>
+      <div class="registry-row">
+        <div>
+          <div class="registry-name">Repository Map</div>
+          <div class="registry-meta-line">Layer: Documentation Systems • Type: Repository Navigation Index</div>
+        </div>
+        <div class="pill ok">Operational</div>
+      </div>
+      <div class="registry-links">
+        <a class="pill" href="./repo-map.html">Open Repo Map</a>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <div class="footer-note">
+    Satoshium™ — Class 042: computer programming services and AI software development.<br>
+    This registry documents the canonical identifiers assigned to software systems within the Satoshium platform architecture.
+  </div>
+
+</main>
+
+<div id="footer-container"></div>
+<script>
+fetch("/satoshium-progress/footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer-container").innerHTML = data;
+  });
+</script>
+
+</body>
+</html>
