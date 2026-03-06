@@ -66,15 +66,15 @@
 
     <nav class="nav" aria-label="Primary navigation">
       <a href="https://satoshiumai.github.io/satoshium-progress/" data-nav="home">Home</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/architecture.html" data-nav="architecture">Architecture</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/systems.html" data-nav="systems">Systems</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/services.html" data-nav="services">Services</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/education.html" data-nav="education">Education</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html" data-nav="labs">Labs</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html" data-nav="roadmap">Roadmap</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/changelog.html" data-nav="changelog">Changelog</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html" data-nav="repomap">Repo Map</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/system-registry.html" data-nav="registry">Registry</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/architecture/" data-nav="architecture">Architecture</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/systems/" data-nav="systems">Systems</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/services/" data-nav="services">Services</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/education/" data-nav="education">Education</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/labs/" data-nav="labs">Labs</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/roadmap/" data-nav="roadmap">Roadmap</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/changelog/" data-nav="changelog">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/repo-map/" data-nav="repomap">Repo Map</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/registry" data-nav="registry">Registry</a>
       <a href="https://satoshium.ai" target="_blank" rel="noopener" data-nav="mainsite">Main Site</a>
     </nav>
   </div>
@@ -86,17 +86,36 @@
 
   const map = [
     { key: "home", match: ["/satoshium-progress/", "/satoshium-progress/index.html"] },
-    { key: "architecture", match: ["/satoshium-progress/architecture.html"] },
-    { key: "systems", match: ["/satoshium-progress/systems.html"] },
-    { key: "services", match: ["/satoshium-progress/services.html"] },
-    { key: "education", match: ["/satoshium-progress/education.html"] },
+    { key: "architecture", match: ["/satoshium-progress/architecture/index.html"] },
+    { key: "systems", match: ["/satoshium-progress/systems/index.html"] },
+    { key: "services", match: ["/satoshium-progress/services/index.html"] },
+    { key: "education", match: ["/satoshium-progress/education/index.html"] },
     { key: "labs", match: ["/satoshium-progress/labs/index.html", "/satoshium-progress/labs/experiments.html"] },
-    { key: "roadmap", match: ["/satoshium-progress/roadmap.html"] },
-    { key: "changelog", match: ["/satoshium-progress/changelog.html"] },
-    { key: "repomap", match: ["/satoshium-progress/repo-map.html"] },
-    { key: "registry", match: ["/satoshium-progress/system-registry.html"] }
+    { key: "roadmap", match: ["/satoshium-progress/roadmap/index.html"] },
+    { key: "changelog", match: ["/satoshium-progress/changelog/index.html"] },
+    { key: "repomap", match: ["/satoshium-progress/repo-map/index.html"] },
+    { key: "registry", match: ["/satoshium-progress/registry/index.html"] }
   ];
 
+const path = window.location.pathname.toLowerCase();
+
+function setActive(key){
+  const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
+  if(el) el.classList.add("active");
+}
+
+  if(path.includes("/architecture")) setActive("architecture");
+    else if(path.includes("/systems")) setActive("systems");
+    else if(path.includes("/services")) setActive("services");
+    else if(path.includes("/education") || path.includes("lightning")) setActive("education");
+    else if(path.includes("/labs")) setActive("labs");
+    else if(path.includes("/roadmap")) setActive("roadmap");
+    else if(path.includes("/changelog")) setActive("changelog");
+    else if(path.includes("/repo-map")) setActive("repomap");
+    else if(path.includes("/registry")) setActive("registry");
+    else if(path.includes("/system-registry")) setActive("registry");
+    else setActive("home");
+  
   let activeKey = null;
   for (const item of map) {
     if (item.match.includes(current)) {
