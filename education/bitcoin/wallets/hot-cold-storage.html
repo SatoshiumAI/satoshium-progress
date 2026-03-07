@@ -11,7 +11,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -36,76 +36,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -214,43 +144,14 @@ margin:8px 0 0 18px
 
 <body id="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
 
    <main class="wrap">
     <div class="pill">🛡️ Wallets & security</div>
@@ -261,7 +162,7 @@ margin:8px 0 0 18px
     </p>
 
     <section class="grid">
-      <div class="card">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">What you’ll learn</div>
         <h2 style="margin-top:6px;">✅ The core idea</h2>
         <ul class="bullets">
@@ -272,11 +173,12 @@ margin:8px 0 0 18px
         </ul>
 
         <div class="rule">
+         <p></p>
           <strong>Satoshium rule:</strong> hot wallet for spending, cold storage for saving.
         </div>
       </div>
 
-      <aside class="card">
+      <aside class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Quick navigation</div>
         <h2 style="margin-top:6px;">📌 Sections</h2>
 
@@ -301,6 +203,7 @@ margin:8px 0 0 18px
     </section>
 
     <section id="simple" class="section">
+     <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h3>📌 The simple explanation</h3>
       <p>There are two main ways to store Bitcoin:</p>
       <ul class="bullets">
@@ -308,25 +211,31 @@ margin:8px 0 0 18px
         <li><strong>Cold storage</strong> = kept offline</li>
       </ul>
       <p>Both are useful. Both have tradeoffs. The key is knowing when to use each.</p>
+     </div>
     </section>
 
     <section id="hot" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h3>🔥 What is a hot wallet?</h3>
       <p>A <strong>hot wallet</strong> is any wallet connected to the internet.</p>
       <p><strong>Examples:</strong> mobile wallets, desktop wallets, exchange accounts, web wallets, Lightning wallets.</p>
       <p>Hot wallets are designed for <strong>convenience and quick access</strong> — perfect for spending, small balances, everyday use, and learning.</p>
       <div class="note">Think of a hot wallet like cash in your physical wallet: easy to access, not where you store your life savings.</div>
+      </div>
     </section>
 
     <section id="cold" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">     
       <h3>🧊 What is cold storage?</h3>
       <p><strong>Cold storage</strong> means your Bitcoin keys are stored <strong>offline</strong>.</p>
       <p><strong>Examples:</strong> hardware wallets, air-gapped devices, metal seed backups, paper backups (less common today).</p>
       <p>Cold storage is designed for <strong>long-term security</strong> — savings, long-term holding, generational wealth, and Bitcoin you don’t plan to spend soon.</p>
       <div class="note">Think of cold storage like a vault: harder to access, much harder to steal.</div>
+      </div>
     </section>
 
     <section id="compare" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">    
       <h3>⚖️ Hot vs cold — quick comparison</h3>
       <table>
         <thead>
@@ -369,9 +278,11 @@ margin:8px 0 0 18px
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <section id="both" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">   
       <h3>🧠 The smart way to use both</h3>
       <p>Most experienced Bitcoin users use <strong>both</strong>:</p>
       <ul class="bullets">
@@ -379,23 +290,29 @@ margin:8px 0 0 18px
         <li>Majority in cold storage for long-term savings</li>
       </ul>
       <p>This gives you <strong>convenience + security</strong>.</p>
+      </div>
     </section>
 
     <section id="mistake" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">        
       <h3>⚠️ Common beginner mistake</h3>
       <p>Keeping all Bitcoin on an exchange.</p>
       <p>If an exchange freezes withdrawals, gets hacked, goes bankrupt, or locks your account, your Bitcoin is at risk.</p>
       <div class="rule"><strong>Reminder:</strong> Not your keys = not your Bitcoin.</div>
+      </div>
     </section>
 
     <section id="rule" class="section">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">     
       <h3>🛡️ Simple safety rule</h3>
       <p>Use this rule forever:</p>
       <div class="rule"><strong>Hot wallet for spending.</strong> <strong>Cold storage for saving.</strong></div>
       <p>That one principle alone protects most people from major loss.</p>
+      </div>
     </section>
 
     <section id="future" class="section">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">  
       <h3>🔮 Why this matters for the future</h3>
       <p>As Bitcoin grows globally:</p>
       <ul class="bullets">
@@ -404,9 +321,11 @@ margin:8px 0 0 18px
         <li>Personal responsibility increases</li>
       </ul>
       <p>Learning hot vs cold storage now puts you ahead of the curve.</p>
+    </div>
     </section>
 
     <section id="next" class="section">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">     
       <h3>🧭 Coming next</h3>
       <p>Future Wallet &amp; Security guides will include:</p>
       <ul class="bullets">
@@ -416,13 +335,16 @@ margin:8px 0 0 18px
         <li>Inheritance planning</li>
       </ul>
       <p>One solid step at a time.</p>
+    </div>
     </section>
 
     <section id="final" class="section">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">     
       <h3>🧠 Final thought</h3>
       <p>Bitcoin gives you something rare: <strong>true ownership</strong>.</p>
       <p>Hot wallets give you freedom to use it. Cold storage gives you power to protect it.</p>
       <p>Learn both — and you control your future.</p>
+    </div>
     </section>
                 <!-- Footer mission statement + links -->
       <hr />
