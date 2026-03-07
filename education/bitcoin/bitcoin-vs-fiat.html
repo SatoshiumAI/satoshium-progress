@@ -138,6 +138,18 @@ ul{
 margin:8px 0 0 18px
 }
 
+/* ===== Table ===== */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 16px;
+}
+
+td, th {
+  padding: 10px 16px;
+}  
+  
 </style>
 </head>
 
@@ -194,7 +206,6 @@ fetch("/satoshium-progress/topbar.html")
                 <span class="chip ok">Hard-capped</span>
               </td>
             </tr>
-            <p></p>
             <tr>
               <td><strong>Control</strong></td>
               <td>
@@ -206,8 +217,7 @@ fetch("/satoshium-progress/topbar.html")
                 <span class="chip ok">Rule-driven</span>
               </td>
             </tr>
-           <p></p>
-            <tr>
+             <tr>
               <td><strong>Trust</strong></td>
               <td>
                 “Trust the issuer” (banks, governments, intermediaries).<br>
@@ -218,8 +228,7 @@ fetch("/satoshium-progress/topbar.html")
                 <span class="chip ok">Verification-based</span>
               </td>
             </tr>
-            <p></p>
-            <tr>
+              <tr>
               <td><strong>Settlement</strong></td>
               <td>
                 Bank rails can be reversed/frozen; finality depends on intermediaries.<br>
