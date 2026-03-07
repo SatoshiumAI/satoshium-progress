@@ -66,7 +66,7 @@
 
     <nav class="nav" aria-label="Primary navigation">
       <a href="https://satoshiumai.github.io/satoshium-progress/" data-nav="home">Home</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/start-here.html" data-nav="home">Start Here</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/start-here.html" data-nav="start-here"">Start Here</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/architecture/" data-nav="architecture">Architecture</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/systems/" data-nav="systems">Systems</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/services/" data-nav="services">Services</a>
@@ -83,53 +83,25 @@
 
 <script>
 (function() {
-  const current = window.location.pathname.toLowerCase();
 
-  const map = [
-    { key: "home", match: ["/satoshium-progress/", "/satoshium-progress/"] },
-    { key: "start-here", match: ["/satoshium-progress/start-here.html"] },
-    { key: "architecture", match: ["/satoshium-progress/architecture/"] },
-    { key: "systems", match: ["/satoshium-progress/systems/"] },
-    { key: "services", match: ["/satoshium-progress/services/"] },
-    { key: "education", match: ["/satoshium-progress/education/"] },
-    { key: "labs", match: ["/satoshium-progress/labs/", "/satoshium-progress/labs/experiments/"] },
-    { key: "build", match: ["/satoshium-progress/build/"] },
-    { key: "updates", match: ["/satoshium-progress/updates/"] },
-    { key: "repomap", match: ["/satoshium-progress/repo-map/"] },
-    { key: "registry", match: ["/satoshium-progress/registry/"] }
-  ];
+  const path = window.location.pathname.toLowerCase();
 
-const path = window.location.pathname.toLowerCase();
-
-function setActive(key){
-  const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-  if(el) el.classList.add("active");
-}
+  function setActive(key){
+    const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
+    if(el) el.classList.add("active");
+  }
 
   if(path.includes("/architecture")) setActive("architecture");
-    esle if(path.includes("start-here.html")) setActive("start-here");
-    else if(path.includes("/systems")) setActive("systems");
-    else if(path.includes("/services")) setActive("services");
-    else if(path.includes("/education") || path.includes("lightning")) setActive("education");
-    else if(path.includes("/labs")) setActive("labs");
-    else if(path.includes("/build")) setActive("build");
-    else if(path.includes("/updates")) setActive("updates");
-    else if(path.includes("/repo-map")) setActive("repomap");
-    else if(path.includes("/registry")) setActive("registry");
-    else if(path.includes("/system-registry")) setActive("registry");
-    else setActive("home");
-  
-  let activeKey = null;
-  for (const item of map) {
-    if (item.match.includes(current)) {
-      activeKey = item.key;
-      break;
-    }
-  }
+  else if(path.includes("start-here")) setActive("start-here");
+  else if(path.includes("/systems")) setActive("systems");
+  else if(path.includes("/services")) setActive("services");
+  else if(path.includes("/education")) setActive("education");
+  else if(path.includes("/labs")) setActive("labs");
+  else if(path.includes("/build")) setActive("build");
+  else if(path.includes("/updates")) setActive("updates");
+  else if(path.includes("/repo-map")) setActive("repomap");
+  else if(path.includes("/registry")) setActive("registry");
+  else setActive("home");
 
-  if (activeKey) {
-    const el = document.querySelector('.topbar .nav a[data-nav="' + activeKey + '"]');
-    if (el) el.classList.add('active');
-  }
 })();
 </script>
