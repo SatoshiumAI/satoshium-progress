@@ -11,7 +11,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -36,76 +36,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -214,45 +144,16 @@ margin:8px 0 0 18px
 
 <body id="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
-
-<main class="wrap content">
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
+ 
+ <main class="wrap content">
 
 <div class="pill">🛡️ Wallets & security</div>
 <h1 style="margin-top:12px;">Common scams to avoid</h1>
@@ -261,7 +162,7 @@ Bitcoin scams rarely rely on hacking. They rely on urgency, fear, greed, and con
 Once you recognize the patterns, they become easy to spot.
 </p>
 
-<div class="card">
+<div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">Quick navigation</div>
 <h2>🚨 Sections</h2>
 
@@ -281,7 +182,7 @@ Tip: If urgency is involved, pause. Bitcoin rewards calm thinking.
 </p>
 </div>
 
-<section class="card" id="truth">
+<section class="card" id="truth" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">1) Reality check</div>
 <h2>The uncomfortable truth</h2>
 <ul>
@@ -294,7 +195,7 @@ If someone creates urgency, they are usually removing your ability to think clea
 </div>
 </section>
 
-<section class="card" id="impersonation">
+<section class="card" id="impersonation" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">2) Most common</div>
 <h2>Impersonation scams</h2>
 <ul>
@@ -308,7 +209,7 @@ No legitimate company will EVER ask for your seed phrase.
 </div>
 </section>
 
-<section class="card" id="seed">
+<section class="card" id="seed" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">3) Critical</div>
 <h2>Seed phrase traps</h2>
 <ul>
@@ -322,7 +223,7 @@ Entering your seed phrase anywhere online = giving away your bitcoin.
 </div>
 </section>
 
-<section class="card" id="giveaways">
+<section class="card" id="giveaways" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">4) Classic</div>
 <h2>Giveaway & doubling scams</h2>
 <ul>
@@ -335,7 +236,7 @@ No one gives away bitcoin to strangers on the internet.
 </div>
 </section>
 
-<section class="card" id="fakeapps">
+<section class="card" id="fakeapps" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">5) Dangerous</div>
 <h2>Fake apps & websites</h2>
 <ul>
@@ -348,7 +249,7 @@ Always verify URLs and download from official sources only.
 </div>
 </section>
 
-<section class="card" id="romance">
+<section class="card" id="romance" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">6) Psychological</div>
 <h2>Romance & relationship scams</h2>
 <ul>
@@ -361,7 +262,7 @@ If emotions are involved, slow down. Scammers weaponize trust.
 </div>
 </section>
 
-<section class="card" id="mindset">
+<section class="card" id="mindset" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">7) Defense</div>
 <h2>The Satoshium safety mindset</h2>
 <ul>
@@ -375,7 +276,7 @@ Calm users don’t get scammed. Rushed users do.
 </div>
 </section>
 
-<section class="card" id="rules">
+<section class="card" id="rules" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 <div class="kicker">8) Simple rules</div>
 <h2>Rules that prevent most losses</h2>
 <ul>
