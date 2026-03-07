@@ -10,7 +10,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -35,76 +35,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -208,49 +138,31 @@ ul{
 margin:8px 0 0 18px
 }
 
+/* ===== Table ===== */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 16px;
+}
+
+td, th {
+  padding: 10px 16px;
+}
+  
 </style>
 </head>
 
 <body id="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
-
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
 
   <main class="wrap content">
     <div class="pill">🟠 Bitcoin 101</div>
@@ -272,7 +184,7 @@ margin:8px 0 0 18px
     </div>
 
     <!-- Quick navigation / Sections -->
-    <div class="card card--wm" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.pngg');">
       <div class="k">Quick navigation</div>
       <h2 style="margin-top:6px;">📌 Sections</h2>
       <ol class="toc">
@@ -289,7 +201,7 @@ margin:8px 0 0 18px
       </ol>
     </div>
 
-    <div class="card card--wm" id="parts" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="parts" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">1) The 5 parts of Bitcoin (simple map)</h2>
       <div class="tablewrap" style="margin-top:10px;">
         <table>
@@ -334,7 +246,7 @@ margin:8px 0 0 18px
       </p>
     </div>
 
-    <div class="card card--wm" id="keys" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="keys" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">2) Keys, addresses, and ownership</h2>
       <ul>
         <li><strong>Private key</strong>: your secret. It authorizes spending.</li>
@@ -353,7 +265,7 @@ margin:8px 0 0 18px
       </p>
     </div>
 
-   <div class="card card--wm" id="tx" style="--card-wm:url('../assets/btc-seal.png');">
+   <div class="card card--wm" id="tx" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">3) Transactions & the mempool</h2>
       <p>
         When you send bitcoin, your wallet creates a transaction that:
@@ -383,7 +295,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card card--wm" id="style" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="style" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">4) Blocks & confirmations</h2>
       <p>
         A <strong>block</strong> is a bundle of transactions plus a link to the previous block.
@@ -403,7 +315,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card card--wm" id="mining" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="mining" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">5) Mining & proof-of-work (why it’s secure)</h2>
       <p>
         Mining is a competition to find a valid block by performing computational work.
@@ -431,7 +343,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card card--wm" id="nodes" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="nodes" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">6) Nodes & consensus (who enforces rules)</h2>
       <p>
         A <strong>node</strong> is a computer running Bitcoin software that verifies rules:
@@ -451,7 +363,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card card--wm" id="fees" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">7) Fees, finality, and “why it sometimes costs more”</h2>
       <ul>
         <li><strong>Fees</strong> are paid to miners and measured in sats per byte (or sats/vB).</li>
@@ -463,7 +375,7 @@ margin:8px 0 0 18px
       </p>
     </div>
 
-    <div class="card card--wm" id="supply" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="supply" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">8) Fixed supply, halving, and difficulty</h2>
       <div class="grid" style="margin-top:8px;">
         <div class="card" style="margin:0;">
@@ -491,7 +403,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card card--wm" id="risks" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="risks" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">9) What can go wrong (and what cannot)</h2>
 
       <div class="tablewrap" style="margin-top:10px;">
@@ -538,13 +450,13 @@ margin:8px 0 0 18px
       </p>
     </div>
 
-    <div class="card card--wm" id="next" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card card--wm" id="next" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2 style="margin-top:0;">10) Next steps</h2>
       <ul>
-        <li><a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">Back to: What is Bitcoin?</a></li>
-        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/bitcoin-vs-fiat.html">Read: Bitcoin vs Fiat</a></li>
-        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/bitcoin-101-glossary.html">Open: Glossary (Bitcoin 101)</a></li>
-        <li><a href="https://satoshiumai.github.io/satoshium-progress/bitcoin/wallets/buying-storing-bitcoin.html">Next: Buying & Storing Bitcoin</a></li>
+        <li><a href="/satoshium-progress/education/bitcoin/what-is-bitcoin.html">Back to: What is Bitcoin?</a></li>
+        <li><a href="/satoshium-progress/education/bitcoin/bitcoin-vs-fiat.html">Read: Bitcoin vs Fiat</a></li>
+        <li><a href="/satoshium-progress/education/bitcoin/bitcoin-101-glossary.html">Open: Glossary (Bitcoin 101)</a></li>
+        <li><a href="/satoshium-progress/education/bitcoin/wallets/buying-storing-bitcoin.html">Next: Buying & Storing Bitcoin</a></li>
       </ul>
       <p class="muted" style="margin-top:10px;">
         Built in public. No hype — just clarity.
