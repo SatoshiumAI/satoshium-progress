@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Satoshium — Build</title>
 <style>
-
-/* ===== Core Theme ===== */
-
 :root{
  --card-wm: url('/satoshium-progress/assets/seal.png');
  --bg:#07090d;
@@ -20,126 +17,93 @@
 }
 
 *{box-sizing:border-box}
-
 html,body{
-margin:0;
-padding:0;
-background:var(--bg);
-color:var(--text);
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-line-height:1.55
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
 }
 
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
-
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.content{padding:34px 18px 60px}
 
-/* ===== Layout ===== */
-
-.content{
-padding:34px 18px 60px
-}
-
-h1,h2{
-margin:0 0 10px
-}
-
-h1{
-font-size:30px;
-color:var(--gold2)
-}
-
-h2{
-font-size:20px;
-color:var(--gold2);
-margin-top:26px
-}
-
-p,li{
-color:var(--text)
-}
-
-hr{
-border:none;
-border-top:1px solid var(--line);
-margin:22px 0
-}
-
-/* ===== Cards ===== */
+h1,h2,h3{margin:0 0 10px}
+h1{font-size:30px;color:var(--gold2)}
+h2{font-size:20px;color:var(--gold2);margin-top:0}
+h3{font-size:15px;color:var(--gold2);margin-top:0}
+p,li{color:var(--text)}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
 
 .card{
-position: relative;
-overflow: hidden;
-
-background: linear-gradient(
-to bottom right,
-rgba(12,16,24,.94),
-rgba(12,16,24,.88)
-);
-
-border:1px solid var(--line);
-border-radius:16px;
-
-padding:16px 16px;
-margin:16px 0;
-
-box-shadow:
-0 0 0 1px rgba(214,163,74,.08),
-0 20px 50px rgba(0,0,0,.45);
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 16px;
+  margin:16px 0;
+  box-shadow:0 0 0 1px rgba(214,163,74,.08), 0 20px 50px rgba(0,0,0,.45);
 }
-
 .card::before{
-content:"";
-position:absolute;
-inset:-60px;
-background-image: var(--card-wm);
-background-repeat:no-repeat;
-background-size: min(720px, 70vw);
-background-position: right -140px center;
-opacity:0.028;
-filter: blur(1px);
-pointer-events:none;
-z-index:0;
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image:var(--card-wm);
+  background-repeat:no-repeat;
+  background-size:min(720px,70vw);
+  background-position:right -140px center;
+  opacity:.028;
+  filter:blur(1px);
+  pointer-events:none;
+  z-index:0;
 }
-
-.card > *{
-position:relative;
-z-index:1
-}
-
-.muted{
-color:var(--muted)
-}
-
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0 32px;
-color:var(--muted)
-}
-
-/* ===== Pills ===== */
+.card > *{position:relative;z-index:1}
+.muted{color:var(--muted)}
 
 .pill{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 10px;
-border:1px solid var(--line);
-border-radius:999px;
-background:rgba(214,163,74,.08);
-color:var(--gold2);
-font-size:12px;
-font-weight:700
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700;
 }
 
-ul{
-margin:8px 0 0 18px
+.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.stage{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.stage-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  font-size:12px;
+  font-weight:700;
 }
+.stage-tag.current{background:rgba(120,165,255,.10);border-color:rgba(120,165,255,.22);color:#cfe0ff}
+.stage-tag.done{background:rgba(96,196,132,.10);border-color:rgba(96,196,132,.25);color:#bdf5d0}
+.stage-tag.future{background:rgba(244,195,106,.10);border-color:rgba(244,195,106,.25);color:var(--gold2)}
 
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+ul{margin:8px 0 0 18px}
+li{margin:4px 0}
+.callout{font-size:14px}
+
+@media (max-width: 860px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
 </style>
 </head>
-
 <body id="top">
 
 <div id="topbar-container"></div>
@@ -151,97 +115,142 @@ fetch("/satoshium-progress/topbar.html")
   });
 </script>
 
-  <main class="wrap content">
-    <div class="pill">🗺️ Build</div>
-    <h1>Satoshium Build</h1>
-    <p class="muted">A public, realistic plan. Built one visible step at a time.</p>
+<main class="wrap content">
+  <div class="pill">🗺️ Build</div>
+  <h1 style="margin-top:12px;">Satoshium Build</h1>
+  <p class="muted">
+    This page documents the engineering direction of Satoshium. It is not a startup roadmap or launch calendar.
+    It is a public build plan for a long-horizon platform where humans and AI reason about complex systems through
+    shared knowledge, verifiable claims, and simulation tools.
+  </p>
 
-    <div class="grid">
+  <div class="card">
+    <h2>Build Orientation</h2>
+    <p class="muted">
+      Satoshium is being developed in layers. First the public documentation surface. Then the constitutional and knowledge
+      foundation. Then aligned reasoning tools, simulations, and broader public interfaces.
+    </p>
+    <div class="pillrow">
+      <span class="stage-tag done">Completed Foundation</span>
+      <span class="stage-tag current">Current Focus: Constitutional + Knowledge Layer</span>
+      <span class="stage-tag future">Next: Aligned Agents + Public Reasoning Tools</span>
+    </div>
+  </div>
 
-      <!-- Phase 0 -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+  <div class="grid-2">
+    <div class="card">
+      <div class="stage">
         <h2>Phase 0 — Public Foundation</h2>
-        <ul>
-          <li>✅ Public build hub (this site)</li>
-          <li>✅ Build + update transparency</li>
-          <li>✅ Core explainer pages (Satoshium, Bitcoin, Why Bitcoin + AI)</li>
-          <li>✅ Repo map + visible progress structure</li>
-          <li>✅ Long-form Satoshium visual storytelling begins</li>
-        </ul>
+        <span class="stage-tag done">Complete</span>
       </div>
-
-      <!--- Phase 1 --->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-        <h2>Phase 1 — Constitutional Layer (current)</h2>
-        <ul>
-          <li>✅ Canon Curator constitutional repository created</li>
-          <li>✅ Definitions, claims, tone, and manifesto aligned</li>
-          <li>✅ Internal “source-of-truth” framework established</li>
-          <li>⬜ Ongoing refinement and slow canon expansion</li>
-          <li>⬜ Preparation for future agent alignment</li>
-        </ul>
-      </div>
-
-      <!-- Phase 2 -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-        <h2>Phase 2 — First Aligned Agents</h2>
-        <ul>
-          <li>⬜ Canon-aligned Satoshium agents (early internal builds)</li>
-          <li>⬜ Educational and research-focused agent systems</li>
-          <li>⬜ Structured knowledge and clarity tools</li>
-          <li>⬜ Quiet testing and refinement</li>
-        </ul>
-      </div>
-
-      <!-- Satoshium Labs -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-        <h2>Satoshium Labs — Experiments (experimental)</h2>
-        <p class="muted">An interactive space for Bitcoin + AI futures — built as small, awe-inspiring apps.</p>
-        <ul>
-          <li>✅ “2035 Mode” concept: learn-by-experience through simulated future scenarios</li>
-          <li>✅ Rapid prototyping cadence (small apps, fast iteration, low ceremony)</li>
-          <li>✅ Early prototypes (examples): Bitcoin historical console, sovereign pulse signals, proof-of-reality / verification flows</li>
-          <li>⬜ Curated “experience shelves” (Beginner → Advanced) to guide visitors</li>
-          <li>⬜ Publish a clean public hub page that links Labs experiments from the Demos section</li>
-        </ul>
-      </div>
-
-      <!-- Phase 3 -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-        <h2>Phase 3 — Public Experience</h2>
-        <ul>
-          <li>⬜ Expanded interactive demos</li>
-          <li>⬜ <strong>Satoshium Labs</strong> becomes a public “future experience” gallery</li>
-          <li>⬜ Public educational tools and guides</li>
-          <li>⬜ Visible aligned-AI demonstrations</li>
-          <li>⬜ Continued media and narrative expansion</li>
-        </ul>
-      </div>
-
-      <!-- Phase 4 -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-        <h2>Phase 4 — Long-Term Ecosystem</h2>
-        <ul>
-          <li>⬜ Open developer entry points</li>
-          <li>⬜ Additional aligned agents and systems</li>
-          <li>⬜ Expanded educational infrastructure</li>
-          <li>⬜ Slow, durable ecosystem growth</li>
-        </ul>
-      </div>
-
+      <p class="muted">Build the public surface of the platform and make progress visible.</p>
+      <ul>
+        <li>✅ Public build hub established</li>
+        <li>✅ Updates and build transparency structure in place</li>
+        <li>✅ Core explainer pages published</li>
+        <li>✅ Repo map and visible documentation structure established</li>
+        <li>✅ Long-form Satoshium visual storytelling initiated</li>
+      </ul>
     </div>
 
-                <!-- Footer mission statement + links -->
-      <hr />
-      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
-      <hr />
-
+    <div class="card">
+      <div class="stage">
+        <h2>Phase 1 — Constitutional + Knowledge Layer</h2>
+        <span class="stage-tag current">Current</span>
       </div>
+      <p class="muted">Establish the source-of-truth layer that future reasoning systems will depend on.</p>
+      <ul>
+        <li>✅ Canon, definitions, and manifesto alignment underway</li>
+        <li>✅ Knowledge Engine and glossary foundations established</li>
+        <li>✅ Architecture, registry, and system structure clarified</li>
+        <li>⬜ Ongoing refinement of canonical terminology and specifications</li>
+        <li>⬜ Prepare the platform for future aligned agent behavior</li>
+      </ul>
+    </div>
+  </div>
 
-</main>                     
+  <div class="grid-2">
+    <div class="card">
+      <div class="stage">
+        <h2>Phase 2 — First Aligned Agents</h2>
+        <span class="stage-tag future">Planned</span>
+      </div>
+      <p class="muted">Introduce early internal agents that reason within the platform's knowledge and trust boundaries.</p>
+      <ul>
+        <li>⬜ Canon-aligned Satoshium agents for internal use</li>
+        <li>⬜ Educational and research-focused reasoning interfaces</li>
+        <li>⬜ Claim exploration and clarity tools</li>
+        <li>⬜ Quiet testing, constraint tuning, and refinement</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="stage">
+        <h2>Phase 3 — Public Reasoning Experience</h2>
+        <span class="stage-tag future">Planned</span>
+      </div>
+      <p class="muted">Translate internal structure into public tools that help visitors explore ideas, systems, and future scenarios.</p>
+      <ul>
+        <li>⬜ Expanded interactive demos and guided experiences</li>
+        <li>⬜ Public educational reasoning tools and explainers</li>
+        <li>⬜ Visible aligned-AI demonstrations</li>
+        <li>⬜ Stronger onboarding from vision → structure → interaction</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="stage">
+      <h2>Satoshium Labs — Experimental Track</h2>
+      <span class="stage-tag future">Experimental</span>
+    </div>
+    <p class="muted">
+      Labs develops in parallel to the main platform. It acts as a controlled experimental track where future-facing ideas can be explored,
+      tested, and refined before they are treated as durable parts of the system.
+    </p>
+    <ul>
+      <li>✅ Early simulation and prototype cadence established</li>
+      <li>✅ Initial concept modules for Bitcoin, signals, and verification themes</li>
+      <li>⬜ Curated visitor pathways from beginner to advanced labs</li>
+      <li>⬜ Deeper scenario tools tied to the Satoshium Reasoning Loop</li>
+      <li>⬜ Public labs hub that clearly distinguishes experiments from stable systems</li>
+    </ul>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>What this page is for</h3>
+      <p class="muted callout">
+        To show the build order of the platform and make the current engineering direction visible.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>What comes next</h3>
+      <p class="muted callout">
+        More refinement of the knowledge and constitutional layer, followed by aligned agent tools and controlled reasoning interfaces.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Long-term direction</h3>
+      <p class="muted callout">
+        A durable ecosystem of documentation, reasoning tools, simulations, and aligned intelligence infrastructure.
+      </p>
+    </div>
+  </div>
+
+  <hr />
+  <div class="muted" style="margin-bottom:14px; max-width:780px;">
+    SATOSHIUM™ is being built in public as a long-horizon platform for decentralized intelligence infrastructure,
+    reasoning systems, and cryptographic governance tools aligned with the Bitcoin standard.
+  </div>
+  <hr />
+  <div>Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+  <hr />
+</main>
 
 <div id="footer-container"></div>
-
 <script>
 fetch("/satoshium-progress/footer.html")
  .then(response => response.text())
