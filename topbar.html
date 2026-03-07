@@ -1,7 +1,7 @@
 <!-- topbar.html | Satoshium Progress (Global Topbar) -->
 <style>
   :root{
-    --card-wm: url('./assets/seal.png');
+    --card-wm: url('/satoshium-progress/assets/seal.png');
     --bg:#07090d;
     --panel:#0c1018;
     --text:#e8edf7;
@@ -72,7 +72,7 @@
       <a href="https://satoshiumai.github.io/satoshium-progress/education/" data-nav="education">Education</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/labs/" data-nav="labs">Labs</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/roadmap/" data-nav="roadmap">Roadmap</a>
-      <a href="https://satoshiumai.github.io/satoshium-progress/changelog/" data-nav="changelog">Changelog</a>
+      <a href="https://satoshiumai.github.io/satoshium-progress/updates/" data-nav="changelog">Updates</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/repo-map/" data-nav="repomap">Repo Map</a>
       <a href="https://satoshiumai.github.io/satoshium-progress/registry/" data-nav="registry">Registry</a>
       <a href="https://satoshium.ai" target="_blank" rel="noopener" data-nav="mainsite">Main Site</a>
@@ -90,9 +90,9 @@
     { key: "systems", match: ["/satoshium-progress/systems/"] },
     { key: "services", match: ["/satoshium-progress/services/"] },
     { key: "education", match: ["/satoshium-progress/education/"] },
-    { key: "labs", match: ["/satoshium-progress/labs/", "/satoshium-progress/labs/experiments.html"] },
+    { key: "labs", match: ["/satoshium-progress/labs/", "/satoshium-progress/labs/experiments/"] },
     { key: "roadmap", match: ["/satoshium-progress/roadmap/"] },
-    { key: "changelog", match: ["/satoshium-progress/changelog/"] },
+    { key: "updates", match: ["/satoshium-progress/updates/"] },
     { key: "repomap", match: ["/satoshium-progress/repo-map/"] },
     { key: "registry", match: ["/satoshium-progress/registry/"] }
   ];
@@ -110,7 +110,7 @@ function setActive(key){
     else if(path.includes("/education") || path.includes("lightning")) setActive("education");
     else if(path.includes("/labs")) setActive("labs");
     else if(path.includes("/roadmap")) setActive("roadmap");
-    else if(path.includes("/changelog")) setActive("changelog");
+    else if(path.includes("/updates")) setActive("updates");
     else if(path.includes("/repo-map")) setActive("repomap");
     else if(path.includes("/registry")) setActive("registry");
     else if(path.includes("/system-registry")) setActive("registry");
