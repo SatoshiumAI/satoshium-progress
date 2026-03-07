@@ -363,30 +363,31 @@ fetch("/satoshium-progress/topbar.html")
         Research supports the rest of the ecosystem. Over time, this section will inform and strengthen:
       </p>
       <ul>
-        <li><a href="../systems/">Satoshium Systems</a></li>
-        <li><a href="../services/">Satoshium Services</a></li>
-        <li><a href="../labs/demos/">Satoshium Labs</a></li>
-        <li><a href="../repo-map/">Repo Map</a></li>
-        <li><a href="../changelog/">Public Build Log</a></li>
+        <li><a href="/satoshium-progress/systems/">Satoshium Systems</a></li>
+        <li><a href="/satoshium-progress/services/">Satoshium Services</a></li>
+        <li><a href="/satoshium-progress/labs/">Satoshium Labs</a></li>
+        <li><a href="/satoshium-progress/repo-map/">Repo Map</a></li>
+        <li><a href="/satoshium-progress/changelog/">Public Build Log</a></li>
       </ul>
     </div>
 
-    <hr>
+            <!-- Footer mission statement + links -->
+      <hr />
+      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <hr />
 
-    <div class="muted" style="margin-bottom:14px; max-width:820px;">
-      SATOSHIUM™ research materials support the development of decentralized intelligence systems,
-      canonical knowledge infrastructure, governance tooling, and educational AI architecture.
-    </div>
-
-    <div class="footer">
-      <div class="muted">GitHub:
-        <a href="https://github.com/SatoshiumAI" target="_blank">SatoshiumAI</a>
       </div>
-      <div class="muted">Main Site:
-        <a href="https://satoshium.ai" target="_blank">satoshium.ai</a>
-      </div>
-    </div>
 
-  </main>
-</body>
+</main>                     
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
 </html>
