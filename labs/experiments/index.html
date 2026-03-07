@@ -70,10 +70,13 @@ margin:22px 0
 
 /* ===== Cards ===== */
 
-.card{
+.card,
+.module{
 position: relative;
 overflow: hidden;
+}
 
+.card{
 background: linear-gradient(
 to bottom right,
 rgba(12,16,24,.94),
@@ -91,7 +94,8 @@ box-shadow:
 0 20px 50px rgba(0,0,0,.45);
 }
 
-.card::before{
+.card::before,
+.module::before{
 content:"";
 position:absolute;
 inset:-60px;
@@ -105,7 +109,8 @@ pointer-events:none;
 z-index:0;
 }
 
-.card > *{
+.card > *,
+.module > *{
 position:relative;
 z-index:1
 }
@@ -151,7 +156,14 @@ margin:8px 0 0 18px
   border:1px solid var(--line);
   border-radius:14px;
   padding:14px;
-  background:rgba(12,16,24,.45);
+  background:linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.78),
+    rgba(12,16,24,.60)
+  );
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.06),
+    0 10px 28px rgba(0,0,0,.22);
 }
 .module-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 .module h3{ margin:0; font-size:16px; color:var(--text); }
@@ -210,7 +222,7 @@ fetch("/satoshium-progress/topbar.html")
     All modules are experimental and evolving — prototypes of future Satoshium capabilities.
   </p>
 
-  <section class="overview card" style="--card-wm:url('/satoshium-progress/assets/seal.png');" aria-label="Labs overview">
+  <section class="overview card" aria-label="Labs overview">
     <h2>What you'll find here</h2>
     <ul>
       <li>decentralized truth verification</li>
@@ -227,15 +239,16 @@ fetch("/satoshium-progress/topbar.html")
   </section>
 
   <!-- CORE INTELLIGENCE -->
-  <section class="group" aria-label="Core intelligence modules">
+  <section class="group card" aria-label="Core intelligence modules">
     <div class="group-head">
       <div class="group-title">CORE INTELLIGENCE</div>
       <div class="pill">✦ Experimental</div>
     </div>
     <p class="group-sub">Core flows: horizon navigation, claim verification, and foresight synthesis.</p>
 
+    <div class="cards">
       <section class="module">
-          <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+          <div class="module-top">
           <h3>Timeline Navigator</h3>
           <span class="tagpill">Navigation</span>
         </div>
@@ -247,7 +260,7 @@ fetch("/satoshium-progress/topbar.html")
       </section>
 
       <section class="module">
-          <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+          <div class="module-top">
           <h3>Proof of Reality</h3>
           <span class="tagpill">Truth</span>
         </div>
@@ -259,7 +272,7 @@ fetch("/satoshium-progress/topbar.html")
       </section>
 
       <section class="module">
-        <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+        <div class="module-top">
           <h3>Future Intelligence Console</h3>
           <span class="tagpill">Foresight</span>
         </div>
@@ -271,7 +284,7 @@ fetch("/satoshium-progress/topbar.html")
       </section>
 
       <section class="module">
-        <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+        <div class="module-top">
           <h3>Future Headlines 2035</h3>
           <span class="tagpill">Newswire</span>
         </div>
@@ -285,7 +298,7 @@ fetch("/satoshium-progress/topbar.html")
   </section>
 
   <!--- SYSTEM SIGNALS --->
-  <section class="group" aria-label="System signals modules">
+  <section class="group card" aria-label="System signals modules">
     <div class="group-head">
       <div class="group-title">SYSTEM SIGNALS</div>
       <div class="pill">✦ Experimental</div>
@@ -294,7 +307,7 @@ fetch("/satoshium-progress/topbar.html")
 
     <div class="cards">
       <section class="module">
-        <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+        <div class="module-top">
           <h3>Global Signal Console</h3>
           <span class="tagpill">Signals</span>
         </div>
@@ -306,7 +319,7 @@ fetch("/satoshium-progress/topbar.html")
       </section>
 
       <section class="module">
-        <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+        <div class="module-top">
           <h3>Fiat System Stress Simulator</h3>
           <span class="tagpill">Simulation</span>
         </div>
@@ -320,7 +333,7 @@ fetch("/satoshium-progress/topbar.html")
   </section>
 
 <!-- SIMULATION LABS -->
-<section class="group" aria-label="Simulation environments modules">
+<section class="group card" aria-label="Simulation environments modules">
   <div class="group-head">
     <div class="group-title">SIMULATION LABS</div>
     <div class="pill">✦ Experimental</div>
@@ -333,7 +346,7 @@ fetch("/satoshium-progress/topbar.html")
   <div class="cards">
     <!-- Sovereignty Score Simulator -->
     <section class="module">
-     <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+     <div class="module-top">
         <h3>Sovereignty Score Simulator</h3>
         <span class="tagpill">Model</span>
       </div>
@@ -346,7 +359,7 @@ fetch("/satoshium-progress/topbar.html")
 
     <!-- AI Alignment Simulator -->
     <section class="module">
-      <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+      <div class="module-top">
         <h3>AI Alignment Simulator</h3>
         <span class="tagpill">Alignment</span>
       </div>
@@ -359,7 +372,7 @@ fetch("/satoshium-progress/topbar.html")
 
     <!-- Decision Lab -->
     <section class="module">
-      <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+      <div class="module-top">
         <h3>Decision Lab: Choose-the-Future</h3>
         <span class="tagpill">Experience</span>
       </div>
@@ -374,7 +387,7 @@ fetch("/satoshium-progress/topbar.html")
 
 
   <!-- CONTEXT & SUPPORT -->
-  <section class="group" aria-label="Context and support modules">
+  <section class="group card" aria-label="Context and support modules">
     <div class="group-head">
       <div class="group-title">BITCOIN SIGNAL CONSOLE</div>
       <div class="pill">✦ Experimental</div>
@@ -383,7 +396,7 @@ fetch("/satoshium-progress/topbar.html")
 
     <div class="cards">
       <section class="module">
-        <div class="module-top" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+        <div class="module-top">
           <h3>Bitcoin Price Tracker</h3>
           <span class="tagpill">History</span>
         </div>
@@ -398,7 +411,7 @@ fetch("/satoshium-progress/topbar.html")
   </section>
 
   <!-- LABS EXPERIMENTS (ADDITIONAL) -->
-  <section class="group" aria-label="Additional experiments">
+  <section class="group card" aria-label="Additional experiments">
     <div class="group-head">
       <div class="group-title">ADDITIONAL EXPERIMENTS</div>
       <div class="pill">✦ Experimental</div>
@@ -410,7 +423,7 @@ Some modules are internal prototypes, others are released here as public test en
 
   </section>
 
-  <section class="wip card" style="--card-wm:url('/satoshium-progress/assets/seal.png');" aria-label="Work in progress">
+  <section class="wip card" aria-label="Work in progress">
     <h2>Work in Progress</h2>
     <p>
       These modules are published so visitors can explore the emerging interface layer.
@@ -421,10 +434,9 @@ Some modules are internal prototypes, others are released here as public test en
   </section>
             <!-- Footer mission statement + links -->
       <hr />
-      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+      <div class="muted">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
       <hr />
 
-      </div>
 
 </main>                     
 
