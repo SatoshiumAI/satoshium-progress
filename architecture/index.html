@@ -163,6 +163,72 @@ hr{
   color:var(--muted)
 }
 
+/* ===== Reasoning Loop Diagram ===== */
+.loop-wrap{
+  margin-top:14px;
+}
+
+.loop-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:10px;
+  align-items:center;
+}
+
+.loop-node{
+  border:1px solid rgba(214,163,74,.16);
+  border-radius:14px;
+  padding:14px 12px;
+  background:rgba(7,9,13,.38);
+  text-align:center;
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.loop-node .loop-title{
+  font-weight:800;
+  color:var(--gold2);
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.loop-node .loop-desc{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.loop-arrow{
+  text-align:center;
+  color:rgba(214,163,74,.60);
+  font-size:18px;
+  font-weight:700;
+}
+
+.loop-return{
+  margin-top:12px;
+  text-align:center;
+  color:rgba(214,163,74,.70);
+  font-size:13px;
+  letter-spacing:.2px;
+}
+
+@media (max-width: 900px){
+  .loop-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .loop-arrow{
+    transform:rotate(90deg);
+  }
+
+  .loop-node{
+    min-height:auto;
+  }
+}
+  
 /* ===== Architecture Diagram ===== */
 .stack{
   margin-top:12px;
@@ -303,6 +369,67 @@ through a cycle of shared knowledge, verifiable claims, and simulation testing.
 Over time this loop allows the platform to accumulate structured knowledge about decentralized
 systems, governance models, and intelligence infrastructure.
 </p>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">🔁 Satoshium Reasoning Loop</h2>
+
+  <p class="muted">
+    The platform is designed to support an ongoing reasoning cycle shared by humans and AI systems.
+    Knowledge informs claims, claims are tested through verification and simulation, and the resulting
+    insights feed back into the platform's knowledge layer.
+  </p>
+
+  <div class="loop-wrap">
+    <div class="loop-grid">
+
+      <div class="loop-node">
+        <div class="loop-title">Knowledge</div>
+        <div class="loop-desc">
+          Canonical terminology, definitions, and structured system concepts.
+        </div>
+      </div>
+
+      <div class="loop-arrow">→</div>
+
+      <div class="loop-node">
+        <div class="loop-title">Claims</div>
+        <div class="loop-desc">
+          Hypotheses, proposals, or system ideas introduced by humans or AI.
+        </div>
+      </div>
+
+      <div class="loop-arrow">→</div>
+
+      <div class="loop-node">
+        <div class="loop-title">Verification</div>
+        <div class="loop-desc">
+          Trust rules, governance logic, and constraints used to evaluate claims.
+        </div>
+      </div>
+
+      <div class="loop-arrow">→</div>
+
+      <div class="loop-node">
+        <div class="loop-title">Simulation</div>
+        <div class="loop-desc">
+          Scenario tools and Labs environments used to test behavior and outcomes.
+        </div>
+      </div>
+
+      <div class="loop-arrow">→</div>
+
+      <div class="loop-node">
+        <div class="loop-title">Learning</div>
+        <div class="loop-desc">
+          Insights, refinements, and updates returned to the documentation and knowledge layer.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="loop-return">↺ Insights return to the Knowledge Engine and improve future reasoning.</div>
+  </div>
 </div>
     
     <div class="arrow">↓</div>
