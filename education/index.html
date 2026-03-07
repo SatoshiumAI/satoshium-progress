@@ -10,7 +10,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -35,76 +35,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -213,43 +143,14 @@ margin:8px 0 0 18px
 
 <body top="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="./">Home</a>
-
-<a href="./architecture.html">Architecture</a>
-
-<a href="./systems.html">Systems</a>
-
-<a href="./services.html">Services</a>
-
-<a href="./education.html" class="active">Education</a>
-
-<a href="./labs/index.html">Labs</a>
-
-<a href="./roadmap.html">Roadmap</a>
-
-<a href="./changelog.html">Changelog</a>
-
-<a href="./repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-</div>
-</header>
-
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
 
 <main class="wrap content">
 
@@ -267,7 +168,7 @@ of the Satoshium platform.
 
 <!-- WHAT IS SATOSHIUM -->
 
-<div class="card">
+<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
 
 <h2 style="margin-top:0;">🧠 What is Satoshium?</h2>
 
@@ -278,7 +179,7 @@ the Bitcoin trust layer.
 </p>
 
 <p>
-<a href="https://satoshiumai.github.io/satoshium-progress/what-is-satoshium.html"
+<a href="/satoshium-progress/education/satoshium/what-is-satoshium.html"
 class="pill">
 Explore the Satoshium Platform
 </a>
@@ -288,7 +189,7 @@ Explore the Satoshium Platform
 
 <!-- WHAT IS BITCOIN -->
 
-<div class="card">
+<div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
 
 <h2 style="margin-top:0;">₿ What is Bitcoin?</h2>
 
@@ -298,7 +199,7 @@ cryptographic trust system, and global settlement layer.
 </p>
 
 <p>
-<a href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html"
+<a href="/satoshium-progress/education/bitcoin/what-is-bitcoin.html"
 class="pill">
 Learn Bitcoin Fundamentals
 </a>
@@ -308,7 +209,7 @@ Learn Bitcoin Fundamentals
 
 <!-- WHY BITCOIN + AI -->
 
-<div class="card">
+<div class="card" style="--card-wm:url('/satoshium-progress/assets/ai-seal.jpg');">
 
 <h2 style="margin-top:0;">🤖 Why Bitcoin + AI</h2>
 
@@ -318,7 +219,7 @@ and the governance of artificial intelligence infrastructure.
 </p>
 
 <p>
-<a href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html"
+<a href="/satoshium-progress/education/bitcoin/why-bitcoin-and-ai.html"
 class="pill">
 Why the Two Technologies Converge
 </a>
