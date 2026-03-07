@@ -3,12 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Satoshium — Building Bitcoin-Governed Intelligence</title>
- 
+<title>Satoshium — Public Build Progress</title>
 <style>
-
-/* ===== Core Theme ===== */
-
 :root{
  --card-wm: url('/satoshium-progress/assets/seal.png');
  --bg:#07090d;
@@ -19,395 +15,259 @@
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
 }
-
 *{box-sizing:border-box}
-
 html,body{
-margin:0;
-padding:0;
-background:var(--bg);
-color:var(--text);
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-line-height:1.55
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
 }
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
-
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Layout ===== */
-
-.content{
-padding:34px 18px 60px
-}
-
-h1,h2{
-margin:0 0 10px
-}
-
-h1{
-font-size:30px;
-color:var(--gold2)
-}
-
-h2{
-font-size:20px;
-color:var(--gold2);
-margin-top:26px
-}
-
-p,li{
-color:var(--text)
-}
-
-hr{
-border:none;
-border-top:1px solid var(--line);
-margin:22px 0
-}
-
-/* ===== Cards ===== */
-
+.content{padding:34px 18px 60px}
+h1,h2,h3{margin:0 0 10px}
+h1{font-size:30px;color:var(--gold2)}
+h2{font-size:20px;color:var(--gold2);margin-top:0}
+h3{font-size:15px;color:var(--text)}
+p,li{color:var(--text)}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
 .card{
-position: relative;
-overflow: hidden;
-
-background: linear-gradient(
-to bottom right,
-rgba(12,16,24,.94),
-rgba(12,16,24,.88)
-);
-
-border:1px solid var(--line);
-border-radius:16px;
-
-padding:16px 16px;
-margin:16px 0;
-
-box-shadow:
-0 0 0 1px rgba(214,163,74,.08),
-0 20px 50px rgba(0,0,0,.45);
+  position:relative;overflow:hidden;
+  background:linear-gradient(to bottom right,rgba(12,16,24,.94),rgba(12,16,24,.88));
+  border:1px solid var(--line);border-radius:16px;padding:16px 16px;margin:16px 0;
+  box-shadow:0 0 0 1px rgba(214,163,74,.08),0 20px 50px rgba(0,0,0,.45);
 }
-
 .card::before{
-content:"";
-position:absolute;
-inset:-60px;
-background-image: var(--card-wm);
-background-repeat:no-repeat;
-background-size: min(720px, 70vw);
-background-position: right -140px center;
-opacity:0.028;
-filter: blur(1px);
-pointer-events:none;
-z-index:0;
+  content:"";position:absolute;inset:-60px;background-image:var(--card-wm);background-repeat:no-repeat;
+  background-size:min(720px,70vw);background-position:right -140px center;opacity:0.028;filter:blur(1px);
+  pointer-events:none;z-index:0;
 }
-
-.card > *{
-position:relative;
-z-index:1
-}
-
-.muted{
-color:var(--muted)
-}
-
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0 32px;
-color:var(--muted)
-}
-
-/* ===== Pills ===== */
-
+.card > *{position:relative;z-index:1}
+.muted{color:var(--muted)}
 .pill{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 10px;
-border:1px solid var(--line);
-border-radius:999px;
-background:rgba(214,163,74,.08);
-color:var(--gold2);
-font-size:12px;
-font-weight:700
+  display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700
 }
-
-ul{
-margin:8px 0 0 18px
+.pill-link{display:inline-flex;margin-right:8px;margin-bottom:10px}
+ul{margin:8px 0 0 18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mini{font-size:13px}
+@media (max-width:760px){
+  .grid-2{grid-template-columns:1fr}
 }
-
-/* ===== Footer Info ===== */
- 
-.footer{
-  border-top:1px solid var(--line);
-  margin-top:40px;
-  padding:28px 0 36px;
-  color:var(--muted);
-}
-
-.footer-title{
-  font-weight:600;
-  margin-bottom:12px;
-  color:var(--text);
-}
-
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-bottom:12px;
-}
-
-.footer-links a{
-  color:var(--gold2);
-  font-size:13px;
-}
-
-.footer-meta{
-  font-size:12px;
-  margin-top:6px;
-}
- 
 </style>
 </head>
-
 <body id="top">
-
 <div id="topbar-container"></div>
 <script>
 fetch("/satoshium-progress/topbar.html")
   .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-  });
+  .then(data => { document.getElementById("topbar-container").innerHTML = data; });
 </script>
-  
+
 <main class="wrap content">
 
 <div class="pill">🧠 Public Build Progress</div>
 
 <h1 style="margin-top:12px;">Satoshium: Public Build Progress</h1>
-<p class="muted">
-This is the live public build log for Satoshium — a Bitcoin-anchored intelligence project exploring decentralized AI, verifiable agents, and cryptographic trust systems.
-<br><br>
-No hype. No vapor. Just visible progress.
+<p class="muted" style="max-width:860px;">
+Satoshium is a decentralized intelligence infrastructure project aligned with the Bitcoin standard.
+This site documents the public build of that platform: its architecture, systems, knowledge layer,
+experimental labs, and long-horizon development progress.
+</p>
+<p class="muted" style="max-width:860px;">
+This is not a launch page or a product pitch. It is the public engineering surface for a system being built slowly,
+openly, and in full view.
 </p>
 
-<p>
-🎬 <a href="/satoshium-progress/library/videos/" style="color:#f4c36a;">Enter the Satoshium Film Library</a>
-</p>
+<div class="hero-actions">
+  <a href="/satoshium-progress/start-here.html" class="pill pill-link">🚀 New to Satoshium? Start here</a>
+  <a href="/satoshium-progress/library/videos/" class="pill pill-link">🎬 Enter the Satoshium Film Library</a>
+  <a href="https://satoshium.ai/" target="_blank" rel="noopener" class="pill pill-link">🌐 Visit the main site</a>
+</div>
 
-<!-- 🔴 CURRENT STATUS -->
 <div class="card">
-<h2 style="margin-top:0;">🟢 Current Status</h2>
-<ul>
-<li>✅ Canonical terminology system (Glossary Builder)</li>
-<li>✅ Film 001 released: <em>The Quiet Future Is Being Built</em></li>
-<li>✅ Live Satoshium AI deployed on main site</li>
-<li>✅ Bitcoin education layer expanding</li>
-<li>✅ Progress hub + documentation growing</li>
-<li>✅ Phase003 repo alignment underway</li>
-</ul>
-
-<p class="muted" style="margin-top:10px;">
-Last major update: <strong>February 27, 2026</strong> — Canonical terminology system (Glossary Builder) launched.
-</p>
+  <h2>What Satoshium Is</h2>
+  <p>
+    Satoshium is a long-term platform for decentralized intelligence systems, cryptographic governance,
+    trust and verification frameworks, simulation environments, and Bitcoin-aligned knowledge infrastructure.
+  </p>
+  <p class="muted">
+    In practical terms, Satoshium is being built as a layered ecosystem: foundational terminology,
+    system specifications, intelligent interfaces, governance controls, experimental labs, public documentation,
+    and a visible build record that ties the whole platform together.
+  </p>
 </div>
 
-<!-- 🧠 INTELLIGENCE SYSTEMS OPERATIONAL -->
+<div class="grid-2">
+  <div class="card">
+    <h2>How to Read This Site</h2>
+    <ul>
+      <li><strong>Architecture</strong> explains how the layers fit together</li>
+      <li><strong>Systems</strong> documents the software systems in the platform</li>
+      <li><strong>Services</strong> defines platform capabilities and development scope</li>
+      <li><strong>Education</strong> explains the underlying ideas</li>
+      <li><strong>Labs</strong> contains experimental tools and interfaces</li>
+      <li><strong>Build</strong> tracks long-term engineering direction</li>
+      <li><strong>Updates</strong> records visible progress over time</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Current Status</h2>
+    <ul>
+      <li>✅ Canonical terminology system (Glossary Builder)</li>
+      <li>✅ Film 001 released: <em>The Quiet Future Is Being Built</em></li>
+      <li>✅ Live Satoshium AI deployed on main site</li>
+      <li>✅ Bitcoin education layer expanding</li>
+      <li>✅ Progress hub + documentation growing</li>
+      <li>✅ Phase003 repo alignment underway</li>
+    </ul>
+    <p class="muted mini" style="margin-top:10px;">
+      Last major update: <strong>February 27, 2026</strong> — Canonical terminology system (Glossary Builder) launched.
+    </p>
+  </div>
+</div>
+
 <div class="card">
-<h2 style="margin-top:0;">🧠 Satoshium Intelligence Systems</h2>
-
-<p class="pill">Operational Status: Active (Limited Access)</p>
-
-<p>
-Satoshium intelligence agents are now operational and in active use within the Satoshium ecosystem.
-</p>
-
-<p>
-These agents assist with research, architectural design, education, and long-horizon development of decentralized intelligence systems aligned with the Bitcoin standard.
-</p>
-
-<p>
-The system is being developed deliberately and responsibly.<br>
-Access remains limited while the architecture continues to evolve in a calm and alignment-first manner.
-</p>
-
-<p class="muted">
-Satoshium represents an ongoing effort to build constitutional, canon-aligned intelligence designed for long-term stability rather than rapid release cycles.
-</p>
+  <h2>📚 Satoshium Knowledge Engine</h2>
+  <p class="pill">System Status: Active (Foundational)</p>
+  <p>
+    The Satoshium Knowledge Engine establishes the shared vocabulary and conceptual reference layer used across the platform.
+    It is the language infrastructure behind system definitions, architecture documentation, trust models, agent reasoning,
+    and simulation environments.
+  </p>
+  <ul>
+    <li>Canonical terminology registry</li>
+    <li>Agent architecture vocabulary</li>
+    <li>Governance and trust system definitions</li>
+    <li>Simulation and foresight terminology</li>
+    <li>Infrastructure and protocol concepts</li>
+  </ul>
+  <p style="margin-top:14px;">
+    <a href="https://glossary-hub.replit.app/" target="_blank" rel="noopener" class="pill">📖 Open Glossary Builder</a>
+  </p>
+  <hr style="opacity:.15;margin:18px 0;">
+  <p class="muted">
+    This layer is foundational because future Satoshium systems need a stable internal vocabulary.
+    Shared language is what makes durable architecture, agent alignment, documentation consistency,
+    and long-term system interoperability possible.
+  </p>
 </div>
 
-<!-- 📚 KNOWLEDGE ENGINE -->
 <div class="card">
+  <h2>🧠 Satoshium Intelligence Systems</h2>
+  <p class="pill">Operational Status: Active (Limited Access)</p>
+  <p>
+    Satoshium intelligence systems are already being used to support research, architectural design, education,
+    and structured development across the ecosystem.
+  </p>
+  <p>
+    These systems are being developed deliberately rather than released rapidly. Access remains limited while the
+    broader architecture matures and canon, trust, and verification layers continue to stabilize.
+  </p>
+  <p class="muted">
+    The goal is not volume. The goal is aligned intelligence that remains useful, understandable, and durable over time.
+  </p>
+</div>
 
-<h2 style="margin-top:0;">📚 Satoshium Knowledge Engine</h2>
-
-<p class="pill">System Status: Active (Foundational)</p>
-
-<p>
-The Satoshium Knowledge Engine establishes the canonical vocabulary and conceptual framework for decentralized intelligence systems.
-</p>
-
-<p>
-The system organizes foundational terminology, trust concepts, governance models, agent behaviors, and verification systems used throughout the Satoshium ecosystem.
-</p>
-
-<ul>
-<li>Canonical terminology registry</li>
-<li>Agent architecture vocabulary</li>
-<li>Governance and trust system definitions</li>
-<li>Simulation and foresight terminology</li>
-<li>Infrastructure and protocol concepts</li>
-</ul>
-
-<p style="margin-top:14px;">
-<a href="https://glossary-hub.replit.app/"
-   target="_blank"
-   class="pill">
-   📖 Open Glossary Builder
-</a>
-</p>
-
-<hr style="opacity:.15;margin:18px 0;">
-
-<p class="muted">
-This system forms the early foundation of the future Satoshium Knowledge Engine — a structured intelligence layer designed to support agents, education, governance systems, and simulation environments.
-</p>
-
-</div>  
-  
-<!-- 🧪 SATOSHIUM LABS (EMERGING) -->
 <div class="card">
-
-<h2 style="margin-top:0;">🧪 Satoshium Labs (Emerging)</h2>
-
-<p class="muted">
-An experimental gallery of sovereign intelligence simulations, AI agents, and future scenario tools built inside the Satoshium ecosystem.
-</p>
-
-<ul>
-  <li>Future Intelligence Console</li>
-  <li>Bitcoin Price Tracker</li>
-  <li>Global Signal Console</li>
-  <li>Proof of Reality</li>
-  <li>AI Alignment Simulator</li>
-  <li>Choose-the-Future Decision Lab</li>
-</ul>
-
-<p style="margin-top:14px;">
-<a href="/satoshium-progress/labs/"
-   target="_blank"
-   class="pill">
-   🚀 Enter Satoshium Labs
-</a>
-</p>
-
-<hr style="opacity:.15;margin:18px 0;">
-
-<p class="muted">
-These modules explore decentralized truth verification, sovereign infrastructure signals,
-future scenario intelligence, and cryptographic governance systems.
-</p>
-
-</div>
-<!-- 🚧 NOW LIVE -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-<h2 style="margin-top:0;">🚧 Now Live</h2>
-<ul>
-<li>✅ Film 001 — cinematic Satoshium introduction</li>
-<li>✅ Satoshium Film Library (public archive)</li>
-<li>✅ Satoshium AI chatbot (main site)</li>
-<li>✅ Bitcoin education pages</li>
-<li>✅ Public build + updates</li>
-<li>✅ Early agent safety framework (Aegis)</li>
-<li>✅ 50+ repo ecosystem foundation</li>
-</ul>
+  <h2>🧪 Satoshium Labs (Emerging)</h2>
+  <p class="muted">
+    An experimental gallery of sovereign intelligence simulations, AI agents, and scenario tools built inside the Satoshium ecosystem.
+  </p>
+  <ul>
+    <li>Future Intelligence Console</li>
+    <li>Bitcoin Price Tracker</li>
+    <li>Global Signal Console</li>
+    <li>Proof of Reality</li>
+    <li>AI Alignment Simulator</li>
+    <li>Choose-the-Future Decision Lab</li>
+  </ul>
+  <p style="margin-top:14px;">
+    <a href="/satoshium-progress/labs/" class="pill">🚀 Enter Satoshium Labs</a>
+  </p>
+  <hr style="opacity:.15;margin:18px 0;">
+  <p class="muted">
+    Labs exists to test ideas in controlled, public-facing form. These modules explore decentralized truth verification,
+    sovereign infrastructure signals, future scenario intelligence, and cryptographic governance systems.
+  </p>
 </div>
 
-<!-- 🗺️ BUILD FOCUS -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-<h2 style="margin-top:0;">🗺️ 2026 Build Focus</h2>
-<ul>
-<li>Unified Satoshium intelligence layer</li>
-<li>Bitcoin + AI education system</li>
-<li>Public demo tools</li>
-<li>Agent safety + trust frameworks</li>
-<li>Cinematic documentation of build progress</li>
-</ul>
+<div class="grid-2">
+  <div class="card">
+    <h2>🚧 Now Live</h2>
+    <ul>
+      <li>✅ Film 001 — cinematic Satoshium introduction</li>
+      <li>✅ Satoshium Film Library (public archive)</li>
+      <li>✅ Satoshium AI chatbot (main site)</li>
+      <li>✅ Bitcoin education pages</li>
+      <li>✅ Public build + updates</li>
+      <li>✅ Early agent safety framework (Aegis)</li>
+      <li>✅ 50+ repo ecosystem foundation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🗺️ 2026 Build Focus</h2>
+    <ul>
+      <li>Unified Satoshium intelligence layer</li>
+      <li>Bitcoin + AI education system</li>
+      <li>Public demo tools</li>
+      <li>Agent safety + trust frameworks</li>
+      <li>Cinematic documentation of build progress</li>
+    </ul>
+  </div>
 </div>
 
-<!-- 🎬 FILM SECTION -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-<h2 style="margin-top:0;">🎬 Satoshium Film Library</h2>
-<p>
-The Satoshium cinematic archive documents the emergence of Bitcoin-governed intelligence and decentralized trust systems.
-</p>
+<div class="grid-2">
+  <div class="card">
+    <h2>🎬 Film Library</h2>
+    <p>
+      The Satoshium cinematic archive documents the emergence of Bitcoin-governed intelligence and decentralized trust systems.
+    </p>
+    <ul>
+      <li><a href="/satoshium-progress/library/videos/film-001.html">Film 001 — The Quiet Future Is Being Built</a></li>
+      <li><a href="/satoshium-progress/library/videos/">Enter Film Library</a></li>
+    </ul>
+    <p class="muted">Additional films are released gradually as the project evolves.</p>
+  </div>
 
-<ul>
-<li><a href="/satoshium-progress/library/videos/film-001.html">Film 001 — The Quiet Future Is Being Built</a></li>
-<li><a href="/satoshium-progress/library/videos/">Enter Film Library</a></li>
-</ul>
-
-<p class="muted">Additional films released gradually as the project evolves.</p>
+  <div class="card">
+    <h2>📚 Explore the System</h2>
+    <ul>
+      <li><a href="/satoshium-progress/education/satoshium/what-is-satoshium.html">What is Satoshium?</a></li>
+      <li><a href="/satoshium-progress/education/bitcoin/what-is-bitcoin.html">Bitcoin fundamentals</a></li>
+      <li><a href="/satoshium-progress/education/bitcoin/why-bitcoin-and-ai.html">Why Bitcoin + AI</a></li>
+      <li><a href="/satoshium-progress/labs/">Demos & experiments</a></li>
+      <li><a href="/satoshium-progress/updates/">Updates (live progress)</a></li>
+    </ul>
+  </div>
 </div>
 
-<!-- 🧪 DEMOS -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-<h2 style="margin-top:0;">🧪 Demo Systems (building)</h2>
-<ul>
-<li>Satoshium AI knowledge interface</li>
-<li>Bitcoin imitator detection tool</li>
-<li>Agent firewall explorer</li>
-<li>Satoshium architecture explorer</li>
-</ul>
-<p class="muted">Released gradually as stable.</p>
-</div>
-
-<!-- 📚 EXPLORE -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-<h2 style="margin-top:0;">📚 Explore the System</h2>
-<ul>
-<li><a href="/satoshium-progress/education/satoshium/what-is-satoshium.html">What is Satoshium?</a></li>
-<li><a href="/satoshium-progress/education/bitcoin/what-is-bitcoin.html">Bitcoin fundamentals</a></li>
-<li><a href="/satoshium-progress/education/bitcoin/why-bitcoin-and-ai.html">Why Bitcoin + AI</a></li>
-<li><a href="/satoshium-progress/labs/">Demos & Experiments</a></li>
-<li><a href="/satoshium-progress/updates/">Updates (live progress)</a></li>
-</ul>
-</div>
-
-<!-- 📜 PHILOSOPHY -->
 <div class="card">
-<h2 style="margin-top:0;">📜 Build Philosophy</h2>
-<p>
-Satoshium is being built as open, Bitcoin-anchored intelligence infrastructure.
-<br><br>
-Not a product.<br>
-Not a pitch deck.<br>
-A long-term public build.
-</p>
-<p class="muted">Every commit = forward motion.</p>
+  <h2>📜 Build Philosophy</h2>
+  <p>
+    Satoshium is being built as open, Bitcoin-anchored intelligence infrastructure.
+    Not a product. Not a pitch deck. A long-term public build.
+  </p>
+  <p class="muted">
+    No hype. No vapor. Visible progress only. Every commit = forward motion.
+  </p>
 </div>
 
 <hr>
-
 <div class="muted" style="margin-bottom:14px; max-width:760px;">
-SATOSHIUM™ provides decentralized intelligence systems, AI tools, governance infrastructure, and educational platforms aligned with the Bitcoin standard.<br>
+SATOSHIUM™ provides decentralized intelligence systems, AI tools, governance infrastructure, and educational platforms aligned with the Bitcoin standard.
 </div>
 
 </main>
 
- <div id="footer-container"></div>
-
+<div id="footer-container"></div>
 <script>
 fetch("/satoshium-progress/footer.html")
   .then(response => response.text())
-  .then(data => {
-    document.getElementById("footer-container").innerHTML = data;
-  });
+  .then(data => { document.getElementById("footer-container").innerHTML = data; });
 </script>
-
 </body>
 </html>
