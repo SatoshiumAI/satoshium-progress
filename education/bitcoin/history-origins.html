@@ -10,7 +10,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -35,76 +35,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -213,44 +143,15 @@ margin:8px 0 0 18px
 
 <body id="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
-
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
+  
   <main class="wrap content">
     <div class="pill">🟠 Bitcoin 101</div>
 
@@ -260,7 +161,7 @@ margin:8px 0 0 18px
       and the problem of creating money that doesn’t require trust in a central authority.
     </p>
 
-    <div class="card" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2>1) The world before Bitcoin</h2>
       <p class="muted">
         Before 2008, many people tried to build “digital cash.” The hard part wasn’t making coins — it was making
@@ -287,7 +188,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2>2) 2008: Satoshi Nakamoto publishes the whitepaper</h2>
       <p class="muted">
         In October 2008, someone using the name <strong>Satoshi Nakamoto</strong> published a paper titled
@@ -314,7 +215,7 @@ margin:8px 0 0 18px
       <p class="note">Tip: In Satoshium language, this is the moment “truth became inspectable.”</p>
     </div>
 
-    <div class="card" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2>3) 2009: The Genesis Block</h2>
       <p class="muted">
         In January 2009, Satoshi mined the first block — the <strong>Genesis Block</strong> — and launched the network.
@@ -335,7 +236,7 @@ margin:8px 0 0 18px
       </div>
     </div>
 
-    <div class="card" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2>4) Early growth: from experiment to network</h2>
       <p class="muted">
         Bitcoin began as a small experiment among cryptographers and builders. Over time, it gained users, miners,
@@ -352,7 +253,7 @@ margin:8px 0 0 18px
       <p class="note">Bitcoin isn’t a company. It’s a protocol + a set of rules that people choose to run.</p>
     </div>
 
-    <div class="card" style="--card-wm:url('../assets/btc-seal.png');">
+    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
       <h2>5) Why origins matter for Satoshium</h2>
       <p class="muted">
         Satoshium is built on a simple belief: if Bitcoin can produce <strong>incorruptible money</strong>,
@@ -371,8 +272,8 @@ margin:8px 0 0 18px
       </div>
 
       <div class="btnrow">
-        <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/why-bitcoin-and-ai.html">Why Bitcoin + AI</a> | 
-        <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/what-is-bitcoin.html">Back to What is Bitcoin?</a>
+        <a class="btn" href="/satoshium-progress/education/bitcoin/why-bitcoin-and-ai.html">Why Bitcoin + AI</a> | 
+        <a class="btn" href="/satoshium-progress/education/bitcoin/what-is-bitcoin.html">Back to What is Bitcoin?</a>
       </div>
     </div>
 
