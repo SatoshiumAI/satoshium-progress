@@ -10,7 +10,7 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('./assets/seal.png');
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -35,76 +35,6 @@ a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
-/* ===== Top Navigation ===== */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(7,9,13,.92);
-border-bottom:1px solid var(--line);
-backdrop-filter: blur(8px);
-}
-
-.topbar .wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 18px
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.mark{
-width:42px;
-height:42px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(180deg, rgba(214,163,74,.22), rgba(214,163,74,.05));
-border:1px solid var(--line);
-color:var(--gold2);
-font-weight:900
-}
-
-.name{
-letter-spacing:.16em;
-font-weight:800;
-font-size:12px;
-color:var(--gold2)
-}
-
-.tag{
-font-size:12px;
-color:var(--muted);
-margin-top:2px
-}
-
-.nav{
-display:flex;
-gap:16px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav a{
-color:var(--muted);
-font-size:13px
-}
-
-.nav a:hover{
-color:var(--gold2)
-}
-
-.nav a.active{
-color:var(--gold2);
-font-weight:600
-}
 
 /* ===== Layout ===== */
 
@@ -213,44 +143,15 @@ margin:8px 0 0 18px
 
 <body id="top">
 
-<header class="topbar">
-<div class="wrap">
-
-<div class="brand">
-<div class="mark">S</div>
-<div>
-<div class="name">SATOSHIUM</div>
-<div class="tag">AI, governed by Bitcoin</div>
-</div>
-</div>
-
-<nav class="nav">
-
-<a href="https://satoshiumai.github.io/satoshium-progress/">Home</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/architecture.html">Architecture</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/systems.html">Systems</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/services.html">Services</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/education.html" class="active">Education</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/labs/index.html">Labs</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/roadmap.html">Roadmap</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/changelog.html">Changelog</a>
-
-<a href="https://satoshiumai.github.io/satoshium-progress/repo-map.html">Repo Map</a>
-
-<a href="https://satoshium.ai" target="_blank">Main Site</a>
-
-</nav>
-
-</div>
-</header>
-
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+  });
+</script>
+ 
   <main class="wrap content">
     <div class="pill">⛏️ Mining & Network</div>
 
@@ -264,7 +165,7 @@ margin:8px 0 0 18px
       </p>
 
       <!-- QUICK NAV -->
-      <div class="card">
+      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Quick navigation</div>
         <h2 style="margin-top:6px;">📌 Sections</h2>
 
@@ -281,7 +182,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 1 -->
-      <div class="card" id="simple">
+      <div class="card" id="simple" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">The core idea</div>
         <h2>1) The simple explanation</h2>
 
@@ -308,7 +209,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 2 -->
-      <div class="card" id="what-is-reward">
+      <div class="card" id="what-is-reward" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">What miners earn</div>
         <h2>2) What the block reward includes</h2>
 
@@ -330,7 +231,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 3 -->
-      <div class="card" id="halving">
+      <div class="card" id="halving" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Programmed scarcity</div>
         <h2>3) What a halving is (and why it exists)</h2>
 
@@ -354,7 +255,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 4 -->
-      <div class="card" id="schedule">
+      <div class="card" id="schedule" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">The big picture</div>
         <h2>4) The issuance schedule (big picture)</h2>
 
@@ -378,7 +279,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 5 -->
-      <div class="card" id="fees">
+      <div class="card" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Market-driven incentives</div>
         <h2>5) Fees: the long-term miner incentive</h2>
 
@@ -400,7 +301,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 6 -->
-      <div class="card" id="security-budget">
+      <div class="card" id="security-budget" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Security economics</div>
         <h2>6) Security budget: rewards vs fees</h2>
 
@@ -431,7 +332,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 7 -->
-      <div class="card" id="misunderstood">
+      <div class="card" id="misunderstood" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Common confusion</div>
         <h2>7) Common misunderstandings</h2>
 
@@ -454,7 +355,7 @@ margin:8px 0 0 18px
       </div>
 
       <!-- 8 -->
-      <div class="card" id="faq">
+      <div class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
         <div class="kicker">Quick answers</div>
         <h2>8) Quick FAQ</h2>
 
