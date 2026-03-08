@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Satoshium — Updates</title>
 <style>
-
-/* ===== Core Theme ===== */
-
 :root{
  --card-wm: url('/satoshium-progress/assets/seal.png');
  --bg:#07090d;
@@ -22,15 +19,16 @@
 *{box-sizing:border-box}
 
 html,body{
-margin:0;
-padding:0;
-background:var(--bg);
-color:var(--text);
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-line-height:1.55
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55
 }
+
 body{
- padding-top:80px;
+  padding-top:80px;
 }
 
 a{color:var(--gold2);text-decoration:none}
@@ -38,108 +36,91 @@ a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-/* ===== Layout ===== */
-
 .content{
-padding:34px 18px 60px
+  padding:34px 18px 60px
 }
 
 h1,h2{
-margin:0 0 10px
+  margin:0 0 10px
 }
 
 h1{
-font-size:30px;
-color:var(--gold2)
+  font-size:30px;
+  color:var(--gold2)
 }
 
 h2{
-font-size:20px;
-color:var(--gold2);
-margin-top:26px
+  font-size:20px;
+  color:var(--gold2);
+  margin-top:26px
 }
 
 p,li{
-color:var(--text)
+  color:var(--text)
 }
 
 hr{
-border:none;
-border-top:1px solid var(--line);
-margin:22px 0
+  border:none;
+  border-top:1px solid var(--line);
+  margin:22px 0
 }
 
-/* ===== Cards ===== */
-
 .card{
-position: relative;
-overflow: hidden;
-
-background: linear-gradient(
-to bottom right,
-rgba(12,16,24,.94),
-rgba(12,16,24,.88)
-);
-
-border:1px solid var(--line);
-border-radius:16px;
-
-padding:16px 16px;
-margin:16px 0;
-
-box-shadow:
-0 0 0 1px rgba(214,163,74,.08),
-0 20px 50px rgba(0,0,0,.45);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    rgba(12,16,24,.94),
+    rgba(12,16,24,.88)
+  );
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 16px;
+  margin:16px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
 }
 
 .card::before{
-content:"";
-position:absolute;
-inset:-60px;
-background-image: var(--card-wm);
-background-repeat:no-repeat;
-background-size: min(720px, 70vw);
-background-position: right -140px center;
-opacity:0.028;
-filter: blur(1px);
-pointer-events:none;
-z-index:0;
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image: var(--card-wm);
+  background-repeat:no-repeat;
+  background-size: min(720px, 70vw);
+  background-position: right -140px center;
+  opacity:0.028;
+  filter: blur(1px);
+  pointer-events:none;
+  z-index:0;
 }
 
 .card > *{
-position:relative;
-z-index:1
+  position:relative;
+  z-index:1
 }
 
 .muted{
-color:var(--muted)
+  color:var(--muted)
 }
-
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0 32px;
-color:var(--muted)
-}
-
-/* ===== Pills ===== */
 
 .pill{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 10px;
-border:1px solid var(--line);
-border-radius:999px;
-background:rgba(214,163,74,.08);
-color:var(--gold2);
-font-size:12px;
-font-weight:700
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700
 }
 
 ul{
-margin:8px 0 0 18px
+  margin:8px 0 0 18px
 }
-
 </style>
 </head>
 
@@ -173,165 +154,126 @@ fetch("/satoshium-progress/topbar.html")
   });
 </script>
 
-  <main class="wrap content">
-    <div class="pill">🧾 Updates</div>
-    <h1>Updates</h1>
-    <p class="muted">Short, honest updates. Built in public. Every commit = forward motion.</p>
+<main class="wrap content">
+  <div class="pill">🧾 Updates</div>
+  <h1>Updates</h1>
+  <p class="muted">
+    Weekly-style platform updates focused on major structural progress, meaningful milestones,
+    and notable hurdles cleared. Daily journals remain the internal source of truth; this page
+    records the larger outward-facing story of the build.
+  </p>
 
-    <!-- Next (kept accurate + forward-looking) -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-  <h2>Next</h2>
-  <ul>
-    <li>Continue expanding the Satoshium GitHub site with additional Bitcoin education and foundational pages</li>
-    <li>Refine and maintain the private Canon Curator constitutional layer that will guide future Satoshium agents</li>
-    <li>Begin slow development of aligned Satoshium AI agent concepts built on the canon framework</li>
-    <li>Continue production of long-form Satoshium visual and narrative media</li>
-    <li>Improve consistency, clarity, and structure across all Satoshium web and repository environments</li>
-  </ul>
-</div>
+  <div class="card">
+    <h2>Next</h2>
+    <ul>
+      <li>Continue aligning the main site, progress site, and GitHub organization around the refined Satoshium platform vision</li>
+      <li>Expand the Knowledge Engine, research structure, and education hierarchy without rushing complexity</li>
+      <li>Keep improving navigation consistency, shared components, and long-term maintainability across all pages</li>
+      <li>Develop additional platform documentation for systems, services, research, registry, and future agent safety layers</li>
+      <li>Maintain a slow, deliberate build posture focused on architecture before complexity</li>
+    </ul>
+  </div>
 
-    <!-- Newest-first entries -->
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-  <h2>2026-02-27 — Launch: Satoshium Glossary Builder</h2>
-  <ul>
-    <li>A canonical terminology system was deployed to organize foundational vocabulary across the Satoshium ecosystem. The Glossary Builder provides structured definitions for agents, governance systems, trust mechanisms, and decentralized intelligence architecture.</li>
-    <li>This system establishes the language layer for Satoshium and represents the early stage of the future Satoshium Knowledge Engine.</li>
-    <li><a href="https://glossary-hub.replit.app/" target="_blank" rel="noreferrer">Satoshium Glossary Builder </a>is live!</li>
-  </ul>
-</div>
-    
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-26 — Satoshium Labs goes live (10 apps published)</h2>
-      <ul>
-        <li>Aligned Satoshium visual theme across Labs apps for a consistent “Satoshium OS” feel.</li>
-        <li>Published 10 Labs apps and launched the Satoshium Labs index page.</li>
-        <li>Updated the Satoshium Progress site + Demos page to link directly into Labs.</li>
-       <li>Live Labs hub: <a href="https://satoshiumai.github.io/satoshium-progress/labs/" target="_blank" rel="noreferrer">Satoshium Labs</a></li>
-      </ul>
-    </div>
+  <div class="card">
+    <h2>2026-03-08 — Interface hardening + site cohesion pass</h2>
+    <ul>
+      <li>Completed a major site cohesion pass across Satoshium Progress, including fixed centered topbar behavior, updated shared navigation, and route cleanup for the new <strong>/start-here/</strong> structure.</li>
+      <li>Expanded and refined the Start Here flow with an <strong>Origin Story</strong> path, improving platform onboarding without adding navigation clutter.</li>
+      <li>Balanced the Education section by creating a proper <strong>AI Foundations</strong> track, including new pages for AI basics, AI agents, AI safety, and machine reasoning.</li>
+      <li>Created and connected an <strong>AI hub page</strong> and improved discoverability for deeper concept pages across the education layer.</li>
+      <li>Added and refined a <strong>Research &amp; Papers</strong> layer, connecting it into both Architecture and Labs so deeper platform thinking is now findable from conceptual and experimental paths.</li>
+      <li>Implemented rotating <strong>Satoshium reflection sayings</strong> above the footer and continued cleaning duplicated closing language across pages.</li>
+      <li>Completed a full shared-component hardening pass: fixed topbar behavior, updated global links, stabilized footer usage, and continued cleaning page-level inconsistencies discovered during the rollout.</li>
+    </ul>
+  </div>
 
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-21 — Satoshium Labs Apps scaffolding (structure-first)</h2>
-      <ul>
-        <li>Focused work on Satoshium Labs Apps (structure &amp; organization, not app logic yet).</li>
-        <li>Created/updated app folders and README scaffolding for future Labs experiences.</li>
-        <li>Maintained ‘slow-and-steady’ build posture; prioritized clarity and clean structure.</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-20 — Trust Mode doctrine + dashboard presence</h2>
-      <ul>
-        <li>Defined Phase I Trust Modes: UNLOCKED (experimental), LOCKED (governed), SOVEREIGN (future).</li>
-        <li>Added trust_mode to /trust/state output (UNLOCKED when authority_lock is false; LOCKED when true).</li>
-        <li>Updated Trust Dashboard to display header lines: “SATOSHIUM STATUS: ACTIVE” and “TRUST MODE: &lt;mode&gt;”.</li>
-        <li>Regenerated and validated signed verification artifacts (verification_report.json + .sig + verifier_public.pem) with OpenSSL.</li>
-        <li>Implemented/used tools/generate_signed_trust_proof.py to generate a signed proof bundle and archive it under exports/proofs/.</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-19 — External verification + signed trust proof layer</h2>
-      <ul>
-        <li>Finalized signed verification report pipeline (report → sign → verify) producing portable trust artifacts.</li>
-        <li>Resolved indentation/tab issues and boot integrity/snapshot issues encountered during hardening.</li>
-        <li>Stabilized external signature verification (regenerate report, re-sign with correct key pair, Verified OK).</li>
-        <li>Completed tools/generate_signed_trust_proof.py for end-to-end proof creation and archival bundles.</li>
-        <li>Validated full flow via /trust/state, /trust/require, export/verify endpoints, and local dashboard.</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-18 — Trust engine dashboard + export history + verification endpoints</h2>
-      <ul>
-        <li>Built/iterated the Satoshium Trust Dashboard for at-a-glance system trust visibility.</li>
-        <li>Implemented export endpoints and index/history tracking (exports/index.json + snapshot history).</li>
-        <li>Added authority lock gating and /trust/require enforcement semantics (REFUSE_OPERATION vs PROCEED).</li>
-        <li>Validated export chain creation and confirmed external verification flags/state reporting.</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-17 — Satoshium Curator: Canon/Trust build continuation (local Beehive work)</h2>
-      <ul>
-        <li>Continued local Curator + Trust Engine work in the Beehive environment (WSL/Ubuntu).</li>
-        <li>Focused on step-by-step operational runbook habits (cd into repo, activate venv, run services, verify outputs).</li>
-        <li>Prepared for Phase D Trust Layer Completion workstream continuation (dashboard/authority lock/multi-agent binding/external verifier mode).</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-16 — Major Canon milestone day + new repos + progress update</h2>
-      <ul>
-        <li>Completed Phase 1–4 Canon build work and established a stronger Canon/Curator direction.</li>
-        <li>Updated satoshium-progress with major milestones and captured daily contribution stats (63 commits; 6,156 total).</li>
-        <li>Created/published Satoshium Intelligence Systems positioning and related updates.</li>
-        <li>Created two new infrastructure repositories: satoshium-console and satoshium-curator.</li>
-        <li>Drafted initial Curator/Console integration direction for local agent execution via localhost (Beehive).</li>
-      </ul>
-    </div>
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-15 — Canon Phase 0 completion + Phase 1 readiness</h2>
-      <ul>
-        <li>Completed Phase 0 for satoshium-canon and prepared to enter Phase 1 (structure-first).</li>
-        <li>Clarified operating posture: keep Canon as the immutable base and build Curator/Trust layers around it.</li>
-      </ul>
-    </div>
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-  <h2>2026-02-14 — Foundation expansion & Canon completion</h2>
-  <ul>
-    <li>Completed foundational infrastructure upgrades across the Satoshium build environment</li>
-    <li>Established local backup and redundancy systems for long-term project durability</li>
-    <li>Created unified visual watermark and design consistency across ecosystem pages</li>
-    <li>Continued expansion of Bitcoin education and knowledge structure</li>
-    <li>Initiated production of new long-form Satoshium visual media</li>
-    <li>Created and finalized the private <strong>Canon Curator constitutional repository</strong></li>
-    <li>Established the internal “source-of-truth” framework that will guide all future Satoshium agents</li>
-    <li>Completed Phase 1 (Foundation) of long-term Satoshium alignment architecture</li>
-  </ul>
-</div>
+  <div class="card">
+    <h2>Week of 2026-02-28 to 2026-03-06 — Documentation hardening &amp; platform restructuring</h2>
+    <ul>
+      <li>Shifted from feature expansion into a documentation hardening phase focused on structure, trademark-aligned language, and long-term maintainability.</li>
+      <li>Recognized and formalized the separation between <strong>Systems</strong> and <strong>Services</strong>, clarifying capability vs. service provision and strengthening Class 042 alignment.</li>
+      <li>Created and expanded major platform pages including <strong>Architecture</strong>, <strong>Systems</strong>, and <strong>Services</strong>, preparing the site to function more like a coherent platform portal than a collection of pages.</li>
+      <li>Improved Labs structure and presentation through cleaner card-based layouts, consistent container usage, and stronger long-term page organization.</li>
+      <li>Standardized shared footer behavior and continued modularizing the site so navigation and branding could be maintained more efficiently across the full environment.</li>
+      <li>Integrated the Glossary Builder more explicitly as the foundation of the emerging <strong>Satoshium Knowledge Engine</strong>, with the canonical term set reaching 50 foundational definitions.</li>
+      <li>Placed the site into a more deliberate architecture-first posture: legitimacy, structure, SOU alignment, and future scalability took priority over new demos or short-term expansion.</li>
+    </ul>
+  </div>
 
-<hr>
-        
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-08 — Satoshium AI + education layer expansion</h2>
-      <ul>
-        <li>Deployed Satoshium AI chatbot to main website</li>
-        <li>Trained a unified intelligence agent on Satoshium, Bitcoin, AI, and future tech sources</li>
-        <li>Integrated Chatbase knowledge sources:
-          <ul>
-            <li>Satoshium main site + manifesto</li>
-            <li>Satoshium progress hub + GitHub repos</li>
-            <li>Bitcoin education sources (bitcoin.org, Lightning, River)</li>
-            <li>Select AI research sources for balanced intelligence layer</li>
-          </ul>
-        </li>
-        <li>Refined Satoshium AI opening dialogue for clarity and first-time visitors</li>
-        <li>Added guided prompt suggestions inside the chatbot interface</li>
-        <li>Expanded Bitcoin education section, including “Hot wallets vs cold storage”</li>
-        <li>Improved page consistency across the progress hub</li>
-        <li>Internal repo alignment moving toward Phase003 default structure</li>
-      </ul>
-    </div>
+  <div class="card">
+    <h2>2026-03-07 — Platform architecture milestone</h2>
+    <ul>
+      <li>Rebuilt and stabilized the entire <strong>Satoshium Progress</strong> site structure from a partially flat layout into a layered platform architecture.</li>
+      <li>Standardized the topbar across all pages, eliminated duplicate semantics, renamed navigation items for clarity, and verified/fixed all internal links.</li>
+      <li>Established the final navigation structure:
+        <ul>
+          <li>Home</li>
+          <li>Architecture</li>
+          <li>Systems</li>
+          <li>Services</li>
+          <li>Education</li>
+          <li>Labs</li>
+          <li>Build</li>
+          <li>Updates</li>
+          <li>Repo Map</li>
+          <li>Registry</li>
+          <li>Main Site</li>
+        </ul>
+      </li>
+      <li>Clarified the platform into distinct layers: Architecture, Systems, Services, Labs, and Progress.</li>
+      <li>Transformed the Public Build Progress page into a clearer dashboard model organized around <strong>Build</strong>, <strong>Updates</strong>, and <strong>Repo Map</strong>.</li>
+      <li>Reached an important conceptual milestone: Satoshium now reads less like a collection of tools and more like a coherent decentralized intelligence platform with a stable architectural baseline.</li>
+    </ul>
+  </div>
 
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2>2026-02-07 — Progress hub goes live</h2>
-      <ul>
-        <li>Added GitHub Pages site for satoshium-progress</li>
-        <li>Matched styling to main Satoshium scheme (black/gold)</li>
-        <li>Added navigation to Build + Updates (previously Roadmap & Changelog)</li>
-      </ul>
-    </div>
+  <div class="card">
+    <h2>2026-02-27 — Launch: Satoshium Glossary Builder</h2>
+    <ul>
+      <li>A canonical terminology system was deployed to organize foundational vocabulary across the Satoshium ecosystem.</li>
+      <li>The Glossary Builder provides structured definitions for agents, governance systems, trust mechanisms, and decentralized intelligence architecture.</li>
+      <li>This system establishes the language layer for Satoshium and represents the early stage of the future Knowledge Engine.</li>
+      <li><a href="https://glossary-hub.replit.app/" target="_blank" rel="noreferrer">Satoshium Glossary Builder</a> is live.</li>
+    </ul>
+  </div>
 
-                <!-- Footer mission statement + links -->
-      <hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
+  <div class="card">
+    <h2>2026-02-26 — Satoshium Labs goes live (10 apps published)</h2>
+    <ul>
+      <li>Aligned a consistent “Satoshium OS” visual theme across the Labs applications.</li>
+      <li>Published 10 Labs apps and launched the <a href="https://satoshiumai.github.io/satoshium-progress/labs/" target="_blank" rel="noreferrer">Satoshium Labs</a> hub.</li>
+      <li>Updated the Progress site and demos pathways to link directly into Labs.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Why weekly updates now make sense</h2>
+    <p class="muted">
+      Yes — weekly is the better cadence for this page. Your journals are already capturing daily detail.
+      The public Updates page is stronger when it emphasizes major hurdles cleared, meaningful architectural
+      milestones, and notable triumphs rather than every small issue solved along the way.
+    </p>
+    <p class="muted">
+      Recommended rhythm: <strong>Saturday to Friday</strong> weekly summaries, with occasional same-day cards
+      only when a major milestone clearly deserves its own entry.
+    </p>
+  </div>
+
+  <hr />
+  <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+    Satoshium is being built slowly, in public, and with architectural discipline.
+  </div>
+  <hr />
+</main>
+
 <div id="footer-container"></div>
 <script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
 fetch("/satoshium-progress/footer.html")
  .then(response => response.text())
  .then(data => {
- document.getElementById("footer-container").innerHTML = data;
+   document.getElementById("footer-container").innerHTML = data;
  });
 </script>
+
 </body>
 </html>
