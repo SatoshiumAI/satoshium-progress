@@ -1,1 +1,276 @@
-temp
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Safety — What It Is</title>
+
+<style>
+
+/* ===== Core Theme ===== */
+
+:root{
+ --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+margin:0;
+padding:0;
+background:var(--bg);
+color:var(--text);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+line-height:1.55
+}
+
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+/* ===== Layout ===== */
+
+.content{
+padding:34px 18px 60px
+}
+
+h1,h2{
+margin:0 0 10px
+}
+
+h1{
+font-size:30px;
+color:var(--gold2)
+}
+
+h2{
+font-size:20px;
+color:var(--gold2);
+margin-top:26px
+}
+
+p,li{
+color:var(--text)
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:22px 0
+}
+
+/* ===== Cards ===== */
+
+.card{
+position: relative;
+overflow: hidden;
+
+background: linear-gradient(
+to bottom right,
+rgba(12,16,24,.94),
+rgba(12,16,24,.88)
+);
+
+border:1px solid var(--line);
+border-radius:16px;
+
+padding:16px 16px;
+margin:16px 0;
+
+box-shadow:
+0 0 0 1px rgba(214,163,74,.08),
+0 20px 50px rgba(0,0,0,.45);
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:-60px;
+background-image: var(--card-wm);
+background-repeat:no-repeat;
+background-size: min(720px, 70vw);
+background-position: right -140px center;
+opacity:0.028;
+filter: blur(1px);
+pointer-events:none;
+z-index:0;
+}
+
+.card > *{
+position:relative;
+z-index:1
+}
+
+.muted{
+color:var(--muted)
+}
+
+/* ===== Pills ===== */
+
+.pill{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 10px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(214,163,74,.08);
+color:var(--gold2);
+font-size:12px;
+font-weight:700
+}
+
+ul{
+margin:8px 0 0 18px
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+.then(response => response.text())
+.then(data => {
+document.getElementById("topbar-container").innerHTML = data;
+});
+</script>
+
+<main class="wrap content">
+
+<div class="pill">🛡️ AI Safety</div>
+
+<h1 style="margin-top:12px;">AI safety, explained</h1>
+
+<p class="muted">
+AI safety is the practice of designing intelligent systems so they behave
+reliably, stay within defined limits, and remain understandable to the humans
+who use them. As AI systems become more capable, safety becomes less about
+convenience and more about trust, control, and verifiability.
+</p>
+
+<div class="card">
+
+<h2 style="margin-top:0;">🔎 The simple definition</h2>
+
+<p>
+<b>AI safety is the effort to make intelligent systems useful without making them unpredictable, deceptive, or unsafe.</b>
+</p>
+
+<p class="muted" style="margin-top:10px;">
+A capable system is not automatically a trustworthy one. Safety is what turns raw capability into dependable behavior.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">⚠️ Why AI safety matters</h2>
+
+<ul>
+<li><b>Power grows quickly</b> — capable systems can act at scale</li>
+<li><b>Errors compound</b> — small mistakes can create large consequences</li>
+<li><b>Humans need oversight</b> — systems should remain inspectable and correctable</li>
+<li><b>Trust must be earned</b> — reliability matters more than hype</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">🧱 What AI safety tries to prevent</h2>
+
+<ul>
+<li><b>Unclear behavior</b> — systems acting in ways humans cannot easily explain</li>
+<li><b>Rule-breaking</b> — ignoring boundaries, policies, or intended constraints</li>
+<li><b>Overconfidence</b> — outputs presented as reliable when they are not</li>
+<li><b>Goal drift</b> — optimizing for the wrong objective or shortcut</li>
+<li><b>Harmful autonomy</b> — systems taking actions beyond acceptable limits</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">⚙️ How safety is improved</h2>
+
+<ul>
+<li><b>Clear rules</b> — define what the system may and may not do</li>
+<li><b>Testing</b> — simulate failure cases and edge conditions</li>
+<li><b>Monitoring</b> — inspect outputs, decisions, and system behavior</li>
+<li><b>Fallback controls</b> — maintain human override and bounded execution</li>
+<li><b>Auditability</b> — keep records that allow decisions to be reviewed later</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">🤖 AI safety and agents</h2>
+
+<p>
+AI safety becomes even more important when moving from chat-style systems to <b>agents</b> that can plan, decide, and act.
+</p>
+
+<ul>
+<li>Agents need boundaries, not just instructions</li>
+<li>Actions should be constrained by policy and context</li>
+<li>High-risk behavior should be blocked or escalated</li>
+<li>Useful systems should remain aligned with human intent</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">🧭 Why Satoshium cares</h2>
+
+<p>
+Satoshium is not interested in intelligence without discipline.
+It explores how intelligent systems can operate within explicit, inspectable,
+and verifiable rules.
+</p>
+
+<p>
+That is why trust systems, governance models, and agent firewalls matter.
+The goal is not only to build more capable systems, but to build systems that can be understood, constrained, and trusted over time.
+</p>
+
+<p class="muted">
+In Satoshium, safety is not an afterthought. It is part of the architecture.
+</p>
+
+</div>
+
+<hr />
+
+<div>
+Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.
+</div>
+
+<hr />
+
+</main>
+
+<div id="footer-container"></div>
+
+<script>
+fetch("/satoshium-progress/footer.html")
+.then(response => response.text())
+.then(data => {
+document.getElementById("footer-container").innerHTML = data;
+});
+</script>
+
+</body>
+</html>
