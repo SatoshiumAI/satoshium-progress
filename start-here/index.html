@@ -172,21 +172,19 @@ systems, knowledge layer, experimental labs, and long-horizon development progre
     </p>
   </div>
 
-  <hr />
-  <div class="muted" style="margin-bottom:14px; font-size:13px; max-width:760px;">
-    Satoshium is a long-term effort to build decentralized intelligence aligned with Bitcoin — transparent progress,
-    open development, and tools designed for a sovereign digital future.
-  </div>
-  <hr />
-  <div>Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
-  <hr />
-</main>
-
+ <hr />
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
+</div>
+<hr />
 <div id="footer-container"></div>
+<script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
 fetch("/satoshium-progress/footer.html")
  .then(response => response.text())
- .then(data => { document.getElementById("footer-container").innerHTML = data; });
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
 </script>
 </body>
 </html>
