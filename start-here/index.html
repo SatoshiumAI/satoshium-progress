@@ -20,6 +20,9 @@ html,body{
   margin:0;padding:0;background:var(--bg);color:var(--text);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55
 }
+  body{
+ padding-top:80px;
+}
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
@@ -51,14 +54,34 @@ ul{margin:8px 0 0 18px}
 @media (max-width:760px){.grid-2{grid-template-columns:1fr}}
 </style>
 </head>
-<body id="top">
 <div id="topbar-container"></div>
 <script>
 fetch("/satoshium-progress/topbar.html")
   .then(response => response.text())
-  .then(data => { document.getElementById("topbar-container").innerHTML = data; });
-</script>
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
 
+    const path = window.location.pathname.toLowerCase();
+
+    function setActive(key){
+      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
+      if (el) el.classList.add("active");
+    }
+
+    if (path.includes("/architecture")) setActive("architecture");
+    else if (path.includes("/start-here/")) setActive("start-here");
+    else if (path.includes("/systems")) setActive("systems");
+    else if (path.includes("/services")) setActive("services");
+    else if (path.includes("/education")) setActive("education");
+    else if (path.includes("/labs")) setActive("labs");
+    else if (path.includes("/build")) setActive("build");
+    else if (path.includes("/updates")) setActive("updates");
+    else if (path.includes("/repo-map")) setActive("repomap");
+    else if (path.includes("/registry")) setActive("registry");
+    else setActive("home");
+  });
+</script>
+  
 <main class="wrap content">
   <div class="pill">🚀 Start Here</div>
 
