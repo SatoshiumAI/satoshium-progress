@@ -67,7 +67,6 @@
 "A real platform is built one coherent layer at a time.",
 "Satoshium is building toward intelligence that can be inspected, not merely believed."
   ];
-
   const target = document.getElementById("random-saying");
   if (!target) return;
 
