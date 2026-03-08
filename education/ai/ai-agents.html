@@ -1,1 +1,133 @@
-temp
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Agents — What They Are</title>
+
+<style>
+:root{
+ --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.content{padding:34px 18px 60px}
+h1,h2{margin:0 0 10px}
+h1{font-size:30px;color:var(--gold2)}
+h2{font-size:20px;color:var(--gold2);margin-top:26px}
+p,li{color:var(--text)}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+.card{position:relative;overflow:hidden;background:linear-gradient(to bottom right,rgba(12,16,24,.94),rgba(12,16,24,.88));border:1px solid var(--line);border-radius:16px;padding:16px 16px;margin:16px 0;box-shadow:0 0 0 1px rgba(214,163,74,.08),0 20px 50px rgba(0,0,0,.45)}
+.card::before{content:"";position:absolute;inset:-60px;background-image:var(--card-wm);background-repeat:no-repeat;background-size:min(720px,70vw);background-position:right -140px center;opacity:0.028;filter:blur(1px);pointer-events:none;z-index:0}
+.card > *{position:relative;z-index:1}
+.muted{color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(214,163,74,.08);color:var(--gold2);font-size:12px;font-weight:700}
+ul{margin:8px 0 0 18px}
+</style>
+</head>
+<body id="top">
+<div id="topbar-container"></div>
+<script>
+fetch("/satoshium-progress/topbar.html")
+.then(response => response.text())
+.then(data => {
+  document.getElementById("topbar-container").innerHTML = data;
+});
+</script>
+
+<main class="wrap content">
+<div class="pill">🤖 AI Agents</div>
+<h1 style="margin-top:12px;">AI agents, explained</h1>
+<p class="muted">
+AI agents are software systems that can observe information, make decisions, and take action toward a goal. Instead of only answering prompts, agents can follow multi-step workflows, use tools, and operate with a degree of autonomy.
+</p>
+
+<div class="card">
+<h2 style="margin-top:0;">🔎 The simple definition</h2>
+<p><b>An AI agent is software that can perceive a task, reason about what to do next, and take action to move toward an objective.</b></p>
+<p class="muted" style="margin-top:10px;">A chatbot answers. An agent acts.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0;">⚙️ What makes an agent different</h2>
+<ul>
+<li><b>Goals</b> — it is trying to accomplish something, not just reply once</li>
+<li><b>Memory</b> — it may keep context across steps</li>
+<li><b>Reasoning</b> — it can plan, compare options, and choose next actions</li>
+<li><b>Tools</b> — it may use APIs, files, search, or software systems</li>
+<li><b>Autonomy</b> — it can continue working without constant human prompting</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0;">🧠 How AI agents work</h2>
+<ul>
+<li><b>Input</b> — the agent receives a task, signal, or environment state</li>
+<li><b>Interpretation</b> — it analyzes context and decides what matters</li>
+<li><b>Planning</b> — it selects steps, tools, or actions</li>
+<li><b>Execution</b> — it performs those actions</li>
+<li><b>Feedback</b> — it checks results and adapts if needed</li>
+</ul>
+<p class="muted">In practice, stronger agents combine models, rules, memory, and external tools.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0;">🛠️ What agents can be used for</h2>
+<ul>
+<li>Research and information gathering</li>
+<li>Task automation and workflow execution</li>
+<li>Monitoring systems and responding to events</li>
+<li>Drafting documents, code, or plans</li>
+<li>Structured decision support</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0;">⚠️ Why agent safety matters</h2>
+<p>Agents are more powerful than ordinary AI chat interfaces because they can take action. That makes constraints, verification, and governance much more important.</p>
+<ul>
+<li>Agents should operate within explicit boundaries</li>
+<li>Actions should be inspectable and auditable</li>
+<li>Goals should be constrained by rules, not only prompts</li>
+<li>Unsafe behavior should be blocked or redirected</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0;">🧭 Why Satoshium cares about agents</h2>
+<p>Satoshium is interested in agents because they are one of the clearest examples of where intelligence needs trust.</p>
+<p>If agents can plan, act, and affect real systems, then their behavior should be:</p>
+<ul>
+<li><b>Verifiable</b> — we should be able to inspect what happened</li>
+<li><b>Governed</b> — rules should constrain what agents may do</li>
+<li><b>Auditable</b> — decisions should be reviewable after the fact</li>
+<li><b>Aligned</b> — agents should operate within a durable knowledge framework</li>
+</ul>
+<p class="muted">The goal is not maximum autonomy. The goal is reliable, rule-bound intelligence.</p>
+</div>
+
+<hr />
+<div>Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
+<hr />
+</main>
+
+<div id="footer-container"></div>
+<script>
+fetch("/satoshium-progress/footer.html")
+.then(response => response.text())
+.then(data => {
+  document.getElementById("footer-container").innerHTML = data;
+});
+</script>
+</body>
+</html>
