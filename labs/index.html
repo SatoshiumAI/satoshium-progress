@@ -221,21 +221,19 @@ Open Experiments →
 
 </main>
 
+<hr />
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
+</div>
+<hr />
 <div id="footer-container"></div>
-
+<script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
-fetch("/satoshium-progress/topbar.html")
-.then(r => r.text())
-.then(data => {
-  document.getElementById("topbar-container").innerHTML = data;
-});
-
 fetch("/satoshium-progress/footer.html")
-.then(r => r.text())
-.then(data => {
-  document.getElementById("footer-container").innerHTML = data;
-});
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
 </script>
-
 </body>
 </html>
