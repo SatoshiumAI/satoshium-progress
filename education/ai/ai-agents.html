@@ -133,20 +133,20 @@ AI agents are software systems that can observe information, make decisions, and
 </div>
 
 <hr />
-<div>Bitcoin verifies truth.<p></p>
-AI builds capability.<p></p>
-Satoshium explores what happens when they work together.
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
 </div>
 <hr />
-</main>
 
 <div id="footer-container"></div>
+
+<script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
 fetch("/satoshium-progress/footer.html")
-.then(response => response.text())
-.then(data => {
-  document.getElementById("footer-container").innerHTML = data;
-});
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
 </script>
 </body>
 </html>
