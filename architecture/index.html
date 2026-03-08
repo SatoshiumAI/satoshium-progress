@@ -525,16 +525,15 @@ governance frameworks, and educational systems aligned with the Bitcoin standard
 </div>
 
             <!-- Footer mission statement + links -->
-      <hr />
-      <div">Small tools. Real progress. Systems that can prove what they do.</div>
-      <hr />
-
+<hr />
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
 </div>
-
-</main>                     
+<hr />
 
 <div id="footer-container"></div>
 
+<script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
 fetch("/satoshium-progress/footer.html")
  .then(response => response.text())
@@ -542,6 +541,3 @@ fetch("/satoshium-progress/footer.html")
  document.getElementById("footer-container").innerHTML = data;
  });
 </script>
-
-</body>
-</html>
