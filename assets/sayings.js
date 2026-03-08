@@ -39,7 +39,6 @@ const sayings = [
 "Durable systems reward patience.",
 "Clarity precedes capability.",
 "The strongest infrastructure is built on verifiable truth.",
-
 "Satoshium is an experiment in verifiable intelligence — built slowly, in public.",
 "Truth first. Systems second. Intelligence built on both.",
 "Build slowly. Verify everything. Let the system speak for itself.",
