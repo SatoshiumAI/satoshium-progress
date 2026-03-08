@@ -10,7 +10,6 @@
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -18,6 +17,23 @@
  --gold:#d6a34a;
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
+
+ /* default watermark */
+ --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
+}
+
+/* ===== Page Themes ===== */
+
+body.theme-satoshium{
+ --card-wm: url('/satoshium-progress/assets/seal.png');
+}
+
+body.theme-bitcoin{
+ --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+}
+
+body.theme-ai{
+ --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
 }
 
 *{box-sizing:border-box}
@@ -135,7 +151,7 @@ margin:8px 0 0 18px
 </style>
 </head>
 
-<body id="top">
+<body id="top" class="theme-ai">
 
 <div id="topbar-container"></div>
 <script>
