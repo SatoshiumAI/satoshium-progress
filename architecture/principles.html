@@ -15,6 +15,9 @@
   --gold2:#f4c36a;
   --line:rgba(214,163,74,.18);
 }
+  body{
+ padding-top:80px;
+}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
 a{color:var(--gold2);text-decoration:none}
@@ -46,9 +49,30 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
 <body id="top">
 <div id="topbar-container"></div>
 <script>
-fetch('/satoshium-progress/topbar.html')
+fetch("/satoshium-progress/topbar.html")
   .then(response => response.text())
-  .then(data => { document.getElementById('topbar-container').innerHTML = data; });
+  .then(data => {
+    document.getElementById("topbar-container").innerHTML = data;
+
+    const path = window.location.pathname.toLowerCase();
+
+    function setActive(key){
+      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
+      if (el) el.classList.add("active");
+    }
+
+    if (path.includes("/architecture")) setActive("architecture");
+    else if (path.includes("/start-here/")) setActive("start-here");
+    else if (path.includes("/systems")) setActive("systems");
+    else if (path.includes("/services")) setActive("services");
+    else if (path.includes("/education")) setActive("education");
+    else if (path.includes("/labs")) setActive("labs");
+    else if (path.includes("/build")) setActive("build");
+    else if (path.includes("/updates")) setActive("updates");
+    else if (path.includes("/repo-map")) setActive("repomap");
+    else if (path.includes("/registry")) setActive("registry");
+    else setActive("home");
+  });
 </script>
 
 <main class="wrap content">
