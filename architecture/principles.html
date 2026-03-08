@@ -195,16 +195,19 @@ fetch('/satoshium-progress/topbar.html')
     and educational systems aligned with the Bitcoin standard.
   </div>
 
-  <hr>
-  <div>Trust the rules. Verify the systems. Let intelligence emerge.</div>
-  <hr>
-</main>
+  <hr />
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
+</div>
+<hr />
 
 <div id="footer-container"></div>
+
+<script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
-fetch('/satoshium-progress/footer.html')
-  .then(response => response.text())
-  .then(data => { document.getElementById('footer-container').innerHTML = data; });
+fetch("/satoshium-progress/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
 </script>
-</body>
-</html>
