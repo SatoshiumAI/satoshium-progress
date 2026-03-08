@@ -29,7 +29,11 @@
 body{
  padding-top:80px;
 }
-
+.reflection{
+ margin-top:40px;
+ margin-bottom:40px;
+ color:var(--muted);
+}
     a{color:var(--gold2);text-decoration:none}
     a:hover{color:var(--gold)}
     .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
@@ -394,11 +398,18 @@ fetch("/satoshium-progress/topbar.html")
     </div>
 </main>
              <!-- Footer mission statement + links -->
-      <hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+ <div class="wrap reflection">
+
+<hr>
+
+<p>
+<div id="random-saying" class="muted">
   Satoshium is being built slowly, in public, and with architectural discipline.
+</p>
+
+<hr>
+
 </div>
-<hr />
 <div id="footer-container"></div>
 <script src="/satoshium-progress/assets/sayings.js"></script>
 <script>
