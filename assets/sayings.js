@@ -1,5 +1,7 @@
 (function () {
-  const sayings = [
+
+const sayings = [
+
 "The long arc belongs to disciplined systems.",
 "Build slowly. Verify everything.",
 "Systems last when assumptions are explicit.",
@@ -36,7 +38,8 @@
 "Knowledge, verification, and simulation form the cycle of understanding.",
 "Durable systems reward patience.",
 "Clarity precedes capability.",
-"The strongest infrastructure is built on verifiable truth."
+"The strongest infrastructure is built on verifiable truth.",
+
 "Satoshium is an experiment in verifiable intelligence — built slowly, in public.",
 "Truth first. Systems second. Intelligence built on both.",
 "Build slowly. Verify everything. Let the system speak for itself.",
@@ -52,7 +55,7 @@
 "Built carefully. Verified openly. Designed for the long arc.",
 "When truth is verifiable, intelligence systems can be trusted.",
 "Real systems. Verifiable rules. Intelligence built in the open.",
-“Satoshium explores how intelligence can be governed by rules instead of trust.",
+"Satoshium explores how intelligence can be governed by rules instead of trust.",
 "Build what matters. Verify what ships. Keep the rest honest.",
 "Visible progress is stronger than promises.",
 "A calm build is still a real build.",
@@ -66,10 +69,13 @@
 "What is built slowly can still become foundational.",
 "A real platform is built one coherent layer at a time.",
 "Satoshium is building toward intelligence that can be inspected, not merely believed."
-  ];
-  const target = document.getElementById("random-saying");
-  if (!target) return;
 
-  const index = Math.floor(Math.random() * sayings.length);
-  target.textContent = sayings[index];
+];
+
+const target = document.getElementById("random-saying");
+if (!target) return;
+
+const index = Math.floor(Math.random() * sayings.length);
+target.textContent = sayings[index];
+
 })();
