@@ -70,6 +70,18 @@ body{
       z-index:0;
     }
     .card > *{position:relative;z-index:1}
+.card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.card {
+ border: 1px solid rgba(214,163,74,.15);
+}
 
     .cardhead{
       display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;
