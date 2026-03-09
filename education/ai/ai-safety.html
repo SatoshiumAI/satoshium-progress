@@ -132,6 +132,18 @@ z-index:0;
 position:relative;
 z-index:1
 }
+.card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.card {
+ border: 1px solid rgba(214,163,74,.15);
+}
 
 .muted{
 color:var(--muted)
