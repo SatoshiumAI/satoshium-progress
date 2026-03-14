@@ -14,8 +14,18 @@
  --gold:#d6a34a;
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
+  --topbar-h: 72px;
+  --page-top-gap: 20px;
 }
 
+main {
+  padding-top: calc(var(--topbar-h) + var(--page-top-gap));
+}
+
+main > *:first-child {
+  margin-top: 0 !important;
+}
+ 
 *{box-sizing:border-box}
 
 html,body{
