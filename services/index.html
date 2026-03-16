@@ -1,17 +1,17 @@
+
+/* ===== Site Moved Page ===== */
+
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-
-<title>Satoshium Services</title>
-
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -134,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -154,221 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
-<main class="wrap content">
-
-<div class="pill">🧭 Platform Services</div>
-
-<h1 style="margin-top:12px;">Satoshium Services</h1>
-
-<p class="muted">
-Public interfaces and platform capabilities exposed by the Satoshium platform ecosystem.
+<p>
+This development environment has been migrated to the live domain architecture.
 </p>
-
-<p class="muted" style="max-width:840px;">
-Services represent the practical entry points into Satoshium systems.
-
-While the Systems page documents the internal architecture,
-this page describes the **capabilities available to users, researchers, and developers.**
-
-Services may expose knowledge systems, reasoning tools, simulations,
-or educational infrastructure built on top of the platform.
-</p>
-
- <div class="card">
-
-<h2 style="margin-top:0;">Core Platform Services</h2>
-
-<p class="muted">
-These services expose the foundational capabilities of the Satoshium platform.
-</p>
-
-<ul class="small">
-
-<li><strong>Knowledge Access</strong>  
-Interfaces for exploring canonical terminology, specifications, and platform definitions.</li>
-
-<li><strong>AI Research Interface</strong>  
-Structured interaction with Satoshium knowledge systems and reasoning tools.</li>
-
-<li><strong>Simulation Environments</strong>  
-Experimental labs for testing scenarios related to decentralized systems and governance models.</li>
-
-<li><strong>Public Documentation</strong>  
-Architecture documentation, system catalogs, and public development updates.</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">Experimental Services</h2>
-
-<p class="muted">
-Some platform capabilities are exposed through experimental interfaces designed to explore
-future decentralized intelligence systems.
-</p>
-
-<ul class="small">
-
-<li>Interactive scenario simulations</li>
-<li>AI-assisted reasoning environments</li>
-<li>Experimental governance tools</li>
-<li>Educational demonstration systems</li>
-
-</ul>
-
-<p class="muted small">
-Experimental services evolve as the platform architecture matures.
-</p>
-
-</div>
-
- <div class="card">
-
-<h2 style="margin-top:0;">Future Service Layer</h2>
-
-<p class="muted">
-As the Satoshium ecosystem develops, additional services may emerge,
-including infrastructure supporting decentralized coordination,
-AI governance frameworks, and long-horizon knowledge systems.
-</p>
-
-<p class="muted small">
-Services will continue expanding as new systems stabilize and move from research to operational deployment.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">Platform Development Capabilities</h2>
-
-<p class="muted">
-In addition to exposing services, Satoshium develops software infrastructure
-supporting decentralized intelligence systems.
-
-The capabilities in this section represent areas of active engineering that power
-the platform’s knowledge systems, governance frameworks, and simulation environments.
-</p>
-
-<p class="muted small">
-These capabilities are implemented through software systems, repositories,
-and experimental research modules documented across the platform.
-</p>
- 
- <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-
-<h2>AI System Development</h2>
 
 <p>
-Design and development of AI-driven software systems used to manage structured knowledge,
-automate workflows, and support decentralized intelligence infrastructure.
+If you reached this page through a link, that link may need updating.
 </p>
-
-<div class="pill">Operational</div>
-
-</div>
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-
-<h2>Agent Safety Frameworks</h2>
 
 <p>
-Development of governance frameworks and safety systems designed to regulate autonomous
-software agents operating within decentralized intelligence environments.
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
 
-<div class="pill">In Development</div>
-
-</div>
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-
-<h2>Knowledge System Engineering</h2>
-
-<p>
-Creation of structured knowledge environments including canonical terminology systems,
-AI-readable documentation structures, and machine-assisted research frameworks.
-</p>
-
-<div class="pill">Operational</div>
-
-</div>
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-
-<h2>Simulation and Scenario Modeling</h2>
-
-<p>
-Development of simulation environments used to test decentralized intelligence models,
-explore governance structures, and evaluate system behavior within controlled environments.
-</p>
-
-<div class="pill">Experimental</div>
-
-</div>
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-
-<h2>Infrastructure Documentation</h2>
-
-<p>
-Development of public technical documentation describing system architecture,
-AI development standards, and platform governance structures.
-</p>
-
-<div class="pill">Foundation</div>
-
-</div>
-
- </div>
-             <!-- Footer mission statement + links -->
-      <hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
