@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Buying and storing bitcoin • Satoshium</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -30,7 +31,9 @@ color:var(--text);
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 line-height:1.55
 }
-
+body{
+ padding-top:80px;
+}
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -108,6 +111,18 @@ z-index:0;
 position:relative;
 z-index:1
 }
+.card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.card {
+ border: 1px solid rgba(214,163,74,.15);
+}
 
 .muted{
 color:var(--muted)
@@ -119,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -139,335 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
-
-<div id="topbar-container"></div>
-<script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-  });
-</script>
-
-  <main class="wrap content">
-    <div class="pill">🛡️ Wallets &amp; security</div>
-
-    <h1 style="margin-top:12px;">Buying and storing bitcoin</h1>
-    <p class="muted">
-      This is a <strong>security-first</strong>, step-by-step guide to buying bitcoin and storing it responsibly.
-      Built for real people: clear decisions, minimal jargon, and practical habits that prevent the most common losses.
-    </p>
-
-    <div class="grid">
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">What you’ll learn</div>
-        <h2 style="margin-top:6px;">✅ Practical outcomes</h2>
-        <ul>
-          <li><strong>How to buy safely</strong> (and avoid “urgency” traps and bad defaults)</li>
-          <li><strong>What custody means</strong> and how it changes your risk</li>
-          <li><strong>A level-up path</strong> from first purchase → self-custody → resilient setups</li>
-          <li><strong>Checklists + common mistakes</strong> so you can build repeatable, calm process</li>
-        </ul>
-        <div class="quote" style="margin-top:12px;">
-          <strong>Satoshium rule:</strong> start simple, then level up. Your process matters more than your app.
-        </div>
-      </div>
-
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Quick navigation</div>
-        <h2 style="margin-top:6px;">📌 Sections</h2>
-
-        <ol class="toc">
-          <li><a href="#basics">1) The basics: buy vs store</a></li>
-          <li><a href="#ways">2) Ways to buy bitcoin</a></li>
-          <li><a href="#storage">3) Storage &amp; custody options</a></li>
-          <li><a href="#levelup">4) A recommended “level-up” path</a></li>
-          <li><a href="#steps">5) Step-by-step: buy → withdraw → verify</a></li>
-          <li><a href="#checklists">6) Checklists (do this, avoid that)</a></li>
-          <li><a href="#mistakes">7) Common mistakes &amp; how to avoid them</a></li>
-          <li><a href="#faq">8) Quick FAQ</a></li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="basics" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">1) The basics</div>
-      <h2 style="margin-top:6px;">Buying vs storing</h2>
-      <p>
-        Buying bitcoin is the <strong>acquisition</strong> step. Storing bitcoin is the <strong>protection</strong> step.
-        Most people focus on “where do I buy?” and forget to ask: <strong>who can move it?</strong>
-      </p>
-
-      <h3>Two truths that keep you safe</h3>
-      <ul>
-        <li><strong>If you don’t control the keys, you don’t control the bitcoin.</strong></li>
-        <li><strong>Security is a process, not a product.</strong> Habits beat hype.</li>
-      </ul>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Important:</strong> Exchanges are great for buying and selling. They are not designed to be your forever vault.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="ways" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">2) Ways to buy</div>
-      <h2 style="margin-top:6px;">Choose the method that fits your goals</h2>
-      <p class="muted">
-        There are multiple “right” ways. Your best choice depends on convenience, privacy, cost, and how soon you plan to withdraw into self-custody.
-      </p>
-
-      <table aria-label="Ways to buy bitcoin comparison">
-        <thead>
-          <tr>
-            <th>Method</th>
-            <th>Best for</th>
-            <th>Tradeoffs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Centralized exchange (CEX)</strong></td>
-            <td>Fast onboarding, recurring buys, simple UI</td>
-            <td>Custodial by default; withdrawal limits/rules; account risk</td>
-          </tr>
-          <tr>
-            <td><strong>Broker-style apps</strong></td>
-            <td>“Just buy” simplicity for beginners</td>
-            <td>Spreads may be higher; fewer advanced options</td>
-          </tr>
-          <tr>
-            <td><strong>Peer-to-peer (P2P)</strong></td>
-            <td>More privacy and flexibility</td>
-            <td>Higher personal responsibility; scam awareness required</td>
-          </tr>
-          <tr>
-            <td><strong>Bitcoin ATMs</strong></td>
-            <td>Cash convenience in some locations</td>
-            <td>Often very high fees; confirm total cost before buying</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Satoshium mindset:</strong> convenience is fine — just don’t confuse convenience with security.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="storage" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">3) Storage &amp; custody</div>
-      <h2 style="margin-top:6px;">Who can move the bitcoin?</h2>
-      <p>
-        “Custody” answers one question: <strong>who can move the bitcoin?</strong>
-        The safer your custody, the harder it is for attackers (or companies) to take it.
-      </p>
-
-      <table aria-label="Storage options comparison">
-        <thead>
-          <tr>
-            <th>Storage</th>
-            <th>Who controls the keys?</th>
-            <th>When it makes sense</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Exchange wallet</strong></td>
-            <td>The exchange</td>
-            <td>Short-term holding while learning or waiting to withdraw</td>
-          </tr>
-          <tr>
-            <td><strong>Mobile wallet</strong> (hot)</td>
-            <td>You</td>
-            <td>Spending money, small balances, daily use</td>
-          </tr>
-          <tr>
-            <td><strong>Hardware wallet</strong> (cold)</td>
-            <td>You</td>
-            <td>Long-term savings, larger balances, inheritance planning</td>
-          </tr>
-          <tr>
-            <td><strong>Multisig</strong></td>
-            <td>Multiple keys / policy</td>
-            <td>Higher security needs, families, businesses, larger holdings</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Hot vs Cold (simple)</h3>
-      <ul>
-        <li><strong>Hot wallet:</strong> connected to the internet (fast, convenient, higher risk)</li>
-        <li><strong>Cold wallet:</strong> keys kept offline (slower, safer, requires discipline)</li>
-      </ul>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Never store your seed phrase in:</strong> screenshots, email drafts, cloud notes, Google Drive, iCloud, or any place that can silently sync.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="levelup" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">4) Recommended path</div>
-      <h2 style="margin-top:6px;">Level up without fragile complexity</h2>
-      <p>
-        You don’t need to jump straight to advanced setups. This path builds confidence without creating fragile complexity.
-      </p>
-
-      <h3>Level 1 — Beginner (start here)</h3>
-      <ul>
-        <li>Buy a small amount on a reputable platform</li>
-        <li>Learn what a <strong>receive address</strong> and <strong>transaction ID</strong> are</li>
-        <li>Practice a small withdrawal to a wallet you control (hot wallet)</li>
-      </ul>
-
-      <h3>Level 2 — Intermediate (own your keys)</h3>
-      <ul>
-        <li>Set up a hardware wallet (cold storage)</li>
-        <li>Write down the seed phrase carefully (offline)</li>
-        <li>Withdraw routinely (e.g., monthly) instead of leaving a growing balance on an exchange</li>
-      </ul>
-
-      <h3>Level 3 — Advanced (resilience)</h3>
-      <ul>
-        <li>Consider multisig for larger amounts</li>
-        <li>Create an inheritance and emergency-access plan</li>
-        <li>Verify backups by doing a controlled restore test (carefully)</li>
-      </ul>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Good strategy:</strong> keep a small “spending” balance hot, and a long-term “savings” balance cold.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="steps" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">5) Step-by-step</div>
-      <h2 style="margin-top:6px;">Buy → withdraw → verify</h2>
-      <p class="muted">This is the safest first-time flow for most people.</p>
-
-      <h3>Step A — Buy</h3>
-      <ul>
-        <li>Enable strong account security (unique password + 2FA)</li>
-        <li>Make your purchase</li>
-        <li>Do <strong>not</strong> rush—scams thrive on urgency</li>
-      </ul>
-
-      <h3>Step B — Create a wallet you control</h3>
-      <ul>
-        <li>Start with a reputable mobile wallet for a small test</li>
-        <li>Later, upgrade to a hardware wallet for savings</li>
-      </ul>
-
-      <h3>Step C — Withdraw a small test amount</h3>
-      <ul>
-        <li>Copy the receive address from your wallet</li>
-        <li>Paste it into the withdrawal screen</li>
-        <li>Send a small amount first (test transaction)</li>
-      </ul>
-
-      <h3>Step D — Verify it arrived</h3>
-      <ul>
-        <li>Confirm your wallet shows the incoming transaction</li>
-        <li>Confirm the address matches what you expected</li>
-        <li>Only then consider moving larger amounts</li>
-      </ul>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Verification mindset:</strong> control destination → confirm address → test small → verify receipt → scale up.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="checklists" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">6) Checklists</div>
-      <h2 style="margin-top:6px;">Do this, avoid that</h2>
-
-      <div class="grid">
-        <div class="subcard">
-          <h3 style="margin-top:0;">✅ Do this</h3>
-          <ul>
-            <li>Use unique passwords + strong 2FA (prefer app-based 2FA over SMS)</li>
-            <li>Withdraw to self-custody once the balance is meaningful</li>
-            <li>Do test transactions</li>
-            <li>Keep your seed phrase offline and protected from fire/water</li>
-            <li>Teach family what to do <em>without</em> exposing sensitive details publicly</li>
-          </ul>
-        </div>
-
-        <div class="subcard">
-          <h3 style="margin-top:0;">❌ Avoid this</h3>
-          <ul>
-            <li>Copy/pasting addresses from random chats or “support” DMs</li>
-            <li>Saving seed phrases in photos, cloud notes, email, or documents</li>
-            <li>Buying because someone said “last chance”</li>
-            <li>Installing unknown wallet apps from unofficial links</li>
-            <li>Keeping everything in one place with one point of failure</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="quote" style="margin-top:12px;">
-        <strong>Rule:</strong> no legitimate company will ever need your seed phrase. Ever.
-      </div>
-    </div>
-
-    <div class="card card--wm" id="mistakes" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">7) Common mistakes</div>
-      <h2 style="margin-top:6px;">And how to avoid them</h2>
-
-      <h3>Mistake: “I’ll move it later.”</h3>
-      <p class="muted">Later becomes never, balances grow, and risk silently increases.</p>
-      <ul><li><strong>Fix:</strong> pick a withdrawal rhythm (monthly is fine) and stick to it.</li></ul>
-
-      <h3>Mistake: Mixing convenience with custody</h3>
-      <p class="muted">If the platform can freeze withdrawals, you are not fully sovereign.</p>
-      <ul><li><strong>Fix:</strong> use platforms for buying; use wallets for holding.</li></ul>
-
-      <h3>Mistake: Seed phrase stored digitally</h3>
-      <p class="muted">Digital storage multiplies your attack surface.</p>
-      <ul><li><strong>Fix:</strong> keep it offline, private, and durable.</li></ul>
-    </div>
-
-    <div class="card card--wm" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">8) Quick FAQ</div>
-      <h2 style="margin-top:6px;">Fast answers</h2>
-
-      <h3>How much bitcoin should I withdraw to cold storage?</h3>
-      <p class="muted">
-        As a simple rule: withdraw when the amount would <em>hurt</em> to lose.
-        Many people start withdrawing once they’re past “learning money.”
-      </p>
-
-      <h3>Do I need a hardware wallet immediately?</h3>
-      <p class="muted">
-        Not immediately. Start with small amounts while you learn.
-        Hardware wallets shine when you’re ready to store long-term savings.
-      </p>
-
-      <h3>What’s the safest “simple” setup?</h3>
-      <p class="muted">
-        A reputable buying platform + a hardware wallet + an offline seed phrase backup
-        (and a calm, repeatable routine).
-      </p>
-    </div>
-
-                <!-- Footer mission statement + links -->
-      <hr />
-      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
-      <hr />
-
-      </div>
-
-</main>                     
-
-<div id="footer-container"></div>
+<h1>Satoshium Progress Site Retired</h1>
 
 <script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
+
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
+
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
 </body>
 </html>
