@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Network health basics • Satoshium</title>
-<meta name="description" content="Network health basics explains the signals that show Bitcoin is running normally: block timing, difficulty, mempool, fees, confirmations, and decentralization.">
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
@@ -34,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -141,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -161,277 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-<main class="wrap content">
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-  <div class="pill">⛏️ Mining &amp; network</div>
-  <h1>Network health basics</h1>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-  <p class="small">
-    “Network health” means: is Bitcoin operating normally right now? This page shows the core signals that tell you the network is stable,
-    secure, and processing transactions as expected — without hype and without guesswork.
-  </p>
-
-  <div class="grid">
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">What you’ll learn</div>
-      <h2 style="margin-top:6px;">✅ The core health signals</h2>
-      <ul class="small">
-        <li>What “healthy” looks like (most days)</li>
-        <li>What the mempool tells you</li>
-        <li>How to think about fees and confirmations</li>
-        <li>What to watch during major events</li>
-      </ul>
-      <div class="quote small">
-        Satoshium lens: a healthy network is one that keeps working through chaos — without anyone in charge.
-      </div>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">Quick navigation</div>
-      <h2 style="margin-top:6px;">📌 Sections</h2>
-
-      <ol class="toc">
-        <li><a href="#overview">1) The 60-second overview</a></li>
-        <li><a href="#blocks">2) Blocks & timing</a></li>
-        <li><a href="#hashrate">3) Hashrate & difficulty (health vs headlines)</a></li>
-        <li><a href="#mempool">4) Mempool basics</a></li>
-        <li><a href="#fees">5) Fees: why they rise and fall</a></li>
-        <li><a href="#confirmations">6) Confirmations: what “final” really means</a></li>
-        <li><a href="#nodes">7) Nodes, decentralization & rule enforcement</a></li>
-        <li><a href="#events">8) What to watch during major events</a></li>
-        <li><a href="#checklist">9) A simple health checklist</a></li>
-        <li><a href="#faq">10) Quick FAQ</a></li>
-      </ol>
-    </div>
-  </div>
-
-  <section class="card" id="overview" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">1) The point</div>
-    <h2>The 60-second overview</h2>
-    <p class="small">
-      Bitcoin’s health can be summarized with a few questions:
-    </p>
-    <ul class="small">
-      <li>Are blocks being produced (roughly every ~10 minutes over time)?</li>
-      <li>Are transactions confirming (even if slower during congestion)?</li>
-      <li>Is hashrate strong and broadly distributed?</li>
-      <li>Are nodes enforcing the same rules (consensus intact)?</li>
-    </ul>
-    <div class="quote small">
-      Healthy doesn’t mean “cheap fees” every day. Healthy means the system is functioning and adapting.
-    </div>
-  </section>
-
-  <section class="card" id="blocks" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">2) The heartbeat</div>
-    <h2>Blocks & timing</h2>
-    <p class="small">
-      Bitcoin targets ~10 minutes per block, but actual timing is variable. Sometimes blocks come faster; sometimes slower.
-      What matters is the average over time — not a single moment.
-    </p>
-    <ul class="small">
-      <li>Short gaps (1–2 minutes) and long gaps (30+ minutes) can happen naturally.</li>
-      <li>Over the long run, difficulty adjustment pulls the average back toward the target.</li>
-      <li>Block production continuing = the chain is alive.</li>
-    </ul>
-    <div class="quote small">
-      If blocks are coming in, Bitcoin is doing its primary job: ordering history.
-    </div>
-  </section>
-
-  <section class="card" id="hashrate" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">3) Strength vs noise</div>
-    <h2>Hashrate & difficulty (health vs headlines)</h2>
-    <p class="small">
-      Hashrate and difficulty are often used in headlines, but the core idea is simple:
-      more hashrate generally means a higher cost to attack the network, and difficulty keeps the system stable.
-    </p>
-    <ul class="small">
-      <li><strong>Hashrate</strong> is a security signal (how much work is defending Bitcoin).</li>
-      <li><strong>Difficulty</strong> is a stability signal (how Bitcoin keeps blocks on schedule).</li>
-      <li>Sudden drops can happen during shocks — the protocol adapts.</li>
-    </ul>
-    <div class="quote small">
-      Satoshium rule: don’t confuse “a metric moved” with “the system is failing.”
-    </div>
-  </section>
-
-  <section class="card" id="mempool" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">4) The waiting room</div>
-    <h2>Mempool basics</h2>
-    <p class="small">
-      The mempool is Bitcoin’s “waiting room” — transactions that have been broadcast but not yet included in a block.
-      When demand is high, the mempool grows. When demand is low, it clears.
-    </p>
-    <ul class="small">
-      <li>Big mempool = more competition for block space</li>
-      <li>Small mempool = transactions confirm faster on average</li>
-      <li>Mempool congestion is normal during high activity</li>
-    </ul>
-    <div class="quote small">
-      The mempool is a demand indicator, not a “network broke” indicator.
-    </div>
-  </section>
-
-  <section class="card" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">5) The price of priority</div>
-    <h2>Fees: why they rise and fall</h2>
-    <p class="small">
-      Fees are how users compete for inclusion when block space is limited. When more people want to move bitcoin quickly,
-      fees rise. When activity cools down, fees fall.
-    </p>
-    <ul class="small">
-      <li>Higher fee = higher priority (usually confirms sooner)</li>
-      <li>Lower fee = lower priority (may wait longer during congestion)</li>
-      <li>Fees are a market — not a fixed price</li>
-    </ul>
-    <div class="quote small">
-      Fees are how Bitcoin stays neutral. No one gets “special access” without paying the same market price.
-    </div>
-  </section>
-
-  <section class="card" id="confirmations" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">6) Settlement depth</div>
-    <h2>Confirmations: what “final” really means</h2>
-    <p class="small">
-      A confirmation means your transaction is included in a block. More confirmations means it’s buried deeper under proof-of-work,
-      making it increasingly impractical to reverse.
-    </p>
-    <ul class="small">
-      <li>1 confirmation: included on-chain</li>
-      <li>3–6 confirmations: commonly treated as “very safe” for large payments</li>
-      <li>More confirmations = more cumulative proof-of-work behind it</li>
-    </ul>
-    <div class="quote small">
-      Bitcoin finality is probabilistic — and the probability becomes overwhelming as confirmations stack.
-    </div>
-  </section>
-
-  <section class="card" id="nodes" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">7) Rule enforcement</div>
-    <h2>Nodes, decentralization & rule enforcement</h2>
-    <p class="small">
-      Miners provide security. Nodes enforce the rules. A healthy network is one where many independent nodes verify blocks
-      and reject anything that breaks consensus rules.
-    </p>
-    <ul class="small">
-      <li>Nodes validate blocks and transactions</li>
-      <li>Consensus rules prevent unauthorized changes</li>
-      <li>Decentralization reduces single points of failure</li>
-    </ul>
-    <div class="quote small">
-      Satoshium lens: decentralization is not a slogan — it’s how rules survive pressure.
-    </div>
-  </section>
-
-  <section class="card" id="events" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">8) Stress tests</div>
-    <h2>What to watch during major events</h2>
-    <p class="small">
-      During major news, price shocks, or large “on-chain moments,” the mempool and fees may spike.
-      That’s normal. Here’s what matters:
-    </p>
-    <ul class="small">
-      <li>Blocks continue arriving over time</li>
-      <li>The chain remains consistent (no consensus split)</li>
-      <li>Nodes keep validating</li>
-      <li>Congestion clears eventually</li>
-    </ul>
-    <div class="quote small">
-      Bitcoin’s true strength shows up during chaos — when systems that rely on trust often break.
-    </div>
-  </section>
-
-  <section class="card" id="checklist" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">9) Practical</div>
-    <h2>A simple health checklist</h2>
-    <p class="small">If you want a quick “is Bitcoin okay?” routine, use this:</p>
-    <ul class="small">
-      <li><strong>Blocks:</strong> Are blocks being mined today? (Yes = alive)</li>
-      <li><strong>Mempool:</strong> Is it growing or clearing? (Either can be normal)</li>
-      <li><strong>Fees:</strong> Are fees unusually high? (Means demand is high)</li>
-      <li><strong>Hashrate:</strong> Any extreme changes? (Short-term shocks happen)</li>
-      <li><strong>Consensus:</strong> Any credible reports of a chain split? (Very rare; that’s the real alarm)</li>
-    </ul>
-    <div class="quote small">
-      Most days the answer is boring: Bitcoin is fine.
-    </div>
-  </section>
-
-  <section class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">10) Quick FAQ</div>
-    <h2>Quick FAQ</h2>
-
-    <p class="small"><strong>Is a full mempool bad?</strong><br>
-      Not automatically. It usually means demand is high. Fees rise, and the backlog clears over time.
-    </p>
-
-    <p class="small"><strong>Are high fees “Bitcoin failing”?</strong><br>
-      No. High fees are the market signaling that block space is scarce at that moment.
-    </p>
-
-    <p class="small"><strong>What’s the biggest red flag?</strong><br>
-      A credible consensus split or widespread inability to produce blocks over a long period (rare).
-    </p>
-
-    <p class="small"><strong>What’s the most common misunderstanding?</strong><br>
-      Confusing temporary congestion with systemic failure.
-    </p>
-
-    <div class="quote small">
-      Satoshium principle: learn the signals, ignore the panic.
-    </div>
-  </section>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
