@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium — Demos</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -133,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -153,130 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-  
-<main class="wrap content">
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-  <div class="pill">🧪 Satoshium Labs</div>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-  <h1 style="margin-top:12px;">Live Demos & Experiments</h1>
-  <p class="muted">
-    This page lists what you can try right now, and what’s coming next.
-    Satoshium ships tools publicly — one visible step at a time.
-  </p>
-
-  <!-- AI CHAT -->
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-      <h2 style="margin-top:0;">Satoshium Hub Chat</h2>
-      <span class="badge live">✅ LIVE</span>
-    </div>
-
-    <p class="muted" style="margin:8px 0 10px;">
-      Interact with the Satoshium intelligence layer.
-    </p>
-
-    <div class="btnrow">
-      <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/labs/demos/ai-chat.html" target="_blank" rel="noreferrer">Launch Satoshium AI</a> 
-    </div>
-  </div>
-
-  <!-- EXPERIMENTS -->
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-      <h2 style="margin-top:0;">Satoshium Experiments</h2>
-      <span class="badge">🧪 WORK IN PROGRESS</span>
-    </div>
-
-    <p class="muted" style="margin:8px 0 10px;">
-      Experimental modules and prototypes — early demonstrations of sovereign intelligence tools.
-    </p>
-
-    <div class="btnrow">
-      <a class="btn" href="https://satoshiumai.github.io/satoshium-progress/labs/experiments/" target="_blank" rel="noreferrer">Launch Satoshium Experiments</a>
-    </div>
-  </div>
-
-  <!-- PLANNED -->
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-      <h2 style="margin-top:0;">Planned Experiments (Tier 1 • 2026)</h2>
-      <span class="badge">🧭 PROGRESS (NO DEADLINES)</span>
-    </div>
-
-    <p class="muted" style="margin:8px 0 10px;">
-      These are the next public-facing tools planned for 2026, shipped in logical order.
-      Everything releases only when it’s ready — calm, steady, and verifiable.
-    </p>
-
-    <ul>
-      <li><strong>Prompt Wizard</strong> — helps visitors ask better questions using structured prompts <span class="muted">(Apr • when ready)</span></li>
-      <li><strong>Onboarding Mentor</strong> — a guided “start here” flow for first-time visitors <span class="muted">(Jun • when ready)</span></li>
-      <li><strong>Protocol / Architecture Guide</strong> — plain-English map of how Satoshium works <span class="muted">(Jul • when ready)</span></li>
-      <li><strong>Claim Verifier (Trust Labels)</strong> — labels answers as Verified / Likely / Speculative / Unknown <span class="muted">(Aug–Sept • when ready)</span></li>
-      <li><strong>Source Transparency</strong> — shows where an answer came from <span class="muted">(Sept • when ready)</span></li>
-      <li><strong>Builder Gateway</strong> — contributor entry points <span class="muted">(late 2026–early 2027 • optional)</span></li>
-    </ul>
-
-    <p class="muted" style="margin:10px 0 0;">
-      Canon remains the truth-source. One unified Satoshium AI can operate through multiple internal modes —
-      tools are released publicly only when they improve clarity and understanding.
-
-      <br><br>
-      <strong>Note:</strong> The Glossary Builder (initially planned as a demo) has now been completed
-      and promoted to the <strong>Satoshium Knowledge Engine</strong> as core infrastructure.
-    </p>
-  </div>
-
-            <!-- Footer mission statement + links -->
-     </main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
