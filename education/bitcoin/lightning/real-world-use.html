@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Real-world use • Satoshium</title>
-<meta name="description" content="Real-world use explains how Bitcoin and Lightning are used globally today for payments, savings, remittances, and financial independence.">
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,12 +33,6 @@ line-height:1.55
 }
 body{
  padding-top:80px;
-}
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
 }
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
@@ -140,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -160,233 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-
-<main class="wrap content">
-
-<div class="pill">🌍 Lightning &amp; scaling</div>
-<h1>Real-world use</h1>
-
-<p class="small">
-Bitcoin is not theory anymore. It’s used globally every day for payments, savings, remittances, and financial independence. This page shows how Bitcoin and Lightning are actually used in the real world — right now.
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
 </p>
 
-<div class="grid">
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">What you’ll learn</div>
-    <h2 style="margin-top:6px;">💡 Practical understanding</h2>
-    <ul class="small">
-      <li>Where Bitcoin is used daily</li>
-      <li>Why Lightning enables real commerce</li>
-      <li>How people use Bitcoin differently worldwide</li>
-      <li>What adoption actually looks like on the ground</li>
-    </ul>
-    <div class="quote small">
-      Satoshium lens: Adoption doesn’t happen in headlines — it happens quietly in everyday life.
-    </div>
-  </div>
-
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">Quick navigation</div>
-    <h2 style="margin-top:6px;">📌 Sections</h2>
-
-    <ol class="toc">
-      <li><a href="#payments">1) Everyday payments</a></li>
-      <li><a href="#remittance">2) Global remittances</a></li>
-      <li><a href="#savings">3) Savings &amp; inflation protection</a></li>
-      <li><a href="#business">4) Businesses &amp; merchants</a></li>
-      <li><a href="#freedom">5) Financial freedom use cases</a></li>
-      <li><a href="#emerging">6) Emerging economies</a></li>
-      <li><a href="#future">7) Where this is heading</a></li>
-      <li><a href="#faq">8) Quick FAQ</a></li>
-    </ol>
-  </div>
-</div>
-
-<section class="card" id="payments" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">1) Daily usage</div>
-<h2>Everyday payments</h2>
-<p class="small">
-With Lightning, Bitcoin can be used for instant payments worldwide. Coffee, groceries, subscriptions, and online purchases can all be paid in seconds.
+<p>
+If you reached this page through a link, that link may need updating.
 </p>
-<ul class="small">
-<li>Instant global transactions</li>
-<li>Near-zero fees</li>
-<li>No bank approval needed</li>
-<li>Works across borders</li>
-</ul>
-<div class="quote small">
-Bitcoin becomes most powerful when it’s spendable — not just held.
-</div>
-</section>
 
-<section class="card" id="remittance" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">2) Cross-border money</div>
-<h2>Global remittances</h2>
-<p class="small">
-Millions of people send money across borders to family. Traditional systems can take days and charge high fees. Bitcoin moves value in minutes.
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
-<ul class="small">
-<li>Send globally in seconds</li>
-<li>Lower fees than traditional remittance</li>
-<li>No bank required</li>
-<li>Accessible with only a phone</li>
-</ul>
-<div class="quote small">
-For many families, Bitcoin isn’t speculation — it’s survival infrastructure.
-</div>
-</section>
 
-<section class="card" id="savings" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">3) Store of value</div>
-<h2>Savings &amp; inflation protection</h2>
-<p class="small">
-In countries with unstable currencies, Bitcoin serves as long-term savings protection.
-</p>
-<ul class="small">
-<li>Fixed supply (cannot be printed)</li>
-<li>Global portability</li>
-<li>Self-custody possible</li>
-<li>Independent of local banking systems</li>
-</ul>
-<div class="quote small">
-Bitcoin is often used first as savings, then as payments.
-</div>
-</section>
-
-<section class="card" id="business" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">4) Commerce</div>
-<h2>Businesses &amp; merchants</h2>
-<p class="small">
-Businesses worldwide now accept Bitcoin and Lightning.
-</p>
-<ul class="small">
-<li>Lower payment processing fees</li>
-<li>No chargebacks</li>
-<li>Instant settlement</li>
-<li>Global customer reach</li>
-</ul>
-<div class="quote small">
-For merchants, Bitcoin reduces friction and removes middlemen.
-</div>
-</section>
-
-<section class="card" id="freedom" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">5) Independence</div>
-<h2>Financial freedom use cases</h2>
-<p class="small">
-Bitcoin enables financial independence where traditional systems restrict access.
-</p>
-<ul class="small">
-<li>Banking for the unbanked</li>
-<li>Censorship-resistant transactions</li>
-<li>Ownership without permission</li>
-<li>Portable wealth</li>
-</ul>
-<div class="quote small">
-If you can memorize 12 words, you can cross a border with your wealth.
-</div>
-</section>
-
-<section class="card" id="emerging" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">6) Adoption zones</div>
-<h2>Emerging economies</h2>
-<p class="small">
-Bitcoin adoption often grows fastest where traditional systems fail.
-</p>
-<ul class="small">
-<li>High inflation countries</li>
-<li>Capital control regions</li>
-<li>Areas with limited banking</li>
-<li>Younger digital-first populations</li>
-</ul>
-<div class="quote small">
-Bitcoin spreads fastest where it solves real problems.
-</div>
-</section>
-
-<section class="card" id="future" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">7) Forward view</div>
-<h2>Where this is heading</h2>
-<p class="small">
-Bitcoin and Lightning are building toward a parallel global financial system:
-</p>
-<ul class="small">
-<li>Instant global payments</li>
-<li>Machine-to-machine transactions</li>
-<li>AI agent commerce</li>
-<li>Borderless digital economies</li>
-</ul>
-<div class="quote small">
-Satoshium exists because Bitcoin enables programmable, verifiable value.
-</div>
-</section>
-
-<section class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">8) Quick FAQ</div>
-<h2>Quick FAQ</h2>
-
-<p class="small"><strong>Is Bitcoin really used daily?</strong><br>
-Yes. Millions use it globally for payments, savings, and transfers.</p>
-
-<p class="small"><strong>Is Lightning required?</strong><br>
-Lightning enables instant small payments. Base layer handles long-term settlement.</p>
-
-<p class="small"><strong>Will adoption grow?</strong><br>
-Adoption typically follows utility. As infrastructure improves, usage expands.</p>
-
-<div class="quote small">
-Real adoption rarely trends on social media — it grows quietly, then suddenly.
-</div>
-</section>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
