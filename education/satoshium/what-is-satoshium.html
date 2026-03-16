@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium — What It Is</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,7 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -134,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -154,120 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-  
-  <main class="wrap content">
-    <div class="pill">🧠 What is Satoshium?</div>
-
-    <h1 style="margin-top:12px;">Satoshium, explained</h1>
-    <p class="muted">
-      Satoshium is a long-term project building <b>decentralized intelligence infrastructure</b> on the Bitcoin standard.
-      The goal is simple: <b>make AI systems more trustworthy</b> by anchoring them to cryptographic rules instead of human whims.
-    </p>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2 style="margin-top:0;">🔎 The one-sentence definition</h2>
-      <p>
-        <b>Satoshium is an open build lab for AI agents, trust systems, and tools that run on Bitcoin-grade verification.</b>
-      </p>
-      <p class="muted" style="margin:10px 0 0;">
-        Built in public. No hype. Visible progress only.
-      </p>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2 style="margin-top:0;">🧱 What Satoshium is building</h2>
-      <ul>
-        <li><b>Agents</b> — AI helpers that can follow explicit, auditable rules</li>
-        <li><b>Trust systems</b> — frameworks that score, verify, and constrain agent behavior</li>
-        <li><b>Open tools</b> — small utilities and demos that prove real progress</li>
-        <li><b>Governance + safety</b> — guardrails, policies, and “agent firewall” patterns</li>
-      </ul>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2 style="margin-top:0;">🧠 Why Bitcoin is part of it</h2>
-      <p>
-        Bitcoin is the strongest, most battle-tested base layer for decentralized verification.
-        Satoshium uses the Bitcoin mindset (and eventually Bitcoin-native primitives) to answer:
-      </p>
-      <ul>
-        <li>Can an agent prove what it did?</li>
-        <li>Can we audit decisions after the fact?</li>
-        <li>Can rules be enforced cryptographically instead of socially?</li>
-      </ul>
-      <p class="muted mini" style="margin:10px 0 0;">
-        Not everything is on-chain. The point is verifiability, not hype.
-      </p>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2 style="margin-top:0;">🧭 How to explore this site</h2>
-      <ul>
-        <li><b>Roadmap</b> — where the project is going</li>
-        <li><b>Updates</b> — what actually shipped (proof)</li>
-        <li><b>Demos</b> — live links to working tools</li>
-        <li><b>Main Site</b> — the broader Satoshium presence</li>
-      </ul>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
-      <h2 style="margin-top:0;">📜 Philosophy</h2>
-      <p>Build in public. Document everything. Ship small, real steps.</p>
-      <p class="muted">Every commit = forward motion.</p>
-      <p style="margin-top:12px;">
-Curious how the idea started?
-<a href="/satoshium-progress/start-here/origins.html">Read the origin story →</a>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
 </p>
-    </div>
 
-                <!-- Footer mission statement + links -->
- </main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-  </div>
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
+
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
+
 </body>
 </html>
