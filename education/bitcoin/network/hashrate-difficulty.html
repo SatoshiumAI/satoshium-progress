@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hashrate & Difficulty • Satoshium</title>
-<meta name="description" content="Hashrate and difficulty are Bitcoin’s self-adjusting security heartbeat. Learn what they mean, how they work, and why they matter.">
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -34,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -141,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -161,216 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-<main class="wrap content">
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-  <div class="pill">⛏️ Mining & network</div>
-  <h1>Hashrate & difficulty</h1>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-  <p class="small">
-    Hashrate and difficulty are Bitcoin’s self-adjusting security heartbeat. They show how much work is protecting the network — and how Bitcoin automatically adapts so blocks keep arriving on schedule.
-  </p>
-
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">Quick navigation</div>
-    <h2 style="margin-top:6px;">📌 Sections</h2>
-
-    <ol class="toc">
-      <li><a href="#simple">1) The simple explanation</a></li>
-      <li><a href="#hashrate">2) What hashrate measures</a></li>
-      <li><a href="#difficulty">3) What difficulty controls</a></li>
-      <li><a href="#adjustment">4) The adjustment rule (how it stays stable)</a></li>
-      <li><a href="#security">5) Why this increases security</a></li>
-      <li><a href="#signals">6) What these metrics signal</a></li>
-      <li><a href="#mistakes">7) Common misunderstandings</a></li>
-      <li><a href="#faq">8) Quick FAQ</a></li>
-    </ol>
-
-    <div class="quote small">
-      Satoshium principle: Bitcoin doesn’t ask permission to stay stable — it self-corrects.
-    </div>
-  </div>
-
-  <section class="card" id="simple" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">1) Plain English</div>
-    <h2>The simple explanation</h2>
-    <p class="small">
-      Bitcoin produces blocks about every ~10 minutes. Mining hardware around the world competes to find the next valid block.
-      Two metrics describe what’s happening:
-    </p>
-    <ul class="small">
-      <li><strong>Hashrate</strong> = total mining power actively securing Bitcoin</li>
-      <li><strong>Difficulty</strong> = how hard it is (right now) to find the next block</li>
-    </ul>
-    <div class="quote small">
-      Hashrate is “how much work is showing up.” Difficulty is “how hard the test is.”
-    </div>
-  </section>
-
-  <section class="card" id="hashrate" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">2) Network strength</div>
-    <h2>What hashrate measures</h2>
-    <p class="small">
-      Hashrate is the combined rate of “hash attempts” miners are making worldwide. More hashrate means more real-world
-      cost is being spent to secure Bitcoin.
-    </p>
-    <ul class="small">
-      <li>Higher hashrate generally means <strong>stronger attack resistance</strong></li>
-      <li>It reflects global investment in miners + electricity</li>
-      <li>It tends to grow as adoption grows (with normal short-term swings)</li>
-    </ul>
-  </section>
-
-  <section class="card" id="difficulty" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">3) Stability control</div>
-    <h2>What difficulty controls</h2>
-    <p class="small">
-      Difficulty is the protocol’s way of keeping block timing stable. If miners get faster (more hashrate),
-      difficulty rises. If miners disappear, difficulty falls.
-    </p>
-    <div class="quote small">
-      Difficulty is not “good” or “bad.” It’s a steering wheel that keeps the system on schedule.
-    </div>
-  </section>
-
-  <section class="card" id="adjustment" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">4) The rule</div>
-    <h2>The adjustment rule (how it stays stable)</h2>
-    <p class="small">
-      Bitcoin recalculates difficulty every <strong>2016 blocks</strong> (about two weeks).
-      It looks at how fast the last 2016 blocks were mined and adjusts to pull block times back toward ~10 minutes.
-    </p>
-    <ul class="small">
-      <li>If blocks were too fast → difficulty increases</li>
-      <li>If blocks were too slow → difficulty decreases</li>
-    </ul>
-    <div class="quote small">
-      No committee. No admin panel. Just a rule that runs forever.
-    </div>
-  </section>
-
-  <section class="card" id="security" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">5) Security impact</div>
-    <h2>Why this increases security</h2>
-    <p class="small">
-      The more hashrate securing Bitcoin, the more expensive it becomes to attack. Difficulty ensures that even as hashrate
-      changes, Bitcoin’s issuance schedule and block rhythm remain predictable.
-    </p>
-    <ul class="small">
-      <li>Hashrate raises the cost of rewriting history</li>
-      <li>Difficulty stabilizes the system under shocks</li>
-      <li>Together: <strong>security + predictability</strong></li>
-    </ul>
-  </section>
-
-  <section class="card" id="signals" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">6) Reading the dashboard</div>
-    <h2>What these metrics signal</h2>
-    <p class="small">
-      People watch hashrate and difficulty because they reveal network “fitness.”
-      They don’t predict price directly, but they can show whether the network is expanding, adapting, or under temporary stress.
-    </p>
-    <ul class="small">
-      <li><strong>Rising hashrate</strong> often signals long-term confidence and investment</li>
-      <li><strong>Large difficulty drops</strong> can signal a temporary shock (miners shutting off)</li>
-      <li><strong>Recovery</strong> shows the protocol doing what it was designed to do: adapt</li>
-    </ul>
-  </section>
-
-  <section class="card" id="mistakes" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">7) Common misunderstandings</div>
-    <h2>Common misunderstandings</h2>
-
-    <p class="small"><strong>“If hashrate drops, Bitcoin is broken.”</strong><br>
-      Bitcoin keeps running. Difficulty adjusts. The system is designed for change.
-    </p>
-
-    <p class="small"><strong>“High difficulty is bad for Bitcoin.”</strong><br>
-      Difficulty simply reflects competition for blocks — not network failure.
-    </p>
-
-    <p class="small"><strong>“Miners control Bitcoin.”</strong><br>
-      Miners provide security, but nodes enforce the rules. Miners can’t change the rules unilaterally.
-    </p>
-
-    <p class="small"><strong>“Hashrate = price.”</strong><br>
-      They can influence each other over long timeframes, but hashrate is primarily a security metric.
-    </p>
-  </section>
-
-  <section class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">8) Quick FAQ</div>
-    <h2>Quick FAQ</h2>
-
-    <p class="small"><strong>Does hashrate always go up?</strong><br>
-      Long-term it has trended up, but it moves in cycles. Short-term drops can happen.
-    </p>
-
-    <p class="small"><strong>How often does difficulty change?</strong><br>
-      Every 2016 blocks (roughly two weeks).
-    </p>
-
-    <p class="small"><strong>Who sets difficulty?</strong><br>
-      The protocol does, automatically, based on how fast blocks were found.
-    </p>
-
-    <p class="small"><strong>Why should a normal person care?</strong><br>
-      Because it’s proof Bitcoin is self-stabilizing. It adapts without leadership, and that resilience is the point.
-    </p>
-
-    <div class="quote small">
-      Satoshium lens: resilience is a protocol property — not a promise from an institution.
-    </div>
-  </section>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
