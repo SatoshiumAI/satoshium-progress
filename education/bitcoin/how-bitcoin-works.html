@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium • How Bitcoin Works</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -140,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -159,367 +186,26 @@ ul{
 margin:8px 0 0 18px
 }
 
-/* ===== Table ===== */
-
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 16px;
-}
-
-td, th {
-  padding: 10px 16px;
-}
-  
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-  <main class="wrap content">
-    <div class="pill">🟠 Bitcoin 101</div>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-    <h1 style="margin-top:12px;">How Bitcoin Works</h1>
-    <p class="muted">
-      Bitcoin is not “an app” — it’s a global network that lets people transfer value without needing a bank.
-      This page explains the moving parts in plain English: transactions, blocks, mining, nodes, and why it’s hard to fake.
-    </p>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-    <div class="card">
-      <div class="callout">
-        <div class="k">One-sentence summary</div>
-        <div style="margin-top:6px;">
-          <strong>Bitcoin works because thousands of independent computers (nodes) enforce the same rules</strong> —
-          and miners prove work to add new blocks, making history expensive to rewrite.
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick navigation / Sections -->
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="k">Quick navigation</div>
-      <h2 style="margin-top:6px;">📌 Sections</h2>
-      <ol class="toc">
-        <li><a href="#parts">1) The 5 parts of Bitcoin (simple map)</a></li>
-        <li><a href="#keys">2) Keys, addresses, and ownership</a></li>
-        <li><a href="#tx">3) Transactions & the mempool</a></li>
-        <li><a href="#blocks">4) Blocks & confirmations</a></li>
-        <li><a href="#mining">5) Mining & proof-of-work (why it’s secure)</a></li>
-        <li><a href="#nodes">6) Nodes & consensus (who enforces rules)</a></li>
-        <li><a href="#fees">7) Fees, finality, and “why it sometimes costs more”</a></li>
-        <li><a href="#supply">8) Fixed supply, halving, and difficulty</a></li>
-        <li><a href="#risks">9) What can go wrong (and what cannot)</a></li>
-        <li><a href="#next">10) Next steps</a></li>
-      </ol>
-    </div>
-
-    <div class="card card--wm" id="parts" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">1) The 5 parts of Bitcoin (simple map)</h2>
-      <div class="tablewrap" style="margin-top:10px;">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:22%;">Part</th>
-              <th style="width:48%;">What it does</th>
-              <th style="width:30%;">Why it matters</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Wallet</strong></td>
-              <td>Stores your <em>keys</em> (proof you own bitcoin).</td>
-              <td><span class="chip warn">Ownership</span> is key control.</td>
-            </tr>
-            <tr>
-              <td><strong>Transaction</strong></td>
-              <td>A signed message that moves bitcoin from one owner to another.</td>
-              <td>Transfers value without asking permission.</td>
-            </tr>
-            <tr>
-              <td><strong>Mempool</strong></td>
-              <td>A waiting room where unconfirmed transactions sit.</td>
-              <td>Fees help decide what gets confirmed first.</td>
-            </tr>
-            <tr>
-              <td><strong>Blocks</strong></td>
-              <td>Batches of transactions linked together in time order.</td>
-              <td>Creates shared history for everyone.</td>
-            </tr>
-            <tr>
-              <td><strong>Mining + Nodes</strong></td>
-              <td>Miners propose blocks; nodes verify and enforce rules.</td>
-              <td><span class="chip ok">Rules</span> stay predictable and enforceable.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="muted" style="margin:10px 0 0;">
-        Think of Bitcoin as a rule-governed ledger: miners <em>earn the right</em> to write the next page, and nodes decide if the page is valid.
-      </p>
-    </div>
-
-    <div class="card card--wm" id="keys" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">2) Keys, addresses, and ownership</h2>
-      <ul>
-        <li><strong>Private key</strong>: your secret. It authorizes spending.</li>
-        <li><strong>Public key</strong>: derived from the private key. Used to verify signatures.</li>
-        <li><strong>Address</strong>: a shareable destination (like an inbox). It points to where bitcoin can be sent.</li>
-      </ul>
-      <div class="callout" style="margin-top:12px;">
-        <div class="k">Core idea</div>
-        <div style="margin-top:6px;">
-          <strong>If you control the private keys, you control the bitcoin.</strong>
-          If you don’t, you’re relying on someone else.
-        </div>
-      </div>
-      <p class="muted" style="margin-top:10px;">
-        A wallet doesn’t “hold coins” like a pocket. It holds the keys that can unlock spending rights recorded on the blockchain.
-      </p>
-    </div>
-
-   <div class="card card--wm" id="tx" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">3) Transactions & the mempool</h2>
-      <p>
-        When you send bitcoin, your wallet creates a transaction that:
-      </p>
-      <ul>
-        <li>references previous outputs you own (the “inputs”)</li>
-        <li>specifies who receives it (the “outputs”)</li>
-        <li>includes a fee for miners</li>
-        <li>is signed with your private key</li>
-      </ul>
-
-      <div class="grid" style="margin-top:12px;">
-        <div class="card" style="margin:0;">
-          <h3>What is the mempool?</h3>
-          <p class="muted" style="margin-top:6px;">
-            The mempool is a shared waiting area. Nodes relay valid transactions to each other.
-            Miners pick from the mempool when building a block.
-          </p>
-        </div>
-        <div class="card" style="margin:0;">
-          <h3>Why do fees exist?</h3>
-          <p class="muted" style="margin-top:6px;">
-            Block space is limited. Fees help prioritize which transactions get included first —
-            especially during busy times.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="style" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">4) Blocks & confirmations</h2>
-      <p>
-        A <strong>block</strong> is a bundle of transactions plus a link to the previous block.
-        These links create a chain: the <strong>blockchain</strong>.
-      </p>
-      <ul>
-        <li><strong>1 confirmation</strong> = your transaction is included in a block.</li>
-        <li><strong>More confirmations</strong> = more blocks are built on top of that block.</li>
-      </ul>
-
-      <div class="callout" style="margin-top:12px;">
-        <div class="k">Why confirmations matter</div>
-        <div style="margin-top:6px;">
-          Rewriting history would require redoing the work for that block <em>and</em> catching up with the network.
-          The deeper the confirmation, the harder it is to reverse.
-        </div>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="mining" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">5) Mining & proof-of-work (why it’s secure)</h2>
-      <p>
-        Mining is a competition to find a valid block by performing computational work.
-        This work is called <strong>proof-of-work</strong>.
-      </p>
-      <ul>
-        <li>Miners try many guesses (hashes) until they find one that meets the network’s target.</li>
-        <li>The first miner to find a valid block broadcasts it to the network.</li>
-        <li>Nodes verify the block. If valid, it becomes the next block in the chain.</li>
-      </ul>
-
-      <div class="grid" style="margin-top:12px;">
-        <div class="card" style="margin:0;">
-          <h3>What miners do</h3>
-          <p class="muted" style="margin-top:6px;">
-            Miners propose blocks and earn rewards (block subsidy + fees) for securing the network.
-          </p>
-        </div>
-        <div class="card" style="margin:0;">
-          <h3>What proof-of-work prevents</h3>
-          <p class="muted" style="margin-top:6px;">
-            It makes attacks expensive. To rewrite history, an attacker must outspend the honest network’s power.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="nodes" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">6) Nodes & consensus (who enforces rules)</h2>
-      <p>
-        A <strong>node</strong> is a computer running Bitcoin software that verifies rules:
-      </p>
-      <ul>
-        <li>Are transactions properly signed?</li>
-        <li>Are coins being spent twice?</li>
-        <li>Are block rules followed (size, validity, subsidy, etc.)?</li>
-      </ul>
-
-      <div class="callout" style="margin-top:12px;">
-        <div class="k">Important distinction</div>
-        <div style="margin-top:6px;">
-          <strong>Miners propose.</strong> <strong>Nodes decide what is valid.</strong>
-          Consensus is rule-enforcement across many independent nodes.
-        </div>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">7) Fees, finality, and “why it sometimes costs more”</h2>
-      <ul>
-        <li><strong>Fees</strong> are paid to miners and measured in sats per byte (or sats/vB).</li>
-        <li>When the mempool is crowded, higher fees tend to confirm faster.</li>
-        <li><strong>Finality</strong> increases with confirmations (practical finality for most use cases after multiple confirmations).</li>
-      </ul>
-      <p class="muted" style="margin-top:10px;">
-        For instant, low-fee payments, Bitcoin uses Layer-2 systems like the Lightning Network (when appropriate).
-      </p>
-    </div>
-
-    <div class="card card--wm" id="supply" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">8) Fixed supply, halving, and difficulty</h2>
-      <div class="grid" style="margin-top:8px;">
-        <div class="card" style="margin:0;">
-          <h3>Fixed supply</h3>
-          <p class="muted" style="margin-top:6px;">
-            Bitcoin’s maximum supply is capped at <strong>21,000,000 BTC</strong>.
-            New bitcoin is issued on a schedule built into the protocol.
-          </p>
-        </div>
-        <div class="card" style="margin:0;">
-          <h3>Halving</h3>
-          <p class="muted" style="margin-top:6px;">
-            Roughly every four years, the new-coin reward per block is cut in half.
-            This slows new issuance over time.
-          </p>
-        </div>
-      </div>
-
-      <div class="card" style="margin:14px 0 0;">
-        <h3>Difficulty adjustment</h3>
-        <p class="muted" style="margin-top:6px;">
-          The network adjusts mining difficulty periodically to target a steady block rhythm.
-          If miners add more power, difficulty rises. If power drops, difficulty falls.
-        </p>
-      </div>
-    </div>
-
-    <div class="card card--wm" id="risks" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">9) What can go wrong (and what cannot)</h2>
-
-      <div class="tablewrap" style="margin-top:10px;">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:34%;">Risk</th>
-              <th style="width:36%;">What it looks like</th>
-              <th style="width:30%;">Best defense</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>User error</strong></td>
-              <td>Sending to wrong address, losing keys, weak backups.</td>
-              <td><span class="chip warn">Self-custody discipline</span></td>
-            </tr>
-            <tr>
-              <td><strong>Scams</strong></td>
-              <td>Fake support, phishing, “send to receive more,” malware.</td>
-              <td><span class="chip warn">Verification + caution</span></td>
-            </tr>
-            <tr>
-              <td><strong>Exchange risk</strong></td>
-              <td>Withdrawals paused, insolvency, account freezes.</td>
-              <td><span class="chip warn">Withdraw to your wallet</span></td>
-            </tr>
-            <tr>
-              <td><strong>Protocol rule break</strong></td>
-              <td>Trying to create invalid coins or fake signatures.</td>
-              <td><span class="chip ok">Nodes reject invalid data</span></td>
-            </tr>
-            <tr>
-              <td><strong>“Someone changes the rules”</strong></td>
-              <td>Attempt to force a rule change without broad agreement.</td>
-              <td><span class="chip ok">Consensus is voluntary</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="muted" style="margin:10px 0 0;">
-        The most common failures are human-level (keys, scams, custody), not “Bitcoin got hacked.”
-      </p>
-    </div>
-
-    <div class="card card--wm" id="next" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">10) Next steps</h2>
-      <ul>
-        <li><a href="/satoshium-progress/education/bitcoin/">Back to Bitcoin</a></li>
-        <li><a href="/satoshium-progress/education/bitcoin/bitcoin-vs-fiat.html">Read: Bitcoin vs Fiat</a></li>
-        <li><a href="/satoshium-progress/education/bitcoin/bitcoin-101-glossary.html">Open: Glossary (Bitcoin 101)</a></li>
-        <li><a href="/satoshium-progress/education/bitcoin/wallets/buying-storing-bitcoin.html">Next: Buying & Storing Bitcoin</a></li>
-      </ul>
-      <p class="muted" style="margin-top:10px;">
-        Built in public. No hype — just clarity.
-      </p>
-    </div>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
