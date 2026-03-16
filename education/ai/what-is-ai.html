@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Artificial Intelligence — What It Is</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -17,23 +19,6 @@
  --gold:#d6a34a;
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
-
- /* default watermark */
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
-}
-
-/* ===== Page Themes ===== */
-
-body.theme-satoshium{
- --card-wm: url('/satoshium-progress/assets/seal.png');
-}
-
-body.theme-bitcoin{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
-}
-
-body.theme-ai{
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
 }
 
 *{box-sizing:border-box}
@@ -49,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -150,6 +128,45 @@ z-index:1
 color:var(--muted)
 }
 
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
+}
+
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -170,166 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<div id="topbar-container"></div>
+<h1>Satoshium Progress Site Retired</h1>
+
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-
-<main class="wrap content">
-
-<div class="pill">🤖 What is AI?</div>
-
-<h1 style="margin-top:12px;">Artificial Intelligence, explained</h1>
-
-<p class="muted">
-Artificial Intelligence (AI) is software designed to learn, reason,
-and assist with complex tasks. It enables machines to analyze information,
-identify patterns, and make decisions that previously required human judgment.
-</p>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🔎 The simple definition</h2>
-
+ 
 <p>
-<b>Artificial Intelligence is software that can learn from data and use that learning to make decisions or generate outcomes.</b>
-</p>
-
-<p class="muted" style="margin-top:10px;">
-AI does not think like humans — it analyzes patterns and predicts outcomes
-based on large amounts of information.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">⚙️ What AI can do</h2>
-
-<ul>
-<li><b>Analyze information</b> — detect patterns in large datasets</li>
-<li><b>Generate content</b> — text, images, software, and ideas</li>
-<li><b>Assist decision making</b> — evaluate possibilities and outcomes</li>
-<li><b>Automate tasks</b> — perform work repeatedly and efficiently</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧠 How AI works (simplified)</h2>
-
-<ul>
-<li><b>Training</b> — models learn patterns from large datasets</li>
-<li><b>Inference</b> — the model uses what it learned to answer questions</li>
-<li><b>Feedback</b> — results improve through corrections and refinement</li>
-<li><b>Iteration</b> — systems evolve through continuous improvement</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🤖 AI Agents</h2>
-
-<p>
-Modern AI is moving toward <b>agents</b> — systems that can plan,
-reason, and execute tasks autonomously.
-</p>
-
-<ul>
-<li>Research assistants</li>
-<li>Software development tools</li>
-<li>decision-support systems</li>
-<li>automation agents</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">⚠️ Why governance matters</h2>
-
-<p>
-As AI systems grow more powerful, they must operate within clear rules
-and transparent systems of accountability.
-</p>
-
-<ul>
-<li>Systems should be auditable</li>
-<li>Decisions should be explainable</li>
-<li>Actions should follow defined rules</li>
-<li>Outcomes should be verifiable</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧭 Why Satoshium exists</h2>
-
-<p>
-Artificial intelligence creates enormous capability — but capability without
-trust can become dangerous.
+This development environment has been migrated to the live domain architecture.
 </p>
 
 <p>
-Satoshium explores how decentralized verification systems,
-inspired by Bitcoin, can help ensure that intelligent systems
-operate within transparent, auditable frameworks.
+If you reached this page through a link, that link may need updating.
 </p>
 
-<p class="muted">
-The goal is not to restrict intelligence — but to make it trustworthy.
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
 
-</div>
-
-<!-- Footer mission statement -->
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
