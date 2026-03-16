@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium — What is Bitcoin?</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,12 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
- 
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -139,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -159,255 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-  <main class="wrap content">
-    <div class="pill">₿ Bitcoin • Satoshium Lens</div>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-    <h1 style="margin-top:12px;">What is Bitcoin?</h1>
-    <p class="muted">
-      Bitcoin is the foundation of sovereign money — and a blueprint for systems governed by verifiable truth.
-      This page explains Bitcoin clearly, then connects it to Satoshium: decentralized intelligence built on the Bitcoin standard.
-    </p>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">The simple definition</div>
-      <h2 style="margin-top:8px;">Bitcoin is digital money with rules, not rulers.</h2>
-      <p class="muted" style="margin:8px 0 0;">
-        It is a global peer-to-peer network that lets people send value directly, without needing a bank, payment company, or government to approve the transaction.
-        Bitcoin is open, verifiable, and enforced by math and consensus.
-      </p>
-    </div>
-
-    <div class="grid">
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <h2 style="margin-top:0;">✅ What Bitcoin gives humanity</h2>
-        <ul>
-          <li><b>Digital scarcity</b> — a fixed supply (no surprise printing)</li>
-          <li><b>Self-custody</b> — you can hold your own money</li>
-          <li><b>Global access</b> — anyone can use it</li>
-          <li><b>Verification</b> — anyone can audit the rules</li>
-          <li><b>Durability</b> — it keeps running without permission</li>
-        </ul>
-      </div>
-
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <h2 style="margin-top:0;">🧠 Why Satoshium cares</h2>
-        <p class="muted" style="margin:8px 0 10px;">
-          Bitcoin is more than money — it is a working example of a system where truth is verifiable.
-          Satoshium extends that principle from money to intelligence:
-        </p>
-        <ul>
-          <li><b>Rules over whims</b></li>
-          <li><b>Proof over persuasion</b></li>
-          <li><b>Transparency over authority</b></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">Why it exists</div>
-      <h2 style="margin-top:8px;">Bitcoin was created to remove the need for trust.</h2>
-      <p class="muted" style="margin:8px 0 0;">
-        Traditional money systems require trust: trust in institutions, trust in gatekeepers, trust in policy makers.
-        Bitcoin introduced a different model: a public ledger anyone can verify, where the rules are known in advance.
-      </p>
-      <div class="quote" style="margin-top:12px;">
-        <b>Bitcoin introduced verifiable truth to money.</b><br />
-        <span class="muted">Satoshium is being built to extend verifiable truth to intelligence.</span>
-      </div>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">How it works (plain English)</div>
-      <h2 style="margin-top:8px;">Bitcoin is a public ledger secured by proof-of-work.</h2>
-
-      <h3>1) The blockchain</h3>
-      <p class="muted">
-        Think of the blockchain as a public notebook where transactions are recorded in “blocks.”
-        Each new block is linked to the previous one, making history extremely hard to rewrite.
-      </p>
-
-      <h3>2) Keys and ownership</h3>
-      <p class="muted">
-        Wallets hold cryptographic keys. Your <b>private key</b> proves you can spend your bitcoin.
-        Your <b>public address</b> is where others can send bitcoin to you.
-      </p>
-
-      <h3>3) Mining and security</h3>
-      <p class="muted">
-        Miners compete to add the next block by expending real-world energy (proof-of-work).
-        This makes attacks expensive and aligns security with physical reality.
-      </p>
-
-      <h3>4) Nodes and verification</h3>
-      <p class="muted">
-        Anyone can run a Bitcoin node to independently verify the rules and the ledger.
-        Nodes are how the network resists manipulation: <b>don’t trust — verify.</b>
-      </p>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">Why it matters</div>
-      <h2 style="margin-top:8px;">Bitcoin is a sovereignty tool.</h2>
-      <p class="muted" style="margin:8px 0 10px;">
-        For the first time, individuals can opt into a monetary system with:
-      </p>
-      <ul>
-        <li><b>Predictable rules</b> instead of changing policies</li>
-        <li><b>Final settlement</b> without permission</li>
-        <li><b>Ownership</b> that can’t be diluted by printing</li>
-        <li><b>Global portability</b> across borders and generations</li>
-      </ul>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">Bitcoin + the future of intelligence</div>
-      <h2 style="margin-top:8px;">As AI grows, truth must harden.</h2>
-      <p class="muted" style="margin:8px 0 10px;">
-        The next era will be shaped by autonomous systems — agents that act on behalf of people, companies, and communities.
-        If intelligence becomes powerful and centralized, society becomes fragile.
-        If intelligence becomes verifiable and decentralized, society becomes resilient.
-      </p>
-      <ul>
-        <li><b>Bitcoin shows how to build systems that resist manipulation.</b></li>
-        <li><b>Satoshium aims to apply those principles to AI agents.</b></li>
-        <li><b>Truth becomes a protocol — not a preference.</b></li>
-      </ul>
-
-      <div class="quote" style="margin-top:12px;">
-        <b>Satoshium exists because Bitcoin exists.</b><br />
-        <span class="muted">Bitcoin is the base layer of truth for value. Satoshium is building toward truth for intelligence.</span>
-      </div>
-    </div>
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-  <div class="kicker">Why Bitcoin + AI → Satoshium</div>
-  <h2 style="margin-top:8px;">This is the moment that changed the direction.</h2>
-  <p class="muted" style="margin:8px 0 10px;">
-    At Bitcoin Conference 2025, a simple idea clicked: Bitcoin is incorruptible, programmable capital —
-    and AI is a capability multiplier. Together, they make it possible for ordinary people to build extraordinary systems.
-  </p>
-  <ul>
-    <li><b>Bitcoin</b> gives truth, scarcity, and ownership you can verify.</li>
-    <li><b>AI</b> gives builders leverage — research, planning, code, and execution.</li>
-    <li><b>Satoshium</b> exists to extend Bitcoin’s “verify truth” model into intelligence: agents governed by rules, not whims.</li>
-  </ul>
-  <div class="btnrow">
-    <a class="btn" href="/satoshium-progress/start-here/origins.html">Read Satoshium Origins</a> | 
-    <a class="btn" href="/satoshium-progress/updates/">See the Updates</a>
-  </div>
-</div>
-   
-    <div class="card">
-      <div class="kicker">Learn more (expands into future pages)</div>
-      <h2 style="margin-top:8px;">Explore Bitcoin topics</h2>
-      <p class="muted" style="margin:8px 0 10px;">
-        These sections will expand into dedicated pages over time — one solid release at a time.
-      </p>
-
-  <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <h3 style="margin-top:0;">🟠 Bitcoin 101</h3>
-    <ul>
-      <li><a href="/satoshium-progress/education/bitcoin/history-origins.html">History & origins</a></li>
-      <li><a href="/satoshium-progress/education/bitcoin/how-bitcoin-works.html">How Bitcoin works</a></li>
-      <li><a href="/satoshium-progress/education/bitcoin/bitcoin-vs-fiat.html">Bitcoin vs fiat</a></li>
-      <li><a href="/satoshium-progress/education/bitcoin/bitcoin-101-glossary.html">Glossary</a></li>
-    </ul>
-  </div>
-</div>
-
-        <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-          <h3 style="margin-top:0;">🛡️ Wallets & security</h3>
-          <ul>
-            <li><a href="/satoshium-progress/education/bitcoin/wallets/buying-storing-bitcoin.html">Buying and storing bitcoin</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/wallets/hot-cold-storage.html">Hot wallets vs Cold storage</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/wallets/seed-phrase-safety.html">Seed phrase safety</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/wallets/common-scams-to-avoid.html">Common scams to avoid</a></li>
-          </ul>
-        </div>
-
-        <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-          <h3 style="margin-top:0;">⛏️ Mining & network</h3>
-          <ul>
-            <li><a href="/satoshium-progress/education/bitcoin/network/proof-of-work.html">Proof-of-work</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/network/hashrate-difficulty.html">Hashrate & difficulty</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/network/block-rewards.html">Block reward & halving</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/network/health-basics.html">Network health basics</a></li>
-          </ul>
-        </div>
-
-        <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-          <h3 style="margin-top:0;">⚡ Lightning & scaling</h3>
-          <ul>
-            <li><a href="/satoshium-progress/education/bitcoin/lightning/instant-payments.html">Instant payments</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/lightning/layer-2-basics.html">Layer-2 basics</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/lightning/channels-liquidity-routing.html">Channels, liquidity & routing</a></li>
-            <li><a href="/satoshium-progress/education/bitcoin/lightning/real-world-use.html">Real-world use</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="btnrow">
-        <a class="btn" href="/satoshium-progress/education/bitcoin/what-is-satoshium.html">What is Satoshium?</a> | 
-        <a href="/satoshium-progress/education/bitcoin/">Back to Bitcoin</a> | 
-        <a class="btn" href="/satoshium-progress/labs/index.html">Try the Demos</a> | 
-        <a class="btn" href="/satoshium-progress/updates.html">View the Updates</a>
-      </div>
-
-      <p class="tiny" style="margin-top:10px;">
-        Note: This is an educational overview and not financial advice.
-      </p>
-    </div>
-
-                <!-- Footer mission statement + links -->
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
