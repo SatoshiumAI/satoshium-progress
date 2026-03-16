@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Block Reward & Halving | Satoshium</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -32,12 +33,6 @@ line-height:1.55
 }
 body{
  padding-top:80px;
-}
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
 }
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
@@ -139,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -159,279 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
-  <main class="wrap content">
-    <div class="pill">⛏️ Mining & Network</div>
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-    <div class="container">
-      <h1>Block reward & halving</h1>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-      <p class="subtitle">
-        Bitcoin mining isn’t just “solving puzzles.” It’s a business model with a built-in monetary policy:
-        miners are paid with a <strong>block reward</strong> and <strong>transaction fees</strong>,
-        and the block reward is programmed to shrink over time through the <strong>halving</strong>.
-      </p>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-      <!-- QUICK NAV -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Quick navigation</div>
-        <h2 style="margin-top:6px;">📌 Sections</h2>
-
-        <ol class="toc">
-          <li><a href="#simple">1) The simple explanation</a></li>
-          <li><a href="#what-is-reward">2) What the block reward includes</a></li>
-          <li><a href="#halving">3) What a halving is (and why it exists)</a></li>
-          <li><a href="#schedule">4) The issuance schedule (big picture)</a></li>
-          <li><a href="#fees">5) Fees: the long-term miner incentive</a></li>
-          <li><a href="#security-budget">6) Security budget: rewards vs fees</a></li>
-          <li><a href="#misunderstood">7) Common misunderstandings</a></li>
-          <li><a href="#faq">8) Quick FAQ</a></li>
-        </ol>
-      </div>
-
-      <!-- 1 -->
-      <div class="card" id="simple" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The core idea</div>
-        <h2>1) The simple explanation</h2>
-
-        <p>
-          Every ~10 minutes, Bitcoin produces a new block. The miner who builds that block earns money in two ways:
-        </p>
-
-        <ul>
-          <li><strong>Block subsidy</strong> (new bitcoin created in that block)</li>
-          <li><strong>Transaction fees</strong> (paid by users who want their transactions confirmed)</li>
-        </ul>
-
-        <p>
-          The <strong>halving</strong> is Bitcoin’s built-in rule that periodically cuts the block subsidy in half.
-          Over time, <strong>new issuance trends toward zero</strong>, and miners increasingly rely on <strong>fees</strong>.
-        </p>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Why it matters</div>
-            <div class="v">This is how Bitcoin enforces scarcity while keeping miners economically motivated to secure the network.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="card" id="what-is-reward" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">What miners earn</div>
-        <h2>2) What the block reward includes</h2>
-
-        <p>
-          The phrase “block reward” often gets used as if it’s one thing, but it’s really two components:
-        </p>
-
-        <div class="kvs">
-          <div class="k">Block subsidy</div>
-          <div class="v">New bitcoin issued according to the monetary schedule (this is what halves).</div>
-
-          <div class="k">Transaction fees</div>
-          <div class="v">Sum of fees from all transactions included in the block (this does <em>not</em> halve).</div>
-        </div>
-
-        <p class="note">
-          A simple mental model: <strong>subsidy is the “mint,” fees are the “market.”</strong>
-        </p>
-      </div>
-
-      <!-- 3 -->
-      <div class="card" id="halving" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Programmed scarcity</div>
-        <h2>3) What a halving is (and why it exists)</h2>
-
-        <p>
-          A halving is a scheduled event where the block subsidy is cut in half. This does two things:
-        </p>
-
-        <ul>
-          <li><strong>Reduces new supply</strong> entering the market</li>
-          <li><strong>Hardens scarcity</strong> in a predictable, rule-based way</li>
-        </ul>
-
-        <p>
-          Bitcoin’s design avoids the “print more when convenient” problem. There is no committee vote.
-          No emergency lever. Just code.
-        </p>
-
-        <div class="quote">
-          “Same rules for everyone, forever” is the point.
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="card" id="schedule" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The big picture</div>
-        <h2>4) The issuance schedule (big picture)</h2>
-
-        <p>
-          Bitcoin’s supply is capped. New bitcoin issuance decreases over time until it becomes negligible.
-          Eventually, miners are paid mostly by transaction fees.
-        </p>
-
-        <ul>
-          <li>Early years: subsidy dominates</li>
-          <li>Middle years: subsidy shrinks, fees grow in importance</li>
-          <li>Long-term: fees become the primary incentive</li>
-        </ul>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Key takeaway</div>
-            <div class="v">Bitcoin’s “inflation rate” is not a policy choice — it is a known schedule.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="card" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Market-driven incentives</div>
-        <h2>5) Fees: the long-term miner incentive</h2>
-
-        <p>
-          When blocks are scarce and demand for confirmation is high, users compete by offering fees.
-          Miners naturally prioritize transactions that pay more (because it’s their revenue).
-        </p>
-
-        <p><strong>In plain terms:</strong></p>
-        <ul>
-          <li>More demand for block space → higher fees</li>
-          <li>Higher fees → stronger miner incentive</li>
-          <li>Stronger incentive → more security investment</li>
-        </ul>
-
-        <p class="note">
-          Fees are Bitcoin’s “free market” layer: they reflect real demand for settlement.
-        </p>
-      </div>
-
-      <!-- 6 -->
-      <div class="card" id="security-budget" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Security economics</div>
-        <h2>6) Security budget: rewards vs fees</h2>
-
-        <p>
-          Proof-of-work security is funded by miner revenue. That revenue is sometimes called the network’s
-          <strong>security budget</strong>.
-        </p>
-
-        <div class="kvs">
-          <div class="k">Today</div>
-          <div class="v">Security budget is mostly subsidy + some fees.</div>
-
-          <div class="k">Over time</div>
-          <div class="v">Subsidy shrinks. Fees become increasingly important.</div>
-        </div>
-
-        <p>
-          This is why real-world usage matters: as Bitcoin becomes a global settlement layer, fees can sustain
-          strong incentives even as issuance declines.
-        </p>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Healthy sign</div>
-            <div class="v">A fee market that reflects genuine demand for Bitcoin’s limited block space.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="card" id="misunderstood" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Common confusion</div>
-        <h2>7) Common misunderstandings</h2>
-
-        <p><strong>“The halving means miners suddenly stop”</strong><br />
-          No. Mining continues. The revenue mix shifts, and difficulty adjusts over time as the market responds.
-        </p>
-
-        <p><strong>“Fees are optional forever”</strong><br />
-          Fees are optional for a single transaction, but the network always prioritizes scarce block space.
-          In high-demand periods, fees rise because block space is limited.
-        </p>
-
-        <p><strong>“Halvings guarantee price increases”</strong><br />
-          Halvings change supply issuance. Price is still set by the market (demand, liquidity, macro conditions, sentiment).
-        </p>
-
-        <p><strong>“Bitcoin runs out of bitcoin”</strong><br />
-          Bitcoin does not “run out.” New issuance declines, but miners can still be paid via transaction fees.
-        </p>
-      </div>
-
-      <!-- 8 -->
-      <div class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Quick answers</div>
-        <h2>8) Quick FAQ</h2>
-
-        <p><strong>What exactly halves?</strong><br />
-          The <em>block subsidy</em> (new bitcoin issued), not the transaction fees.
-        </p>
-
-        <p><strong>Do halvings change the 10-minute target?</strong><br />
-          No. The 10-minute block target is maintained by difficulty adjustments, not by changing reward size.
-        </p>
-
-        <p><strong>Will miners still be paid in the future?</strong><br />
-          Yes — the long-term design is a fee-driven incentive model.
-        </p>
-
-        <p><strong>Why not just keep issuing bitcoin forever?</strong><br />
-          Because Bitcoin’s purpose is scarce, neutral money. The fixed supply is a core feature, not a bug.
-        </p>
-      </div>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
