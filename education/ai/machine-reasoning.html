@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Machine Reasoning — What It Is</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -17,25 +19,7 @@
  --gold:#d6a34a;
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
-
- /* default watermark */
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
 }
-
-/* ===== Page Themes ===== */
-
-body.theme-satoshium{
- --card-wm: url('/satoshium-progress/assets/seal.png');
-}
-
-body.theme-bitcoin{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
-}
-
-body.theme-ai{
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
-}
-
 
 *{box-sizing:border-box}
 
@@ -50,12 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
- 
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -150,6 +128,45 @@ z-index:1
 color:var(--muted)
 }
 
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
+}
+
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -170,170 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top" class="theme-ai">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-
-<main class="wrap content">
-
-<div class="pill">🧩 What is machine reasoning?</div>
-
-<h1 style="margin-top:12px;">Machine reasoning, explained</h1>
-
-<p class="muted">
-Machine reasoning is the ability of software to work through information step by step,
-follow rules, compare possibilities, and reach structured conclusions.
-It is one of the key capabilities that makes advanced AI systems useful for complex tasks.
-</p>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🔎 The simple definition</h2>
-
+ 
 <p>
-<b>Machine reasoning is when software uses rules, logic, context, and structured information to evaluate a problem and arrive at an answer or decision.</b>
-</p>
-
-<p class="muted" style="margin-top:10px;">
-It is not just guessing. Good reasoning systems compare evidence, test options,
-and move through a problem in a more disciplined way.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧠 What machine reasoning looks like</h2>
-
-<ul>
-<li><b>Following steps</b> — moving through a problem in order</li>
-<li><b>Comparing evidence</b> — weighing different facts or signals</li>
-<li><b>Applying rules</b> — using known constraints or policies</li>
-<li><b>Choosing actions</b> — selecting the best next step based on context</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">⚙️ How it differs from basic prediction</h2>
-
-<p>
-Many AI systems are very good at prediction: they estimate the next likely word,
-image, or action. Reasoning goes further.
-</p>
-
-<ul>
-<li><b>Prediction</b> — what is likely?</li>
-<li><b>Reasoning</b> — what follows from the rules, context, and evidence?</li>
-</ul>
-
-<p class="muted" style="margin-top:10px;">
-Strong systems often use both: prediction for speed, reasoning for discipline.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧱 Why reasoning matters for agents</h2>
-
-<p>
-AI agents do more than answer questions. They plan, decide, and act.
-That means they need more than pattern recognition — they need reasoning.
-</p>
-
-<ul>
-<li>Should this action be allowed?</li>
-<li>What rule applies here?</li>
-<li>What evidence supports this conclusion?</li>
-<li>What is the safest next step?</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">⚠️ Why reasoning still needs guardrails</h2>
-
-<p>
-Reasoning systems can still fail if their inputs are wrong, their rules are weak,
-or their goals are poorly defined.
-</p>
-
-<ul>
-<li>Bad assumptions can produce bad conclusions</li>
-<li>Incomplete context can distort reasoning</li>
-<li>Unclear objectives can create unsafe decisions</li>
-<li>Unchecked autonomy can amplify mistakes</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧭 Why Satoshium cares about machine reasoning</h2>
-
-<p>
-Satoshium is not interested in intelligence alone. It is interested in
-<b>trustworthy intelligence</b>.
+This development environment has been migrated to the live domain architecture.
 </p>
 
 <p>
-That means reasoning should be connected to shared definitions, explicit rules,
-verifiable claims, and simulation environments where ideas can be tested before they are trusted.
+If you reached this page through a link, that link may need updating.
 </p>
 
-<p class="muted">
-The goal is to make machine reasoning more transparent, auditable, and aligned with durable system rules.
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
 
-</div>
-
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-  </div>
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
