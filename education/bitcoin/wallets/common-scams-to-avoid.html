@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Common scams to avoid • Satoshium</title>
-<meta name="description" content="Bitcoin scams are predictable. Learn the most common traps and how to avoid them with calm, repeatable security habits.">
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -31,7 +31,9 @@ color:var(--text);
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 line-height:1.55
 }
-
+body{
+ padding-top:80px;
+}
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -109,6 +111,18 @@ z-index:0;
 position:relative;
 z-index:1
 }
+.card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.card {
+ border: 1px solid rgba(214,163,74,.15);
+}
 
 .muted{
 color:var(--muted)
@@ -120,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -140,174 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
- <main class="wrap content">
-
-<div class="pill">🛡️ Wallets & security</div>
-<h1 style="margin-top:12px;">Common scams to avoid</h1>
-<p style="color:var(--muted)">
-Bitcoin scams rarely rely on hacking. They rely on urgency, fear, greed, and confusion.
-Once you recognize the patterns, they become easy to spot.
+<p>
+This development environment has been migrated to the live domain architecture.
 </p>
 
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">Quick navigation</div>
-<h2>🚨 Sections</h2>
-
-<ol class="toc">
-<li><a href="#truth">1) The uncomfortable truth</a></li>
-<li><a href="#impersonation">2) Impersonation scams</a></li>
-<li><a href="#seed">3) Seed phrase traps</a></li>
-<li><a href="#giveaways">4) Giveaway & doubling scams</a></li>
-<li><a href="#fakeapps">5) Fake apps & websites</a></li>
-<li><a href="#romance">6) Romance & relationship scams</a></li>
-<li><a href="#mindset">7) The Satoshium safety mindset</a></li>
-<li><a href="#rules">8) Simple rules that prevent most losses</a></li>
-</ol>
-
-<p style="color:var(--muted);margin-top:12px;">
-Tip: If urgency is involved, pause. Bitcoin rewards calm thinking.
+<p>
+If you reached this page through a link, that link may need updating.
 </p>
-</div>
 
-<section class="card" id="truth" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">1) Reality check</div>
-<h2>The uncomfortable truth</h2>
-<ul>
-<li>Most bitcoin theft is voluntary (people are tricked into sending it)</li>
-<li>Scammers rely on emotion, not technology</li>
-<li>Once sent, bitcoin transactions cannot be reversed</li>
-</ul>
-<div class="quote">
-If someone creates urgency, they are usually removing your ability to think clearly.
-</div>
-</section>
-
-<section class="card" id="impersonation" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">2) Most common</div>
-<h2>Impersonation scams</h2>
-<ul>
-<li>Fake Coinbase/Strike/ledger support</li>
-<li>Twitter/X “customer support” replies</li>
-<li>Email pretending to be exchanges</li>
-<li>YouTube comments posing as help desks</li>
-</ul>
-<div class="quote">
-No legitimate company will EVER ask for your seed phrase.
-</div>
-</section>
-
-<section class="card" id="seed" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">3) Critical</div>
-<h2>Seed phrase traps</h2>
-<ul>
-<li>“Verify your wallet” websites</li>
-<li>Fake wallet recovery tools</li>
-<li>DMs offering help recovering funds</li>
-<li>Phishing emails about “wallet issues”</li>
-</ul>
-<div class="quote">
-Entering your seed phrase anywhere online = giving away your bitcoin.
-</div>
-</section>
-
-<section class="card" id="giveaways" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">4) Classic</div>
-<h2>Giveaway & doubling scams</h2>
-<ul>
-<li>Send 0.1 BTC → receive 0.2 BTC back</li>
-<li>Fake celebrity livestream giveaways</li>
-<li>AI-generated deepfake endorsements</li>
-</ul>
-<div class="quote">
-No one gives away bitcoin to strangers on the internet.
-</div>
-</section>
-
-<section class="card" id="fakeapps" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">5) Dangerous</div>
-<h2>Fake apps & websites</h2>
-<ul>
-<li>Fake wallet apps in app stores</li>
-<li>Google ads leading to phishing sites</li>
-<li>Bookmarking wrong URLs</li>
-</ul>
-<div class="quote">
-Always verify URLs and download from official sources only.
-</div>
-</section>
-
-<section class="card" id="romance" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">6) Psychological</div>
-<h2>Romance & relationship scams</h2>
-<ul>
-<li>Online relationship → investment advice</li>
-<li>Emergency requests for crypto help</li>
-<li>“I can teach you crypto trading” setups</li>
-</ul>
-<div class="quote">
-If emotions are involved, slow down. Scammers weaponize trust.
-</div>
-</section>
-
-<section class="card" id="mindset" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">7) Defense</div>
-<h2>The Satoshium safety mindset</h2>
-<ul>
-<li>Move slowly</li>
-<li>Verify everything</li>
-<li>Never act under pressure</li>
-<li>When unsure, do nothing</li>
-</ul>
-<div class="quote">
-Calm users don’t get scammed. Rushed users do.
-</div>
-</section>
-
-<section class="card" id="rules" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-<div class="kicker">8) Simple rules</div>
-<h2>Rules that prevent most losses</h2>
-<ul>
-<li>Never share your seed phrase</li>
-<li>Never trust unsolicited messages</li>
-<li>Never rush a bitcoin transaction</li>
-<li>When unsure, stop and verify</li>
-</ul>
-<div class="quote">
-Bitcoin rewards patience and personal responsibility.
-</div>
-</section>
-
-            <!-- Footer mission statement + links -->
-      <hr />
-      <div">Satoshium is built for Bitcoin-era intelligence — public progress, real tools, long-term future.</div>
-      <hr />
-
-      </div>
-
-</main>                     
-
-<div id="footer-container"></div>
-
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
 </body>
 </html>
