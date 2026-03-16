@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Satoshium • Bitcoin vs Fiat</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -140,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -159,274 +186,26 @@ ul{
 margin:8px 0 0 18px
 }
 
-/* ===== Table ===== */
-
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 16px;
-}
-
-td, th {
-  padding: 10px 16px;
-}
-  
-table.compare-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 16px;
-}
-
-.compare-table tr {
-  background: rgba(214,163,74,.03);
-}
-
-.compare-table td,
-.compare-table th {
-  padding: 12px 16px;
-}
-  
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
-  <main class="wrap content">
-    <div class="pill">🟠 Bitcoin 101</div>
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-    <h1 style="margin-top:12px;">Bitcoin vs Fiat</h1>
-    <p class="muted">
-      Fiat is government-issued currency (like USD). Bitcoin is decentralized, digital money with a fixed supply.
-      This page explains the difference in plain English — and why it matters for saving, spending, and building.
-    </p>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-    <div class="card">
-      <div class="callout">
-        <div class="k">One-sentence summary</div>
-        <div style="margin-top:6px;">
-          <strong>Fiat is managed by institutions.</strong> <strong>Bitcoin is governed by code.</strong>
-          That single difference changes supply, trust, and long-term incentives.
-        </div>
-      </div>
-    </div>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-    <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">Quick Comparison</h2>
-      <div class="tablewrap" style="margin-top:10px;">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:22%;">Category</th>
-              <th style="width:39%;">Fiat (USD / traditional money)</th>
-              <th style="width:39%;">Bitcoin</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Supply</strong></td>
-              <td>
-                Can expand (printing / credit expansion).<br>
-                <span class="chip warn">Flexible</span>
-              </td>
-              <td>
-                Fixed maximum supply: 21,000,000 BTC.<br>
-                <span class="chip ok">Hard-capped</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Control</strong></td>
-              <td>
-                Centralized policy (central bank + regulators).<br>
-                <span class="chip warn">Policy-driven</span>
-              </td>
-              <td>
-                Decentralized consensus (nodes enforce rules).<br>
-                <span class="chip ok">Rule-driven</span>
-              </td>
-            </tr>
-             <tr>
-              <td><strong>Trust</strong></td>
-              <td>
-                “Trust the issuer” (banks, governments, intermediaries).<br>
-                <span class="chip warn">Trust-based</span>
-              </td>
-              <td>
-                “Verify the rules” (open protocol, predictable issuance).<br>
-                <span class="chip ok">Verification-based</span>
-              </td>
-            </tr>
-              <tr>
-              <td><strong>Settlement</strong></td>
-              <td>
-                Bank rails can be reversed/frozen; finality depends on intermediaries.<br>
-                <span class="chip warn">Institutional</span>
-              </td>
-              <td>
-                On-chain settlement is final after confirmations; censorship is difficult.<br>
-                <span class="chip ok">Protocol finality</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Portability</strong></td>
-              <td>
-                Cross-border transfers are slow/limited without banks.<br>
-                <span class="chip warn">Friction</span>
-              </td>
-              <td>
-                Can move globally with an internet connection (and good security).<br>
-                <span class="chip ok">Borderless</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Privacy</strong></td>
-              <td>
-                Banking is identity-linked; surveillance varies by jurisdiction.<br>
-                <span class="chip warn">ID-linked</span>
-              </td>
-              <td>
-                Public ledger, but no built-in identity; privacy depends on your practices.<br>
-                <span class="chip warn">Pseudonymous</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Inflation Risk</strong></td>
-              <td>
-                Purchasing power can decline over time (inflation).<br>
-                <span class="chip bad">Ongoing risk</span>
-              </td>
-              <td>
-                Issuance schedule is fixed; volatility exists, but supply is known.<br>
-                <span class="chip ok">Known supply</span>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Failure Modes</strong></td>
-              <td>
-                Bank failure, capital controls, policy shocks, debasement.<br>
-                <span class="chip warn">Counterparty risk</span>
-              </td>
-              <td>
-                User error, key loss, scams; protocol risk is minimized by decentralization.<br>
-                <span class="chip warn">Self-custody risk</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="muted" style="margin:10px 0 0;">
-        Both systems have tradeoffs. Bitcoin shifts risk from institutions → personal responsibility (keys, backups, opsec).
-      </p>
-    </div>
-
-    <div class="grid">
-      <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <h2 style="margin-top:0;">What Fiat Does Well</h2>
-        <ul>
-          <li><strong>Easy to use</strong> (everyone accepts it locally)</li>
-          <li><strong>Stable day-to-day</strong> (prices don’t swing hourly)</li>
-          <li><strong>Consumer protections</strong> (chargebacks, fraud departments)</li>
-          <li><strong>Credit system</strong> (loans, mortgages, business lines)</li>
-        </ul>
-        <p class="muted" style="margin-top:10px;">
-          Fiat is optimized for local commerce and credit markets — but stability is maintained by policy, not physics.
-        </p>
-      </div>
-
-      <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <h2 style="margin-top:0;">What Bitcoin Does Differently</h2>
-        <ul>
-          <li><strong>Fixed supply</strong> (no surprise dilution)</li>
-          <li><strong>Permissionless</strong> (no account required)</li>
-          <li><strong>Verifiable</strong> (anyone can run a node and audit rules)</li>
-          <li><strong>Global settlement</strong> (moves value across borders)</li>
-        </ul>
-        <p class="muted" style="margin-top:10px;">
-          Bitcoin is optimized for <em>credible scarcity</em>, independent verification, and long-term resilience.
-        </p>
-      </div>
-    </div>
-
-    <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">Why This Matters (Real Life)</h2>
-      <ul>
-        <li><strong>Savings:</strong> Fiat can lose purchasing power. Bitcoin’s supply is fixed — but price can be volatile.</li>
-        <li><strong>Access:</strong> Banking is permissioned. Bitcoin is open to anyone with keys.</li>
-        <li><strong>Ownership:</strong> Bank balances are claims on a system. Bitcoin can be held in self-custody.</li>
-        <li><strong>Portability:</strong> Bitcoin can cross borders faster than legacy rails (especially with Lightning).</li>
-      </ul>
-      <p class="muted" style="margin:10px 0 0;">
-        Think of it like this: fiat is great for <strong>spending</strong>. bitcoin is engineered for <strong>sovereign saving</strong> and
-        <strong>global settlement</strong>.
-      </p>
-    </div>
-
-    <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">Common Misconceptions</h2>
-      <ul>
-        <li><strong>“Bitcoin is anonymous.”</strong> It’s better described as <em>pseudonymous</em>. The ledger is public.</li>
-        <li><strong>“Bitcoin is backed by nothing.”</strong> It’s backed by verifiable rules, security, and a global network.</li>
-        <li><strong>“Fiat is always safer.”</strong> Fiat is safer for chargebacks; bitcoin is safer for censorship-resistance (if used correctly).</li>
-        <li><strong>“Bitcoin is only for investing.”</strong> It’s also a payment rail and settlement network (Lightning expands this).</li>
-      </ul>
-    </div>
-
-    <div class="card card--wm" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <h2 style="margin-top:0;">Next Steps</h2>
-      <ul>
-        <li><a href="/satoshium-progress/education/bitcoin/">Back to Bitcoin</a></li>
-        <li><a href="/satoshium-progress/education/bitcoin/history-origins.html">Read next: History & Origins</a></li>
-        </ul>
-      <p class="muted" style="margin-top:10px;">
-        Building slowly. One page at a time. No hype — just clarity.
-      </p>
-    </div>
-
-                <!-- Footer mission statement + links -->
-</main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
