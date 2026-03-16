@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Satoshium - Education</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -17,23 +19,6 @@
  --gold:#d6a34a;
  --gold2:#f4c36a;
  --line:rgba(214,163,74,.18);
-
- /* default watermark */
- --card-wm: url('/satoshium-progress/assets/seal.png');
-}
-
-/* ===== Page Themes ===== */
-
-body.theme-satoshium{
- --card-wm: url('/satoshium-progress/assets/seal.png');
-}
-
-body.theme-bitcoin{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
-}
-
-body.theme-ai{
- --card-wm: url('/satoshium-progress/assets/ai-seal.jpg');
 }
 
 *{box-sizing:border-box}
@@ -49,23 +34,16 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
+/* ===== Layout ===== */
+
 .content{
 padding:34px 18px 60px
 }
-
-/* ===== Layout ===== */
 
 h1,h2{
 margin:0 0 10px
@@ -150,6 +128,45 @@ z-index:1
 color:var(--muted)
 }
 
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
+}
+
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -170,185 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top" class="theme-satoshium">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-
-<main class="wrap content">
-
-<div class="page-header">
-
-<span class="pill">🧠 Satoshium Foundations</span>
-
-<h1 style="margin-top:12px;">Understanding Satoshium</h1>
-<p class="muted">
-  Satoshium is a long-term project exploring how intelligence systems can become more
-  trustworthy, more structured, and more verifiable. This section introduces the core
-  ideas behind the platform and explains why Bitcoin, AI, governance, and verification
-  all belong in the same conversation.
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
 </p>
 
-</div>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-<!-- INTRO -->
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-<div class="card">
-  <h2 style="margin-top:0;">🔎 Why this section exists</h2>
-  <p>
-    Before exploring Satoshium’s systems, labs, and future agents, it helps to understand
-    the foundation: what Satoshium is, why it exists, and what type of platform it is trying to become.
-  </p>
-  <p>
-    These pages are meant to explain the project in plain language while keeping the long-term
-    architecture visible.
-  </p>
-</div>
-
-<!-- WHAT IS SATOSHIUM -->
-
-<div class="card">
-  <h2 style="margin-top:0;">🧱 What Satoshium is</h2>
-  <p>
-    Satoshium is an emerging platform for decentralized intelligence infrastructure.
-    It explores how AI systems, trust systems, and verifiable rules can be combined into
-    tools that are more transparent, auditable, and durable.
-  </p>
-  <p>
-    <a href="/satoshium-progress/education/satoshium/what-is-satoshium.html" class="pill">
-      What is Satoshium?
-    </a>
-  </p>
-</div>
-
-<!-- ORIGINS -->
-
-<div class="card">
-  <h2 style="margin-top:0;">⚡ Where the idea came from</h2>
-  <p>
-    Satoshium began with a simple realization: Bitcoin offers a model of verifiable truth for value,
-    while AI offers a powerful multiplier for execution. Together, they suggest a new possibility —
-    intelligence systems governed by rules, not whims.
-  </p>
-  <p>
-    <a href="/satoshium-progress/start-here/origins.html" class="pill">
-      Read the origin story
-    </a>
-  </p>
-</div>
-
-<!-- CORE LAYERS -->
-
-<div class="card">
-  <h2 style="margin-top:0;">🏗 The core platform layers</h2>
-  <p>
-    Satoshium is not being built as a single chatbot or one isolated tool. It is being built
-    as a layered platform.
-  </p>
-  <ul>
-    <li><b>Canon</b> — the source of truth for concepts, doctrine, and guiding principles</li>
-    <li><b>Knowledge Engine</b> — structured vocabulary and shared conceptual definitions</li>
-    <li><b>Verification</b> — frameworks for claims, evidence, transparency, and trust labels</li>
-    <li><b>Agents</b> — future systems that operate within explicit and auditable boundaries</li>
-  </ul>
-  <p class="muted" style="margin-top:10px;">
-    The goal is to build intelligence systems that are coherent underneath, not just impressive on the surface.
-  </p>
-</div>
-
-<!-- WHAT IT COULD BECOME -->
-
-<div class="card">
-  <h2 style="margin-top:0;">🌲 The bigger vision</h2>
-  <p>
-    Long term, Satoshium could evolve into a coherent intelligence platform —
-    a place where humans and AI systems explore complex ideas using shared definitions,
-    verification layers, simulation tools, and trustworthy reasoning structures.
-  </p>
-  <p>
-    That vision includes:
-  </p>
-  <ul>
-    <li><b>knowledge systems</b> that define concepts consistently</li>
-    <li><b>verification systems</b> that evaluate claims and evidence</li>
-    <li><b>simulation environments</b> that explore future scenarios and governance models</li>
-    <li><b>agents</b> that reason inside auditable and constrained frameworks</li>
-  </ul>
-</div>
-
-<!-- HOW TO EXPLORE -->
-
-<div class="card">
-  <h2 style="margin-top:0;">🧭 How to explore the platform</h2>
-  <p>
-    If you want to understand Satoshium more deeply, the best path is:
-  </p>
-  <ul>
-    <li><b>Architecture</b> — understand the system layers</li>
-    <li><b>Systems</b> — see the core infrastructure taking shape</li>
-    <li><b>Education</b> — learn the Bitcoin and AI foundations behind the platform</li>
-    <li><b>Labs</b> — explore experimental simulations and tools</li>
-    <li><b>Build + Updates</b> — track visible progress over time</li>
-  </ul>
-</div>
-
-<!-- WHY IT MATTERS -->
-
-<div class="card">
-  <h2 style="margin-top:0;">🧠 Why this matters</h2>
-  <p>
-    AI systems are becoming more capable, but capability alone is not enough.
-    As intelligence becomes more powerful, questions of meaning, trust, governance,
-    and verification become more important.
-  </p>
-  <p>
-    Satoshium exists to explore whether intelligence systems can be built on stronger foundations:
-    not only faster and smarter, but more coherent, more constrained, and more trustworthy.
-  </p>
-</div>
-
-</main>
-
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
-   document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
