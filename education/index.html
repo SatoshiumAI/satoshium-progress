@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Satoshium Education — Foundations of Bitcoin-Governed Intelligence</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,12 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -139,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -159,157 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<div id="topbar-container"></div>
+<h1>Satoshium Progress Site Retired</h1>
+
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
-
-<main class="wrap content">
-
-<div class="pill">📚 Knowledge Foundations</div>
-
-<h1 style="margin-top:12px;">Satoshium Education</h1>
-
-<p class="muted">
-The Satoshium Education section provides foundational knowledge for understanding
-decentralized intelligence systems built on the Bitcoin trust layer.
-
-These materials explain the core principles that guide the design and development
-of the Satoshium platform.
-</p>
-
-<!-- SATOSHIUM FOUNDATIONS -->
-
-<div class="card">
-
-<h2 style="margin-top:0;">🧠 Understanding Satoshium</h2>
-
+ 
 <p>
-An introduction to the Satoshium platform, its architectural philosophy,
-and the concept of decentralized intelligence systems anchored to
-cryptographic trust.
+This development environment has been migrated to the live domain architecture.
 </p>
 
 <p>
-<a href="/satoshium-progress/education/satoshium/"
-class="pill">
-Explore the Satoshium Platform
-</a>
-</p>
-
-</div>
-
-
-<!-- BITCOIN FOUNDATIONS -->
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-
-<h2 style="margin-top:0;">₿ Bitcoin Foundations</h2>
-
-<p>
-A foundational explanation of Bitcoin as a decentralized monetary network,
-cryptographic trust system, and global settlement layer.
+If you reached this page through a link, that link may need updating.
 </p>
 
 <p>
-<a href="/satoshium-progress/education/bitcoin/"
-class="pill">
-Learn Bitcoin Fundamentals
-</a>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
 
-</div>
-
-
-<!-- AI FOUNDATIONS -->
-
-<div class="card" style="--card-wm:url('/satoshium-progress/assets/ai-seal.jpg');">
-
-<h2 style="margin-top:0;">🤖 Artificial Intelligence Foundations</h2>
-
-<p>
-Introduces core concepts of artificial intelligence, autonomous systems,
-and machine reasoning — the technologies that power the intelligence layer
-of decentralized systems.
-</p>
-
-<p>
-<a href="/satoshium-progress/education/ai/"
-class="pill">
-Explore AI Foundations
-</a>
-</p>
-
-</div>
-
-
-<!-- BITCOIN + AI -->
-
-<div class="card">
-
-<h2 style="margin-top:0;">⚡ Bitcoin + AI</h2>
-
-<p>
-Bitcoin introduced a system for verifiable truth. Artificial intelligence
-introduced the ability to build increasingly capable software systems.
-</p>
-
-<p>
-Satoshium explores what becomes possible when these two technologies converge.
-</p>
-
-<p>
-<a href="/satoshium-progress/start-here/origins.html" class="pill">
-Why these technologies converge →
-</a>
-</p>
-
-</div>
-
-</main>                     
-  <hr />
-<p> 
-<div id="random-saying" class="wrap reflection">
-  Satoshium is being built slowly, in public, and with architectural discipline. 
-
-<p>
-
- <p></p>
-</div>
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
-
