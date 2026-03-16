@@ -1,105 +1,116 @@
+
+/* ===== Site Moved Page ===== */
+
 <!doctype html>
-<html lang="en">
-
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Satoshium Film-001 — The Quiet Future Is Being Built</title>
+<title>Site Moved</title>
+</head>
+<style>
 
-  <style>
-    /* ===== Core Theme ===== */
-    :root{
-      --card-wm: url('/satoshium-progress/assets/seal.png');
-      --bg:#07090d;
-      --panel:#0c1018;
-      --text:#e8edf7;
-      --muted:#9aa7bd;
-      --gold:#d6a34a;
-      --gold2:#f4c36a;
-      --line:rgba(214,163,74,.18);
-    }
+/* ===== Core Theme ===== */
 
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.55;
-    }
+:root{
+ --card-wm: url('./assets/seal.png');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+margin:0;
+padding:0;
+background:var(--bg);
+color:var(--text);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+line-height:1.55
+}
 body{
  padding-top:80px;
 }
-    a{color:var(--gold2);text-decoration:none}
-    a:hover{color:var(--gold)}
-    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
 
-    /* ===== Layout ===== */
-    .content{padding:34px 18px 60px}
-    h1,h2{margin:0 0 10px}
-    h1{font-size:30px;color:var(--gold2)}
-    h2{font-size:20px;color:var(--gold2);margin:0}
-    p,li{color:var(--text)}
-    hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
 
-    .muted{color:var(--muted)}
+/* ===== Layout ===== */
 
-    /* ===== Pills ===== */
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border:1px solid var(--line);border-radius:999px;
-      background:rgba(214,163,74,.08);color:var(--gold2);
-      font-size:12px;font-weight:700
-    }
+.content{
+padding:34px 18px 60px
+}
 
-    /* ===== Film Library Layout ===== */
-    .hero-tag{
-      font-size:12px;
-      letter-spacing:.14em;
-      font-weight:800;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
+h1,h2{
+margin:0 0 10px
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:16px;
-      margin-top:18px;
-    }
-    @media (max-width: 760px){
-      .grid{grid-template-columns:1fr}
-    }
+h1{
+font-size:30px;
+color:var(--gold2)
+}
 
-    /* ===== Cards ===== */
-    .card{
-      position:relative;
-      overflow:hidden;
-      background: linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px;
-      box-shadow:0 0 0 1px rgba(214,163,74,.08), 0 20px 50px rgba(0,0,0,.45);
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-60px;
-      background-image: var(--card-wm);
-      background-repeat:no-repeat;
-      background-size: min(720px, 70vw);
-      background-position: right -140px center;
-      opacity:0.028;
-      filter: blur(1px);
-      pointer-events:none;
-      z-index:0;
-    }
-    .card > *{position:relative;z-index:1}
+h2{
+font-size:20px;
+color:var(--gold2);
+margin-top:26px
+}
 
-    a.card{display:block}
-    a.card:hover{transform:translateY(-1px)}
-    a.card{transition:transform .15s ease}
+p,li{
+color:var(--text)
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:22px 0
+}
+
+/* ===== Cards ===== */
+
+.card{
+position: relative;
+overflow: hidden;
+
+background: linear-gradient(
+to bottom right,
+rgba(12,16,24,.94),
+rgba(12,16,24,.88)
+);
+
+border:1px solid var(--line);
+border-radius:16px;
+
+padding:16px 16px;
+margin:16px 0;
+
+box-shadow:
+0 0 0 1px rgba(214,163,74,.08),
+0 20px 50px rgba(0,0,0,.45);
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:-60px;
+background-image: var(--card-wm);
+background-repeat:no-repeat;
+background-size: min(720px, 70vw);
+background-position: right -140px center;
+opacity:0.028;
+filter: blur(1px);
+pointer-events:none;
+z-index:0;
+}
+
+.card > *{
+position:relative;
+z-index:1
+}
 .card {
   transition: transform .18s ease, box-shadow .18s ease;
 }
@@ -113,109 +124,88 @@ body{
  border: 1px solid rgba(214,163,74,.15);
 }
 
-    .soon{opacity:.9}
-    .soon .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border:1px solid var(--line);border-radius:999px;
-      background:rgba(214,163,74,.06);color:var(--muted);
-      font-size:12px;font-weight:700;
-      margin-top:10px;
-    }
-
-    /* Video specifics */
-.video{
-  max-width: 960px;
-  margin: 28px 0;
+.muted{
+color:var(--muted)
 }
 
-.video iframe{
-  width:100%;
-  aspect-ratio:16 / 9;
-  border-radius:12px;
-  border:1px solid var(--line);
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
 }
-    
-    /* Optional simple footer text (page-specific) */
-    .pagefoot{
-      margin-top:26px;
-      color:var(--muted);
-      font-size:12px;
-    }
-  </style>
-</head>
 
-<body id="top">
-<div id="topbar-container"></div>
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
+/* ===== Pills ===== */
+
+.pill{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 10px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(214,163,74,.08);
+color:var(--gold2);
+font-size:12px;
+font-weight:700
+}
+
+ul{
+margin:8px 0 0 18px
+}
+
+</style>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
+
+<h1>Satoshium Progress Site Retired</h1>
+
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
-<body id="top">
-
-<div class="wrap center">
-
-<div class="tag">SATOSHIUM FILM</div>
-
-<h1>The Quiet Future Is Being Built</h1>
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
 <p>
-A cinematic introduction to the Satoshium vision.<br>
-AI governed by Bitcoin. Built quietly. In public.
+If you reached this page through a link, that link may need updating.
 </p>
 
-<div class="video">
-  <iframe
-  src="https://www.youtube-nocookie.com/embed/SeEPa7NvocA"
-  title="The Quiet Future Is Being Built"
-  loading="lazy"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen>
-</iframe>
-
-</div>
-
-<p class="footer">
-  First published — February 2026
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
 </p>
-</main>   
-            <!-- Footer mission statement + links -->
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
 
-<div id="footer-container"></div>
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
