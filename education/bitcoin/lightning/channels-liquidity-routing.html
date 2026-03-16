@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Channels, Liquidity & Routing | Satoshium</title>
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -33,14 +34,7 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
- a{color:var(--gold2);text-decoration:none}
+a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
@@ -140,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -160,288 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
+ 
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-  <main class="wrap content">
-    <div class="pill">⚡ Lightning & Scaling</div>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-    <div class="container">
-      <h1>Channels, liquidity & routing</h1>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-      <p class="subtitle">
-        If Lightning is “instant Bitcoin,” then <strong>channels</strong> are the rails,
-        <strong>liquidity</strong> is the fuel, and <strong>routing</strong> is the GPS.
-        Understanding these three ideas explains why some payments fly… and why others fail.
-      </p>
-
-      <!-- QUICK NAV -->
-      <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Quick navigation</div>
-        <h2 style="margin-top:6px;">📌 Sections</h2>
-
-        <ol class="toc">
-          <li><a href="#simple">1) The simple explanation</a></li>
-          <li><a href="#channels">2) What a Lightning channel really is</a></li>
-          <li><a href="#liquidity">3) Liquidity: inbound vs outbound</a></li>
-          <li><a href="#routing">4) Routing: how payments find a path</a></li>
-          <li><a href="#success">5) Why payments succeed or fail</a></li>
-          <li><a href="#fees">6) Fees: why routes cost money</a></li>
-          <li><a href="#practical">7) Practical tips for beginners</a></li>
-          <li><a href="#faq">8) Quick FAQ</a></li>
-        </ol>
-      </div>
-
-      <!-- 1 -->
-      <div class="card" id="simple" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The core idea</div>
-        <h2>1) The simple explanation</h2>
-
-        <p>
-          Lightning moves value by using “pre-funded lanes” between people and services.
-          These lanes are called <strong>channels</strong>.
-        </p>
-
-        <ul>
-          <li><strong>Channels</strong> hold balances between two peers.</li>
-          <li><strong>Liquidity</strong> is the available balance that can move in the direction you need.</li>
-          <li><strong>Routing</strong> stitches channels together so you can pay someone you’re not directly connected to.</li>
-        </ul>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">One sentence</div>
-            <div class="v">Lightning works when there’s a route with enough liquidity to carry your payment end-to-end.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="card" id="channels" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The building block</div>
-        <h2>2) What a Lightning channel really is</h2>
-
-        <p>
-          A channel is a shared balance between two participants, anchored by a Bitcoin on-chain transaction.
-          Inside the channel, you can update balances instantly without touching the blockchain every time.
-        </p>
-
-        <div class="kvs">
-          <div class="k">Open a channel</div>
-          <div class="v">You commit some bitcoin to a 2-of-2 arrangement (on-chain).</div>
-
-          <div class="k">Use the channel</div>
-          <div class="v">Balances update off-chain as you send/receive payments.</div>
-
-          <div class="k">Close a channel</div>
-          <div class="v">Final balances settle back to Bitcoin (on-chain).</div>
-        </div>
-
-        <p class="note">
-          Think of it like a running tab: you only “settle up” on-chain when you open or close.
-        </p>
-      </div>
-
-      <!-- 3 -->
-      <div class="card" id="liquidity" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The make-or-break factor</div>
-        <h2>3) Liquidity: inbound vs outbound</h2>
-
-        <p>
-          Liquidity is often the missing piece. It’s not “do I have bitcoin?” — it’s
-          “do I have bitcoin in the right place, on the right side of the channel?”
-        </p>
-
-        <div class="kvs">
-          <div class="k">Outbound liquidity</div>
-          <div class="v">How much you can send (your side of the channel balance).</div>
-
-          <div class="k">Inbound liquidity</div>
-          <div class="v">How much you can receive (the other side’s ability to push funds to you).</div>
-        </div>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Common surprise</div>
-            <div class="v">You can have a big channel and still be unable to receive if you have no inbound liquidity.</div>
-          </div>
-        </div>
-
-        <p class="note">
-          A simple mental model: <strong>sending consumes outbound</strong>; <strong>receiving consumes inbound</strong>.
-          Over time, payments “shift” balances from side to side.
-        </p>
-      </div>
-
-      <!-- 4 -->
-      <div class="card" id="routing" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">How Lightning scales</div>
-        <h2>4) Routing: how payments find a path</h2>
-
-        <p>
-          You don’t need a direct channel to everyone. Lightning payments can hop across multiple nodes,
-          using channels like stepping stones.
-        </p>
-
-        <ul>
-          <li>A payment can traverse multiple nodes (hops).</li>
-          <li>Each hop must have enough liquidity in the correct direction.</li>
-          <li>Routes are chosen automatically by your wallet/node based on available paths and cost.</li>
-        </ul>
-
-        <div class="quote">
-          Routing is the network effect: many channels create many possible paths.
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="card" id="success" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Why it works (or doesn’t)</div>
-        <h2>5) Why payments succeed or fail</h2>
-
-        <p>
-          Most Lightning “failures” are not bugs — they’re economics and topology.
-          Here are the most common reasons:
-        </p>
-
-        <ul>
-          <li><strong>Insufficient liquidity</strong> somewhere along the route</li>
-          <li><strong>Route temporarily unavailable</strong> (node offline or channel disabled)</li>
-          <li><strong>Fees too high</strong> compared to other available routes</li>
-          <li><strong>Payment size too large</strong> for the available paths</li>
-        </ul>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Useful intuition</div>
-            <div class="v">Lightning is like traffic: sometimes you need a different road, a smaller load, or a different time of day.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="card" id="fees" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">The incentive layer</div>
-        <h2>6) Fees: why routes cost money</h2>
-
-        <p>
-          Routing nodes can charge small fees for forwarding payments. This is what incentivizes
-          well-connected nodes to provide liquidity and stay online.
-        </p>
-
-        <div class="kvs">
-          <div class="k">Base fee</div>
-          <div class="v">A small fixed amount for forwarding.</div>
-
-          <div class="k">Rate fee</div>
-          <div class="v">A tiny percentage based on payment size.</div>
-        </div>
-
-        <p class="note">
-          Good routing isn’t “free” — it’s a market for reliable payment paths.
-        </p>
-      </div>
-
-      <!-- 7 -->
-      <div class="card" id="practical" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Beginner guidance</div>
-        <h2>7) Practical tips for beginners</h2>
-
-        <p><strong>If you mostly want to pay:</strong></p>
-        <ul>
-          <li>Use a wallet/provider that manages liquidity automatically.</li>
-          <li>Keep enough outbound liquidity (funds available to send).</li>
-          <li>Start with smaller payments while you learn.</li>
-        </ul>
-
-        <p><strong>If you want to receive payments reliably:</strong></p>
-        <ul>
-          <li>Ensure you have inbound liquidity (others can pay you).</li>
-          <li>Consider well-connected peers (good network position).</li>
-          <li>Keep your node/wallet online if you’re self-hosting.</li>
-        </ul>
-
-        <div class="callout">
-          <div class="kvs">
-            <div class="k">Rule of thumb</div>
-            <div class="v">Payments are easiest when liquidity is balanced and your connections are strong.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-        <div class="kicker">Quick answers</div>
-        <h2>8) Quick FAQ</h2>
-
-        <p><strong>Do I need to run a node to use Lightning?</strong><br />
-          No. Many wallets handle channels and routing for you. Running a node is optional for advanced control.
-        </p>
-
-        <p><strong>Why can I send but not receive?</strong><br />
-          You likely have outbound liquidity but little inbound liquidity.
-        </p>
-
-        <p><strong>Why can I receive but not send?</strong><br />
-          You may have inbound liquidity but not enough outbound liquidity (your side of channels is too low).
-        </p>
-
-        <p><strong>Is Lightning always instant?</strong><br />
-          When a route with sufficient liquidity is available, it’s typically near-instant. If not, your wallet may retry other routes.
-        </p>
-
-        <p><strong>What’s the best “4th concept” to learn after basics?</strong><br />
-          Channels + liquidity + routing — because it explains almost every real-world Lightning experience.
-        </p>
-      </div>
-
-            <!-- Footer mission statement + links -->
-  </main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
