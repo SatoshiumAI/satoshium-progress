@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Layer-2 basics • Satoshium</title>
-<meta name="description" content="Layer-2 basics explains what Layer 2 means on Bitcoin, why it exists, how it differs from the base layer, and how to think about trust, tradeoffs, and safety.">
 
+/* ===== Site Moved Page ===== */
+
+<!doctype html>
+<html>
+<head>
+<title>Site Moved</title>
+</head>
 <style>
 
 /* ===== Core Theme ===== */
 
 :root{
- --card-wm: url('/satoshium-progress/assets/btc-seal.png');
+ --card-wm: url('./assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -34,13 +34,6 @@ line-height:1.55
 body{
  padding-top:80px;
 }
-
-.reflection{
- margin-top:40px;
- margin-bottom:40px;
- color:var(--muted);
-}
-
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
 
@@ -141,6 +134,39 @@ padding:18px 0 32px;
 color:var(--muted)
 }
 
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
 /* ===== Pills ===== */
 
 .pill{
@@ -161,248 +187,25 @@ margin:8px 0 0 18px
 }
 
 </style>
-</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:120px">
 
-<body id="top">
+<h1>Satoshium Progress Site Retired</h1>
 
-<div id="topbar-container"></div>
 <script>
-fetch("/satoshium-progress/topbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("topbar-container").innerHTML = data;
-
-    const path = window.location.pathname.toLowerCase();
-
-    function setActive(key){
-      const el = document.querySelector(`.topbar .nav a[data-nav="${key}"]`);
-      if (el) el.classList.add("active");
-    }
-
-    if (path.includes("/architecture")) setActive("architecture");
-    else if (path.includes("/start-here/")) setActive("start-here");
-    else if (path.includes("/systems")) setActive("systems");
-    else if (path.includes("/services")) setActive("services");
-    else if (path.includes("/education")) setActive("education");
-    else if (path.includes("/labs")) setActive("labs");
-    else if (path.includes("/build")) setActive("build");
-    else if (path.includes("/updates")) setActive("updates");
-    else if (path.includes("/repo-map")) setActive("repomap");
-    else if (path.includes("/registry")) setActive("registry");
-    else setActive("home");
-  });
+console.warn("You reached satoshium-progress. This link needs updating.");
 </script>
  
-<main class="wrap content">
+<p>
+This development environment has been migrated to the live domain architecture.
+</p>
 
-  <div class="pill">⚡ Lightning &amp; scaling</div>
-  <h1>Layer-2 basics</h1>
+<p>
+If you reached this page through a link, that link may need updating.
+</p>
 
-  <p class="small">
-    “Layer 2” means building on top of Bitcoin without changing Bitcoin’s core rules. The goal is simple: keep the base layer conservative and verifiable, while enabling faster payments and new capabilities in higher layers.
-  </p>
+<p>
+<a href="https://satoshium.ai/">Return to Satoshium</a>
+</p>
 
-  <div class="grid">
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">What you’ll learn</div>
-      <h2 style="margin-top:6px;">✅ A calm mental model</h2>
-      <ul class="small">
-        <li>What Layer 2 means (and what it doesn’t)</li>
-        <li>Why Bitcoin needs layers to scale</li>
-        <li>Common Layer-2 types and the tradeoffs</li>
-        <li>How to evaluate “trust” and “custody” on L2</li>
-      </ul>
-      <div class="quote small">
-        Satoshium lens: Bitcoin stays simple; the world builds complexity above it.
-      </div>
-    </div>
-
-    <div class="card" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-      <div class="kicker">Quick navigation</div>
-      <h2 style="margin-top:6px;">📌 Sections</h2>
-
-      <ol class="toc">
-        <li><a href="#simple">1) The simple definition</a></li>
-        <li><a href="#why">2) Why Layer 2 exists</a></li>
-        <li><a href="#layers">3) Settlement vs payments (the key split)</a></li>
-        <li><a href="#types">4) Common Layer-2 types</a></li>
-        <li><a href="#trust">5) Trust models (what can go wrong)</a></li>
-        <li><a href="#custody">6) Custody on Layer 2</a></li>
-        <li><a href="#evaluate">7) How to evaluate an L2 (simple checklist)</a></li>
-        <li><a href="#faq">8) Quick FAQ</a></li>
-      </ol>
-    </div>
-  </div>
-
-  <section class="card" id="simple" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">1) Definition</div>
-    <h2>The simple definition</h2>
-    <p class="small">
-      A Layer 2 is a system that lets people transact faster or cheaper than the base layer, while still using Bitcoin as the final settlement layer.
-    </p>
-    <ul class="small">
-      <li>Base layer (L1): most secure, most conservative, most verifiable</li>
-      <li>Layer 2 (L2): faster + cheaper, with tradeoffs you must understand</li>
-    </ul>
-    <div class="quote small">
-      L2 does not replace Bitcoin. It rides on Bitcoin.
-    </div>
-  </section>
-
-  <section class="card" id="why" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">2) The reason</div>
-    <h2>Why Layer 2 exists</h2>
-    <p class="small">
-      Bitcoin intentionally limits block space so that anyone can verify the network. That makes Bitcoin decentralized and resilient — but it also means you can’t fit the entire planet’s daily payments directly on-chain.
-    </p>
-    <ul class="small">
-      <li>On-chain is global settlement — not high-speed retail</li>
-      <li>Scaling directly on L1 would increase requirements and reduce decentralization</li>
-      <li>Layers let Bitcoin stay stable while usage grows</li>
-    </ul>
-    <div class="quote small">
-      Bitcoin’s “slowness” is part of its decentralization strategy.
-    </div>
-  </section>
-
-  <section class="card" id="layers" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">3) The key split</div>
-    <h2>Settlement vs payments (the key split)</h2>
-    <p class="small">
-      The cleanest way to understand Bitcoin layers:
-    </p>
-    <ul class="small">
-      <li><strong>L1</strong> = the final court of truth (settlement)</li>
-      <li><strong>L2</strong> = speed layer (payments / activity)</li>
-    </ul>
-    <p class="small">
-      This is similar to how large banks don’t settle every internal transaction in real time. They net activity and settle in batches.
-    </p>
-    <div class="quote small">
-      L2 is “activity.” L1 is “finality.”
-    </div>
-  </section>
-
-  <section class="card" id="types" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">4) Common patterns</div>
-    <h2>Common Layer-2 types</h2>
-    <p class="small">
-      Layer 2 isn’t one thing. It’s a category. Here are common patterns you’ll hear about:
-    </p>
-
-    <p class="small"><strong>Lightning Network (payments)</strong><br>
-      Great for instant payments. Uses channels and liquidity. Anchored to Bitcoin.
-    </p>
-
-    <p class="small"><strong>Sidechains (separate chain, pegged BTC)</strong><br>
-      You move BTC into a different chain environment. Often faster or supports extra features. Trust assumptions vary.
-    </p>
-
-    <p class="small"><strong>Federated systems (trusted set of operators)</strong><br>
-      Faster and often user-friendly, but trust is concentrated in a group.
-    </p>
-
-    <p class="small"><strong>Rollup-style approaches (emerging around Bitcoin)</strong><br>
-      Attempts to compress many transactions into proofs or batches that settle on Bitcoin. Still evolving.
-    </p>
-
-    <div class="quote small">
-      Different L2s trade decentralization, speed, privacy, and trust in different ways.
-    </div>
-  </section>
-
-  <section class="card" id="trust" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">5) The honesty section</div>
-    <h2>Trust models (what can go wrong)</h2>
-    <p class="small">
-      Any time you leave the base layer, you accept new assumptions. The question becomes:
-      <strong>What do you have to trust, and what do you still verify?</strong>
-    </p>
-    <ul class="small">
-      <li>Operator risk (someone can freeze, censor, or rug)</li>
-      <li>Bridge risk (moving BTC across systems can be the weak point)</li>
-      <li>Custody risk (who controls the keys while you’re on the L2?)</li>
-      <li>Complexity risk (harder systems are harder to audit and use safely)</li>
-    </ul>
-    <div class="quote small">
-      Bitcoin reduces trust. L2 often reintroduces some trust. Your job is to measure it.
-    </div>
-  </section>
-
-  <section class="card" id="custody" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">6) Keys still matter</div>
-    <h2>Custody on Layer 2</h2>
-    <p class="small">
-      Custody is still the core question: who can move the bitcoin?
-    </p>
-    <ul class="small">
-      <li><strong>Self-custody L2</strong>: you hold keys, but complexity may be higher</li>
-      <li><strong>Custodial L2</strong>: easiest UX, but you’re trusting a provider</li>
-    </ul>
-    <div class="quote small">
-      Satoshium rule: keep long-term savings on L1 cold storage. Use L2 as a “spending layer.”
-    </div>
-  </section>
-
-  <section class="card" id="evaluate" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">7) Practical evaluation</div>
-    <h2>How to evaluate an L2 (simple checklist)</h2>
-    <ul class="small">
-      <li><strong>Custody:</strong> Do you hold keys? If not, it’s custodial.</li>
-      <li><strong>Exit:</strong> Can you return to L1 reliably and independently?</li>
-      <li><strong>Operators:</strong> Who runs it? How many? What happens if they fail?</li>
-      <li><strong>Security model:</strong> What is enforced by Bitcoin vs enforced by people?</li>
-      <li><strong>History:</strong> Has it survived real stress events?</li>
-      <li><strong>Use-case:</strong> Is it payments, smart contracts, privacy, or something else?</li>
-      <li><strong>Your balance:</strong> Are you using it for spending or saving?</li>
-    </ul>
-    <div class="quote small">
-      If you can’t clearly explain the trust model, keep the balance small.
-    </div>
-  </section>
-
-  <section class="card" id="faq" style="--card-wm:url('/satoshium-progress/assets/btc-seal.png');">
-    <div class="kicker">8) Quick FAQ</div>
-    <h2>Quick FAQ</h2>
-
-    <p class="small"><strong>Is Lightning a Layer 2?</strong><br>
-      Yes. It’s the most widely used Bitcoin L2 for instant payments.
-    </p>
-
-    <p class="small"><strong>Does Layer 2 change Bitcoin?</strong><br>
-      No. A real L2 builds on top of Bitcoin without rewriting Bitcoin’s base rules.
-    </p>
-
-    <p class="small"><strong>Is Layer 2 always safe?</strong><br>
-      It depends on the trust model. L2 adds tradeoffs. That’s why the checklist matters.
-    </p>
-
-    <p class="small"><strong>What’s the “best” approach for most people?</strong><br>
-      Keep savings on L1 cold storage. Use L2 for everyday spending and small balances.
-    </p>
-
-    <div class="quote small">
-      Satoshium lens: the base layer is truth. Layers are convenience — and convenience has a cost.
-    </div>
-  </section>
-
- </main>                     
-<div class="wrap reflection">
-<hr />
-<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-  Satoshium is being built slowly, in public, and with architectural discipline.
-</div>
-<hr />
-
-<div id="footer-container"></div>
-
-<script src="/satoshium-progress/assets/sayings.js"></script>
-<script>
-fetch("/satoshium-progress/footer.html")
- .then(response => response.text())
- .then(data => {
- document.getElementById("footer-container").innerHTML = data;
- });
-</script>
 </body>
 </html>
